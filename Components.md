@@ -118,3 +118,31 @@ pop up save
     - enregitrement 
     - choix public ou non 
     - nom & jeu
+
+### Page création de partie
+
+liste des joueurs
+
+    - accepter refuser pour le MJ
+    - invitations pour le MJ
+    - affichage de la fiche perso en miniature
+        - permet d'accèder à l'affichage au clic sur la miniature
+
+
+Composant infos partie
+    - cadre
+    - illustration 
+    - nom partie 
+    - jeu
+    - nombre de joueurs
+    - visibilité
+
+Agenda
+    - créneaux du MJ
+    - date prochaine session 
+    - bonton pour se rendre sur la page agenda
+
+Liste épisodes
+    - résumé de episodes
+    - éditable par le MJ
+    - 
