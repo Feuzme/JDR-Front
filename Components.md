@@ -103,15 +103,18 @@ personalisation
         - ajout d'item
 
 Aperçu fiche
+
     - affichage bloc 
     - resize
     - placement
 
 Aperçu Bloc
+
     - placement items 
     - resize items
 
 pop up save
+
     - enregitrement 
     - choix public ou non 
     - nom & jeu
