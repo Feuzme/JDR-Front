@@ -14,7 +14,7 @@ Navigateur
 ## Installation
 
 Pour lancer l'application lancer dans un terminal les commande suivante
-    
-    npm i //telechargement nuggets packages
-    ng serve -o //lancer le serveur
-
+```shell
+npm i //telechargement nuggets packages
+ng serve -o //lancer le serveur
+```

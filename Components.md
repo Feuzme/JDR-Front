@@ -1,6 +1,6 @@
-## Liste des comlposants de l'application
+# Liste des comlposants de l'application
 
-### Navbar
+## Navbar
 
 notifications // affiche les dernières infos en rapport avec l'user
 
@@ -9,14 +9,32 @@ notifications // affiche les dernières infos en rapport avec l'user
     - rappel
     - notification de parties
 
-Notifications
+Notifications structure
 
 1. Type de notification
 2. Auteur / Source
 3. Date
 
+## Inscription
 
-### Home_Page
+formulaire d'incription au site champs :
+
+    - mail 
+    - identifiant
+    - mot de pase + confirmation
+    - condition d'utilisation
+    - validation 
+
+## pop up Connexion
+
+formulaire connexion 
+
+    - id / mail
+    - Mot de passe
+    - se souvenir
+    - mot de passe oublié
+
+## Home_Page
 
 Mes parties & Partie dispo //gere l'affichage des composants parties
     - Filtres
@@ -35,9 +53,9 @@ Mes fiches // Gere l'affichage des composants parties
     - une fiche // affiche titre et image et au passage souris affiche plus de détails
     - bouton de création de partie en fin d'affichage
 
-### mon Profil & profils autres joueur 
+## mon Profil & profils autres joueur 
 
-Amis / Paarties / Fiches  // liste des utilisateur amis
+Amis / Parties / Fiches  // liste des utilisateur amis
 
     - Composant ami
         - image profil
@@ -57,7 +75,7 @@ Profil
     - modification des infos et photo sur mon profil
     - Choix affichage public ou non 
 
-### Agenda
+## Agenda
 
 Calendrier 
     
@@ -77,7 +95,7 @@ Liste de mes parties si pas de partie selectionnées
 
 Pop up ajout de dispo
 
-### Creation de fiche & composant
+## Creation de fiche & composant
 
 Switch création composant & création fiche
 
@@ -102,12 +120,6 @@ personalisation
         - taille générale
         - ajout d'item
 
-Aperçu fiche
-
-    - affichage bloc 
-    - resize
-    - placement
-
 Aperçu Bloc
 
     - placement items 
@@ -119,7 +131,27 @@ pop up save
     - choix public ou non 
     - nom & jeu
 
-### Page création de partie
+## Page création de partie
+
+Rejoindre / Jouer
+    
+    - Lancer la partie si MJ
+    - Rejoindre pour les joueur arrivant sur une partie publique
+    - Quitter le groupe 
+
+Créer la partie 
+    
+    - rends la partie accèsible au joueurs 
+    - devient lancer la partie
+
+lancer la partie
+
+    - Passe la partie sur en cours et notifie les joueurs du début de cette dernière
+
+Inviter Joueur
+
+    - permet de choisir un joueur en particulier et lui envoyer en invitation 
+
 
 liste des joueurs
 
@@ -145,4 +177,61 @@ Agenda
 Liste épisodes
     - résumé de episodes
     - éditable par le MJ
-    - 
+    - navigation
+
+## page jeu
+
+Menu gauche
+    
+    - chagement de fiche
+    - Enregistrer l'étatt actuel
+    - Quitter la partie // quitter la page 
+
+
+## POP UP Fiche
+
+Permet d'affficher les données de la fiche à jour en fonction des données de la partie
+
+## Recherche 
+
+Liste de resultat 
+
+Fiches resulats
+
+    - nom 
+    - jeu
+    - auteur 
+    - details
+
+Pop Up recherche avancé Fiche
+     
+     - par jeu 
+     - Auteur
+     - tri
+
+Parties resultats
+
+    - nom 
+    - place dispo
+    - Prochaine partie
+
+Pop Up recherche avancé Partie
+     
+     - par jeu 
+     - par jour de partie
+     - fréquence
+     - tri
+
+Joueurs resultats
+
+    - nom 
+    - membre depuis
+    - Partie en cours
+    - Bio hover -> description totale
+
+Pop Up recherche avancé Joueur
+     
+     - par jeu 
+     - membre depuis
+     - tri
+
