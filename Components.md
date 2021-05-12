@@ -204,7 +204,7 @@ Composant permettant d'affficher les données de la fiche à jour en fonction de
 
 ## Recherche 
 
-Comlposant Liste de resultat 
+Composant Liste de resultat 
 
 Composant resulats
 
