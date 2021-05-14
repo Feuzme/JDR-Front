@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  items: MenuItem[];
 
-  ngOnInit(): void {
+  ngOnInit() {
+      this.items = [
+          {
+            icon:'fa-buysellads'
+          },
+          {
+            icon:'pi pi-user'
+          },
+          {
+            icon:'pi pi-calendar'
+          },
+          {
+            icon:'pi pi-settings'
+          },
+          {
+            icon:'pi pi-fw pi-power-off'
+          }
+      ];
   }
 
 }

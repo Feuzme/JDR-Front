@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CardModule} from 'primeng/card';
+import {MenubarModule} from 'primeng/menubar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { UsersComponent } from './pages/account/users/users.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule
+    CardModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
