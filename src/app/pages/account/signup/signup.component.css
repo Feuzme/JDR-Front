@@ -1,0 +1,14 @@
+:host ::ng-deep .p-password input {
+    width: 100%;
+  }
+
+
+h5{
+  text-align: center;
+}
+p-divider {
+  border-top: 20px solid #bbb;
+  border-radius: 5px;
+  align-items: center;
+  width: 10%;
+}

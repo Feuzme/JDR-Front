@@ -1,1 +1,63 @@
-<p>signup works!</p>
+
+
+<div class="card">
+  <h5>Créer un compte</h5>
+  <br>
+  <p-divider></p-divider>
+  <br>
+  <div class="p-fluid">
+    <div class="p-field p-grid">
+      <label for="firstname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <input id="firstname4" type="text" pInputText placeholder="Adresse e-mail" />
+      </div>
+    </div>
+
+
+
+    <div class="p-field p-grid">
+      <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <input id="lastname4" type="text" pInputText placeholder="Identifiant" />
+      </div>
+    </div>
+
+
+    <div class="p-field p-grid">
+      <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <p-password [(ngModel)]="value2" placeholder="Mot de passe"></p-password>
+      </div>
+    </div>
+
+
+    <div class="p-field p-grid">
+      <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <p-password [(ngModel)]="value2" placeholder="Confirmer le mot de passe"></p-password>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="p-field p-grid">
+      <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"> </label>
+      <div class="p-col-12 p-md-10">
+        <p-checkbox name="city3" value="Chicago" [(ngModel)]="cities2" inputId="city3"></p-checkbox>
+        <label for="city3">J'accepte les conditions d'utilisation</label>
+      </div>
+    </div>
+    
+    
+    <div class="p-field p-grid">
+      <label for="lastname4" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"> </label>
+      <div class="p-col-12 p-md-10">
+        <button pButton pRipple type="button" label="S'inscrire"></button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
