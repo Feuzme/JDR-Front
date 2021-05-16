@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserProfileComponent implements OnInit {
 user = {
   id:1,
-  pseudo:"pseudo",
+  pseudo:"Fyfe",
   profilePicUrl:"../../../../assets/img/profilePic.jpg",
-  bio:"I love RPG !",
-  city:"lille",
+  bio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt blanditiis laboriosam quia doloremque aperiam. Mollitia maiores modi dolor reiciendis deleniti. Dolorem, vero obcaecati? At delectus fugiat consequuntur, ut quia nihil?",
+  city:"Lille",
   mail: "smaug@lonelymountain.me"
 }
   constructor() { }

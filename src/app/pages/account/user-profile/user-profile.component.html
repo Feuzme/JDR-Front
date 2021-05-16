@@ -1,14 +1,64 @@
-<p-card class="p-d-flex p">
-    <div class="p-mr-2">
+<!-- Les infos pricipale du profil  -->
+<div class="p-grid">
+    <div class="p-col-6">
         <img src="{{user.profilePicUrl}}" class="profilePic">
     </div>
-    <h3 class="p-mr-2">
-        {{user.pseudo}}
-    </h3>
-    <div class="userInfo">
-        
-        <p>{{user.bio}}
-            {{user.city}}
-        </p>        
+    <div class="p-col-6">
+        <h3 class="p-col-6">
+            {{user.pseudo}}
+        </h3>
+        <div class="p-col-6">
+            <p>
+                {{user.bio}}
+            </p>
+            <p>
+                {{user.city}}
+            </p>
+        </div>
     </div>
-</p-card>
+</div>
+
+<div class="friendList p-card p-grid p-col-4">
+    <!-- Une carte aperçu d'un ami -->
+    <div class="p-card p-grid friendCard">
+        <div class="p-col-6">
+            <img src="{{user.profilePicUrl}}" class="friendPic">
+        </div>
+        <div class="p-col-6">
+            <h3 class="p-col-6">
+                {{user.pseudo}}
+            </h3>
+            <p class="p-col-6">
+                {{user.city}}
+            </p>
+        </div>
+    </div>
+    <!-- Une carte aperçu d'un ami -->
+    <div class="p-card p-grid friendCard">
+        <div class="p-col-6">
+            <img src="{{user.profilePicUrl}}" class="friendPic">
+        </div>
+        <div class="p-col-6">
+            <h3 class="p-col-6">
+                {{user.pseudo}}
+            </h3>
+            <p class="p-col-6">
+                {{user.city}}
+            </p>
+        </div>
+    </div>
+    <!-- Une carte aperçu d'un ami -->
+    <div class="p-card p-grid friendCard">
+        <div class="p-col-6">
+            <img src="{{user.profilePicUrl}}" class="friendPic">
+        </div>
+        <div class="p-col-6">
+            <h3 class="p-col-6">
+                {{user.pseudo}}
+            </h3>
+            <p class="p-col-6">
+                {{user.city}}
+            </p>
+        </div>
+    </div>
+</div>
