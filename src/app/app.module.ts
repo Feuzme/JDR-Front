@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/account/login/login.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UsersComponent } from './pages/account/users/users.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
+import { UserCardComponent } from './components/user/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserProfileComponent } from './pages/account/user-profile/user-profile.
     LoginComponent,
     SignupComponent,
     UsersComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

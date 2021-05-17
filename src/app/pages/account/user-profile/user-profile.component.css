@@ -3,14 +3,8 @@
     border-radius: 50%;
     margin-left: 1em;
 }
-.friendPic{
-    width: 80%;
-    border-radius: 50%;
-}
-.friendCard{
-    margin: 0.5em;
-    background-color: coral;
-}
+
 .friendList {
-    background-color: aquamarine;
+    margin: 0.5em;
+    justify-content:space-around;
 }
