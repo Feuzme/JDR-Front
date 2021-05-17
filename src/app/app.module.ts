@@ -14,6 +14,8 @@ import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserComponent } from './pages/account/user/user.component';
 import { UsersComponent } from './pages/account/users/users.component';
 import { CalendarComponent } from './pages/agenda/calendar/calendar.component';
+import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
+import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -29,7 +31,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SignupComponent,
     UserComponent,
     UsersComponent,
-    CalendarComponent
+    CalendarComponent,
+    AgendaComponent,
+    ListPlayersComponent
   ],
   imports: [
     BrowserModule,
