@@ -1,3 +1,32 @@
 ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
     margin-right: 0;
 }
+
+::ng-deep .p-mr-2 {
+    margin-right: 0 !important;
+}
+
+.navbar-tqt {
+    border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-start;
+    align-items: center;
+}
+
+::ng-deep .p-menubar {
+    padding: 0.5rem;
+    background: none;
+    /* color: #495057; */
+    border: none;
+    border-radius: 3px;
+}

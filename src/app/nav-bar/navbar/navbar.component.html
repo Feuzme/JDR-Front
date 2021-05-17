@@ -1,5 +1,36 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="start">
+<!-- <div class=>
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img src="assets/images/logo_JDR_no_border_side_view_no_back_face.png" height="40" class="p-mr-2">
+        </ng-template>
+    </p-menubar>
+</div>
+     -->
+
+<!-- <nav id="navbar" class="navbar">
+    <div>
+        <a href="#">
+            <img class="nav-logo" src="assets/images/logo_JDR_no_border_side_view_no_back_face.png">
+        </a>
+    </div>
+
+    <ul class="nav-liste">
+        <li class="liste-item"><a href="#">Accueil</a></li>
+        <li class="liste-item"><a href="#">Séries</a></li>
+        <li class="liste-item"><a href="#">Film</a></li>
+        <li class="liste-item"><a href="#">Nouveautés les plus regardées</a></li>
+        <li class="liste-item"><a href="#">Ma liste</a></li>
+    </ul>
+</nav> -->
+
+<div class="p-grid p-jc-between navbar-tqt">
+    <div class="p-col-1 nav-logo">
         <img src="assets/images/logo_JDR_no_border_side_view_no_back_face.png" height="40" class="p-mr-2">
-    </ng-template>
-</p-menubar>
+    </div>
+
+    <div class="p-col-3 nav-items">
+        <p-menubar [model]="items">
+        </p-menubar>
+    </div>
+    
+</div>

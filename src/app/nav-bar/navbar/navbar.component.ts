@@ -13,19 +13,24 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
       this.items = [
           {
-            icon:'far fa-bell'
+            icon:'far fa-bell',
+            styleClass: 'menuItemFlex'
             },
           {
-            icon:'pi pi-user'
+            icon:'pi pi-user',
+            styleClass: 'menuItemFlex'
           },
           {
-            icon:'pi pi-calendar'
+            icon:'pi pi-calendar',
+            styleClass: 'menuItemFlex'
           },
           {
-            icon:'fas fa-cog'
+            icon:'fas fa-cog',
+            styleClass: 'menuItemFlex'
           },
           {
-            icon:'pi pi-fw pi-power-off'
+            icon:'pi pi-fw pi-power-off',
+            styleClass: 'menuItemFlex'
           }
       ];
   }
