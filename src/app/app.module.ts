@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CardModule} from 'primeng/card';
 import {MenubarModule} from 'primeng/menubar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { UsersComponent } from './pages/account/users/users.component';
     AppRoutingModule,
     CardModule,
     MenubarModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

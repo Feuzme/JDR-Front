@@ -13,8 +13,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
       this.items = [
           {
-            icon:'fa-buysellads'
-          },
+            icon:'far fa-bell'
+            },
           {
             icon:'pi pi-user'
           },
@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
             icon:'pi pi-calendar'
           },
           {
-            icon:'pi pi-settings'
+            icon:'fas fa-cog'
           },
           {
             icon:'pi pi-fw pi-power-off'
