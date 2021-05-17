@@ -21,7 +21,10 @@ export class CalendarComponent implements OnInit {
     locale: 'fr',
     firstDay: 1,
     buttonText :{
-      today:'Aujourd\'hui'
+      today:'Aujourd\'hui',
+      month:'Mois',
+      day:'Jour',
+      week:'Semaine'
     }
   };
 

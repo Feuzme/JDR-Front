@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CardModule} from 'primeng/card';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
@@ -16,6 +17,8 @@ import { UsersComponent } from './pages/account/users/users.component';
 import { CalendarComponent } from './pages/agenda/calendar/calendar.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -38,8 +41,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     CardModule,
-    FullCalendarModule // register FullCalendar with you app
+    FormsModule,
+    FullCalendarModule, // register FullCalendar with you app
+    CascadeSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
