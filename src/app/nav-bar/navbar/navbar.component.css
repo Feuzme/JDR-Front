@@ -6,7 +6,38 @@
     margin-right: 0 !important;
 }
 
-.navbar-tqt {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    font-size: 22px;
+    padding: 0 10px 0 10px;
+    color: #AEAEAE;
+}
+
+li a {
+    color: #AEAEAE;
+    padding: 14px 10px;
+}
+
+li a:hover {
+    color: #F2A216;
+}
+
+.item-active {
+    border-bottom: 3px solid #F2A216;
+    color: #F2A216;
+}
+
+.icon-active {
+    color: #F2A216;
+}
+
+.nav-bar-jdr {
     border-bottom: 1px solid rgb(233, 233, 233);
 }
 
@@ -29,4 +60,8 @@
     /* color: #495057; */
     border: none;
     border-radius: 3px;
+}
+
+::ng-deep .p-overlaypanel {
+    --overlayArrow: 15px !important;
 }

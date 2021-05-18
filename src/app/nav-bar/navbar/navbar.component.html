@@ -1,36 +1,52 @@
-<!-- <div class=>
-    <p-menubar [model]="items">
-        <ng-template pTemplate="start">
+<div class="p-grid p-jc-between nav-bar-jdr">
+    <div class="p-col-1 nav-logo">
+        <a routerLink="/">
             <img src="assets/images/logo_JDR_no_border_side_view_no_back_face.png" height="40" class="p-mr-2">
-        </ng-template>
-    </p-menubar>
-</div>
-     -->
-
-<!-- <nav id="navbar" class="navbar">
-    <div>
-        <a href="#">
-            <img class="nav-logo" src="assets/images/logo_JDR_no_border_side_view_no_back_face.png">
         </a>
     </div>
 
-    <ul class="nav-liste">
-        <li class="liste-item"><a href="#">Accueil</a></li>
-        <li class="liste-item"><a href="#">Séries</a></li>
-        <li class="liste-item"><a href="#">Film</a></li>
-        <li class="liste-item"><a href="#">Nouveautés les plus regardées</a></li>
-        <li class="liste-item"><a href="#">Ma liste</a></li>
-    </ul>
-</nav> -->
-
-<div class="p-grid p-jc-between navbar-tqt">
-    <div class="p-col-1 nav-logo">
-        <img src="assets/images/logo_JDR_no_border_side_view_no_back_face.png" height="40" class="p-mr-2">
-    </div>
-
     <div class="p-col-3 nav-items">
-        <p-menubar [model]="items">
-        </p-menubar>
+
+        <ul>
+            <li (click)="op.toggle($event)">
+                <a>
+                    <p-overlayPanel #op [style]="{width: '350px'}">
+                        <ng-template pTemplate>
+                            Content
+                        </ng-template>
+                    </p-overlayPanel>
+                    <span class="p-menuitem-icon far fa-bell" ng-reflect-ng-class="far fa-bell">
+                    </span>
+                </a>
+                
+            </li>
+            <li>
+                <a routerLink="/users" routerLinkActive="item-active">
+                    <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-user" ng-reflect-ng-class="far fa-user">
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/calendar" routerLinkActive="item-active">
+                    <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-calendar-alt" ng-reflect-ng-class="far fa-calendar-alt">
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/settings" routerLinkActive="item-active">
+                    <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-cog" ng-reflect-ng-class="fas fa-cog">
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/logout">
+                    <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-power-off" ng-reflect-ng-class="fas fa-power-off">
+                    </span>
+                </a>
+            </li>
+        </ul>
     </div>
+
+
     
 </div>
