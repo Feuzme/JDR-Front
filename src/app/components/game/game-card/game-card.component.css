@@ -1,13 +1,15 @@
-.friendPic{
-    width: 80%;
+.gamePic{
+    width:80%;
     border-radius: 50%;
 }
-.friendCard{
+
+.gameCard {
     position: relative;
     left: 0;
     justify-self: auto;
     margin: 5%;
 }
+
 .name {
     font-weight: bold;
 }

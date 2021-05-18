@@ -10,6 +10,9 @@ import { SignupComponent } from './pages/account/signup/signup.component';
 import { UsersComponent } from './pages/account/users/users.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { UserCardComponent } from './components/user/user-card/user-card.component';
+import { GameCardComponent } from './components/game/game-card/game-card.component';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { UserCardComponent } from './components/user/user-card/user-card.compone
     SignupComponent,
     UsersComponent,
     UserProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule
+    CardModule,
+    AvatarModule,
+    AvatarGroupModule
   ],
   providers: [],
   bootstrap: [AppComponent]
