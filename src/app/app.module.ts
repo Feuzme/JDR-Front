@@ -25,8 +25,8 @@ import { CheckboxModule } from "primeng/checkbox";
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    UserComponent,
-    UsersComponent    
+    UsersComponent,
+    UsersComponent,    
     UsersComponent,
     UserProfileComponent,
     UserCardComponent
