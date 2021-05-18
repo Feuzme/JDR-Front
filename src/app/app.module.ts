@@ -19,7 +19,7 @@ import { GameCardComponent } from './components/game/game-card/game-card.compone
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import { FriendListComponent } from './components/user/friend-list/friend-list.component';
-import { GameListComponent } from './components/user/game-list/game-list.component';
+
 
 import { PasswordModule } from "primeng/password";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +27,7 @@ import { DividerModule } from "primeng/divider";
 import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import { GameListComponent } from './components/user/game-list/game-list.component';
 
 @NgModule({
   declarations: [
