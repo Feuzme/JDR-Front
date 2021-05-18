@@ -4,6 +4,13 @@ import {CardModule} from 'primeng/card';
 import {MenubarModule} from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+import listPlugin from '@fullcalendar/list';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +34,18 @@ import { DividerModule } from "primeng/divider";
 import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import { CalendarComponent } from './pages/agenda/calendar/calendar.component';
+import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
+import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
+import { ListPlayerComponent } from './pages/agenda/list-player/list-player.component';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin,
+  listPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -39,7 +58,11 @@ import { CheckboxModule } from "primeng/checkbox";
     UserCardComponent,
     GameCardComponent,
     FriendListComponent,
-    GameListComponent
+    GameListComponent,
+    CalendarComponent,
+    AgendaComponent,
+    ListPlayersComponent,
+    ListPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +81,10 @@ import { CheckboxModule } from "primeng/checkbox";
     FontAwesomeModule,
     OverlayPanelModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
+    ScrollPanelModule,
+    FullCalendarModule, // register FullCalendar with you app
+    CascadeSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
