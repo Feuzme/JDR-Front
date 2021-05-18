@@ -22,6 +22,9 @@ import { DividerModule } from "primeng/divider";
 import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import { NotificationsComponent } from './components/notifications/notifications/notifications.component';
+import {TableModule} from 'primeng/table';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { CheckboxModule } from "primeng/checkbox";
     SignupComponent,
     UsersComponent,    
     UserProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ import { CheckboxModule } from "primeng/checkbox";
     MenubarModule,
     FontAwesomeModule,
     OverlayPanelModule,
+    TableModule,
+    ScrollPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
