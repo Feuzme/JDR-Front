@@ -59,7 +59,6 @@ import { CheckboxModule } from "primeng/checkbox";
     OverlayPanelModule,
     AvatarModule,
     AvatarGroupModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
