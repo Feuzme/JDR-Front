@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="card">
+  
+
+
+
+
+  <div class="p-fluid">
+    <h3>Se connecter</h3>
+
+    <p-divider align="center" type="dashed">
+      <b><img src="../../../../assets/images/logo.JPG " alt=""></b>
+    </p-divider>
+  
+    <div class="p-field">
+      <label for="identifiant">Identifiant</label>
+      <input id="identifiant" type="text" pInputText />
+    </div>
+
+    <div class="p-field">
+      <label for="motdepasse">Mot de passe</label>
+      <input id="motdepasse" type="password" pInputText />
+    </div>
+  
+
+    <div class="p-field">
+      <div class="p-col-12 p-md-10">
+        <p-checkbox name="seSouvenir" value="seSouvenir" [(ngModel)]="seSouvenir" inputId="seSouvenir"></p-checkbox>
+        <label for="seSouvenir"> Se souvenir de moi</label>
+      </div>
+    </div>
+    
+    <div class="p-field">
+      <label for="lebutton" > <a href="">Mot de passe oublié ? </a> </label>
+      <button pButton pRipple type="button" label="Se connecter"></button>
+    </div>
+    
+    <div class="p-field">
+      <button pButton pRipple type="button" label="Inscription" class="p-button-outlined p-button-warning"></button>
+    </div>
+  
+  
+  </div>
+</div>

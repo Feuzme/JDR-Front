@@ -1,0 +1,14 @@
+
+
+h3{
+    text-align: center;
+    text-decoration: none;
+    size: 1.5em;
+  }
+  
+  
+  .card {
+    display: flex;
+    justify-content: center;
+  }
+
