@@ -2,7 +2,9 @@
     width: 100%;
   }
 
-
+img {
+    width: 5%;
+}
 h3{
   text-align: center;
   text-decoration: none;
