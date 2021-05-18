@@ -9,16 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class SignupComponent implements OnInit {
 
 
-  cities2: any[] = [];
+  cutilisation: any[] = [];
 
 
   value1: string;
 
-  value2: string;
 
-  value3: string;
-
-  value4: string;
   constructor() { }
 
   ngOnInit(): void {
