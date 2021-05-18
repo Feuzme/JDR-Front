@@ -1,8 +1,3 @@
-.gamePic{
-    width:80%;
-    border-radius: 50%;
-}
-
 .gameCard {
     position: relative;
     left: 0;
@@ -13,8 +8,11 @@
 .name {
     font-weight: bold;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .pseudo{
     white-space: nowrap;
+    overflow: hidden;
 }
