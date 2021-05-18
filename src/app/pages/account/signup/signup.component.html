@@ -1,1 +1,69 @@
-<p>signup works!</p>
+
+
+<div class="card">
+  <div class="p-fluid">
+  <h3>Créer un compte</h3>
+  <br>
+ 
+  <p-divider align="center" type="dashed">
+    <b><img src="../../../../assets/images/logo.JPG " alt=""></b>
+  </p-divider>
+  <br>
+
+  
+  
+    <div class="p-field p-grid">
+      <label for="email" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <input id="email" type="text" pInputText placeholder="Adresse e-mail" />
+      </div>
+    </div>
+
+
+
+    <div class="p-field p-grid">
+      <label for="identifiant" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <input id="identifiant" type="text" pInputText placeholder="Identifiant" />
+      </div>
+    </div>
+
+
+    <div class="p-field p-grid">
+      <label for="motdepasse" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <p-password [(ngModel)]="value1" placeholder="Mot de passe"></p-password>
+      </div>
+    </div>
+
+
+    <div class="p-field p-grid">
+      <label for="motdepasse" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"></label>
+      <div class="p-col-12 p-md-10">
+        <p-password [(ngModel)]="value1" placeholder="Confirmer le mot de passe"></p-password>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="p-field p-grid">
+      <label for="cu" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"> </label>
+      <div class="p-col-12 p-md-10">
+        <p-checkbox name="city3" value="Chicago" [(ngModel)]="cutilisation" inputId="cutilisation"></p-checkbox>
+        <label for="cutilisation">J'accepte les conditions d'utilisation</label>
+      </div>
+    </div>
+    
+    
+    <div class="p-field p-grid">
+      <label for="lebutton" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"> </label>
+      <div class="p-col-12 p-md-10">
+        <button pButton pRipple type="button" label="S'inscrire"></button>
+      </div>
+    </div>
+
+
+  </div>
+</div>

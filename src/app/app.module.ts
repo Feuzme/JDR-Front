@@ -11,12 +11,22 @@ import { UsersComponent } from './pages/account/users/users.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { UserCardComponent } from './components/user/user-card/user-card.component';
 
+import { PasswordModule } from "primeng/password";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DividerModule } from "primeng/divider";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {InputTextModule} from 'primeng/inputtext';
+import { ButtonModule } from "primeng/button";
+import { CheckboxModule } from "primeng/checkbox";
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
     SignupComponent,
+    UserComponent,
+    UsersComponent    
     UsersComponent,
     UserProfileComponent,
     UserCardComponent
@@ -24,7 +34,16 @@ import { UserCardComponent } from './components/user/user-card/user-card.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule
+    CardModule,
+    PasswordModule,
+    FormsModule,
+    DividerModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    ButtonModule,
+    CheckboxModule,
+    DividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

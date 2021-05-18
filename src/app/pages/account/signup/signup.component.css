@@ -1,0 +1,16 @@
+:host ::ng-deep .p-password input {
+    width: 100%;
+  }
+
+
+h3{
+  text-align: center;
+  text-decoration: none;
+  size: 1.5em;
+}
+
+
+.card {
+  display: flex;
+  justify-content: center;
+}

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
+import { SignupComponent } from './pages/account/signup/signup.component';
 
 const routes: Routes = [
-  {path: "user", component: UserProfileComponent}
+  {path:"signup",component:SignupComponent}
 ];
+  {path: "user", component: UserProfileComponent}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
