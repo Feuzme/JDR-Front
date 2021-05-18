@@ -15,6 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { UserCardComponent } from './components/user/user-card/user-card.component';
+import { GameCardComponent } from './components/game/game-card/game-card.component';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
+import { FriendListComponent } from './components/user/friend-list/friend-list.component';
+import { GameListComponent } from './components/user/game-list/game-list.component';
 
 import { PasswordModule } from "primeng/password";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +36,10 @@ import { CheckboxModule } from "primeng/checkbox";
     SignupComponent,
     UsersComponent,    
     UserProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    GameCardComponent,
+    FriendListComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +57,9 @@ import { CheckboxModule } from "primeng/checkbox";
     MenubarModule,
     FontAwesomeModule,
     OverlayPanelModule,
+    AvatarModule,
+    AvatarGroupModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

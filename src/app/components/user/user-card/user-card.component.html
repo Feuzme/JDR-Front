@@ -1,13 +1,13 @@
 <div class="p-card p-grid friendCard">
     <div class="p-col-6">
-        <img src="{{user.profilePicUrl}}" class="friendPic">
+        <p-avatar image="{{friend.profilePicUrl}}" shape="circle" size="xlarge"></p-avatar>
     </div>
     <div class="p-col-6">
-        <h3 class="p-col-6">
-            {{user.pseudo}}
-        </h3>
-        <p class="p-col-6">
-            {{user.city}}
+        <p class="p-col-6 name">
+            {{friend.pseudo}}
+        </p>
+        <p class="p-col-6 city">
+            {{friend.city}}
         </p>
     </div>
 </div>

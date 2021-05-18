@@ -1,9 +1,9 @@
-.friendPic{
-    width: 80%;
+.gamePic{
+    width:80%;
     border-radius: 50%;
 }
 
-.friendCard{
+.gameCard {
     position: relative;
     left: 0;
     justify-self: auto;
@@ -15,6 +15,6 @@
     white-space: nowrap;
 }
 
-.city{
+.pseudo{
     white-space: nowrap;
 }
