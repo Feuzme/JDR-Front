@@ -26,7 +26,7 @@ import { GameCardComponent } from './components/game/game-card/game-card.compone
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import { FriendListComponent } from './components/user/friend-list/friend-list.component';
-import { GameListComponent } from './components/user/game-list/game-list.component';
+
 
 import { PasswordModule } from "primeng/password";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,6 +39,7 @@ import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
 import { ListPlayerComponent } from './pages/agenda/list-player/list-player.component';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
+import { GameListComponent } from './components/user/game-list/game-list.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
