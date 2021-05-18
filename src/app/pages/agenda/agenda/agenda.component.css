@@ -1,0 +1,21 @@
+#monContenu{
+    background-color:rgb(242, 162, 22);
+    width:90%;
+    margin:0 auto;
+    margin-top:2em;
+    border-radius:40px;
+}
+
+#monSelect{
+    padding-top:2em;
+    margin-left:2em;
+}
+
+.centerDiv{
+    display:flex;
+    justify-content:center;
+}
+
+#dateSession{
+    margin-right:2em;
+}

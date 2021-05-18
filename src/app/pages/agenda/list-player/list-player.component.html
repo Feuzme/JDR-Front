@@ -1,0 +1,32 @@
+<div *ngIf="mj != null; else playerShow" class="p-grid">
+    <div class="p-col-12 typeJoueur">
+        <h3>Maître du jeu</h3>
+    </div>
+    <div class="p-col-4 avatar">
+        <div>
+            <p-avatar image="{{mj.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
+            <div class="cercle" [ngStyle]="{'background-color':mj.couleur}"></div> 
+        </div>
+    </div>
+    <div class="p-col-8">
+        <p-card>
+            {{mj.pseudo}}
+        </p-card>
+    </div>
+    <div class="p-col-12 typeJoueur">
+        <h3>Liste des joueurs</h3>
+    </div>
+</div>
+<ng-template #playerShow>
+    <div class="p-grid listeJoueur">
+        <div class="p-col-4 avatar">
+                <p-avatar image="{{player.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
+                <div class="cercle" [ngStyle]="{'background-color':player.couleur}"></div> 
+        </div>
+        <div class="p-col-8">
+            <p-card>
+                {{player.pseudo}}
+            </p-card>
+        </div>
+    </div>
+</ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
@@ -7,14 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCardComponent implements OnInit {
 
-  user = {
-    id:1,
-    pseudo:"Fyfe",
-    profilePicUrl:"../../../../assets/img/profilePic.jpg",
-    bio:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt blanditiis laboriosam quia doloremque aperiam. Mollitia maiores modi dolor reiciendis deleniti. Dolorem, vero obcaecati? At delectus fugiat consequuntur, ut quia nihil?",
-    city:"Lille",
-    mail: "smaug@lonelymountain.me"
-  }
+  @Input() friend;
   
   constructor() { }
 

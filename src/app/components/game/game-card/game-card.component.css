@@ -1,4 +1,4 @@
-.friendCard{
+.gameCard {
     position: relative;
     left: 0;
     justify-self: auto;
@@ -8,10 +8,11 @@
 .name {
     font-weight: bold;
     white-space: nowrap;
+    text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.city{
+.pseudo{
     white-space: nowrap;
     overflow: hidden;
 }
