@@ -1,9 +1,20 @@
-<div id="monContenu">
-    <div id="monSelect">
+<div id="monContenu" class="p-grid">
+    <div id="monSelect" class="p-col-12">
         <label>Nom de la partie : </label>
         <p-cascadeSelect [options]="parties" optionLabel="cname" optionGroupLabel="name" 
     [optionGroupChildren]="['nomPartie']" [style]="{'minWidth': '14rem'}" placeholder="Sélectionnez une partie"></p-cascadeSelect>
     </div>
-    <app-calendar></app-calendar>
-    <app-list-players></app-list-players>
+        <div class="p-col-8">
+            <app-calendar></app-calendar>
+        </div>
+        <div class="p-col-4">
+            <app-list-players></app-list-players>
+        </div>
+        <div class="p-col-8 centerDiv">
+            <input type="text" id="dateSession" readonly >
+            <button pButton pRipple type="button" label="Valider cette date" class="p-button-raised p-button-success"></button>
+        </div>
+        <div class="p-col-4 centerDiv">
+            <button pButton pRipple type="button" label="Enregistrer les dispos" class="p-button-raised"></button>
+        </div>
 </div>

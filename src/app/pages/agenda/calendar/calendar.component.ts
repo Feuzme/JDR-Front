@@ -16,7 +16,9 @@ export class CalendarComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek',
     headerToolbar:{
-      right:'prev,today,next,dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      left:'prev,today,next',
+      center:'title',
+      right:'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     selectable: true,
     locale: 'fr',

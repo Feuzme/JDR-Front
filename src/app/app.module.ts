@@ -7,6 +7,8 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
+import {AvatarModule} from 'primeng/avatar';
+import {ButtonModule} from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListPlayerComponent } from './pages/agenda/list-player/list-player.component';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -38,7 +42,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UsersComponent,
     CalendarComponent,
     AgendaComponent,
-    ListPlayersComponent
+    ListPlayersComponent,
+    ListPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FormsModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AvatarModule,
+    ScrollPanelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
