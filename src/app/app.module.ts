@@ -27,6 +27,7 @@ import { DividerModule } from "primeng/divider";
 import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CheckboxModule } from "primeng/checkbox";
     UserCardComponent,
     GameCardComponent,
     FriendListComponent,
-    GameListComponent
+    GameListComponent,
+    SheetListComponent
   ],
   imports: [
     BrowserModule,
