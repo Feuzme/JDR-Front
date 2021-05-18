@@ -2,12 +2,19 @@
     width: 80%;
     border-radius: 50%;
 }
+
 .friendCard{
     position: relative;
     left: 0;
     justify-self: auto;
-    margin: 5%;
+    margin: 1%;
 }
+
 .name {
     font-weight: bold;
+    white-space: nowrap;
+}
+
+.city{
+    white-space: nowrap;
 }
