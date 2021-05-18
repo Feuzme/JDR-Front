@@ -1,0 +1,10 @@
+ .profilePic{
+    width: 50%;
+    border-radius: 50%;
+    margin-left: 1em;
+}
+
+.friendList {
+    margin: 0.5em;
+    justify-content:space-around;
+}

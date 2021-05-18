@@ -1,0 +1,39 @@
+<!-- Les infos pricipale du profil  -->
+<div class="p-grid">
+    <div class="p-col-6">
+        <img src="{{user.profilePicUrl}}" class="profilePic">
+    </div>
+    <div class="p-col-6">
+        <h3 class="p-col-6">
+            {{user.pseudo}}
+        </h3>
+        <div class="p-col-6">
+            <p>
+                {{user.bio}}
+            </p>
+            <p>
+                {{user.city}}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="p-grid">
+    <p-card class="friendList p-col-4" header="Mes amis :">
+        <!-- Une carte aperçu d'un ami -->
+        <app-user-card></app-user-card>
+        <!-- Une carte aperçu d'un ami -->
+        <app-user-card></app-user-card>
+        <!-- Une carte aperçu d'un ami -->
+        <app-user-card></app-user-card>
+    </p-card>
+</div>
+<div class="p_grid">
+    <p-card class="sheetList p-col-4" header="Mes fiches">
+
+    </p-card>
+</div>
+<div class="p_grid">
+    <p-card class="gameList p-col-4" header="Mes fiches">
+
+    </p-card>
+</div>
