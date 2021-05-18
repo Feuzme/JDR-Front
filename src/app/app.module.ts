@@ -23,6 +23,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
 import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import {CarouselModule} from 'primeng/carousel';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,11 @@ import { HomeComponent } from './pages/home/home.component';
     MenubarModule,
     FontAwesomeModule,
     OverlayPanelModule,
+    CarouselModule,
+    ToastModule,
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
