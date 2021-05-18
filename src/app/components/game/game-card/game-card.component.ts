@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-game-card',
@@ -7,11 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameCardComponent implements OnInit {
 
-  game= {
-    name: "Donjons & Dragons",
-    logo: "assets/images/dragon.jpg",
-    gm:"El megaBG 59"
-  }
+  @Input() game;
   constructor() { }
 
   ngOnInit(): void {

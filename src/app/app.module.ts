@@ -13,6 +13,8 @@ import { UserCardComponent } from './components/user/user-card/user-card.compone
 import { GameCardComponent } from './components/game/game-card/game-card.component';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import { FriendListComponent } from './components/user/friend-list/friend-list.component';
+import { GameListComponent } from './components/user/game-list/game-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
     UsersComponent,
     UserProfileComponent,
     UserCardComponent,
-    GameCardComponent
+    GameCardComponent,
+    FriendListComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
