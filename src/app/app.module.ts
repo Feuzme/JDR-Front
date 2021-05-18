@@ -22,6 +22,7 @@ import { DividerModule } from "primeng/divider";
 import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CheckboxModule } from "primeng/checkbox";
     SignupComponent,
     UsersComponent,    
     UserProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
