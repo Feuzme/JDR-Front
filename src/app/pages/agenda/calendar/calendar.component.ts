@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
+import { CalendarOptions, DateSpanTransform } from '@fullcalendar/angular'; // useful for typechecking
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-calendar',
@@ -8,9 +9,27 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  displayModal: boolean;
+  minDateValue : Date;
+  frequences: any[];
+  stateOptions: any[];
+
+  constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.minDateValue = new Date();
+
+    this.frequences = [
+      {name: 'Une seule fois', code: 'ONE'},
+      {name: 'Tous les jours', code: 'WEEKLY'},
+      {name: 'Toutes les semaines le même jour', code: 'WEEKLYONE'}
+    ];
+
+    this.stateOptions = [
+      { label: "Oui", value: "1" },
+      { label: "Non", value: "0" }
+    ];
   }
 
   calendarOptions: CalendarOptions = {
@@ -21,7 +40,6 @@ export class CalendarComponent implements OnInit {
       center:'title',
       right:'dayGridMonth,dayGridWeek,timeGridDay,listWeek'
     },
-    selectable: true,
     locale: 'fr',
     firstDay: 1,
     displayEventEnd:true,
@@ -32,7 +50,6 @@ export class CalendarComponent implements OnInit {
       week:'Semaine',
       listWeek:'Liste des dispos'
     },
-    allDayText:'Jour complet',
     listDaySideFormat:false,
     listDayFormat:{ // will produce something like "Tuesday, September 18, 2018"
       month: 'long',
@@ -42,19 +59,6 @@ export class CalendarComponent implements OnInit {
     },
     nowIndicator: true,
     navLinks: true,
-    select: function(info) {
-        if(new Date(info.startStr).getTime() < Date.now()){
-            // Previous Day. show message if you want otherwise do nothing.
-            // So it will be unselectable
-            alert('Date déjà passée');
-        }
-        else
-        {
-            // Its a right date
-            // Do something
-            alert('selected ' + info.startStr + ' to ' + info.endStr);
-        } 
-    },
     events: [
       {
         title  : 'event1',
@@ -99,5 +103,8 @@ export class CalendarComponent implements OnInit {
       }
     ]
   };
-
+  
+  showModalDialog=()=>{
+    this.displayModal = true;
+  }
 }

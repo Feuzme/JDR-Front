@@ -1,3 +1,31 @@
 <div id="monCalendrier">
+
     <full-calendar [options]="calendarOptions"></full-calendar>
+
+    <div id="ajoutDispo">
+        <p-button (click)="showModalDialog()" icon="pi pi-plus-circle" label="Ajouter une disponibilité"></p-button>
+    </div>
+
+    <!--Modal pour ajouter une disponibilité-->
+    <p-dialog header="Nouvelle disponibilité" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
+        <div id="maPopup">
+            <div class="addDispo">
+                <h5>Date de début - date de fin :</h5>
+                <p-calendar inputId="dateDeb" dateFormat="dd/mm/yy" [minDate]="minDateValue" selectionMode="range" ></p-calendar>
+            </div>
+            <div class="addDispo">
+                <h5>Fréquence :</h5>
+                <p-dropdown [options]="frequences" placeholder="Choisissez une fréquence" optionLabel="name"></p-dropdown>
+            </div>
+            <div id="dateSession">
+                <h5>Définir cette date comme prochaine date de session ?</h5>
+                <p-selectButton [options]="stateOptions" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ajouter" class="p-button-text"></p-button>
+            <button icon="pi pi-times" pButton pRipple type="button" (click)="displayModal=false" label="Annuler" class="p-button-danger"></button>
+        </ng-template>
+    </p-dialog>
 </div>
