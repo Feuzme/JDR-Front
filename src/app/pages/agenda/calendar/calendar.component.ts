@@ -14,11 +14,12 @@ export class CalendarComponent implements OnInit {
   }
 
   calendarOptions: CalendarOptions = {
-    initialView: 'timeGridWeek',
+    initialView: 'dayGridWeek',
+    allDaySlot:false,
     headerToolbar:{
       left:'prev,today,next',
       center:'title',
-      right:'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right:'dayGridMonth,dayGridWeek,timeGridDay,listWeek'
     },
     selectable: true,
     locale: 'fr',
@@ -31,6 +32,13 @@ export class CalendarComponent implements OnInit {
       listWeek:'Liste des dispos'
     },
     allDayText:'Jour complet',
+    listDaySideFormat:false,
+    listDayFormat:{ // will produce something like "Tuesday, September 18, 2018"
+      month: 'long',
+      year: 'numeric',
+      day: 'numeric',
+      weekday: 'long'
+    },
     nowIndicator: true,
     navLinks: true,
     select: function(info) {
@@ -39,14 +47,14 @@ export class CalendarComponent implements OnInit {
     events: [
       {
         title  : 'event1',
-        start  : '2021-05-18',
-        end    : '2021-05-18',
+        start  : '2021-05-18T00:00:00',
+        end  : '2021-05-18T23:59:00',
         color : 'blue'
       },
       {
         title  : 'event5',
-        start  : '2021-05-18',
-        end    : '2021-05-18',
+        start  : '2021-05-18T00:00:00',
+        end  : '2021-05-18T23:59:00',
         color : 'white',
         textColor: 'black'
       },
