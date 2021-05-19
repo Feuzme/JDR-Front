@@ -24,6 +24,7 @@ export class CalendarComponent implements OnInit {
     selectable: true,
     locale: 'fr',
     firstDay: 1,
+    displayEventEnd:true,
     buttonText :{
       today:'Aujourd\'hui',
       month:'Mois',
@@ -42,7 +43,17 @@ export class CalendarComponent implements OnInit {
     nowIndicator: true,
     navLinks: true,
     select: function(info) {
-      alert('selected ' + info.startStr + ' to ' + info.endStr);
+        if(new Date(info.startStr).getTime() < Date.now()){
+            // Previous Day. show message if you want otherwise do nothing.
+            // So it will be unselectable
+            alert('Date déjà passée');
+        }
+        else
+        {
+            // Its a right date
+            // Do something
+            alert('selected ' + info.startStr + ' to ' + info.endStr);
+        } 
     },
     events: [
       {
