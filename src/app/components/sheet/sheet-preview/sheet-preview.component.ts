@@ -13,11 +13,6 @@ export class SheetPreviewComponent implements OnInit {
   dashboard: Array<GridsterItem>;
   layout: GridsterItem[] = [];
 
-  modif = {
-    x:1,
-    y:2
-  }
-
   constructor() { }
 
   static itemChange(item, itemComponent) {
