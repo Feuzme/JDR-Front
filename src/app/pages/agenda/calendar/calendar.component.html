@@ -12,7 +12,29 @@
         <div id="maPopup">
             <div class="addDispo">
                 <h5>Date de début - date de fin :</h5>
-                <p-calendar inputId="dateDeb" dateFormat="dd/mm/yy" [minDate]="minDateValue" selectionMode="range" ></p-calendar>
+                <p-calendar inputId="dateDeb" dateFormat="dd/mm/yy" [minDate]="minDateValue" selectionMode="range"></p-calendar>
+            </div>
+            <div class="addDispo">
+                <div class="p-grid">
+                    <div class="p-col-4 hourGrp">
+                        <h5>Toute la journée ?</h5>
+                    </div>
+                    <div class="p-col-4 hourGrp">
+                        <h5>Heure de début :</h5>
+                    </div>
+                    <div class="p-col-4 hourGrp">
+                        <h5>Heure de fin :</h5>
+                    </div>
+                    <div class="p-col-4 hourGrp">
+                        <p-inputSwitch></p-inputSwitch>
+                    </div>
+                    <div class="p-col-4 hourGrp">
+                        <p-dropdown [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
+                    </div>
+                    <div class="p-col-4 hourGrp">
+                        <p-dropdown [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
+                    </div>        
+                </div>
             </div>
             <div class="addDispo">
                 <h5>Fréquence :</h5>

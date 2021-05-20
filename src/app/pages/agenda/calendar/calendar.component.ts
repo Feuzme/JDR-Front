@@ -13,18 +13,26 @@ export class CalendarComponent implements OnInit {
   minDateValue : Date;
   frequences: any[];
   stateOptions: any[];
+  heures: any[];
 
   constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.minDateValue = new Date();
+    this.heures = [];
 
     this.frequences = [
       {name: 'Une seule fois', code: 'ONE'},
       {name: 'Tous les jours', code: 'WEEKLY'},
       {name: 'Toutes les semaines le même jour', code: 'WEEKLYONE'}
     ];
+
+    for(let hours=0; hours<24; hours++){
+      for(let mins=0; mins<60; mins+=15){
+        this.heures.push({heure:String(hours).padStart(2, '0')+":"+String(mins).padStart(2, '0')});
+      }   
+    }
 
     this.stateOptions = [
       { label: "Oui", value: "1" },

@@ -27,6 +27,8 @@ import {DialogModule} from 'primeng/dialog';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 import {​ NavbarComponent }​ from './nav-bar/navbar/navbar.component';
 import {​ LoginComponent }​ from './pages/account/login/login.component';
@@ -92,7 +94,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     DialogModule,
     CalendarModule,
     DropdownModule,
-    SelectButtonModule
+    SelectButtonModule,
+    InputNumberModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

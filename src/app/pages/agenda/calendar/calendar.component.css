@@ -29,3 +29,8 @@
     flex-direction:column;
     align-items:center;
 }
+
+.hourGrp{
+    display:flex;
+    justify-content: center;
+}
