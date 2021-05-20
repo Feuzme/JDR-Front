@@ -1,0 +1,18 @@
+.sheetCard {
+    position: relative;
+    left: 0;
+    justify-self: auto;
+    margin: 1%;
+}
+
+.name {
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.pseudo{
+    white-space: nowrap;
+    overflow: hidden;
+}

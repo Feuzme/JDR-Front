@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sheet-list',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sheet-list.component.css']
 })
 export class SheetListComponent implements OnInit {
-
+  @Input() sheets;
   constructor() { }
 
   ngOnInit(): void {

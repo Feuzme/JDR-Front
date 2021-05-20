@@ -36,6 +36,8 @@ import {​ ListPlayerComponent }​ from './pages/agenda/list-player/list-playe
 import {​ScrollPanelModule}​ from 'primeng/scrollpanel';
 import {​ GameListComponent }​ from './components/user/game-list/game-list.component';
 import { NotificationsComponent } from './components/notifications/notifications/notifications.component';
+import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
+import { SheetCardComponent } from './components/sheet/sheet-card/sheet-card.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   timeGridPlugin,
@@ -58,7 +60,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AgendaComponent,
     ListPlayersComponent,
     ListPlayerComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    SheetListComponent,
+    SheetCardComponent
   ],
   imports: [
     BrowserModule,
