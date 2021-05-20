@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
 
   jeux = [
     { nom: "donjon", image : "../../../assets/images/image1.jpg"},
-    { nom: "donjon", image : "../../../assets/images/image1.jpg"},
-    { nom: "donjon", image : "../../../assets/images/image1.jpg"},
+    { nom: "donjon", image : "../../../assets/images/image2.jpg"},
+    { nom: "donjon", image : "../../../assets/images/image3.jpg"},
   ]
   
 
