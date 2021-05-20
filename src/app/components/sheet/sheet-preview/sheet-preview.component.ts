@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridsterConfig, GridsterItem, GridsterItemComponent } from 'angular-gridster2';
+import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridsterItemComponent, GridType } from 'angular-gridster2';
 
 @Component({
   selector: 'app-sheet-preview',
@@ -8,16 +8,15 @@ import { GridsterConfig, GridsterItem, GridsterItemComponent } from 'angular-gri
 })
 export class SheetPreviewComponent implements OnInit {
   options: GridsterConfig = {
-    draggable: {
-      enabled: true
-    },
-    pushItems: true,
-    resizable: {
-      enabled: true
-    }
+
   };
   dashboard: Array<GridsterItem>;
   layout: GridsterItem[] = [];
+
+  modif = {
+    x:1,
+    y:2
+  }
 
   constructor() { }
 
@@ -31,13 +30,31 @@ export class SheetPreviewComponent implements OnInit {
 
   ngOnInit() {
     this.options = {
-      itemChangeCallback: SheetPreviewComponent.itemChange,
-      itemResizeCallback: SheetPreviewComponent.itemResize,
+      // itemChangeCallback: SheetPreviewComponent.itemChange,
+      // itemResizeCallback: SheetPreviewComponent.itemResize,
+      gridType: GridType.Fit,
+      displayGrid: DisplayGrid.Always,
+      pushItems: true,
+      pushDirections: { north: true, east: false, south: true, west: true },
+      pushResizeItems: true,
+      swap: false,
+      draggable: {
+        enabled: true
+      },
+      resizable: {
+        enabled: true
+      },
+      disableWindowResize: true,
+      scrollToNewItems:false
     };
-
+    
     this.dashboard = [
-      {cols: 2, rows: 1, y: 0, x: 0},
-      {cols: 2, rows: 2, y: 0, x: 2}
+      { cols: 2, rows: 1, y: 2, x: 2 },
+      { cols: 2, rows: 1, y: 2, x: 2 },
+      { cols: 2, rows: 1, y: 2, x: 2 },
+      { cols: 2, rows: 1, y: 2, x: 2 },
+      { cols: 2, rows: 1, y: 2, x: 2 },
+      { cols: 1, rows: 1, y: 2, x: 4 },
     ];
   }
 
@@ -49,8 +66,9 @@ export class SheetPreviewComponent implements OnInit {
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 
-  addItem(item) {
-    this.dashboard.push(item);
+  addItem() {
+    this.dashboard.push({ cols: 1, rows: 1, y: 1, x: 1 });
+    // alert("coucou");
   }
 
 }
