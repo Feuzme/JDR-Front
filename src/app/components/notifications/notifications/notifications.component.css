@@ -1,0 +1,28 @@
+.trait {
+    border: 3px solid #F2A216;
+    background-color: #F2A216;
+    width: 40%;
+    height: 1vh;
+}
+
+::ng-deep .p-scrollpanel .p-scrollpanel-bar {
+    background-color: #F2A216;
+}
+
+.item-notification {
+    border-radius: 6px;
+}
+
+.item-notification:hover {
+    background-color: #F9F9F9;
+    cursor: pointer;
+}
+
+.notification-weight {
+    font-weight: normal;
+    margin: 5px;
+}
+
+.notification-name {
+    font-weight: bolder;
+}
