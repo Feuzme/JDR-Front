@@ -38,6 +38,10 @@ import {​ GameListComponent }​ from './components/user/game-list/game-list.c
 import { NotificationsComponent } from './components/notifications/notifications/notifications.component';
 import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
 import { SheetCardComponent } from './components/sheet/sheet-card/sheet-card.component';
+import { GridsterComponent, GridsterModule } from 'angular-gridster2';
+import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
+import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   timeGridPlugin,
@@ -62,7 +66,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ListPlayerComponent,
     NotificationsComponent,
     SheetListComponent,
-    SheetCardComponent
+    SheetCardComponent,
+    SheetCreationComponent,
+    SheetPreviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +91,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ScrollPanelModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
+    // GridsterComponent,
+    GridsterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
