@@ -1,7 +1,15 @@
 <h2>Basic</h2>
 <p-carousel [value]="jeux" [circular]="true">
     <ng-template let-car pTemplate="item">
-        <img src="../../../assets/images/image1.jpg" alt="">
+       
+        <div class="">
+            <img src="../../../assets/images/image4.jpeg " alt="">
+            <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
+        </div>
+      
+
+
+
         
     </ng-template>
   
@@ -10,9 +18,12 @@
 <h2>Items Per Page and Scroll Items</h2>
 
 <p-carousel [value]="jeux" [numVisible]="4" [numScroll]="1" [circular]="true">
-    <ng-template let-car pTemplate="item">
+    
         <img src="../../../assets/images/image1.jpg" alt="">
-    </ng-template>
+        <img src="../../../assets/images/image1.jpg" alt="">
+        <img src="../../../assets/images/image1.jpg" alt="">
+        <img src="../../../assets/images/image1.jpg" alt="">
+    
 </p-carousel>
 
 <h2>Responsive</h2>
