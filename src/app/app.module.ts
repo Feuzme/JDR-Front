@@ -42,6 +42,7 @@ import { GridsterModule } from 'angular-gridster2';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
+import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -71,6 +72,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetCreationComponent,
     SheetPreviewComponent,
     CreationMenuLeftComponent,
+    PluginCardComponent,
   ],
   imports: [
     BrowserModule,

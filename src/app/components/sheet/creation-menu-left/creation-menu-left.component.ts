@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-creation-menu-left',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creation-menu-left.component.css']
 })
 export class CreationMenuLeftComponent implements OnInit {
-
+  @Input() plugins;
+  
   constructor() { }
 
   ngOnInit(): void {
