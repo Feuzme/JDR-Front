@@ -1,4 +1,4 @@
-<h2>Basic</h2>
+<h2>Mes parties</h2> 
 <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
     <ng-template let-jeu pTemplate="item">
        
@@ -9,12 +9,31 @@
   
 </p-carousel>
 
+<p-divider></p-divider>
 
 
+<h2>Mes Fiches</h2> 
+<p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+    <ng-template let-jeu pTemplate="item">
+       
+        <div class="">
+            <img class="image" src="../../../assets/images/{{jeu.fiche}} " alt="">
+        </div>
+    </ng-template>
+  
+</p-carousel>
+<p-divider></p-divider>
 
-
-
-
+<h2>Les parties disponible</h2> 
+<p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+    <ng-template let-jeu pTemplate="item">
+       
+        <div class="">
+            <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
+        </div>
+    </ng-template>
+  
+</p-carousel>
 
 
 
