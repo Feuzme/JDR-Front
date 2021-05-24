@@ -29,3 +29,10 @@
    color: aqua;
    width: 33px;
     }
+
+    .haut{
+        display: flex;
+        justify-content:flex-start;
+        
+    
+    }
