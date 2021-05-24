@@ -68,6 +68,24 @@ export class UserProfileComponent implements OnInit {
     }
   ]
 
+  sheets = [
+    {
+      name: "Donjons & Dragons",
+      logo: "assets/images/dragon.jpg",
+      creator: "Zouzou"
+    },
+    {
+      name: "Star Wars",
+      logo: "assets/images/weeb.jpg",
+      creator: "Zouzou"
+    },
+    {
+      name: "Pokemon",
+      logo: "assets/images/unicorn.jpg",
+      creator: "Zouzou"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

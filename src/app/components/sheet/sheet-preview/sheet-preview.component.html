@@ -1,0 +1,8 @@
+<div cla><button (click)="addItem()">Add item</button></div>
+<div class="host">
+    <gridster [options]="options">
+        <gridster-item [item]="item" *ngFor="let item of dashboard">
+            <!-- your content here -->
+        </gridster-item>
+    </gridster>
+</div>
