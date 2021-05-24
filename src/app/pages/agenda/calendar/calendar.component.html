@@ -1,6 +1,6 @@
 <div id="monCalendrier">
 
-    <full-calendar [options]="calendarOptions"></full-calendar>
+    <full-calendar id="myCalendar" [options]="calendarOptions"></full-calendar>
 
     <div id="ajoutDispo">
         <p-button (click)="showModalDialog()" icon="pi pi-plus-circle" label="Ajouter une disponibilité"></p-button>
@@ -26,27 +26,27 @@
                         <h5>Heure de fin :</h5>
                     </div>
                     <div class="p-col-4 hourGrp">
-                        <p-inputSwitch></p-inputSwitch>
+                        <p-inputSwitch inputId="allDay"></p-inputSwitch>
                     </div>
                     <div class="p-col-4 hourGrp">
-                        <p-dropdown [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
+                        <p-dropdown inputId="heureDeb" (onChange)="onChangeHD($event)" optionValue="heure" [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
                     </div>
                     <div class="p-col-4 hourGrp">
-                        <p-dropdown [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
+                        <p-dropdown inputId="heureFin" (onChange)="onChangeHF($event)" optionValue="heure" [options]="heures" placeholder="00:00" optionLabel="heure"></p-dropdown>
                     </div>        
                 </div>
             </div>
             <div class="addDispo">
                 <h5>Fréquence :</h5>
-                <p-dropdown [options]="frequences" placeholder="Choisissez une fréquence" optionLabel="name"></p-dropdown>
+                <p-dropdown inputId="freq" (onChange)="onChangeFreq($event)" [options]="frequences" optionValue="code" placeholder="Choisissez une fréquence" optionLabel="name"></p-dropdown>
             </div>
             <div id="dateSession">
                 <h5>Définir cette date comme prochaine date de session ?</h5>
-                <p-selectButton [options]="stateOptions" optionLabel="label" optionValue="value"></p-selectButton>
+                <p-selectButton inputId="dateSess" [options]="stateOptions" optionLabel="label" optionValue="value"></p-selectButton>
             </div>
         </div>
         <ng-template pTemplate="footer">
-            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ajouter" class="p-button-text"></p-button>
+            <p-button icon="pi pi-check" (click)="addingDispo()" label="Ajouter" class="p-button-text"></p-button>
             <button icon="pi pi-times" pButton pRipple type="button" (click)="displayModal=false" label="Annuler" class="p-button-danger"></button>
         </ng-template>
     </p-dialog>

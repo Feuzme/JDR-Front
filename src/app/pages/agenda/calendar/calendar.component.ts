@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions, DateSpanTransform } from '@fullcalendar/angular'; // useful for typechecking
+import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { PrimeNGConfig } from 'primeng/api';
+declare var $: any;
 
 @Component({
   selector: 'app-calendar',
@@ -40,6 +41,8 @@ export class CalendarComponent implements OnInit {
     ];
   }
 
+  
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridWeek',
     allDaySlot:false,
@@ -67,52 +70,60 @@ export class CalendarComponent implements OnInit {
     },
     nowIndicator: true,
     navLinks: true,
-    events: [
-      {
-        title  : 'event1',
-        start  : '2021-05-18T00:00:00',
-        end  : '2021-05-18T23:59:00',
-        color : 'blue'
-      },
-      {
-        title  : 'event5',
-        start  : '2021-05-18T00:00:00',
-        end  : '2021-05-18T23:59:00',
-        color : 'white',
-        textColor: 'black'
-      },
-      {
-        title  : 'event2',
-        start  : '2010-01-05',
-        end    : '2010-01-07'
-      },
-      {
-        title  : 'event3',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        color : 'blue',
-        allDay : false // will make the time show
-      },
-      {
-        title  : 'event6',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        allDay : false, // will make the time show
-        color : 'white',
-        textColor: 'black'
-      },
-      {
-        title  : 'event7',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        allDay : false, // will make the time show
-        color : 'red',
-        textColor: 'black'
-      }
-    ]
+    events: [{
+      title  : 'event1',
+      start  : '2021-05-18T00:00:00',
+      end  : '2021-05-18T23:59:00',
+      color : 'blue'
+    },
+    {
+      title  : 'event5',
+      start  : '2021-05-18T00:00:00',
+      end  : '2021-05-18T23:59:00',
+      color : 'white',
+      textColor: 'black'
+    },
+    {
+      title  : 'event2',
+      start  : '2010-01-05',
+      end    : '2010-01-07'
+    },
+    {
+      title  : 'event3',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      color : 'blue',
+      allDay : false // will make the time show
+    },
+    {
+      title  : 'event6',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      allDay : false, // will make the time show
+      color : 'white',
+      textColor: 'black'
+    },
+    {
+      title  : 'event7',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      allDay : false, // will make the time show
+      color : 'red',
+      textColor: 'black'
+    }]
   };
   
   showModalDialog=()=>{
     this.displayModal = true;
+  }
+
+  onChangeHD(event) {
+    document.getElementById("heureDeb").setAttribute("value",event.value);
+  }
+  onChangeHF(event) {
+    document.getElementById("heureFin").setAttribute("value",event.value);
+  }
+  onChangeFreq(event) {
+    document.getElementById("freq").setAttribute("value",""+event.value+"");
   }
 }
