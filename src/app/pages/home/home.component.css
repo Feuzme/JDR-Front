@@ -16,3 +16,16 @@
     .image {
         width: 50%;
     }
+
+
+    .lien{
+       margin: 0 auto;
+       width: 50px;
+       
+    }
+
+    .p-divider {
+
+   color: aqua;
+   width: 33px;
+    }
