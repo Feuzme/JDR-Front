@@ -44,12 +44,12 @@ export class SheetPreviewComponent implements OnInit {
     };
     
     this.dashboard = [
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 1, rows: 1, y: 2, x: 4 },
+      { cols: 2, rows: 1, y: 2, x: 2 , id:0},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:1},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:2},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:3},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:4},
+      { cols: 1, rows: 1, y: 2, x: 4 , id:5},
     ];
   }
 
@@ -57,13 +57,18 @@ export class SheetPreviewComponent implements OnInit {
     this.options.api.optionsChanged();
   }
 
-  removeItem(item) {
-    this.dashboard.splice(this.dashboard.indexOf(item), 1);
+  addItem() {
+    this.dashboard.push({ cols: 1, rows: 1, y: 1, x: 1, id:this.dashboard.length });
   }
 
-  addItem() {
-    this.dashboard.push({ cols: 1, rows: 1, y: 1, x: 1 });
-    // alert("coucou");
+  trackBy(index: number, item: GridsterItem): number {
+    return item.id;
+  }
+
+  removeItem($event: MouseEvent | TouchEvent, item): void {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 
 }
