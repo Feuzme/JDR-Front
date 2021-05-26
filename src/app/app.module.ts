@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
 import { RechercheComponent } from './pages/recherche/recherche.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RechercheComponent } from './pages/recherche/recherche.component';
     CarouselModule,
     ToastModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TableModule
 
   ],
   providers: [],

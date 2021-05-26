@@ -1,1 +1,21 @@
-<p>recherche works!</p>
+<div class="card">
+    <h5>Liste résultat</h5>
+    <p-table [value]="player" [resizableColumns]="true" styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pResizableColumn>Nom</th>
+                <th pResizableColumn>Membre depuis</th>
+                <th pResizableColumn>Parties en cours</th>
+                <th pResizableColumn>Bio</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr>
+                <td>{{player.nom}}</td>
+                <td>{{player.annee}}</td>
+                <td>{{player.partie}}</td>
+                <td><a href="">{{player.bio}}</a></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
