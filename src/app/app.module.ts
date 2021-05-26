@@ -26,6 +26,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
+import { RechercheComponent } from './pages/recherche/recherche.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {ToastModule} from 'primeng/toast';
     UsersComponent,    
     UserProfileComponent,
     UserCardComponent,
-    HomeComponent
+    HomeComponent,
+    RechercheComponent
   ],
   imports: [
     BrowserModule,
