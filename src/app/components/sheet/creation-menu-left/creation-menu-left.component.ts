@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import * as EventEmitter from 'events';
+
 
 @Component({
   selector: 'app-creation-menu-left',
@@ -17,7 +17,7 @@ export class CreationMenuLeftComponent implements OnInit {
     cols:1
   };
 
-  @Output() itemEmitter = new EventEmitter();
+  @Output() itemEmitter = new EventEmitter<GridsterItem>();
   
   constructor() { }
 
@@ -25,6 +25,6 @@ export class CreationMenuLeftComponent implements OnInit {
   }
 
   emitItem() {
-    this.itemEmitter.emit("Item",this.item);
+    this.itemEmitter.emit(this.item);
   }
 }
