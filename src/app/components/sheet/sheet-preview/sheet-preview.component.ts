@@ -13,6 +13,9 @@ export class SheetPreviewComponent implements OnInit {
   get dashboard(): GridsterItem[]{
     return this.layoutService.layout
   }
+  
+  // dashboard: Array<GridsterItem>;
+  // layout: GridsterItem[] = [];
 
   
   constructor(private layoutService : LayoutService) {
@@ -28,41 +31,37 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.options = {
-    //   // itemChangeCallback: SheetPreviewComponent.itemChange,
-    //   // itemResizeCallback: SheetPreviewComponent.itemResize,
-    //   gridType: GridType.Fit,
-    //   displayGrid: DisplayGrid.Always,
-    //   pushItems: true,
-    //   pushDirections: { north: true, east: false, south: true, west: true },
-    //   pushResizeItems: true,
-    //   swap: false,
-    //   draggable: {
-    //     enabled: true
-    //   },
-    //   resizable: {
-    //     enabled: true
-    //   },
-    //   disableWindowResize: true,
-    //   scrollToNewItems:false
-    // };
+  //   // this.options = {
+  //   //   // itemChangeCallback: SheetPreviewComponent.itemChange,
+  //   //   // itemResizeCallback: SheetPreviewComponent.itemResize,
+  //   //   gridType: GridType.Fit,
+  //   //   displayGrid: DisplayGrid.Always,
+  //   //   pushItems: true,
+  //   //   pushDirections: { north: true, east: false, south: true, west: true },
+  //   //   pushResizeItems: true,
+  //   //   swap: false,
+  //   //   draggable: {
+  //   //     enabled: true
+  //   //   },
+  //   //   resizable: {
+  //   //     enabled: true
+  //   //   },
+  //   //   disableWindowResize: true,
+  //   //   scrollToNewItems:false
+  //   // };
     
-    this.dashboard = [
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 2, rows: 1, y: 2, x: 2 },
-      { cols: 1, rows: 1, y: 2, x: 4 },
-    ];
+  //   this.dashboard = [
+  //     { cols: 2, rows: 1, y: 2, x: 2 },
+  //     { cols: 2, rows: 1, y: 2, x: 2 },
+  //     { cols: 2, rows: 1, y: 2, x: 2 },
+  //     { cols: 2, rows: 1, y: 2, x: 2 },
+  //     { cols: 2, rows: 1, y: 2, x: 2 },
+  //     { cols: 1, rows: 1, y: 2, x: 4 },
+  //   ];
+  // }
+
+  // changedOptions() {
+  //   this.options.api.optionsChanged();
+  // }
   }
-
-  changedOptions() {
-    this.options.api.optionsChanged();
-  }
-
-  
-
-  
-
 }
