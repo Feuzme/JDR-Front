@@ -29,6 +29,8 @@ import { DividerModule } from "primeng/divider";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {SliderModule} from 'primeng/slider';
 import { CalendarComponent } from './pages/agenda/calendar/calendar.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
@@ -95,7 +97,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ScrollPanelModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
-    GridsterModule
+    GridsterModule,
+    ColorPickerModule,
+    SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

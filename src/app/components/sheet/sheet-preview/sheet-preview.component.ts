@@ -44,13 +44,24 @@ export class SheetPreviewComponent implements OnInit {
     };
     
     this.dashboard = [
-      { cols: 2, rows: 1, y: 2, x: 2 , id:0},
-      { cols: 2, rows: 1, y: 2, x: 2 , id:1},
-      { cols: 2, rows: 1, y: 2, x: 2 , id:2},
-      { cols: 2, rows: 1, y: 2, x: 2 , id:3},
-      { cols: 2, rows: 1, y: 2, x: 2 , id:4},
-      { cols: 1, rows: 1, y: 2, x: 4 , id:5},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:0, css:
+        {
+          backgroundColor:'purple',
+          borderRadius:'10% 20% 20% 10%',
+          border: '15px solid #1C6EA4'
+        }},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:1, css:''},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:2, css:''},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:3, css:''},
+      { cols: 2, rows: 1, y: 2, x: 2 , id:4, css:''},
+      { cols: 1, rows: 1, y: 2, x: 4 , id:5, css:''},
     ];
+  }
+
+  getStyles(item){
+    document.getElementById("gridster"+item.id).style.backgroundColor=item.css.backgroundColor;
+    document.getElementById("gridster"+item.id).style.borderRadius=item.css.borderRadius;
+    document.getElementById("gridster"+item.id).style.border=item.css.border;
   }
 
   changedOptions() {
@@ -69,6 +80,11 @@ export class SheetPreviewComponent implements OnInit {
     $event.preventDefault();
     $event.stopPropagation();
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
+  }
+
+  editing(elementEdit){
+    console.log(elementEdit);
+    console.log("ok");
   }
 
 }
