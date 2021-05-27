@@ -1,6 +1,6 @@
 <div class="p-grid">
     <div class="menuLeft p-col-2">
-        <app-creation-menu-left [plugins]="plugins"></app-creation-menu-left>
+        <app-creation-menu-left [plugins]="plugins" (itemEmitter)="receiveItem($event)"></app-creation-menu-left><!--Comprend pas quoi passer en argument de la fonction...-->
     </div>
     <div class="preview p-col-8">
         <app-sheet-preview></app-sheet-preview>    

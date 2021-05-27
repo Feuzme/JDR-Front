@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridsterItemComponent, GridType } from 'angular-gridster2';
-
+import {  DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { LayoutService } from '../../services/sheet/layout.service'
 @Component({
   selector: 'app-sheet-preview',
   templateUrl: './sheet-preview.component.html',
   styleUrls: ['./sheet-preview.component.css']
 })
 export class SheetPreviewComponent implements OnInit {
-  options: GridsterConfig = {
-
-  };
+  // get options(): GridsterConfig {
+  //   return this.
+  // }
+  
   dashboard: Array<GridsterItem>;
   layout: GridsterItem[] = [];
 
+  options: GridsterConfig = {};
   constructor() { }
 
   static itemChange(item, itemComponent) {
@@ -57,13 +59,8 @@ export class SheetPreviewComponent implements OnInit {
     this.options.api.optionsChanged();
   }
 
-  removeItem(item) {
-    this.dashboard.splice(this.dashboard.indexOf(item), 1);
-  }
+  
 
-  addItem() {
-    this.dashboard.push({ cols: 1, rows: 1, y: 1, x: 1 });
-    // alert("coucou");
-  }
+  
 
 }

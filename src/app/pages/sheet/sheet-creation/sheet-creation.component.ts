@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { GridsterItem } from 'angular-gridster2';
+import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
 
 @Component({
   selector: 'app-sheet-creation',
@@ -6,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sheet-creation.component.css']
 })
 export class SheetCreationComponent implements OnInit {
-  
+  item: GridsterItem;
+
   plugins = [
     {
       author:"greg",
@@ -50,9 +53,17 @@ export class SheetCreationComponent implements OnInit {
     },   
   ]
 
+  @ViewChild (CreationMenuLeftComponent) creationMenuComp;
+
   constructor() { }
+  receiveItem($event: GridsterItem){
+    this.item = $event;
+  }
 
   ngOnInit(): void {
   }
 
+  // ngAfterViewInit(){
+  //   this.item = this.creationMenuComp.item;
+  // }
 }
