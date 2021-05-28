@@ -1,4 +1,6 @@
 #monCalendrier{
+    border: 2px solid;
+    border-color:rgb(196,196,196);
     background: linear-gradient(white, rgb(196,196,196));
     margin:1em;
     padding:1em;
