@@ -7,3 +7,8 @@
     display:flex;
     flex-direction: column;
 }
+#maPopup {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}

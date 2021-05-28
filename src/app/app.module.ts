@@ -30,6 +30,7 @@ import { RechercheComponent } from './pages/recherche/recherche.component';
 import {TableModule} from 'primeng/table';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {TabViewModule} from 'primeng/tabview';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {TabViewModule} from 'primeng/tabview';
     FormsModule,
     TableModule,
     SelectButtonModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
     
 
   ],

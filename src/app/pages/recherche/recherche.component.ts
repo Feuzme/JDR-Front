@@ -10,7 +10,11 @@ import {TableModule} from 'primeng/table';
 })
 export class RechercheComponent implements OnInit {
 
-  
+  display: boolean = false;
+
+  showDialog() {
+      this.display = true;
+  }
   
   player = [
     { nom: "Smaug", annee:"2017", partie:"A Song of Ice and Fire", bio:"Détails" },
