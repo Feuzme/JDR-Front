@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/account/login/login.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
+import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"calendar",component:AgendaComponent},
   {path:"sheet-creation",component:SheetCreationComponent},
+  {path:"plugin-creation", component:PluginCreationComponent}
 ];
 
 @NgModule({

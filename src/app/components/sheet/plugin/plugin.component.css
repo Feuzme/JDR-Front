@@ -1,0 +1,7 @@
+:host ::ng-deep .progressBar {
+    /* padding: 0 15px 0 15px; */
+    margin: 15px 15px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}

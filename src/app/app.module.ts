@@ -42,6 +42,10 @@ import { GridsterModule } from 'angular-gridster2';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
+import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
+import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
+import {ProgressBarModule} from 'primeng/progressbar';
+import { PluginComponent } from './components/sheet/plugin/plugin.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -71,6 +75,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetCreationComponent,
     SheetPreviewComponent,
     CreationMenuLeftComponent,
+    PluginCreationComponent,
+    PluginPreviewComponent,
+    PluginComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +100,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ScrollPanelModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
-    GridsterModule
+    GridsterModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

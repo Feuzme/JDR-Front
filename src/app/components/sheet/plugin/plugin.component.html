@@ -1,0 +1,15 @@
+<div class="p-grid">
+    <div class="p-col-3"><button (click)="addBlueBar()">Ajouter bar bleu</button></div>
+    <div class="p-col-3"><button (click)="addRedBar()">Ajouter bar bleu</button></div>
+</div>
+
+
+<div *ngFor="let progressBar of progressBars; let i=index">
+    <div class="progressBar">
+        <div>
+            <p-progressBar [value]="value"></p-progressBar>
+        </div>
+    </div>
+</div>
+
+
