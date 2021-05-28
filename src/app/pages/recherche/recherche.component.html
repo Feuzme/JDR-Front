@@ -1,6 +1,9 @@
+
+<div class="recherche">
+
 <p-tabView>
     <p-tabPanel header="Fiches">
-        <p-table [value]="player" styleClass="p-datatable-gridlines">
+        <p-table [value]="fiche" styleClass="p-datatable-gridlines">
 
             <ng-template pTemplate="header">
                 <tr>
@@ -10,12 +13,12 @@
                     <th><a href="">Détails</a></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-player>
+            <ng-template pTemplate="body" let-fiche>
                 <tr>
-                    <td>{{player.nom}}</td>
-                    <td>{{player.annee}}</td>
-                    <td>{{player.partie}}</td>
-                    <td><a href="">{{player.bio}}</a></td>
+                    <td>{{fiche.nom}}</td>
+                    <td>{{fiche.jeu}}</td>
+                    <td>{{fiche.auteur}}</td>
+                    <td><a href="">{{fiche.detail}}</a></td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
@@ -24,7 +27,7 @@
         </p-table>
     </p-tabPanel>
     <p-tabPanel header="Parties">
-        <p-table [value]="player" styleClass="p-datatable-gridlines">
+        <p-table [value]="partie" styleClass="p-datatable-gridlines">
 
             <ng-template pTemplate="header">
                 <tr>
@@ -34,12 +37,12 @@
                     <th>En savoir plus</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-player>
+            <ng-template pTemplate="body" let-partie>
                 <tr>
-                    <td>{{player.nom}}</td>
-                    <td>{{player.annee}}</td>
-                    <td>{{player.partie}}</td>
-                    <td><a href="">{{player.bio}}</a></td>
+                    <td>{{partie.nom}}</td>
+                    <td>{{partie.place}}</td>
+                    <td>{{partie.partie}}</td>
+                    <td><a href="">{{partie.detail}}</a></td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
@@ -73,7 +76,7 @@
     </p-tabPanel>
 </p-tabView>
     
-
+</div>
 
 
 <!-- 

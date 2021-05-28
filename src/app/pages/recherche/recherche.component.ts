@@ -11,22 +11,38 @@ import {TableModule} from 'primeng/table';
 export class RechercheComponent implements OnInit {
 
   
-
-    selectedCity;
-
-    cities = [
-    {name: 'New York', code: 'NY'},
-    {name: 'Rome', code: 'RM'},
-    {name: 'London', code: 'LDN'},
-    {name: 'Istanbul', code: 'IST'},
-    {name: 'Paris', code: 'PRS'}
-];
   
   player = [
-    { nom: "Smaug",annee:"2017",partie:"A Song of Ice and Fire",bio:"Détails" },
+    { nom: "Smaug", annee:"2017", partie:"A Song of Ice and Fire", bio:"Détails" },
     { nom: "Kart-man59",annee:"2018",partie:"13th Age RPG",bio:"Détails"   },
-    { nom: "D20",annee:"2021",partie:"AD&D ( 1st Edition and 2E )",bio:"Détails"  },
-    { nom: "Gérard2Riv",annee:"2020",partie:"AGE System",bio:"Détails"   }
+    { nom: "D20",annee:"2021",partie:"AD&D ( 3st Edition and 3E )",bio:"Détails"  },
+    { nom: "Gérard2Riv",annee:"2020",partie:"AGE System",bio:"Détails"   },
+    { nom: "62Right",annee:"2018",partie:"13th Age RPG",bio:"Détails"   },
+    { nom: "BigBoss",annee:"2020",partie:"AD&D ( 1st Edition and 2E )",bio:"Détails"  },
+    { nom: "SamyTaroz",annee:"2020",partie:"AGE & COS",bio:"Détails"   },
+    
+
+    
+
+  ]
+
+  partie = [
+    { nom: "JDR Warcraft", place:"3", partie:" Saturday May 08 7:00", detail:"Détails" },
+    { nom: "Just A DnD",place:"5",partie:" Saturday May 08 7:00",detail:"Détails"   },
+    { nom: "Multiple Campaigns",place:"7",partie:"Thursday May 13 7:00PM",detail:"Détails"  },
+    { nom: "DONJON £ DRAGON",place:"2",partie:"Sunday May 09 1:00AM",detail:"Détails"   },
+    { nom: "Night Watch",place:"4",partie:"Tuesday June 01 5:45AM",detail:"Détails"  },
+    { nom: "Methods of madness",place:"1",partie:"Friday June 04 8:30PM",detail:"Détails"   }
+  ]
+
+  fiche = [
+    { nom: "FicheSmaug",jeu:"JDR Warcraft",auteur:"Smaug",detail:"Détails" },
+    { nom: "FicheKart-man59",jeu:"Just A DnD",auteur:"Kart-man59",detail:"Détails"  },
+    { nom: "FicheD20",jeu:"D20",auteur:"D20",detail:"Détails"  },
+    { nom: "SoretFiche2Riv",jeu:"DONJON £ DRAGON",auteur:"Gérard2Riv",detail:"Détails" },
+    { nom: "FicheGerzaKart-man59",jeu:"Just A DnD",auteur:"Kart-man59",detail:"Détails"  },
+    { nom: "FicheA5020",jeu:"D20",auteur:"D20",detail:"Détails"  },
+    { nom: "FicheLuna2Riv",jeu:"DONJON £ DRAGON",auteur:"Gérard2Riv",detail:"Détails" }
   ]
   loading: boolean;
   totalRecords: number;
