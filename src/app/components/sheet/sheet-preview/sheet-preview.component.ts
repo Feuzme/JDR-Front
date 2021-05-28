@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {  DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
-import { LayoutService } from '../../services/sheet/layout.service'
+import {   GridsterConfig, GridsterItem } from 'angular-gridster2';
+import { LayoutService, IComponent } from '../../services/sheet/layout.service'
 @Component({
   selector: 'app-sheet-preview',
   templateUrl: './sheet-preview.component.html',
@@ -13,14 +13,18 @@ export class SheetPreviewComponent implements OnInit {
   get dashboard(): GridsterItem[]{
     return this.layoutService.layout
   }
+
+  get components(): IComponent[] {
+    return this.layoutService.components;
+  }
   
   // dashboard: Array<GridsterItem>;
   // layout: GridsterItem[] = [];
 
   
-  constructor(private layoutService : LayoutService) {
-    
-   }
+  constructor(
+    private layoutService : LayoutService
+    ) { }
 
   static itemChange(item, itemComponent) {
     console.info('itemChanged', item, itemComponent);
@@ -50,18 +54,20 @@ export class SheetPreviewComponent implements OnInit {
   //   //   scrollToNewItems:false
   //   // };
     
-  //   this.dashboard = [
-  //     { cols: 2, rows: 1, y: 2, x: 2 },
-  //     { cols: 2, rows: 1, y: 2, x: 2 },
-  //     { cols: 2, rows: 1, y: 2, x: 2 },
-  //     { cols: 2, rows: 1, y: 2, x: 2 },
-  //     { cols: 2, rows: 1, y: 2, x: 2 },
-  //     { cols: 1, rows: 1, y: 2, x: 4 },
-  //   ];
-  // }
+    this.layoutService.layout = [
+      { cols: 2, rows: 1, y: 2, x: 2, id:1 },
+      { cols: 2, rows: 1, y: 2, x: 2, id:2 },
+      { cols: 2, rows: 1, y: 2, x: 2, id:3 },
+      { cols: 2, rows: 1, y: 2, x: 2, id:4 },
+      { cols: 2, rows: 1, y: 2, x: 2, id:5 },
+      { cols: 1, rows: 1, y: 2, x: 4, id:6 },
+    ];
+  }
 
   // changedOptions() {
   //   this.options.api.optionsChanged();
   // }
+  getLayoutService(){
+    return this.layoutService;
   }
 }

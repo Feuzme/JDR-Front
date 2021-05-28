@@ -1,10 +1,10 @@
 <!-- <div class="toolbar">
-    <button (click) = "layoutService.addItem"></button>
+    <button (click) = "getLayoutService().addItem()">AddItem</button>
 </div> -->
 <div class="host">
     <gridster [options]="options">
         <gridster-item [item]="item" *ngFor="let item of dashboard">
-            <!-- your content here -->
+            <button (click)="getLayoutService().removeItem(item.id)">Delete</button>
         </gridster-item>
     </gridster>
 </div>

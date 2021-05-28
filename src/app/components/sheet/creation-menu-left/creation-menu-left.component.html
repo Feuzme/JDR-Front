@@ -1,5 +1,5 @@
 <div class="addItem">
-    <button (click)="emitItem()"></button>
+    <button (click)="getLayoutService().addItem()">AddItem</button>
 </div>
 <p-card header="Résultats">
     <div *ngFor="let plugin of plugins">
