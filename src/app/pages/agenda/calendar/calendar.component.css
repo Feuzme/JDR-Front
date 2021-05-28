@@ -1,6 +1,38 @@
 #monCalendrier{
+    border: 2px solid;
+    border-color:rgb(196,196,196);
     background: linear-gradient(white, rgb(196,196,196));
     margin:1em;
     padding:1em;
     border-radius: 5%;
+    display:flex;
+    flex-direction: column;
+}
+
+#ajoutDispo{
+    display:flex;
+    justify-content: flex-end;
+}
+
+#maPopup {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.addDispo{
+    display:flex;
+    flex-direction: row;
+    align-items:baseline;
+}
+
+#dateSession{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.hourGrp{
+    display:flex;
+    justify-content: center;
 }
