@@ -1,5 +1,7 @@
 <div id="editDiv">
-    <h2>Edition du composant</h2>
+    <div class="titleMenu">
+        <h2>Edition du composant</h2>
+    </div>
     <h3>Bordure</h3>
     <h5>Taille : {{borderWidth}}</h5>
     <p-slider [(ngModel)]="borderWidth" [min]="0" [max]="30"></p-slider>
@@ -16,10 +18,10 @@
         <a style="border: rgb(242, 162, 22);border-style: none;" title="none" class="p-col-6 p-offset-3">Aucune</a>
     </div>
     <div class="p-grid">
-        <div class="p-col-4">
-            <h5>Couleur :</h5>
+        <div class="p-col-12">
+            <h5>Couleur de la bordure :</h5>
         </div>
-        <div class="borderRadiusEdit p-col-8">
+        <div class="p-col-8">
             <p-colorPicker [(ngModel)]="colorBorder" format="rgb"></p-colorPicker>
         </div>
     </div>
@@ -61,10 +63,7 @@
     <p-divider></p-divider>
     <h3>Couleur de fond</h3>
     <div class="p-grid">
-        <div class="p-col-4">
-            <h5>Couleur :</h5>
-        </div>
-        <div class="borderRadiusEdit p-col-8">
+        <div class="p-col-8">
             <p-colorPicker [(ngModel)]="colorBack" format="rgb"></p-colorPicker>
         </div>
     </div>
