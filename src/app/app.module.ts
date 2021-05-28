@@ -28,6 +28,9 @@ import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
 import { RechercheComponent } from './pages/recherche/recherche.component';
 import {TableModule} from 'primeng/table';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {TabViewModule} from 'primeng/tabview';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import {TableModule} from 'primeng/table';
     ToastModule,
     HttpClientModule,
     FormsModule,
-    TableModule
+    TableModule,
+    SelectButtonModule,
+    TabViewModule
+    
 
   ],
   providers: [],

@@ -1,21 +1,125 @@
-<div class="card">
-    <h5>Liste résultat</h5>
-    <p-table [value]="player" [resizableColumns]="true" styleClass="p-datatable-gridlines">
-        <ng-template pTemplate="header">
-            <tr>
-                <th pResizableColumn>Nom</th>
-                <th pResizableColumn>Membre depuis</th>
-                <th pResizableColumn>Parties en cours</th>
-                <th pResizableColumn>Bio</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-player>
-            <tr>
-                <td>{{player.nom}}</td>
-                <td>{{player.annee}}</td>
-                <td>{{player.partie}}</td>
-                <td><a href="">{{player.bio}}</a></td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
+<p-tabView>
+    <p-tabPanel header="Fiches">
+        <p-table [value]="player" styleClass="p-datatable-gridlines">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nom</th>
+                    <th>Jeux</th>
+                    <th>Auteur</th>
+                    <th><a href="">Détails</a></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-player>
+                <tr>
+                    <td>{{player.nom}}</td>
+                    <td>{{player.annee}}</td>
+                    <td>{{player.partie}}</td>
+                    <td><a href="">{{player.bio}}</a></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+          
+            </ng-template>
+        </p-table>
+    </p-tabPanel>
+    <p-tabPanel header="Parties">
+        <p-table [value]="player" styleClass="p-datatable-gridlines">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nom</th>
+                    <th>Place disponible</th>
+                    <th>Prochaine partie</th>
+                    <th>En savoir plus</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-player>
+                <tr>
+                    <td>{{player.nom}}</td>
+                    <td>{{player.annee}}</td>
+                    <td>{{player.partie}}</td>
+                    <td><a href="">{{player.bio}}</a></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+          
+            </ng-template>
+        </p-table>
+    </p-tabPanel>
+    <p-tabPanel header="Joueur">
+        <p-table [value]="player" styleClass="p-datatable-gridlines">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nom</th>
+                    <th>Membre depuis</th>
+                    <th>Parties en cours</th>
+                    <th>Bio</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-player>
+                <tr>
+                    <td>{{player.nom}}</td>
+                    <td>{{player.annee}}</td>
+                    <td>{{player.partie}}</td>
+                    <td><a href="">{{player.bio}}</a></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+          
+            </ng-template>
+        </p-table>
+    </p-tabPanel>
+</p-tabView>
+    
+
+
+
+<!-- 
+    
+    
+    <p-table [value]="player" [lazy]="true" (onLazyLoad)="loadCustomers($event)"
+    [paginator]="true" [rows]="10" [totalRecords]="totalRecords" [loading]="loading" [globalFilterFields]="['Fiches','Partie', 'joueur']">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Fiche <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="country.name">Partie <p-sortIcon field="country.name"></p-sortIcon></th>
+            <th pSortableColumn="company">Joueur <p-sortIcon field="company"></p-sortIcon></th>
+        </tr>
+        <tr>
+            <th>
+                <p-columnFilter type="text" field="name"></p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="country.name"></p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="company"></p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter field="representative" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
+                            <ng-template let-option pTemplate="item">
+                                <div class="p-multiselect-representative-option">
+                                    <img [alt]="option.label" src="assets/showcase/images/demo/avatar/{{option.image}}" width="32" style="vertical-align: middle" />
+                                    <span class="p-ml-1">{{option.name}}</span>
+                                </div>
+                            </ng-template>
+                        </p-multiSelect>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-player>
+        <tr>
+            <td>{{player.nom}}</td>
+            <td>{{player.annee}}</td>
+            <td>{{player.partie}}</td>
+            <td><a href="">{{player.bio}}</a></td>
+        </tr>
+    </ng-template>
+</p-table>
+-->
