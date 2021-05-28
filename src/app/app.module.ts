@@ -29,6 +29,8 @@ import { DividerModule } from "primeng/divider";
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {SliderModule} from 'primeng/slider';
 import { CalendarComponent } from './pages/agenda/calendar/calendar.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { ListPlayersComponent } from './pages/agenda/list-players/list-players.component';
@@ -43,6 +45,7 @@ import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creat
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
+import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -72,7 +75,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetCreationComponent,
     SheetPreviewComponent,
     CreationMenuLeftComponent,
-    PluginCardComponent,
+	  PluginCardComponent,
+    EditionMenuRightComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +99,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ScrollPanelModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
-    GridsterModule
+    GridsterModule,
+    ColorPickerModule,
+    SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

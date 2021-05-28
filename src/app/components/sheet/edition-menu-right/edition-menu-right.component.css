@@ -1,0 +1,30 @@
+#editDiv{
+    background-color:white;
+    margin:1em;
+    padding:1em;
+}
+
+.titleMenu{
+    text-align: center;
+}
+
+#borderStyles{
+    margin: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#radiusPreview{
+    text-align: center;
+    border: 5px solid rgb(242, 162, 22);
+}
+
+.borderRadiusEdit{
+    margin-top:1em;
+}
+
+.bChoix{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
