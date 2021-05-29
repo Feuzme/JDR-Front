@@ -64,7 +64,7 @@
     <h3>Couleur de fond</h3>
     <div class="p-grid">
         <div class="p-col-8">
-            <p-colorPicker [(ngModel)]="colorBack" format="rgb"></p-colorPicker>
+            <p-colorPicker [(ngModel)]="colorBack" format="rgb" (onChange)="chgColorBack()"></p-colorPicker>
         </div>
     </div>
     <div class="bChoix">

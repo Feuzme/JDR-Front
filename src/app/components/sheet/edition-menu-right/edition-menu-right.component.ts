@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 
 @Component({
@@ -17,20 +17,26 @@ export class EditionMenuRightComponent implements OnInit {
   brBG: number = 0;
 
   borderWidth: number = 0;
-  colorBorder: any;
-  colorBack: any;
+  colorBorder: any = {r:255,g:255,b:255};
+  colorBack: any = {r:255,g:255,b:255};
 
   checkedRadius: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.editedPlugin);
+    this.initValuesGridster();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void{
     this.initValuesGridster();
   }
 
   chgColorBorder(){
-    console.log(this.colorBorder);
+    this.editedPlugin.css.borderColor = this.colorBorder;
+  }
+
+  chgColorBack(){
     this.editedPlugin.css.backgroundColor = this.colorBack;
   }
 
@@ -42,17 +48,17 @@ export class EditionMenuRightComponent implements OnInit {
 
   // Fonction permettant d'initialiser les valeurs du border radius ainsi que de la taille de la bordure
   initBorderRadius(){
-    this.borderWidth = this.editedPlugin.css.border.replace('px','');
-    this.brHD = this.editedPlugin.css.borderTopRightRadius.replace('px','');
-    this.brHG = this.editedPlugin.css.borderTopLeftRadius.replace('px','');
-    this.brBD = this.editedPlugin.css.borderBottomRightRadius.replace('px','');
-    this.brBG = this.editedPlugin.css.borderBottomLeftRadius.replace('px','');
+    this.borderWidth = this.editedPlugin.css.border != null ? this.editedPlugin.css.border.replace('px','') : 0;
+    this.brHD = this.editedPlugin.css.borderTopRightRadius != null ? this.editedPlugin.css.borderTopRightRadius.replace('px','') : 0;
+    this.brHG = this.editedPlugin.css.borderTopLeftRadius != null ? this.editedPlugin.css.borderTopLeftRadius.replace('px','') : 0;
+    this.brBD = this.editedPlugin.css.borderBottomRightRadius != null ? this.editedPlugin.css.borderBottomRightRadius.replace('px','') : 0;
+    this.brBG = this.editedPlugin.css.borderBottomLeftRadius != null ? this.editedPlugin.css.borderBottomLeftRadius.replace('px','') : 0;
   }
 
   // Fonction permettant d'initialiser les p-colorpicker avec les couleurs du plugin
   initColors(){
-    this.colorBack = this.formatColorForEditing(this.editedPlugin.css.backgroundColor);
-    this.colorBorder = this.formatColorForEditing(this.editedPlugin.css.borderColor);
+    this.colorBack = this.editedPlugin.css.backgroundColor != null ? this.formatColorForEditing(this.editedPlugin.css.backgroundColor) : {r:255,g:255,b:255};
+    this.colorBorder = this.editedPlugin.css.borderColor != null ? this.formatColorForEditing(this.editedPlugin.css.borderColor) : {r:255,g:255,b:255};
   }
 
   // Fonction permettant de transformer le string rgb(128,0,128) en {r: 117, g: 101, b: 101}
@@ -85,6 +91,9 @@ export class EditionMenuRightComponent implements OnInit {
           this.brBD = this.brBG;
       }
     }  
+  }
+
+  save(){
   }
 
 }
