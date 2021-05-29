@@ -10,6 +10,9 @@ import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-men
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
 
+  editPlugin : GridsterItem;
+  displayEditingMenu: boolean = false;
+
   plugins = [
     {
       author:"greg",
@@ -66,4 +69,9 @@ export class SheetCreationComponent implements OnInit {
   // ngAfterViewInit(){
   //   this.item = this.creationMenuComp.item;
   // }
+
+  transferToEditMenu($event: GridsterItem){
+    this.editPlugin = $event;
+    this.displayEditingMenu = true;
+  }
 }

@@ -3,7 +3,7 @@
         <h2>Edition du composant</h2>
     </div>
     <h3>Bordure</h3>
-    <h5>Taille : {{borderWidth}}</h5>
+    <h5>Taille : {{borderWidth}} px</h5>
     <p-slider [(ngModel)]="borderWidth" [min]="0" [max]="30"></p-slider>
     <h5>Style :</h5>
     <div id="borderStyles" class="p-grid">
@@ -22,7 +22,7 @@
             <h5>Couleur de la bordure :</h5>
         </div>
         <div class="p-col-8">
-            <p-colorPicker [(ngModel)]="colorBorder" format="rgb"></p-colorPicker>
+            <p-colorPicker [(ngModel)]="colorBorder" format="rgb" (onChange)="chgColorBorder()"></p-colorPicker>
         </div>
     </div>
     <h5>Position :</h5>
@@ -35,21 +35,21 @@
     </div>
     <div class="borderRadiusEdit p-grid">
         <div class="p-col-4">
-            <p-slider [(ngModel)]="brHG" [min]="0" [max]="40"></p-slider>
+            <p-slider [(ngModel)]="brHG" [min]="0" [max]="40" (onChange)="checkAllSame('brHG')"></p-slider>
         </div>
         <div class="p-col-4"></div>
         <div class="p-col-4">
-            <p-slider [(ngModel)]="brHD" [min]="0" [max]="40"></p-slider>
+            <p-slider [(ngModel)]="brHD" [min]="0" [max]="40" (onChange)="checkAllSame('brHD')"></p-slider>
         </div>
         <div class="p-col-8 p-offset-2">
             <div id="radiusPreview">Radius</div>
         </div>
         <div class="p-col-4">
-            <p-slider [(ngModel)]="brBG" [min]="0" [max]="40"></p-slider>
+            <p-slider [(ngModel)]="brBG" [min]="0" [max]="40" (onChange)="checkAllSame('brBG')"></p-slider>
         </div>
         <div class="p-col-4"></div>
         <div class="p-col-4">
-            <p-slider [(ngModel)]="brBD" [min]="0" [max]="40"></p-slider>
+            <p-slider [(ngModel)]="brBD" [min]="0" [max]="40" (onChange)="checkAllSame('brBD')"></p-slider>
         </div>
         <div class="p-col-6">
             Tous le même
