@@ -10,7 +10,7 @@ import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-men
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
 
-  editPlugin : GridsterItem;
+  editingPlugin : GridsterItem;
   displayEditingMenu: boolean = false;
 
   plugins = [
@@ -71,7 +71,7 @@ export class SheetCreationComponent implements OnInit {
   // }
 
   transferToEditMenu($event: GridsterItem){
-    this.editPlugin = $event;
+    this.editingPlugin = $event;
     this.displayEditingMenu = true;
   }
 }
