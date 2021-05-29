@@ -1,5 +1,17 @@
-<div class="addItem">
-    <button (click)="getLayoutService().addItem()">AddItem</button>
+
+<div class="itemAdd">
+    <div class="addItem">
+        <button (click)="getLayoutService().addItem()">AddItem</button>
+    </div>
+    <div class="draggable" draggable="true" (dragend)="getLayoutService().dropItem('compTest1')">
+        Example 1
+    </div>
+    <div class="draggable" draggable="true" (ondragend)="getLayoutService().dropItem('compTest2')">
+        Example 2
+    </div>
+    <div class="draggable" draggable="true" (ondragend)="getLayoutService().dropItem('example')">
+        Example
+    </div>
 </div>
 <p-card header="Résultats">
     <div *ngFor="let plugin of plugins">
