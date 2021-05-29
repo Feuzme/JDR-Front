@@ -54,7 +54,11 @@ import {​ ListPlayersComponent }​ from './pages/agenda/list-players/list-pla
 import {​ ListPlayerComponent }​ from './pages/agenda/list-player/list-player.component';
 import {​ GameListComponent }​ from './components/user/game-list/game-list.component';
 import { NotificationsComponent } from './components/notifications/notifications/notifications.component';
-
+import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
+import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
+import {ProgressBarModule} from 'primeng/progressbar';
+import { PluginComponent } from './components/sheet/plugin/plugin.component';
+import { NoSanitizePipe } from './util/nosanitizerpipe';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -86,6 +90,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetPreviewComponent,
     CreationMenuLeftComponent,
     RechercheComponent,
+    PluginCreationComponent,
+    PluginPreviewComponent,
+    PluginComponent,
+    NoSanitizePipe
   ],
   imports: [
     BrowserModule,
@@ -114,7 +122,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     DropdownModule,
     SelectButtonModule,
     InputNumberModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
