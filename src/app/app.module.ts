@@ -46,6 +46,7 @@ import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-cr
 import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { PluginComponent } from './components/sheet/plugin/plugin.component';
+import { NoSanitizePipe } from './util/nosanitizerpipe';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -78,6 +79,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PluginCreationComponent,
     PluginPreviewComponent,
     PluginComponent,
+    NoSanitizePipe
   ],
   imports: [
     BrowserModule,
