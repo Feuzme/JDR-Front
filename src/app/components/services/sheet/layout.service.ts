@@ -55,19 +55,14 @@ export class LayoutService {
     return {
     'background-color' : item.css.backgroundColor,
     'border-radius':item.css.borderRadius,
-    'border':item.css.border,
-    'border-top':item.css.borderTop,
-    'border-right':item.css.borderRight,
-    'border-bottom':item.css.borderBottom,
-    'border-left':item.css.borderLeft,
     'border-style':item.css.borderStyle,
     'border-color':item.css.borderColor,
-    'border-top-left-radius':item.css.borderTopLeftRadius,
-    'border-top-right-radius':item.css.borderTopRightRadius,
-    'border-bottom-left-radius':item.css.borderBottomLeftRadius,
-    'border-bottom-right-radius':item.css.borderBottomRightRadius
+    'border-width':item.css.borderWidth,
     };
   }
 
+  changedOptions() {
+    this.options.api.optionsChanged();
+  }
   
 }
