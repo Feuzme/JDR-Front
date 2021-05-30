@@ -25,7 +25,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
-import { RechercheComponent } from './pages/recherche/recherche.component';
 import {TableModule} from 'primeng/table';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {TabViewModule} from 'primeng/tabview';
@@ -38,6 +37,7 @@ import { GridsterModule } from 'angular-gridster2';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
+import { RechercheComponent } from './pages/recherche/recherche.component';
 
 import {​AvatarModule}​ from 'primeng/avatar';
 import {​AvatarGroupModule}​ from 'primeng/avatargroup';
@@ -104,13 +104,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetCreationComponent,
     SheetPreviewComponent,
     CreationMenuLeftComponent,
-    RechercheComponent,
     PluginCreationComponent,
     PluginPreviewComponent,
     PluginComponent,
     NoSanitizePipe,
 	  PluginCardComponent,
     EditionMenuRightComponent
+
   ],
   imports: [
     BrowserModule,

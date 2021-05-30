@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
-import {TableModule} from 'primeng/table';
 
 
 @Component({
@@ -9,6 +8,7 @@ import {TableModule} from 'primeng/table';
   styleUrls: ['./recherche.component.css']
 })
 export class RechercheComponent implements OnInit {
+
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
   selectedFrequence: string[] = ['fre1','fre2','fre3'];
@@ -84,12 +84,11 @@ export class RechercheComponent implements OnInit {
 
   
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
-
 
   loadCustomers(event: LazyLoadEvent) {  
     this.loading = true;
@@ -110,3 +109,6 @@ export class RechercheComponent implements OnInit {
     */
 }
 }
+
+
+
