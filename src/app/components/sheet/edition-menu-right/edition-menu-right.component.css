@@ -1,14 +1,21 @@
 #editDiv{
-    background-color:white;
+    background: linear-gradient(white, rgb(196,196,196));
     margin:1em;
     padding:1em;
+    border-color:rgb(196,196,196);
+    border-style: solid;
+    border-radius: 20px;
 }
 
 .titleMenu{
-    text-align: center;
+    border-color: rgb(242, 162, 22);
+    text-align:center;
+    padding:1px;
+    border-style:solid;
+    border-radius: 20px;
 }
 
-#borderStyles{
+.borderStyles{
     margin: 1px;
     cursor: pointer;
     text-align: center;
@@ -27,4 +34,12 @@
     display:flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.borderActive {
+    background-color: rgb(242, 162, 22);
+}
+
+.borderPositionActive {
+    background-color: rgb(242, 162, 22);
 }

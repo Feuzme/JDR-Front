@@ -17,6 +17,12 @@ export class SheetCreationComponent implements OnInit {
   private stats : PlugIn = new PlugIn("Dewee","Stats", "Dungeons&Dragons", "assets/images/unicorn.jpg", 1 ,2);
   private magic : PlugIn = new PlugIn("Marco", "Magic","ESRPG","assets/images/Smaug.png", 1 ,1);
 
+  editingPlugin : GridsterItem;
+  choiceEditing : any;
+
+  displayEditingMenu: boolean = false;
+
+
   @ViewChild (CreationMenuLeftComponent) creationMenuComp;
 
   constructor() { }
@@ -31,4 +37,14 @@ export class SheetCreationComponent implements OnInit {
   // ngAfterViewInit(){
   //   this.item = this.creationMenuComp.item;
   // }
+
+  transferToEditMenu($event: GridsterItem){
+    this.editingPlugin = $event;
+    this.displayEditingMenu = true;
+  }
+
+  transferToGridster($event: any){
+    this.choiceEditing = $event;
+    this.displayEditingMenu = false;
+  }
 }

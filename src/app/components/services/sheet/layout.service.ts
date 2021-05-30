@@ -44,12 +44,19 @@ export class LayoutService {
   addItem(plugin: PlugIn) {
     this.plugIns.push(plugin);
     this.layout.push({
-      cols: 1, 
-      rows: 1, 
-      y: 1, 
-      x: 1,
-      id: UUID.UUID(),
-      content : plugin.name
+       cols: 1, 
+       rows: 1, 
+       y: 1, 
+       x: 1,
+       id: UUID.UUID(), 
+       css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        },
+        content : plugin.name
       });
     console.log(
       {
@@ -106,4 +113,18 @@ export class LayoutService {
     // console.log(comp);
     return comp ? comp.componentRef : null;
   }
+  getStyles = (item) =>{
+    return {
+    'background-color' : item.css.backgroundColor,
+    'border-radius':item.css.borderRadius,
+    'border-style':item.css.borderStyle,
+    'border-color':item.css.borderColor,
+    'border-width':item.css.borderWidth,
+    };
+  }
+
+  changedOptions() {
+    this.options.api.optionsChanged();
+  }
+  
 }

@@ -1,0 +1,53 @@
+.home{
+    border-color:rgb(196,196,196);
+    background: linear-gradient(white, rgb(196,196,196));
+    margin:1em;
+    padding:1em;
+    /*border-radius: 5%;*/
+    display:flex;
+    flex-direction: column;
+}
+
+.maCard{
+    border-color:rgb(196,196,196);
+    background: rgb(196,196,196);
+    margin:1em;
+    padding:1em;
+    /*border-radius: 5%;*/
+    display:flex;
+    flex-direction: column;
+}
+
+  
+    .image {
+        width: 35%;
+    }
+
+
+    .lien{
+       margin: 0 auto;
+       width: 3px;
+       
+    }
+
+    .haut{
+        border-color:rgb(196,196,196);
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: center;
+        align-items: stretch
+        
+    
+    }
+
+    .divider{
+        font-size: 5rem;
+        width: 500%;
+    }
+
+
+    p-card {
+        border-color:rgb(196,196,196);
+    }

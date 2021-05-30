@@ -1,4 +1,6 @@
 #listPlayers{
+    border: 2px solid;
+    border-color:rgb(196,196,196);
     background: linear-gradient(white, rgb(196,196,196));
     border-radius: 40px;
     margin:1em;

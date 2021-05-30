@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
+import { PrimeNGConfig } from 'primeng/api';
+declare var $: any;
 
 @Component({
   selector: 'app-calendar',
@@ -8,21 +10,50 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  displayModal: boolean;
+  minDateValue : Date;
+  frequences: any[];
+  stateOptions: any[];
+  heures: any[];
+
+  constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.minDateValue = new Date();
+    this.heures = [];
+
+    this.frequences = [
+      {name: 'Une seule fois', code: 'ONE'},
+      {name: 'Tous les jours', code: 'WEEKLY'},
+      {name: 'Toutes les semaines le même jour', code: 'WEEKLYONE'}
+    ];
+
+    for(let hours=0; hours<24; hours++){
+      for(let mins=0; mins<60; mins+=15){
+        this.heures.push({heure:String(hours).padStart(2, '0')+":"+String(mins).padStart(2, '0')});
+      }   
+    }
+
+    this.stateOptions = [
+      { label: "Oui", value: "1" },
+      { label: "Non", value: "0" }
+    ];
   }
 
+  
+
   calendarOptions: CalendarOptions = {
-    initialView: 'timeGridWeek',
+    initialView: 'dayGridWeek',
+    allDaySlot:false,
     headerToolbar:{
       left:'prev,today,next',
       center:'title',
-      right:'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right:'dayGridMonth,dayGridWeek,timeGridDay,listWeek'
     },
-    selectable: true,
     locale: 'fr',
     firstDay: 1,
+    displayEventEnd:true,
     buttonText :{
       today:'Aujourd\'hui',
       month:'Mois',
@@ -30,55 +61,69 @@ export class CalendarComponent implements OnInit {
       week:'Semaine',
       listWeek:'Liste des dispos'
     },
-    allDayText:'Jour complet',
+    listDaySideFormat:false,
+    listDayFormat:{ // will produce something like "Tuesday, September 18, 2018"
+      month: 'long',
+      year: 'numeric',
+      day: 'numeric',
+      weekday: 'long'
+    },
     nowIndicator: true,
     navLinks: true,
-    select: function(info) {
-      alert('selected ' + info.startStr + ' to ' + info.endStr);
+    events: [{
+      title  : 'event1',
+      start  : '2021-05-18T00:00:00',
+      end  : '2021-05-18T23:59:00',
+      color : 'blue'
     },
-    events: [
-      {
-        title  : 'event1',
-        start  : '2021-05-18',
-        end    : '2021-05-18',
-        color : 'blue'
-      },
-      {
-        title  : 'event5',
-        start  : '2021-05-18',
-        end    : '2021-05-18',
-        color : 'white',
-        textColor: 'black'
-      },
-      {
-        title  : 'event2',
-        start  : '2010-01-05',
-        end    : '2010-01-07'
-      },
-      {
-        title  : 'event3',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        color : 'blue',
-        allDay : false // will make the time show
-      },
-      {
-        title  : 'event6',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        allDay : false, // will make the time show
-        color : 'white',
-        textColor: 'black'
-      },
-      {
-        title  : 'event7',
-        start  : '2021-05-19T12:30:00',
-        end  : '2021-05-19T14:30:00',
-        allDay : false, // will make the time show
-        color : 'red',
-        textColor: 'black'
-      }
-    ]
+    {
+      title  : 'event5',
+      start  : '2021-05-18T00:00:00',
+      end  : '2021-05-18T23:59:00',
+      color : 'white',
+      textColor: 'black'
+    },
+    {
+      title  : 'event2',
+      start  : '2010-01-05',
+      end    : '2010-01-07'
+    },
+    {
+      title  : 'event3',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      color : 'blue',
+      allDay : false // will make the time show
+    },
+    {
+      title  : 'event6',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      allDay : false, // will make the time show
+      color : 'white',
+      textColor: 'black'
+    },
+    {
+      title  : 'event7',
+      start  : '2021-05-19T12:30:00',
+      end  : '2021-05-19T14:30:00',
+      allDay : false, // will make the time show
+      color : 'red',
+      textColor: 'black'
+    }]
   };
+  
+  showModalDialog=()=>{
+    this.displayModal = true;
+  }
 
+  onChangeHD(event) {
+    document.getElementById("heureDeb").setAttribute("value",event.value);
+  }
+  onChangeHF(event) {
+    document.getElementById("heureFin").setAttribute("value",event.value);
+  }
+  onChangeFreq(event) {
+    document.getElementById("freq").setAttribute("value",""+event.value+"");
+  }
 }

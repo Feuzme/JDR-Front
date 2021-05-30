@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import {   GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { LayoutService, IComponent } from '../../services/sheet/layout.service'
 @Component({
@@ -7,6 +7,11 @@ import { LayoutService, IComponent } from '../../services/sheet/layout.service'
   styleUrls: ['./sheet-preview.component.css']
 })
 export class SheetPreviewComponent implements OnInit {
+
+  @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
+
+  @Input('choiceEditing') choiceEditing : any;
+
   get options(): GridsterConfig {
     return this.layoutService.options
   }
@@ -55,13 +60,60 @@ export class SheetPreviewComponent implements OnInit {
   //   // };
     
     this.layoutService.layout = [
-      { cols: 2, rows: 1, y: 2, x: 2, id:1 },
-      { cols: 2, rows: 1, y: 2, x: 2, id:2 },
-      { cols: 2, rows: 1, y: 2, x: 2, id:3 },
-      { cols: 2, rows: 1, y: 2, x: 2, id:4 },
-      { cols: 2, rows: 1, y: 2, x: 2, id:5 },
-      { cols: 1, rows: 1, y: 2, x: 4, id:6 },
-    ];
+      { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      },
+      { cols: 2, rows: 1, y: 2, x: 2, id:2, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      },
+      { cols: 2, rows: 1, y: 2, x: 2, id:3, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      },
+      { cols: 2, rows: 1, y: 2, x: 2, id:4, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      },
+      { cols: 2, rows: 1, y: 2, x: 2, id:5, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      },
+      { cols: 1, rows: 1, y: 2, x: 4, id:6, css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
+      }];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void{
+    if(this.choiceEditing != null && this.choiceEditing.choice=='delete'){
+      this.getLayoutService().removeItem(this.choiceEditing.id);
+    }
   }
 
   // changedOptions() {
@@ -69,5 +121,9 @@ export class SheetPreviewComponent implements OnInit {
   // }
   getLayoutService(){
     return this.layoutService;
+  }
+
+  editPlugin = (item) =>{
+    this.editingPlugin.emit(item);
   }
 }

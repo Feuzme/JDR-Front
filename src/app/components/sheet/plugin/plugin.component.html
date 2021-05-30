@@ -1,0 +1,25 @@
+<div class="p-grid">
+    <div class="p-col-3"><button (click)="addBar()">Ajouter une barre</button></div>
+    <!-- <div class="p-col-3"><button (click)="addText()">Ajouter du texte</button></div> -->
+</div>
+
+<!-- <input type="number" [(ngModel)]="onSubmittedValue"> -->
+<form [formGroup]="inputValue" (ngSubmit)="getValue()">
+    <label>Choix de la taille de column (entre 0 et 12) : 
+        <input type="number" formControlName="size">
+    </label>
+</form>
+
+ 
+
+<div class="p-grid">
+    <div *ngFor="let info of infos; let i=index" [ngClass]="info.columnSize">
+        <!-- <div [ngClass] = "info.balise" [value]="40"> -->
+        <div>
+            <p-progressBar [value]="value"></p-progressBar>
+        </div>
+    </div>
+</div>
+
+
+
