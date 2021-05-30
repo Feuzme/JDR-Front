@@ -46,10 +46,7 @@ import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-pr
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
-import { CompTest1Component } from './components/testDragDrop/comp-test1/comp-test1.component';
-import { CompTest2Component } from './components/testDragDrop/comp-test2/comp-test2.component';
-import { LayoutItemDirective } from './directives/layout-item.directive';
-import { ExampleComponent } from './components/testDragDrop/example/example.component';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -80,9 +77,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SheetPreviewComponent,
     CreationMenuLeftComponent,
 	  PluginCardComponent,
-    EditionMenuRightComponent,
-    LayoutItemDirective,
-    ExampleComponent,
+    EditionMenuRightComponent
   ],
   imports: [
     BrowserModule,
@@ -110,10 +105,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SliderModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents:[
-    CompTest1Component,
-    CompTest2Component
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

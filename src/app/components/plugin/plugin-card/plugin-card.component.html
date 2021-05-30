@@ -1,18 +1,21 @@
 <p-card class="plugInCard">
     <div class="p-grid">
         <div class="p-col-4">
-            <img src="{{plugin.gamePic}}" class="gamePic">
+            <img src="{{plugin._gamePic}}" class="gamePic">
         </div>
         <div class="p-col-8">
             <div class="name">
-                {{plugin.name}}
+                {{plugin._name}}
             </div>
-            <div class="author">
-                {{plugin.author}}
+            <div class="autor">
+                {{plugin._author}}
             </div>
             <div class="game">
-                {{plugin.game}}
+                {{plugin._game}}
+            </div>
+            <div>
+                <button (click)="getLayoutService().addItem(plugin)">Ajouter</button>
             </div>
         </div>
-    </div>   
+    </div>
 </p-card>

@@ -20,15 +20,6 @@ export class CreationMenuLeftComponent implements OnInit {
   get components(): IComponent[] {
     return this.layoutService.components;
   }
-
-  item: GridsterItem = {
-    x:1,
-    y:1,
-    rows:1,
-    cols:1
-  };
-
-  @Output() itemEmitter = new EventEmitter<GridsterItem>();
   
   constructor(
     private layoutService : LayoutService

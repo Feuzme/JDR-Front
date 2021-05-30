@@ -1,6 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
+import { PlugIn } from 'src/app/models/plugin';
 
 export interface IComponent {
   id: string;
@@ -15,6 +16,8 @@ export class LayoutService {
   public layout: GridsterItem[] = [];
   public components: IComponent[] = [];
   dropId: string;
+  public plugIns : PlugIn[] = [];
+
   
   public options: GridsterConfig ={
     gridType: GridType.Fit,
@@ -38,14 +41,26 @@ export class LayoutService {
   /**
    * Method called when you want to add an empty item to the grid
    */
-  addItem() {
+  addItem(plugin: PlugIn) {
+    this.plugIns.push(plugin);
     this.layout.push({
-       cols: 1, 
-       rows: 1, 
-       y: 1, 
-       x: 1,
-       id: UUID.UUID()
+      cols: 1, 
+      rows: 1, 
+      y: 1, 
+      x: 1,
+      id: UUID.UUID(),
+      content : plugin.name
       });
+    console.log(
+      {
+        cols: 1, 
+        rows: 1, 
+        y: 1, 
+        x: 1,
+        id: UUID.UUID(),
+        content : plugin.name
+        }
+    )
   }
   /**
    *  method to remove item and components from the grid
@@ -87,8 +102,8 @@ export class LayoutService {
    */
   getComponentRef(id: string) : string{
     const comp = this.components.find(c => c.id === id);
-    console.log(id);
-    console.log(comp);
+    // console.log(id);
+    // console.log(comp);
     return comp ? comp.componentRef : null;
   }
 }
