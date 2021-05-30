@@ -111,7 +111,7 @@ export class EditionMenuRightComponent implements OnInit {
   // Fonction permettant d'initialiser les valeurs du border radius
   initBorderRadius() {
     if(this.editingPlugin.css.borderRadius != ''){
-      let tabTmp = this.editingPlugin.css.borderRadius.split("px");
+      let tabTmp = this.editingPlugin.css.borderRadius.split("%");
       this.brHG = tabTmp[0];
       this.brHD = tabTmp[1];
       this.brBD = tabTmp[2];
@@ -159,7 +159,7 @@ export class EditionMenuRightComponent implements OnInit {
           break;
       }
     }
-    this.editingPlugin.css.borderRadius = this.brHG+"px "+this.brHD+"px "+this.brBD+"px "+this.brBG+"px";
+    this.editingPlugin.css.borderRadius = this.brHG+"% "+this.brHD+"% "+this.brBD+"% "+this.brBG+"%";
   }
 
   chgBorderStyle(elementActive) {
