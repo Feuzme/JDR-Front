@@ -11,7 +11,7 @@ import {TableModule} from 'primeng/table';
 export class RechercheComponent implements OnInit {
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
-
+  selectedFrequence: string[] = ['fre1','fre2','fre3'];
 
   displayModalPartie: boolean;
   displayModalPlayer: boolean;

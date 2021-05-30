@@ -30,10 +30,12 @@
     border-bottom: 1px solid #F2A216;
 }
 
-.vDivider {
-    width: 80%;
-    height: 1px;
-    margin: 10px auto;
-    background: #434343;
-    border-bottom: 1px solid black;
+.maCard{
+    border-color:rgb(196,196,196);
+    background: #F8F8F8;
+    margin:0.5em;
+    padding:0.5em;
+    /*border-radius: 5%;*/
+    display:flex;
+    flex-direction: column;
 }
