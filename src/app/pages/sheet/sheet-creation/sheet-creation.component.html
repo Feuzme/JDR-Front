@@ -1,11 +1,16 @@
 <div class="p-grid">
     <div class="menuLeft p-col-2">
-        <app-creation-menu-left></app-creation-menu-left>
+        <app-creation-menu-left [plugins]="plugins"></app-creation-menu-left>
     </div>
     <div class="preview p-col-8">
-        <app-sheet-preview></app-sheet-preview>    
+        <app-sheet-preview (editingPlugin)='transferToEditMenu($event)' [choiceEditing]='choiceEditing'></app-sheet-preview>    
     </div>
     <div class="menuRight p-col-2">
-        <h1>Menu de Droite</h1>
+        <div class="infoHowTo" *ngIf="!displayEditingMenu">
+            <p-message severity="info" text="Pour éditer un composant, veuillez cliquer sur le bloc en question"></p-message>
+        </div>
+        <div *ngIf="displayEditingMenu">
+            <app-edition-menu-right [editingPlugin]='editingPlugin' (choiceEditing)='transferToGridster($event)'></app-edition-menu-right>
+        </div>
     </div>
 </div>

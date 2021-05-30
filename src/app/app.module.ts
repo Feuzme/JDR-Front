@@ -17,12 +17,16 @@ import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
 
+
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {SliderModule} from 'primeng/slider';
 import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
 import { SheetCardComponent } from './components/sheet/sheet-card/sheet-card.component';
 import { GridsterModule } from 'angular-gridster2';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
+
 import { RechercheComponent } from './pages/recherche/recherche.component';
 
 import {​AvatarModule}​ from 'primeng/avatar';
@@ -59,6 +63,9 @@ import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin
 import {ProgressBarModule} from 'primeng/progressbar';
 import { PluginComponent } from './components/sheet/plugin/plugin.component';
 import { NoSanitizePipe } from './util/nosanitizerpipe';
+import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
+import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
+import {MessageModule} from 'primeng/message';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -93,7 +100,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PluginCreationComponent,
     PluginPreviewComponent,
     PluginComponent,
-    NoSanitizePipe
+    NoSanitizePipe,
+	  PluginCardComponent,
+    EditionMenuRightComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +132,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SelectButtonModule,
     InputNumberModule,
     InputSwitchModule,
-    ProgressBarModule
+    ProgressBarModule,
+    ColorPickerModule,
+    SliderModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,8 @@
-<p>creation-menu-left works!</p>
+<div class="addItem">
+    <button (click)="getLayoutService().addItem()">AddItem</button>
+</div>
+<p-card header="Résultats">
+    <div *ngFor="let plugin of plugins">
+        <app-plugin-card [plugin]="plugin"></app-plugin-card>
+    </div>
+</p-card>
