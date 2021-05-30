@@ -42,7 +42,13 @@ export class LayoutService {
        rows: 1, 
        y: 1, 
        x: 1,
-       id: UUID.UUID()
+       id: UUID.UUID(), css:{       
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
+        }
       });
   }
 

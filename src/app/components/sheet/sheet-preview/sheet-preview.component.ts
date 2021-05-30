@@ -61,18 +61,18 @@ export class SheetPreviewComponent implements OnInit {
     
     this.layoutService.layout = [
       { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
-          backgroundColor:'rgb(128, 0, 128)',
-          borderRadius:'20% 20% 20% 20%',
-          borderWidth: '0px 12px 0px 0px',
-          borderStyle:'solid',
-          borderColor: 'rgb(100, 0, 0)'
+        backgroundColor:'',
+        borderRadius:'',
+        borderWidth: '',
+        borderStyle:'none',
+        borderColor: ''
         }
       },
       { cols: 2, rows: 1, y: 2, x: 2, id:2, css:{       
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
-        borderStyle:'',
+        borderStyle:'none',
         borderColor: ''
         }
       },
@@ -80,7 +80,7 @@ export class SheetPreviewComponent implements OnInit {
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
-        borderStyle:'',
+        borderStyle:'none',
         borderColor: ''
         }
       },
@@ -88,7 +88,7 @@ export class SheetPreviewComponent implements OnInit {
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
-        borderStyle:'',
+        borderStyle:'none',
         borderColor: ''
         }
       },
@@ -96,7 +96,7 @@ export class SheetPreviewComponent implements OnInit {
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
-        borderStyle:'',
+        borderStyle:'none',
         borderColor: ''
         }
       },
@@ -104,7 +104,7 @@ export class SheetPreviewComponent implements OnInit {
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
-        borderStyle:'',
+        borderStyle:'none',
         borderColor: ''
         }
       }];

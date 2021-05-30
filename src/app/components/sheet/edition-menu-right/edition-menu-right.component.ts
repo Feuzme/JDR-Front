@@ -63,7 +63,9 @@ export class EditionMenuRightComponent implements OnInit {
   }
 
   initBorderButton() {
-    if(this.editingPlugin.css.borderStyle != ''){
+    this.resetBorderStyleButton();
+    this.resetBorderPositionButton();
+    if(this.editingPlugin.css.borderStyle != ''){ 
       document.getElementById(this.editingPlugin.css.borderStyle + "Border").classList.add("borderActive");
     }else{
       document.getElementById("noneBorder").classList.add("borderActive");
@@ -78,6 +80,7 @@ export class EditionMenuRightComponent implements OnInit {
 
   // Fonction permettant d'initialiser la valeur de la taille de la bordure et sa position
   initBorderPositionAndSize(){
+    this.resetBorderPositionButton();
     let sizeBorder = 0;
     if(this.editingPlugin.css.borderWidth != ''){
       let tabTmp = this.editingPlugin.css.borderWidth.split("px");
@@ -164,29 +167,37 @@ export class EditionMenuRightComponent implements OnInit {
 
   chgBorderStyle(elementActive) {
     this.editingPlugin.css.borderStyle = elementActive;
+    this.resetBorderStyleButton();
+    document.getElementById(elementActive+"Border").className += " borderActive";
+  }
+
+  resetBorderStyleButton(){
     // Get the container element
     let btnContainer = document.getElementById("bStyles");
     // Get all buttons with class="btn" inside the container
     let anchors = btnContainer.getElementsByTagName("a");
     // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < anchors.length; i++) {
-        var current = document.getElementsByClassName("borderActive");
-        current[0].className = current[0].className.replace(" borderActive", "");
-        document.getElementById(elementActive+"Border").className += " borderActive";
+    for (var i = 0; i < anchors.length; i++) {       
+        anchors[i].className = anchors[i].className.replace(" borderActive", "");
+    }
+  }
+
+  resetBorderPositionButton(){
+    this.positionBorder = "all";
+    // Get the container element
+    let btnContainer = document.getElementById("bPosition");
+    console.log(btnContainer);
+    // Get all buttons with class="btn" inside the container
+    let anchors = btnContainer.getElementsByTagName("a");
+    // Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < anchors.length; i++) {       
+        anchors[i].className = anchors[i].className.replace(" borderPositionActive", "");
     }
   }
 
   chgBorderPosition(positionActive) {
-    // Get the container element
-    let btnContainer = document.getElementById("bPosition");
-    // Get all buttons with class="btn" inside the container
-    let anchors = btnContainer.getElementsByTagName("a");
-    // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < anchors.length; i++) {
-        var current = document.getElementsByClassName("borderPositionActive");
-        current[0].className = current[0].className.replace(" borderPositionActive", "");
-        document.getElementById(positionActive+"Border").className += " borderPositionActive";
-    }
+    this.resetBorderPositionButton();
+    document.getElementById(positionActive+"Border").className += " borderPositionActive";
     this.positionBorder = positionActive;
     this.chgBorderSize();
   }
