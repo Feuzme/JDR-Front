@@ -1,0 +1,41 @@
+.recherche{
+    border-color:rgb(196,196,196);
+    background: linear-gradient(white, rgb(196,196,196));
+    margin:1em;
+    padding:1em;
+    /*border-radius: 5%;*/
+    display:flex;
+    flex-direction: column;
+}
+.maPopup {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.button {
+    display:flex;
+    flex-direction: column;
+}
+
+.popIn{
+    display:flex;
+    flex-direction: row;
+    align-items:baseline;
+}
+.divider{
+    width: 80%;
+    height: 1px;
+    margin: 10px auto;
+    background: #F2A216;
+    border-bottom: 1px solid #F2A216;
+}
+
+.maCard{
+    border-color:rgb(196,196,196);
+    background: #F8F8F8;
+    margin:0.5em;
+    padding:0.5em;
+    /*border-radius: 5%;*/
+    display:flex;
+    flex-direction: column;
+}

@@ -8,6 +8,11 @@ import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-cr
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 
 const routes: Routes = [
+  {path:"signup",component: SignupComponent},
+  {path:"user", component: UserProfileComponent},
+  {path:"login", component: LoginComponent},
+  {path:"home", component: HomeComponent},
+  {path:"recherche", component:RechercheComponent},
   {path:"signup",component:SignupComponent},
   {path: "user", component: UserProfileComponent},
   {path:"login",component:LoginComponent},

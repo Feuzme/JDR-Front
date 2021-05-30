@@ -17,7 +17,26 @@ import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
 
+import { PasswordModule } from "primeng/password";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DividerModule } from "primeng/divider";
+import {InputTextModule} from 'primeng/inputtext';
+import { ButtonModule } from "primeng/button";
+import { CheckboxModule } from "primeng/checkbox";
+import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import {CarouselModule} from 'primeng/carousel';
+import {ToastModule} from 'primeng/toast';
+import { RechercheComponent } from './pages/recherche/recherche.component';
+import {TableModule} from 'primeng/table';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {TabViewModule} from 'primeng/tabview';
+import {DialogModule} from 'primeng/dialog';
+import {MultiSelectModule} from 'primeng/multiselect';
 
+
+
+@NgModule({
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {SliderModule} from 'primeng/slider';
 import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
@@ -83,6 +102,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UsersComponent,
     UserProfileComponent,
     UserCardComponent,
+    HomeComponent,
+    RechercheComponent
+    UserCardComponent,
     GameCardComponent,
     FriendListComponent,
     GameListComponent,
@@ -120,6 +142,18 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MenubarModule,
     FontAwesomeModule,
     OverlayPanelModule,
+    CarouselModule,
+    ToastModule,
+    HttpClientModule,
+    FormsModule,
+    TableModule,
+    SelectButtonModule,
+    TabViewModule,
+    DialogModule,
+    MultiSelectModule,
+  
+    
+
     AvatarModule,
     AvatarGroupModule,
     ScrollPanelModule,
