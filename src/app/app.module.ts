@@ -18,9 +18,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import listPlugin from '@fullcalendar/list';
 
 import { PasswordModule } from "primeng/password";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DividerModule } from "primeng/divider";
-import {InputTextModule} from 'primeng/inputtext';
 import { ButtonModule } from "primeng/button";
 import { CheckboxModule } from "primeng/checkbox";
 import { HomeComponent } from './pages/home/home.component';
@@ -31,12 +29,7 @@ import { RechercheComponent } from './pages/recherche/recherche.component';
 import {TableModule} from 'primeng/table';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {TabViewModule} from 'primeng/tabview';
-import {DialogModule} from 'primeng/dialog';
 import {MultiSelectModule} from 'primeng/multiselect';
-
-
-
-@NgModule({
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {SliderModule} from 'primeng/slider';
 import { SheetListComponent } from './components/user/sheet-list/sheet-list.component';
@@ -46,20 +39,14 @@ import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creat
 import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-preview.component';
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
 
-import { RechercheComponent } from './pages/recherche/recherche.component';
-
 import {​AvatarModule}​ from 'primeng/avatar';
 import {​AvatarGroupModule}​ from 'primeng/avatargroup';
-import {​ PasswordModule }​ from "primeng/password";
-import {​ DividerModule }​ from "primeng/divider";
 import {​InputTextModule}​ from 'primeng/inputtext';
-import {​ ButtonModule }​ from "primeng/button";
-import {​ CheckboxModule }​ from "primeng/checkbox";
 import {​ScrollPanelModule}​ from 'primeng/scrollpanel';
 import {DialogModule} from 'primeng/dialog';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
-import {SelectButtonModule} from 'primeng/selectbutton';
+
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
 
@@ -103,8 +90,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UserProfileComponent,
     UserCardComponent,
     HomeComponent,
-    RechercheComponent
-    UserCardComponent,
+    RechercheComponent,
     GameCardComponent,
     FriendListComponent,
     GameListComponent,
@@ -138,32 +124,25 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     InputTextModule,
     ButtonModule,
     CheckboxModule,
-    DividerModule,
     MenubarModule,
     FontAwesomeModule,
     OverlayPanelModule,
     CarouselModule,
     ToastModule,
     HttpClientModule,
-    FormsModule,
     TableModule,
     SelectButtonModule,
     TabViewModule,
     DialogModule,
     MultiSelectModule,
-  
-    
-
     AvatarModule,
     AvatarGroupModule,
     ScrollPanelModule,
     FullCalendarModule, // register FullCalendar with you app
     CascadeSelectModule,
     GridsterModule,
-    DialogModule,
     CalendarModule,
     DropdownModule,
-    SelectButtonModule,
     InputNumberModule,
     InputSwitchModule,
     ProgressBarModule,
