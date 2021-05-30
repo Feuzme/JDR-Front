@@ -4,6 +4,8 @@ import { LoginComponent } from './pages/account/login/login.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RechercheComponent } from './pages/recherche/recherche.component';
 import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 
