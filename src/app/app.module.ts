@@ -34,6 +34,7 @@ import {DialogModule} from 'primeng/dialog';
 import {MultiSelectModule} from 'primeng/multiselect';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
     SelectButtonModule,
     TabViewModule,
     DialogModule,
-    MultiSelectModule
+    MultiSelectModule,
+  
     
 
   ],

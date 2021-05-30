@@ -10,16 +10,25 @@ import {TableModule} from 'primeng/table';
 })
 export class RechercheComponent implements OnInit {
 
-  display: boolean = false;
-  displayModal: boolean;
+  selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
 
-  showDialog() {
-      this.display = true;
-  }
-  
+
+  displayModalPartie: boolean;
+  displayModalPlayer: boolean;
+  displayModalFiche: boolean;
+
   showModalDialog=()=>{
-    this.displayModal = true;
+    this.displayModalFiche = true;
   }
+
+  showModalDialogPartie=()=>{
+    this.displayModalPartie = true;
+  }
+
+  showModalDialogPlayer=()=>{
+    this.displayModalPlayer = true;
+  }
+
 
   selectedPlayers: string[] = [];
   player = [
@@ -58,6 +67,18 @@ export class RechercheComponent implements OnInit {
     { nom: "FicheA5020",jeu:"D20",auteur:"D20",detail:"Détails"  },
     { nom: "FicheLuna2Riv",jeu:"DONJON £ DRAGON",auteur:"Gérard2Riv",detail:"Détails" }
   ]
+
+  selectedTrie: string[] = [];
+  trie= [
+    { nom: "Pertinence"},
+    { nom: "Le plus ancier" },
+    { nom: "Le plus recent" },
+    { nom: "Le meilleur classement" },
+
+  ]
+
+
+
   loading: boolean;
   totalRecords: number;
 

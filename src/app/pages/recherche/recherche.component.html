@@ -1,6 +1,6 @@
 <div class="recherche">
 
-    <button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+    
 
 <p-tabView>
     <p-tabPanel header="Fiches">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="p-col-8">
                         <div class="button">
-                            <button pButton (click)="showModalDialog()" stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
+                            <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
                         </div>
                     </div>
                   
@@ -43,6 +43,10 @@
             </ng-template>
         </p-table>
     </p-tabPanel>
+
+
+
+
     <p-tabPanel header="Parties">
         <p-table [value]="partie" styleClass="p-datatable-gridlines">
 
@@ -51,12 +55,12 @@
                 <div class="p-grid">
                     <div class="p-col-4">
                         <div class="button">
-                            <button pButton (click)="showModalDialog()" type="button" label="Parametres recherche avancé " class="p-button-text"></button>
+                            <button pButton (click)="showModalDialogPartie()" type="button" label="Parametres recherche avancé " class="p-button-text"></button>
                         </div>
                     </div>
                     <div class="p-col-8">
                         <div class="button">
-                            <button pButton (click)="showModalDialog()" stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
+                            <button pButton  stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
                         </div>
                     </div>
                   
@@ -85,6 +89,10 @@
             </ng-template>
         </p-table>
     </p-tabPanel>
+    
+    
+    
+    
     <p-tabPanel header="Joueur">
         <p-table [value]="player" styleClass="p-datatable-gridlines">
 
@@ -92,12 +100,12 @@
                 <div class="p-grid">
                     <div class="p-col-4">
                         <div class="button">
-                            <button pButton (click)="showModalDialog()" type="button" label="Parametres recherche avancé " class="p-button-text"></button>
+                            <button pButton (click)="showModalDialogPlayer()" type="button" label="Parametres recherche avancé " class="p-button-text"></button>
                         </div>
                     </div>
                     <div class="p-col-8">
                         <div class="button">
-                            <button pButton (click)="showModalDialog()" stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
+                            <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text"></button>
                         </div>
                     </div>
                   
@@ -133,8 +141,8 @@
 
 
 
-<!--Modal pour ajouter une disponibilité-->
-<p-dialog header="" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<!--popup pour une fiche  -->
+<p-dialog header="" [(visible)]="displayModalFiche" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
 [draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
     <div id="maPopup">
         <h5>Trouver des joueurs qui recherchent un de ces jeux :</h5>
@@ -158,10 +166,7 @@
 </p-multiSelect>
            
         </div>
-
-
-
-        <h5>Membres depuis :</h5>
+       <h5>Membres depuis :</h5>
         <div class="popIn">
             
             <p-multiSelect [options]="player" [(ngModel)]="selectedPlayers" defaultLabel="Select a Country" optionLabel="name"
@@ -187,6 +192,273 @@
 
 
     <ng-template pTemplate="footer">
+        <button pButton type="button" (click)="displayModal=false" label="Valider" class="p-button-raised p-button-rounded p-button-success"></button>
+        <button pButton type="button" (click)="displayModal=false" label="Annuler" class="p-button-raised p-button-rounded p-button-danger"></button>
+      
+    </ng-template>
+</p-dialog>
+
+
+
+<!--popup pour player  -->
+<p-dialog header="" [(visible)]="displayModalPlayer" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
+    <div id="maPopup">
+        <h5>Trouver des joueurs qui recherchent un de ces jeux :</h5>
+        <div class="popIn">
+            
+<p-multiSelect [options]="partie" [(ngModel)]="selectedFiches" defaultLabel="Select a Country" optionLabel="name"
+	class="multiselect-custom">
+	<ng-template let-partie pTemplate="selectedItems">
+		<div class="country-item country-item-value" *ngFor="let option of selectedFiches">
+			<div>{{partie.nom}}</div>
+		</div>
+		<div *ngIf="!selectedFiches || selectedFiches.length === 0" class="country-placeholder">
+			Selectionner par jeu
+		</div>
+	</ng-template>
+	<ng-template let-partie pTemplate="item">
+		<div class="country-item">
+			<div>{{partie.nom}}</div>
+		</div>
+	</ng-template>
+</p-multiSelect>
+           
+        </div>
+       <h5>Membres depuis :</h5>
+        <div class="popIn">
+            
+            <p-multiSelect [options]="player" [(ngModel)]="selectedPlayers" defaultLabel="Select a Country" optionLabel="name"
+                class="multiselect-custom">
+                <ng-template let-player pTemplate="selectedItems">
+                    <div class="country-item country-item-value" *ngFor="let option of selectedPlayers">
+                        <div>{{player.annee}}</div>
+                    </div>
+                    <div *ngIf="!selectedPlayers || selectedPlayers.length === 0" class="country-placeholder">
+                        Selectionner par jeu
+                    </div>
+                </ng-template>
+                <ng-template let-player pTemplate="item">
+                    <div class="country-item">
+                        <div>{{player.annee}}</div>
+                    </div>
+                </ng-template>
+            </p-multiSelect>
+                       
+                    </div>
+
+    </div>
+
+   <ng-template pTemplate="footer">
+        <button pButton type="button" (click)="displayModal=false" label="Valider" class="p-button-raised p-button-rounded p-button-success"></button>
+        <button pButton type="button" (click)="displayModal=false" label="Annuler" class="p-button-raised p-button-rounded p-button-danger"></button>
+      
+    </ng-template>
+</p-dialog>
+
+
+
+
+<!--popup pour une fiche  -->
+<p-dialog header="" [(visible)]="displayModalFiche" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
+
+    <div id="maPopup">
+        <h5>Contient un de ces jeux :</h5>
+        <div class="popIn">
+<p-multiSelect [options]="partie" [(ngModel)]="selectedFiches" defaultLabel="Select a Country" optionLabel="name"
+	class="multiselect-custom">
+	<ng-template let-partie pTemplate="selectedItems">
+		<div class="country-item country-item-value" *ngFor="let option of selectedFiches">
+			<div>{{partie.nom}}</div>
+		</div>
+		<div *ngIf="!selectedFiches || selectedFiches.length === 0" class="country-placeholder">
+			Selectionner par jeu
+		</div>
+	</ng-template>
+	<ng-template let-partie pTemplate="item">
+		<div class="country-item">
+			<div>{{partie.nom}}</div>
+		</div>
+	</ng-template>
+</p-multiSelect>
+    </div>
+     
+    <div>
+        <div class="divider">
+            <p-divider></p-divider>
+        </div>
+    </div>
+       <h5>Trier par :</h5>
+ 
+        <div class="popIn">
+            <p-multiSelect [options]="trie" [(ngModel)]="selectedTrie" defaultLabel="Select a Country" optionLabel="name"
+                class="multiselect-custom">
+                <ng-template let-trie pTemplate="selectedItems">
+                    <div class="country-item country-item-value" *ngFor="let option of selectedTrie">
+                        <div>{{trie.nom}}</div>
+                    </div>
+                    <div *ngIf="!selectedTrie || selectedTrie.length === 0" class="country-placeholder">
+                        Trier
+                    </div>
+                </ng-template>
+                <ng-template let-player pTemplate="item">
+                    <div class="country-item">
+                        <div>{{trie.nom}}</div>
+                    </div>
+                </ng-template>
+            </p-multiSelect>
+        </div>
+</div>
+
+
+    <ng-template pTemplate="footer">
+        <button pButton type="button" (click)="displayModal=false" label="Valider" class="p-button-raised p-button-rounded p-button-success"></button>
+        <button pButton type="button" (click)="displayModal=false" label="Annuler" class="p-button-raised p-button-rounded p-button-danger"></button>
+      
+    </ng-template>
+</p-dialog>
+
+
+
+<!-- popup pour partie  -->
+<p-dialog header="" [(visible)]="displayModalPartie" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
+
+
+<div id="maPopup">
+        <h5>Jouant à l’un de ces jeux: </h5>
+        <div class="popIn">
+            
+<p-multiSelect [options]="partie" [(ngModel)]="selectedFiches" defaultLabel="Select a Country" optionLabel="name"
+	class="multiselect-custom">
+	<ng-template let-partie pTemplate="selectedItems">
+		<div class="country-item country-item-value" *ngFor="let option of selectedFiches">
+			<div>{{partie.nom}}</div>
+		</div>
+		<div *ngIf="!selectedFiches || selectedFiches.length === 0" class="country-placeholder">
+			Selectionner par jeu
+		</div>
+	</ng-template>
+	<ng-template let-partie pTemplate="item">
+		<div class="country-item">
+			<div>{{partie.nom}}</div>
+		</div>
+	</ng-template>
+</p-multiSelect>
+        </div>
+      
+
+        <div class="divider">
+            <p-divider></p-divider>
+        </div>
+
+        <h5>L’un des jours suivants :</h5>
+        <div class="popIn">
+            
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val1" [(ngModel)]="selectedValues" inputId="val1"></p-checkbox>
+                <label for="val1">Dimanche</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val2" [(ngModel)]="selectedValues" inputId="val2"></p-checkbox>
+                <label for="val2">Lundi</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val3" [(ngModel)]="selectedValues" inputId="val3"></p-checkbox>
+                <label for="val3">Mardi</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val4" [(ngModel)]="selectedValues" inputId="val4"></p-checkbox>
+                <label for="val4">Mercredi</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val5" [(ngModel)]="selectedValues" inputId="val5"></p-checkbox>
+                <label for="val5">Jeudi</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val6" [(ngModel)]="selectedValues" inputId="val6"></p-checkbox>
+                <label for="val6">Vendredi</label>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="val7" [(ngModel)]="selectedValues" inputId="val7"></p-checkbox>
+                <label for="val7">Samedi</label>
+            </div>
+         </div>
+
+</div>
+
+   <ng-template pTemplate="footer">
+        <button pButton type="button" (click)="displayModal=false" label="Valider" class="p-button-raised p-button-rounded p-button-success"></button>
+        <button pButton type="button" (click)="displayModal=false" label="Annuler" class="p-button-raised p-button-rounded p-button-danger"></button>
+      
+    </ng-template>
+</p-dialog>
+
+
+
+<!-- popup pour player  -->
+<p-dialog header="" [(visible)]="displayModalPlayer" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+[draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
+
+
+<div id="maPopup">
+        <h5>Jouant à l’un de ces jeux: </h5>
+        <div class="popIn">
+            
+<p-multiSelect [options]="partie" [(ngModel)]="selectedFiches" defaultLabel="Select a Country" optionLabel="name"
+	class="multiselect-custom">
+	<ng-template let-partie pTemplate="selectedItems">
+		<div class="country-item country-item-value" *ngFor="let option of selectedFiches">
+			<div>{{partie.nom}}</div>
+		</div>
+		<div *ngIf="!selectedFiches || selectedFiches.length === 0" class="country-placeholder">
+			Selectionner par jeu
+		</div>
+	</ng-template>
+	<ng-template let-partie pTemplate="item">
+		<div class="country-item">
+			<div>{{partie.nom}}</div>
+		</div>
+	</ng-template>
+</p-multiSelect>
+        </div>
+      
+
+        <div class="divider">
+            <p-divider></p-divider>
+        </div>
+
+
+        <h5>Membres depuis :</h5>
+ 
+        <div class="popIn">
+            <p-multiSelect [options]="player" [(ngModel)]="selectedPlayers" defaultLabel="Select a Country" optionLabel="name"
+                class="multiselect-custom">
+                <ng-template let-player pTemplate="selectedItems">
+                    <div class="country-item country-item-value" *ngFor="let option of selectedPlayers">
+                        <div>{{player.annee}}</div>
+                    </div>
+                    <div *ngIf="!selectedPlayers || selectedPlayers.length === 0" class="country-placeholder">
+                        Selectionner par jeu
+                    </div>
+                </ng-template>
+                <ng-template let-player pTemplate="item">
+                    <div class="country-item">
+                        <div>{{player.annee}}</div>
+                    </div>
+                </ng-template>
+            </p-multiSelect>
+        </div>
+
+        
+
+
+
+
+</div>
+
+   <ng-template pTemplate="footer">
         <button pButton type="button" (click)="displayModal=false" label="Valider" class="p-button-raised p-button-rounded p-button-success"></button>
         <button pButton type="button" (click)="displayModal=false" label="Annuler" class="p-button-raised p-button-rounded p-button-danger"></button>
       

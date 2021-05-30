@@ -22,3 +22,18 @@
     flex-direction: row;
     align-items:baseline;
 }
+.divider{
+    width: 80%;
+    height: 1px;
+    margin: 10px auto;
+    background: #F2A216;
+    border-bottom: 1px solid #F2A216;
+}
+
+.vDivider {
+    width: 80%;
+    height: 1px;
+    margin: 10px auto;
+    background: #434343;
+    border-bottom: 1px solid black;
+}
