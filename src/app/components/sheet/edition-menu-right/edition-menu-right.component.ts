@@ -9,7 +9,7 @@ import { GridsterItem } from 'angular-gridster2';
 export class EditionMenuRightComponent implements OnInit {
 
   @Input('editingPlugin') editingPlugin: GridsterItem;
-  @Output() editedPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
+  @Output() choiceEditing: EventEmitter<any> = new EventEmitter<any>();
 
   //Border Radius par coin (brHD = border radius Haut droite etc...)
   brHD: number = 0;
@@ -192,7 +192,11 @@ export class EditionMenuRightComponent implements OnInit {
   }
 
   save() {
-    this.editedPlugin.emit(this.editingPlugin);
+    this.choiceEditing.emit({choice:'save',id:this.editingPlugin.id});
+  }
+
+  delete(){
+    this.choiceEditing.emit({choice:'delete',id:this.editingPlugin.id});
   }
 
 }

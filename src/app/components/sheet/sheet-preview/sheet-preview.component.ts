@@ -10,7 +10,7 @@ export class SheetPreviewComponent implements OnInit {
 
   @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
 
-  @Input('editedPlugin') editedPlugin : GridsterItem;
+  @Input('choiceEditing') choiceEditing : any;
 
   get options(): GridsterConfig {
     return this.layoutService.options
@@ -111,10 +111,9 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void{
-    console.log(this.editedPlugin);
-    let item = this.layoutService.layout.find(d => d.id === this.editedPlugin.id);
-    this.layoutService.layout[this.layoutService.layout.indexOf(item)] = this.editedPlugin;
-    //console.log(this.layoutService.layout);
+    if(this.choiceEditing != null && this.choiceEditing.choice=='delete'){
+      this.getLayoutService().removeItem(this.choiceEditing.id);
+    }
   }
 
   // changedOptions() {

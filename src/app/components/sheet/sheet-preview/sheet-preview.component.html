@@ -5,7 +5,6 @@
     <gridster [options]="options">
         <gridster-item id="gridster{{index}}" [ngStyle] ="getLayoutService().getStyles(item)"  [item]="item" *ngFor="let item of dashboard; let index = index"
         (click)="editPlugin(item)">
-            <button (click)="getLayoutService().removeItem(item.id)">Delete</button>
         </gridster-item>
     </gridster>
 </div>

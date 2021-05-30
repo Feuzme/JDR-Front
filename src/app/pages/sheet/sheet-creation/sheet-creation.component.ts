@@ -11,7 +11,7 @@ export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
 
   editingPlugin : GridsterItem;
-  editedPlugin : GridsterItem;
+  choiceEditing : any;
 
   displayEditingMenu: boolean = false;
 
@@ -77,8 +77,8 @@ export class SheetCreationComponent implements OnInit {
     this.displayEditingMenu = true;
   }
 
-  transferToGridster($event: GridsterItem){
-    this.editedPlugin = $event;
+  transferToGridster($event: any){
+    this.choiceEditing = $event;
     this.displayEditingMenu = false;
   }
 }
