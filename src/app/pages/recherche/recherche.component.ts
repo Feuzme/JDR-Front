@@ -11,11 +11,17 @@ import {TableModule} from 'primeng/table';
 export class RechercheComponent implements OnInit {
 
   display: boolean = false;
+  displayModal: boolean;
 
   showDialog() {
       this.display = true;
   }
   
+  showModalDialog=()=>{
+    this.displayModal = true;
+  }
+
+  selectedPlayers: string[] = [];
   player = [
     { nom: "Smaug", annee:"2017", partie:"A Song of Ice and Fire", bio:"Détails" },
     { nom: "Kart-man59",annee:"2018",partie:"13th Age RPG",bio:"Détails"   },
@@ -38,6 +44,10 @@ export class RechercheComponent implements OnInit {
     { nom: "Night Watch",place:"4",partie:"Tuesday June 01 5:45AM",detail:"Détails"  },
     { nom: "Methods of madness",place:"1",partie:"Friday June 04 8:30PM",detail:"Détails"   }
   ]
+
+  
+  selectedFiches: string[] = [];
+ 
 
   fiche = [
     { nom: "FicheSmaug",jeu:"JDR Warcraft",auteur:"Smaug",detail:"Détails" },

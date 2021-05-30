@@ -31,6 +31,7 @@ import {TableModule} from 'primeng/table';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {TabViewModule} from 'primeng/tabview';
 import {DialogModule} from 'primeng/dialog';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import {DialogModule} from 'primeng/dialog';
     TableModule,
     SelectButtonModule,
     TabViewModule,
-    DialogModule
+    DialogModule,
+    MultiSelectModule
     
 
   ],

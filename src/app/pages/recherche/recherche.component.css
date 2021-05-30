@@ -7,8 +7,18 @@
     display:flex;
     flex-direction: column;
 }
-#maPopup {
+.maPopup {
     display:flex;
     flex-direction:column;
     align-items: center;
+}
+.button {
+    display:flex;
+    flex-direction: column;
+}
+
+.popIn{
+    display:flex;
+    flex-direction: row;
+    align-items:baseline;
 }
