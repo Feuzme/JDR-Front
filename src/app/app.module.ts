@@ -46,6 +46,7 @@ import { SheetPreviewComponent } from './components/sheet/sheet-preview/sheet-pr
 import { CreationMenuLeftComponent } from './components/sheet/creation-menu-left/creation-menu-left.component';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
+import {MessageModule} from 'primeng/message';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -101,7 +102,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CascadeSelectModule,
     GridsterModule,
     ColorPickerModule,
-    SliderModule
+    SliderModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

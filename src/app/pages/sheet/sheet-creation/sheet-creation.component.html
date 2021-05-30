@@ -5,7 +5,12 @@
     <div class="preview p-col-8">
         <app-sheet-preview (editingPlugin)='transferToEditMenu($event)' [editedPlugin]='editedPlugin'></app-sheet-preview>    
     </div>
-    <div class="menuRight p-col-2" *ngIf="displayEditingMenu">
-        <app-edition-menu-right [editingPlugin]='editingPlugin' (editedPlugin)='transferToGridster($event)'></app-edition-menu-right>
+    <div class="menuRight p-col-2">
+        <div class="infoHowTo" *ngIf="!displayEditingMenu">
+            <p-message severity="info" text="Pour éditer un composant, veuillez cliquer sur le bloc en question"></p-message>
+        </div>
+        <div *ngIf="displayEditingMenu">
+            <app-edition-menu-right [editingPlugin]='editingPlugin' (editedPlugin)='transferToGridster($event)'></app-edition-menu-right>
+        </div>
     </div>
 </div>
