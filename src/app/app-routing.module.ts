@@ -20,7 +20,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"calendar",component:AgendaComponent},
   {path:"sheet-creation",component:SheetCreationComponent},
-  {path:"plugin-creation", component:PluginCreationComponent}
+  {path:"plugin-creation", component:PluginCreationComponent},
+  {path: "", redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
