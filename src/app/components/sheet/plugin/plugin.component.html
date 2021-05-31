@@ -15,6 +15,7 @@
 <div class="p-grid">
     <div *ngFor="let info of infos; let i=index" [ngClass]="info.columnSize">
         <!-- <div [ngClass] = "info.balise" [value]="40"> -->
+        <!-- <div [innerHtml]="info.balise | noSanitize"> -->
         <div>
             <p-progressBar [value]="value"></p-progressBar>
         </div>

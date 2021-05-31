@@ -20,8 +20,8 @@ export class PluginComponent implements OnInit {
 
 
   
-  // bar: string = '<p-progressBar class="p-progressbar p-progressbar-value" [value]="value"></p-progressBar>';
-  bar: string = 'p-progressbar p-progressbar-value';
+  bar: string = '<p-progressBar></p-progressBar>';
+  // bar: string = 'p-progressbar p-progressbar-value';
 
   constructor() {
     this.inputValue = new FormGroup({
