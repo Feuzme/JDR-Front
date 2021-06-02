@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output,  } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { IComponent, LayoutService } from '../../services/sheet/layout.service';
+import { IComponent, LayoutService } from '../../../services/sheet/layout.service';
 
 
 @Component({

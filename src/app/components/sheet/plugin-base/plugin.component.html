@@ -5,22 +5,15 @@
 
 <!-- <input type="number" [(ngModel)]="onSubmittedValue"> -->
 <form [formGroup]="inputValue" (ngSubmit)="getValue()">
-    <label>Choix de la taille de column (entre 0 et 12) : 
+    <label>Choix de la taille de column (entre 0 et 12) :
         <input type="number" formControlName="size">
     </label>
 </form>
 
- 
+
 
 <div class="p-grid">
-    <div *ngFor="let info of infos; let i=index" [ngClass]="info.columnSize">
-        <!-- <div [ngClass] = "info.balise" [value]="40"> -->
-        <!-- <div [innerHtml]="info.balise | noSanitize"> -->
-        <div>
-            <p-progressBar [value]="value"></p-progressBar>
-        </div>
+    <div *ngFor="let basePlugin of basePlugins; let i=index" class="progressBar" [ngClass]="basePlugin.columnSize">
+        <ng-container *ngComponentOutlet="defaultComponent"></ng-container>
     </div>
 </div>
-
-
-
