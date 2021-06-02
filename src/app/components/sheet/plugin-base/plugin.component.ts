@@ -30,10 +30,8 @@ export class PluginComponent implements OnInit {
   addBar() {
     this.defaultComponent = ProgressBarComponent;
     let columnSize: string = this.currentColumn(this.getValue());
-    console.log(this.currentColumn(this.getValue()));
     let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", this.defaultComponent, columnSize);
     this.basePlugins.push(basePlugin);
-    console.log(this.basePlugins)
   }
 
   addText() {
