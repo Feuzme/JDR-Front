@@ -72,6 +72,10 @@ import { NoSanitizePipe } from './util/nosanitizerpipe';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
 import {MessageModule} from 'primeng/message';
+import { GameInfoComponent } from './components/game/game-info/game-info.component';
+import { ListSummaryComponent } from './components/game/list-summary/list-summary.component';
+import { GameInfoBottomComponent } from './components/game/game-info-bottom/game-info-bottom.component';
+import { GameComponent } from './pages/game/game/game.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -110,8 +114,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PluginComponent,
     NoSanitizePipe,
 	  PluginCardComponent,
-    EditionMenuRightComponent
-
+    EditionMenuRightComponent,
+    GameInfoComponent,
+    ListSummaryComponent,
+    GameInfoBottomComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
