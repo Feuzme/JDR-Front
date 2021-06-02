@@ -1,89 +1,80 @@
-<div class="home">
-    <div class="maCard">
-    <p-card header>
-        <div class="haut">
-            <h3>Mes parties</h3>
-            <h3><a href="http://"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h3>
-            <h3><a href="http://"><i class="pi pi-plus " style="font-size: 1rem"></i></a></h3>
-        </div>
-    </p-card>
+<div class="p-grid titleSection">
+    <div class="p-col-4">
+        <h2>Mes parties  <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
+    </div>
+</div>
+<div class="maCard">
     <p-card>
-    <div class="p-grid">
-        <div class="p-col-2">
-            <div class="box">
-                <div class="lien">
-                    <a href=""><i class="pi pi-plus " style="font-size: 5rem"></i></a>
+        <div class="p-grid">
+            <div class="p-col-2">
+                <div class="box">
+                    <div class="lien">
+                        <a class="newEntity" (click)="newGame()"><i class="pi pi-plus" style="font-size: 5rem"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-col-10">
+                <div class="box">
+                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                        <ng-template let-jeu pTemplate="item">
+                            <div class="">
+                                <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
+                            </div>
+                        </ng-template>
+                    </p-carousel>
                 </div>
             </div>
         </div>
-        <div class="p-col-10">
-            <div class="box">
-                <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
-                    <ng-template let-jeu pTemplate="item">
-                        <div class="">
-                            <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
-                        </div>
-                    </ng-template>
-                </p-carousel>
-            </div>
-        </div>
-    </div>
     </p-card>
+</div>
+<div class="p-grid titleSection">
+    <div class="p-col-4">
+        <h2>Mes fiches <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
     </div>
-    <div class="maCard">
-    <p-card header="">
-        <div class="haut">
-            <h3>Mes fiches disponible</h3>
-            <h3><a href="http://"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h3>
-            <h3><a href="http://"><i class="pi pi-plus " style="font-size: 1rem"></i></a></h3>
-        </div>
-    </p-card>
+</div>
+<div class="maCard">
     <p-card>
-    <div class="p-grid">
-        <div class="p-col-2">
-            <div class="box">
-                <div class="lien">
-                    <a href=""><i class="pi pi-plus " style="font-size: 5rem"></i></a>
+        <div class="p-grid">
+            <div class="p-col-2">
+                <div class="box">
+                    <div class="lien">
+                        <a class="newEntity" (click)="newSheet()"><i class="pi pi-plus " style="font-size: 5rem"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-col-10">
+                <div class="box">
+                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                        <ng-template let-jeu pTemplate="item">
+                            <div class="">
+                                <img class="image" src="../../../assets/images/{{jeu.fiche}} " alt="">
+                            </div>
+                        </ng-template>
+                    </p-carousel>
                 </div>
             </div>
         </div>
-        <div class="p-col-10">
-            <div class="box">
-                <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
-                    <ng-template let-jeu pTemplate="item">
-                        <div class="">
-                            <img class="image" src="../../../assets/images/{{jeu.fiche}} " alt="">
-                        </div>
-                    </ng-template>
-                </p-carousel>
-            </div>
-        </div>
-    </div>
     </p-card>
+</div>
+<div class="p-grid titleSection">
+    <div class="p-col-4">
+        <h2>Les parties disponibles <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
     </div>
-    <div class="maCard">
-
-    <p-card header="">
-        <div class="haut">
-            <h3>Les parties disponible</h3>
-            <h3><a href="http://"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h3>
-            <h3><a href="http://"><i class="pi pi-plus " style="font-size: 1rem"></i></a></h3>
-        </div>
-    </p-card>
+</div>
+<div class="maCard">
     <p-card>
-    <div class="p-grid">
-        <div class="p-col-12">
-            <div class="box">
-                <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
-                    <ng-template let-jeu pTemplate="item">
-                        <div class="">
-                            <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
-                        </div>
-                    </ng-template>
-                </p-carousel>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="box">
+                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                        <ng-template let-jeu pTemplate="item">
+                            <div class="">
+                                <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
             </div>
         </div>
-    </div>
     </p-card>
-    </div>
 </div>
