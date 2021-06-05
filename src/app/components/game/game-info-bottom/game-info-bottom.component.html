@@ -1,13 +1,10 @@
 <div class="p-grid">
-    <div class="p-col-4">
-        <div class="box">
-            <app-list-summary></app-list-summary>
-        </div>
+    <div class="p-col-6 resume">
+        <app-list-players [showLegend]="false"></app-list-players>
+        <button pButton pRipple type="button" label="Inviter des joueurs" class="p-button-primary"></button>  
     </div>
-    <div class="p-col-8">
-        <div class="box">
-            <app-list-players></app-list-players>
-        </div>
+    <div class="p-col-6">
+        <app-list-summary></app-list-summary>
     </div>
 </div>
 
