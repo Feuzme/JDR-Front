@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListPlayerComponent implements OnInit {
 
+  @Input() showLegend;
   @Input() mj;
   @Input() player;
   @Input() index;

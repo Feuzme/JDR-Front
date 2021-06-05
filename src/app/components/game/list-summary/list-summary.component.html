@@ -1,1 +1,26 @@
-<p>list-summary works!</p>
+<div class="containerResume">
+    <div class="listResume">
+        <h2>Liste des résumés</h2>
+        <div class="titreResume">
+            <div class="p-grid">
+                <div class="p-col-2 navigateResume navig">
+                    <i class="pi pi-angle-double-left" style="font-size: 1.5rem"></i>
+                </div>
+                <div class="p-col-2 navigateResume">
+                    <i class="pi pi-chevron-left" style="font-size: 1rem"></i>
+                </div>
+                <div class="p-col-4">
+                    <h3>Episode 1</h3>
+                </div>
+                <div class="p-col-2 navigateResume navig">
+                    <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+                </div>
+                <div class="p-col-2 navigateResume">
+                    <i class="pi pi-angle-double-right" style="font-size: 1.5rem"></i>
+                </div>
+            </div>
+        </div>
+        <textarea id="resume" [rows]="10" [cols]="60" pInputTextarea autoResize="autoResize"></textarea> 
+    </div>
+    <button pButton pRipple type="button" label="Enregistrer" class="p-button-warning"></button>    
+</div>

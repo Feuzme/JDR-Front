@@ -49,6 +49,7 @@ import {DropdownModule} from 'primeng/dropdown';
 
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import {​ NavbarComponent }​ from './nav-bar/navbar/navbar.component';
 import {​ LoginComponent }​ from './pages/account/login/login.component';
@@ -156,7 +157,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ProgressBarModule,
     ColorPickerModule,
     SliderModule,
-    MessageModule
+    MessageModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
