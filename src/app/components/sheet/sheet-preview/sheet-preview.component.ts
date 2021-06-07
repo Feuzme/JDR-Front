@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import {   GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { LayoutService, IComponent } from '../../services/sheet/layout.service'
+import { LayoutService, IComponent } from '../../../services/sheet/layout.service'
 @Component({
   selector: 'app-sheet-preview',
   templateUrl: './sheet-preview.component.html',

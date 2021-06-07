@@ -68,7 +68,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
 import {ProgressBarModule} from 'primeng/progressbar';
-import { PluginComponent } from './components/sheet/plugin/plugin.component';
+import { PluginComponent } from './components/sheet/plugin-base/plugin.component';
 import { NoSanitizePipe } from './util/nosanitizerpipe';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
@@ -78,6 +78,7 @@ import { ListSummaryComponent } from './components/game/list-summary/list-summar
 import { GameInfoBottomComponent } from './components/game/game-info-bottom/game-info-bottom.component';
 import { GameComponent } from './pages/game/game/game.component';
 import { UserComponent } from './components/user/user/user.component';
+import { ProgressBarComponent } from './components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -121,7 +122,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ListSummaryComponent,
     GameInfoBottomComponent,
     GameComponent,
-    UserComponent
+    UserComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

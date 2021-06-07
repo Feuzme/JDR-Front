@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LayoutService } from '../../services/sheet/layout.service';
+import { LayoutService } from '../../../services/sheet/layout.service';
 
 @Component({
   selector: 'app-plugin-card',
