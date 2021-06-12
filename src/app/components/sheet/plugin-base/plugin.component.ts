@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
 import { ProgressBarComponent } from './default-components/progress-bar/progress-bar.component';
 
 @Component({
@@ -18,26 +19,44 @@ export class PluginComponent implements OnInit {
 
   ];
 
-  constructor() {
+  constructor(private service : BasePluginService) {
     this.inputValue = new FormGroup({
       size : new FormControl()
     });
    }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe(data => {
+      this.basePlugins = data;
+      Object.values(data).forEach(basePlugin => {
+        basePlugin.config.composant = this.currentComposant(basePlugin);
+      });
+      
+    })
+  }
+
+  currentComposant(basePlugin : BasePlugIn) {
+    if (basePlugin.config.composant == "progressBar") {
+      return ProgressBarComponent;
+    }
   }
 
   addBar() {
     this.defaultComponent = ProgressBarComponent;
-    let columnSize: string = this.currentColumn(this.getValue());
-    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", this.defaultComponent, columnSize);
+    let columnSize: string = this.currentColumn(this.getSizeValue());
+    let config : any = {size: columnSize, composant: "progressBar"};
+    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", {size: columnSize, composant: this.defaultComponent});
+    let basePluginBody: any = {nom: "Bar", config: config};
     this.basePlugins.push(basePlugin);
+    this.service.create(basePluginBody).subscribe(basePluginBody => {
+      
+    });
   }
 
   addText() {
   }
 
-  getValue() {
+  getSizeValue() {
     this.inputValue.patchValue({
       size : this.inputValue.get("size").value
     })

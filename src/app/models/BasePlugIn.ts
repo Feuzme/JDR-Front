@@ -1,13 +1,11 @@
 export class BasePlugIn {
 
     private _nom: string;
-    private _balise: any;
-    private _columnSize: string;
+    private _config: any;
 
-    constructor(nom:string, balise: any, columnSize: string) {
+    constructor(nom:string, config: any) {
         this._nom = nom;
-        this._balise = balise;
-        this._columnSize = columnSize;
+        this._config = config;
     }
     
     public get nom(): string {
@@ -18,19 +16,11 @@ export class BasePlugIn {
         this._nom = value;
     }
 
-    public get balise(): any {
-        return this._balise;
+    public get config(): any {
+        return this._config;
     }
 
-    public set balise(value: any) {
-        this._balise = value;
-    }
-
-    public get columnSize(): string {
-        return this._columnSize;
-    }
-
-    public set columnSize(value: string) {
-        this._columnSize = value;
+    public set config(value: any) {
+        this._config = value;
     }
 }
