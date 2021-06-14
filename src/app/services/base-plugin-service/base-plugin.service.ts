@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ProgressBarComponent } from 'src/app/components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 
 @Injectable({
@@ -10,7 +12,11 @@ export class BasePluginService {
 
   public basePlugins: BasePlugIn[] = [];
 
-  constructor(private http : HttpClient) { }
+  public defaultComponent: any;
+
+  // inputValue : FormGroup;
+
+  constructor(private http : HttpClient, private router : Router) { }
 
   getAll = () : Observable<BasePlugIn[]> => {
     return this.http.get<BasePlugIn[]>("http://localhost:8080/base_plugins"); 
@@ -32,7 +38,25 @@ export class BasePluginService {
     return this.http.request<BasePlugIn>('delete', `http://localhost:8080/base_plugins`, { body : basePlugin});
   }
 
-  addBasePlugin(basePlugin: BasePlugIn) {
+  addItem(plugin: BasePlugIn) {
+    let basePlugin: BasePlugIn = plugin;
+    basePlugin.config.size = "p-col-2";
+    let columnSize: string = "p-col-2";//this.currentColumn(this.getSizeValue());
+    let config : any = {size: columnSize, composant: "progressBar"};
+    let basePluginBody: any = {nom: "Bar", config: config};
     this.basePlugins.push(basePlugin);
+    this.create(basePluginBody).subscribe(basePluginBody => {
+      this.reloadCurrentRoute();
+    });
+    
   }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });  
+  }
+
+  
 }

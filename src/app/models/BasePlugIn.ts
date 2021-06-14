@@ -1,19 +1,19 @@
 export class BasePlugIn {
 
-    private _nom: string;
+    private _name: string;
     private _config: any;
 
     constructor(nom:string, config: any) {
-        this._nom = nom;
+        this._name = nom;
         this._config = config;
     }
     
     public get nom(): string {
-        return this._nom;
+        return this._name;
     }
 
     public set nom(value: string) {
-        this._nom = value;
+        this._name = value;
     }
 
     public get config(): any {

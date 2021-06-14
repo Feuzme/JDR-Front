@@ -15,9 +15,16 @@ export class PluginComponent implements OnInit {
 
   inputValue : FormGroup;
 
-  public basePlugins : BasePlugIn[] = [
+  // get basePlugins(): BasePlugIn[] {
+  //   return this.service.basePlugins;
+  // }
 
-  ];
+  // set basePlugins(value: BasePlugIn[]) {
+  //   value = this.basePlugins;
+  // }
+
+  public basePlugins : BasePlugIn[] = [];
+
 
   constructor(private service : BasePluginService) {
     this.inputValue = new FormGroup({
@@ -41,16 +48,21 @@ export class PluginComponent implements OnInit {
     }
   }
 
+  delete = (basePlugin : BasePlugIn) => {
+    this.service.delete(basePlugin).subscribe(basePlugin => {
+      this.ngOnInit();
+    })
+  }
+
   addBar() {
-    this.defaultComponent = ProgressBarComponent;
-    let columnSize: string = this.currentColumn(this.getSizeValue());
-    let config : any = {size: columnSize, composant: "progressBar"};
-    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", {size: columnSize, composant: this.defaultComponent});
-    let basePluginBody: any = {nom: "Bar", config: config};
-    this.basePlugins.push(basePlugin);
-    this.service.create(basePluginBody).subscribe(basePluginBody => {
-      
-    });
+    // this.defaultComponent = ProgressBarComponent;
+    // let columnSize: string = this.currentColumn(this.getSizeValue());
+    // let config : any = {size: columnSize, composant: "progressBar"};
+    // let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", {size: columnSize, composant: this.defaultComponent});
+    // let basePluginBody: any = {nom: "Bar", config: config};
+    // this.basePlugins.push(basePlugin);
+    // this.service.create(basePluginBody).subscribe(basePluginBody => {
+    // });
   }
 
   addText() {
