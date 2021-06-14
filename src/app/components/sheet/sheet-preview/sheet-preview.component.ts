@@ -40,24 +40,7 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-  //   // this.options = {
-  //   //   // itemChangeCallback: SheetPreviewComponent.itemChange,
-  //   //   // itemResizeCallback: SheetPreviewComponent.itemResize,
-  //   //   gridType: GridType.Fit,
-  //   //   displayGrid: DisplayGrid.Always,
-  //   //   pushItems: true,
-  //   //   pushDirections: { north: true, east: false, south: true, west: true },
-  //   //   pushResizeItems: true,
-  //   //   swap: false,
-  //   //   draggable: {
-  //   //     enabled: true
-  //   //   },
-  //   //   resizable: {
-  //   //     enabled: true
-  //   //   },
-  //   //   disableWindowResize: true,
-  //   //   scrollToNewItems:false
-  //   // };
+    localStorage.setItem("isModelSheet", "60c707faa725dc09dbb6fe1bs")
     
     this.layoutService.layout = [
       { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
