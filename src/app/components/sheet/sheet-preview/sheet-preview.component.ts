@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import {   GridsterConfig, GridsterItem } from 'angular-gridster2';
+import { ModelSheet } from 'src/app/models/ModelSheet';
+import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { LayoutService, IComponent } from '../../../services/sheet/layout.service'
 @Component({
   selector: 'app-sheet-preview',
@@ -7,6 +9,8 @@ import { LayoutService, IComponent } from '../../../services/sheet/layout.servic
   styleUrls: ['./sheet-preview.component.css']
 })
 export class SheetPreviewComponent implements OnInit {
+
+  private currentSheet : ModelSheet;
 
   @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
 
@@ -28,7 +32,8 @@ export class SheetPreviewComponent implements OnInit {
 
   
   constructor(
-    private layoutService : LayoutService
+    private layoutService : LayoutService,
+    private modelSheetHttpService : ModelSheetHttpService
     ) { }
 
   static itemChange(item, itemComponent) {
@@ -40,8 +45,14 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.setItem("isModelSheet", "60c707faa725dc09dbb6fe1bs")
+    localStorage.setItem("idModelSheet", "60c707faa725dc09dbb6fe1bs")
+
+    this.modelSheetHttpService.getById(localStorage.getItem("idModelSheet"))
+      .subscribe(data => {
+        this.currentSheet = data;
+      })
     
+      console.log(this.currentSheet.id);
     this.layoutService.layout = [
       { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
         backgroundColor:'',
