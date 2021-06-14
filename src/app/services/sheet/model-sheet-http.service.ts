@@ -8,7 +8,7 @@ import { ModelSheet } from 'src/app/models/ModelSheet';
   providedIn: 'root'
 })
 export class ModelSheetHttpService {
-  private baseUrl : string = "localhost:8080/modelsheets";
+  private baseUrl : string = "http://localhost:8080/modelsheets";
 
   constructor(
     private http : HttpClient

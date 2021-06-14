@@ -45,14 +45,16 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.setItem("idModelSheet", "60c707faa725dc09dbb6fe1bs")
+    localStorage.setItem("idModelSheet", "60c707faa725dc09dbb6fe1b")
 
     this.modelSheetHttpService.getById(localStorage.getItem("idModelSheet"))
-      .subscribe(data => {
-        this.currentSheet = data;
+      .subscribe((data : ModelSheet) => {
+        console.log(data);
+        this.currentSheet = data;        
       })
     
       console.log(this.currentSheet.id);
+
     this.layoutService.layout = [
       { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
         backgroundColor:'',

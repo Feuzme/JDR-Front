@@ -31,6 +31,7 @@ export class CreationMenuLeftComponent implements OnInit {
   // emitItem() {
   //   this.itemEmitter.emit(this.item);
   // }
+
   getLayoutService(){
     return this.layoutService;
   }
