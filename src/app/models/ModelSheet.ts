@@ -1,7 +1,7 @@
 import { BasePlugIn } from "./BasePlugin";
 import { User } from "./user";
 
-export class name {
+export class ModelSheet {
     private _id: string;	    
 	private _name: string;	    
 	private _isPublic: boolean;    
