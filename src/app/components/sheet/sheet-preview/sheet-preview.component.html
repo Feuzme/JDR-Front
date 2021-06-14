@@ -1,8 +1,25 @@
-<div><button (click)="addItem()">Add item</button></div>
+
+<!-- <div class="toolbar">
+    <div class="draggable" draggable="true" (dragend)="getLayoutService().dropItem('compTest1')">
+        Example 1 
+    </div>
+    <div class="draggable" draggable="true" (dragend)="getLayoutService().dropItem('compTest2')">
+        Example 2
+    </div>
+</div> -->
 <div class="host">
     <gridster [options]="options">
-        <gridster-item [item]="item" *ngFor="let item of dashboard">
-            <!-- your content here -->
+        <gridster-item 
+        [item]="item" 
+        *ngFor="let item of dashboard; let index = index" 
+        id="gridster{{index}}" 
+        [ngStyle] ="getLayoutService().getStyles(item)"
+        (click)="editPlugin(item)"        
+        >           
+            <button (click)="getLayoutService().removeItem(item.id)">Delete</button>   
+            <div class="content">                
+                {{this.item.content}}
+            </div>         
         </gridster-item>
     </gridster>
 </div>

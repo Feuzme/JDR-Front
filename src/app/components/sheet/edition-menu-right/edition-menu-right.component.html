@@ -1,0 +1,74 @@
+<div id="editDiv">
+    <div class="titleMenu">
+        <h2>Edition du composant</h2>
+    </div>
+    <h3>Bordure</h3>
+    <h5>Taille : {{borderWidth}} px</h5>
+    <p-slider [(ngModel)]="borderWidth" [min]="0" [max]="30" (onChange)="chgBorderSize()"></p-slider>
+    <h5>Style :</h5>
+    <div class="borderStyles" id="bStyles" class="p-grid">
+        <a style="border: rgb(242, 162, 22);border-style: solid;" id="solidBorder" title="solid" class="p-col-5" (click)="chgBorderStyle('solid')">Solid</a>
+        <a style="border: rgb(242, 162, 22);border-style: dotted;" id="dottedBorder" title="dotted" class="p-col-5 p-offset-2" (click)="chgBorderStyle('dotted')">Dotted</a>
+        <a style="border: rgb(242, 162, 22);border-style: dashed;" id="dashedBorder" title="dashed" class="p-col-5" (click)="chgBorderStyle('dashed')">Dashed</a>
+        <a style="border: rgb(242, 162, 22);border-style: double;"  id="doubleBorder" title="double" class="p-col-5 p-offset-2" (click)="chgBorderStyle('double')">Double</a>
+        <a style="border: rgb(242, 162, 22);border-style: groove;" id="grooveBorder" title="groove" class="p-col-5" (click)="chgBorderStyle('groove')">Groove</a>
+        <a style="border: rgb(242, 162, 22);border-style: ridge;" id="ridgeBorder" title="ridge" class="p-col-5 p-offset-2" (click)="chgBorderStyle('ridge')">Ridge</a>
+        <a style="border: rgb(242, 162, 22);border-style: inset;" id="insetBorder" title="inset" class="p-col-5" (click)="chgBorderStyle('inset')">Inset</a>
+        <a style="border: rgb(242, 162, 22);border-style: outset;" id="outsetBorder" title="outset" class="p-col-5 p-offset-2" (click)="chgBorderStyle('outset')">Outset</a>
+        <a style="border: rgb(242, 162, 22);border-style: none;" id="noneBorder" title="none" class="p-col-6 p-offset-3" (click)="chgBorderStyle('none')">Aucune</a>
+    </div>
+    <div class="p-grid">
+        <div class="p-col-12">
+            <h5>Couleur de la bordure :</h5>
+        </div>
+        <div class="p-col-8">
+            <p-colorPicker [(ngModel)]="colorBorder" format="rgb" (onChange)="chgColorBorder()"></p-colorPicker>
+        </div>
+    </div>
+    <h5>Position :</h5>
+    <div class="borderStyles" id="bPosition" class="p-grid">
+        <a style="border: 4px solid rgb(242, 162, 22);" id="allBorder" title="border" class="p-col-3" (click)="chgBorderPosition('all')">Toute</a>
+        <a style="border-top: 4px solid rgb(242, 162, 22);" id="topBorder" title="border-top" class="p-col-3 p-offset-1" (click)="chgBorderPosition('top')">Haute</a>
+        <a style="border-right: 4px solid rgb(242, 162, 22)" id="rightBorder" title="border-right" class="p-col-3 p-offset-1" (click)="chgBorderPosition('right')">Droite</a>
+        <a style="border-bottom: 4px solid rgb(242, 162, 22);" id="bottomBorder" title="border-bottom" class="p-col-3" (click)="chgBorderPosition('bottom')">Basse</a>
+        <a style="border-left: 4px solid rgb(242, 162, 22)" id="leftBorder" title="border-left" class="p-col-3 p-offset-1" (click)="chgBorderPosition('left')">Gauche</a>
+    </div>
+    <div class="borderRadiusEdit p-grid">
+        <div class="p-col-4">
+            <p-slider [(ngModel)]="brHG" [step]="5" [min]="0" [max]="50" (onChange)="checkAllSame('brHG')"></p-slider>
+        </div>
+        <div class="p-col-4"></div>
+        <div class="p-col-4">
+            <p-slider [(ngModel)]="brHD" [step]="5" [min]="0" [max]="50" (onChange)="checkAllSame('brHD')"></p-slider>
+        </div>
+        <div class="p-col-8 p-offset-2">
+            <div id="radiusPreview">Radius</div>
+        </div>
+        <div class="p-col-4">
+            <p-slider [(ngModel)]="brBG" [step]="5" [min]="0" [max]="50" (onChange)="checkAllSame('brBG')"></p-slider>
+        </div>
+        <div class="p-col-4"></div>
+        <div class="p-col-4">
+            <p-slider [(ngModel)]="brBD" [step]="5" [min]="0" [max]="50" (onChange)="checkAllSame('brBD')"></p-slider>
+        </div>
+        <div class="p-col-6">
+            Tous le même
+        </div>
+        <div class="p-col-6">
+            <div class="p-field-checkbox">
+                <p-checkbox [(ngModel)]="checkedRadius" binary="true" inputId="checkedRadius"></p-checkbox>
+            </div>
+        </div>
+    </div>
+    <p-divider></p-divider>
+    <h3>Couleur de fond</h3>
+    <div class="p-grid">
+        <div class="p-col-8">
+            <p-colorPicker [(ngModel)]="colorBack" format="rgb" (onChange)="chgColorBack()"></p-colorPicker>
+        </div>
+    </div>
+    <div class="bChoix">
+        <button pButton pRipple type="button" label="Sauvegarder" class="p-button-success" (click)="save()"></button>
+        <button pButton pRipple type="button" label="Supprimer le composant" class="p-button-danger" (click)="delete()"></button>
+    </div>
+</div>

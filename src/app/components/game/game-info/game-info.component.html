@@ -1,0 +1,65 @@
+<div class="p-grid topDiv">
+    <!-- Colonne de gauche -->
+    <div class="p-col-4">
+        <div class="p-grid">
+            <div class="p-col-4 label">
+                Nom de la partie :
+            </div>
+            <div class="p-col-8">
+                <input id="nomPartie" type="text" pInputText> 
+            </div>
+            <div class="p-col-4 label">
+                Image de la partie :
+            </div>
+            <div class="p-col-8">
+                <img class="gamePhoto" [src]="url ? url : '../../../../assets/images/gamePhoto.png'" (click)="onSelectFile($event)"> <br/>
+                <input type='file' (change)="onSelectFile($event)"> 
+            </div>
+        </div>
+    </div>
+    <!-- Fin de la colonne de gauche -->
+    <!---->
+    <!-- Colonne du milieu  -->
+    <div class="p-col-4">
+        <div class="p-grid">
+            <div class="p-col-4 label">
+                Type de jeu :
+            </div>
+            <div class="p-col-8">
+                <p-dropdown [options]="typeJeu" [(ngModel)]="selectedTypeJeu" optionLabel="nom"></p-dropdown>
+            </div>
+            <div class="p-col-4 label">
+                <label for="nbJoueurs">Nombre de joueurs :</label>
+            </div>
+            <div class="p-col-8">
+                <p-inputNumber inputId="nbJoueurs"></p-inputNumber>
+            </div>
+            <div class="p-col-4 label">
+                <img src="../../../../assets/images/icon-agenda.png" height="70" (click)="openAgenda()">
+            </div>
+            <div class="p-col-8">
+                <input id="dateSession" type="text" pInputText [disabled]="true" style="width:100%" [(ngModel)]="dateSession"/>
+            </div>
+            <div class="p-col-4 label">
+                Cadre :
+            </div>
+            <div class="p-col-8">
+                <textarea id="cadre" [rows]="7" [cols]="90" pInputTextarea autoResize="autoResize"></textarea>  
+            </div>
+        </div>
+    </div>
+    <!-- Fin de la colonne du milieu -->
+    <!---->
+    <!-- Colonne de droite  -->
+    <div class="p-col-4">
+        <div class="p-grid">
+            <div class="p-col-12 privacy">
+                <div>
+                    <img id="imgPrivacy" src="../../../../assets/images/public.png" height="70">
+                </div>
+                <p-inputSwitch [(ngModel)]="isPublic" (onChange)="changePrivacy()"></p-inputSwitch>
+                <h2>Partie {{privacy}}</h2>
+            </div>
+        </div>
+    </div>     
+</div>

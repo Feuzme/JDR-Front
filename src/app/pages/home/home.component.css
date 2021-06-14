@@ -1,0 +1,42 @@
+.maCard{
+    border-color:rgb(196,196,196);
+    margin-left:1em;
+    padding-left:1em;
+    margin-right:1em;
+    padding-right:1em;
+    display:flex;
+    flex-direction: column;
+}
+ 
+.image {
+    width: 35%;
+}
+
+.lien{
+    margin: 0 auto;
+    width: 3px;
+}
+
+p-card {
+    border-color:rgb(196,196,196);
+}
+
+.newEntity{
+    cursor:pointer;
+}
+
+.filterButton{
+    margin-left:1em;
+}
+
+.titleSection{
+    margin-left:1em;
+    padding-left:1em;
+    display:flex;
+    flex-direction: column;
+}
+
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: rgb(242, 162, 22);
+  }
+    
