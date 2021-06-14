@@ -1,0 +1,22 @@
+<form [formGroup]="userForm" (ngSubmit)="modifier()">
+
+    <label for="">Nom:
+        <input type="text" formControlName="nom">
+    </label>
+    <label for="">Email:
+        <input type="text" formControlName="email">
+    </label>
+    <label for="">Bio:
+        <input type="text" formControlName="bio">
+    </label>
+    <label for="">Ville:
+        <input type="text" formControlName="ville">
+    </label>
+    <label for="">Avatar:
+        <input type="text" formControlName="avatar">
+    </label>
+
+    <button>Modifier</button>
+    
+    </form>
+    

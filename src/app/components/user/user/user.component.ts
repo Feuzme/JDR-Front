@@ -24,4 +24,27 @@ export class UserComponent implements OnInit {
     })
   }
 
+  afficheUser = (user: User) => {
+    alert(user.nom);
+  }
+
+  supprimerUser = (user: User) => {
+    this.service.delete(user).subscribe(user => {
+      this.ngOnInit();
+    }
+    );
+
+  }
+   modifierUser = (id: String) => {
+    this.router.navigate([`/update/${id}`]);
+  }
+
+
+
+
+
+
+
 }
+
+

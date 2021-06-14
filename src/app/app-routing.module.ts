@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UpdateComponent } from './components/user/update/update.component';
 import { UserComponent } from './components/user/user/user.component';
 import { LoginComponent } from './pages/account/login/login.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:"plugin-creation", component:PluginCreationComponent},
   {path:"game",component:GameComponent},
   {path:"users",component:UserComponent},
+  {path:"update/:id", component : UpdateComponent},
   {path: "", redirectTo: 'home', pathMatch: 'full'}
 ];
 

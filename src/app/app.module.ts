@@ -78,6 +78,7 @@ import { ListSummaryComponent } from './components/game/list-summary/list-summar
 import { GameInfoBottomComponent } from './components/game/game-info-bottom/game-info-bottom.component';
 import { GameComponent } from './pages/game/game/game.component';
 import { UserComponent } from './components/user/user/user.component';
+import { UpdateComponent } from './components/user/update/update.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -121,7 +122,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ListSummaryComponent,
     GameInfoBottomComponent,
     GameComponent,
-    UserComponent
+    UserComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

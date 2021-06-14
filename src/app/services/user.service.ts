@@ -26,7 +26,7 @@ export class UserService {
     return this.http.request<User>('delete',`${environment.urlSpring}/users`, { body : user})
   }
 
-  getByid = (id : number) : Observable<User> => {
+  getByid = (id : String) : Observable<User> => {
     return this.http.get<User>(`${environment.urlSpring}/users/${id}`) ;
 
   }

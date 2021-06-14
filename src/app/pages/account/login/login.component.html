@@ -1,3 +1,20 @@
+<div class="loggin-box">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
+      <h2>Authentification</h2>
+      <div class="loggin-form-item">
+          <label for="usernameOrEmail">Nom d'utilisateur ou email</label>
+          <input class="round-input" formControlName="usernameOrEmail">
+      </div>
+      <div class="loggin-form-item">
+          <label for="usernameOrEmail">Mot de passe</label>
+          <input class="round-input" formControlName="password">
+      </div>
+      <button class="round-button" type="submit">Je me connecte</button>
+  </form>
+</div>
+
+
+
 <div class="p-grid">
   <div class="p-col-4 p-offset-4">
     <div class="card">
@@ -36,3 +53,5 @@
     </div>
   </div>
 </div>
+
+
