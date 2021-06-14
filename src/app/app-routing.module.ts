@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { UpdateComponent } from './components/user/update/update.component';
 import { UserComponent } from './components/user/user/user.component';
 import { LoginComponent } from './pages/account/login/login.component';
+import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
+import { ResumePageComponent } from './pages/account/resume-page/resume-page.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { UsersComponent } from './pages/account/users/users.component';
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path:"game",component:GameComponent},
   {path:"users",component:UserComponent},
   {path:"update/:id", component : UpdateComponent},
+  {path:"users/resume", component:ResumePageComponent},
+  {path:"users/new", component:NouvelUtilisateurComponent},
   {path: "", redirectTo: 'home', pathMatch: 'full'}
 ];
 

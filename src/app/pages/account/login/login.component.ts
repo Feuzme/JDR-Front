@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      usernameOrEmail: new FormControl(""),
+      email: new FormControl(""),
       password: new FormControl("")
     })
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.service.connexion(this.form.value).subscribe((utilisateurId:string)=>{
       localStorage.setItem("utilisateurId",utilisateurId);
-      window.location.href ="utilisateur/resume";
+      window.location.href ="users/resume";
       //this.router.navigate(["utilisateur/resume"]);
     }, (err)=>{});
         

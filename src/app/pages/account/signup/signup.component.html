@@ -1,3 +1,19 @@
+<div class="card">
+  <form [formGroup]="signupForm" (ngSubmit)="ajouter()">
+  
+    <label for="">Nom:
+        <input type="text" formControlName="nom">
+    </label>
+    <label for="">Mot de passe:
+        <input type="text" formControlName="password">
+    </label>
+    <button>Ajouter</button>
+  
+    
+    </form>
+  </div>
+    
+
 <div class="p-grid">
 
   <div class="p-col-4 p-offset-4">
@@ -61,19 +77,5 @@
 </div>
 
 
-<div class="card">
-<form [formGroup]="signupForm" (ngSubmit)="ajouter()">
 
-  <label for="">Nom:
-      <input type="text" formControlName="nom">
-  </label>
-  <label for="">Mot de passe:
-      <input type="text" formControlName="password">
-  </label>
-  <button>Ajouter</button>
-
-  
-  </form>
-</div>
-  
 

@@ -1,0 +1,28 @@
+<p-card header="Profile Joueur">
+    <p-card>
+        <span class="user-profile" >Nom : {{user.nom}}</span>
+    </p-card>
+    <p-card>
+        <span class="user-profile" >E-mail : {{user.email}}</span>
+    </p-card>
+    <p-card>
+        <span class="user-profile" >BIO : {{user.bio}}</span>
+    </p-card>
+    <p-card>
+        <span class="user-profile" >Ville : {{user.ville}}</span>
+    </p-card>
+
+
+
+    <div>
+        <button class="user-detail" (click)="onDetail(user)">+</button>
+        <button class="user-supress" (click)="onSupress(user)">X</button>
+    </div>
+
+
+</p-card>
+
+
+
+
+

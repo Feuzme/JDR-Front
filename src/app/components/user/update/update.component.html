@@ -1,22 +1,49 @@
-<form [formGroup]="userForm" (ngSubmit)="modifier()">
 
-    <label for="">Nom:
-        <input type="text" formControlName="nom">
-    </label>
-    <label for="">Email:
-        <input type="text" formControlName="email">
-    </label>
-    <label for="">Bio:
-        <input type="text" formControlName="bio">
-    </label>
-    <label for="">Ville:
-        <input type="text" formControlName="ville">
-    </label>
-    <label for="">Avatar:
-        <input type="text" formControlName="avatar">
-    </label>
+<p-card header="Modification profile">
+    <form [formGroup]="userForm" (ngSubmit)="modifier()">
 
-    <button>Modifier</button>
-    
+        <p-card>
+            <label for="">Nom:
+                <input type="text" formControlName="nom">
+            </label>
+        </p-card>
+
+        <p-card>
+            <label for="">Email:
+                <input type="text" formControlName="email">
+            </label>
+        </p-card>
+
+        <p-card>
+            <label for="">Bio:
+                <input type="text" formControlName="bio">
+            </label>
+        </p-card>
+
+        <p-card>
+            <label for="">Ville:
+                <input type="text" formControlName="ville">
+            </label>
+        </p-card>
+
+
+        <p-card>
+            <label for="">Avatar:
+                <input type="text" formControlName="avatar">
+            </label>
+        </p-card>
+
+ 
     </form>
+
+        <p-card>
+            <button>Modifier</button>
+        </p-card>
+        
+        
+        
+</p-card>
+
+
+
     

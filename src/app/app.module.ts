@@ -79,6 +79,9 @@ import { GameInfoBottomComponent } from './components/game/game-info-bottom/game
 import { GameComponent } from './pages/game/game/game.component';
 import { UserComponent } from './components/user/user/user.component';
 import { UpdateComponent } from './components/user/update/update.component';
+import { ResumePageComponent } from './pages/account/resume-page/resume-page.component';
+import { UtilisateurProfileComponent } from './pages/account/utilisateur-profile/utilisateur-profile.component';
+import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -123,7 +126,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     GameInfoBottomComponent,
     GameComponent,
     UserComponent,
-    UpdateComponent
+    UpdateComponent,
+    ResumePageComponent,
+    UtilisateurProfileComponent,
+    NouvelUtilisateurComponent
   ],
   imports: [
     BrowserModule,
