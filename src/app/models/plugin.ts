@@ -4,7 +4,8 @@ export class PlugIn {
     private _game: string;
     private _gamePic: string;      
     private _width: number;    
-    private _height: number;    
+    private _height: number;
+        
 
     constructor(author: string, name: string, game: string, gamePic: string, width: number, height: number,) {
         this._author = author;

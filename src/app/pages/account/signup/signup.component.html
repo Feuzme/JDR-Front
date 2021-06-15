@@ -1,10 +1,14 @@
 <div class="p-grid">
+
   <div class="p-col-4 p-offset-4">
+    
     <div class="card">
+      
       <div class="p-fluid">
         <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
-
+        
         <span class="p-float-label">
+          
           <input id="identifiant" type="text" pInputText>
           <label for="identifiant">Identifiant</label>
         </span>
@@ -13,7 +17,7 @@
           <label for="motdepasse">Mot de passe</label>
         </span>
         <span class="p-float-label">
-          <input id="motdepasse" type="text" pInputText>
+          <input id="mdp" type="text" pInputText>
           <label for="motdepasse">Confirmer le mot de passe</label>
         </span>
 
@@ -45,9 +49,30 @@
         </div>
 
 
-
+    
 
       </div>
+
+    
     </div>
+
   </div>
+
 </div>
+
+
+<div class="card">
+<form [formGroup]="signupForm" (ngSubmit)="ajouter()">
+
+  <label for="">Nom:
+      <input type="text" formControlName="nom">
+  </label>
+  <label for="">Mot de passe:
+      <input type="text" formControlName="password">
+  </label>
+  <button>Ajouter</button>
+
+  
+  </form>
+</div>
+  

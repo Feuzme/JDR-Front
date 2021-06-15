@@ -1,12 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import {   GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { LayoutService, IComponent } from '../../services/sheet/layout.service'
+import { ModelSheet } from 'src/app/models/ModelSheet';
+import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
+import { LayoutService, IComponent } from '../../../services/sheet/layout.service'
 @Component({
   selector: 'app-sheet-preview',
   templateUrl: './sheet-preview.component.html',
   styleUrls: ['./sheet-preview.component.css']
 })
 export class SheetPreviewComponent implements OnInit {
+
+  private currentSheet : ModelSheet;
 
   @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
 
@@ -28,7 +32,8 @@ export class SheetPreviewComponent implements OnInit {
 
   
   constructor(
-    private layoutService : LayoutService
+    private layoutService : LayoutService,
+    private modelSheetHttpService : ModelSheetHttpService
     ) { }
 
   static itemChange(item, itemComponent) {
@@ -40,25 +45,16 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-  //   // this.options = {
-  //   //   // itemChangeCallback: SheetPreviewComponent.itemChange,
-  //   //   // itemResizeCallback: SheetPreviewComponent.itemResize,
-  //   //   gridType: GridType.Fit,
-  //   //   displayGrid: DisplayGrid.Always,
-  //   //   pushItems: true,
-  //   //   pushDirections: { north: true, east: false, south: true, west: true },
-  //   //   pushResizeItems: true,
-  //   //   swap: false,
-  //   //   draggable: {
-  //   //     enabled: true
-  //   //   },
-  //   //   resizable: {
-  //   //     enabled: true
-  //   //   },
-  //   //   disableWindowResize: true,
-  //   //   scrollToNewItems:false
-  //   // };
+    localStorage.setItem("idModelSheet", "60c707faa725dc09dbb6fe1b")
+
+    this.modelSheetHttpService.getById(localStorage.getItem("idModelSheet"))
+      .subscribe((data : ModelSheet) => {
+        console.log(data);
+        this.currentSheet = data;        
+      })
     
+      console.log(this.currentSheet.id);
+
     this.layoutService.layout = [
       { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
         backgroundColor:'',

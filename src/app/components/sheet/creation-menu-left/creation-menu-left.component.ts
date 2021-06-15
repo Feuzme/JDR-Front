@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output,  } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { IComponent, LayoutService } from '../../services/sheet/layout.service';
+import { IComponent, LayoutService } from '../../../services/sheet/layout.service';
 
 
 @Component({
@@ -31,6 +31,7 @@ export class CreationMenuLeftComponent implements OnInit {
   // emitItem() {
   //   this.itemEmitter.emit(this.item);
   // }
+
   getLayoutService(){
     return this.layoutService;
   }

@@ -49,6 +49,7 @@ import {DropdownModule} from 'primeng/dropdown';
 
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import {​ NavbarComponent }​ from './nav-bar/navbar/navbar.component';
 import {​ LoginComponent }​ from './pages/account/login/login.component';
@@ -67,11 +68,17 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
 import {ProgressBarModule} from 'primeng/progressbar';
-import { PluginComponent } from './components/sheet/plugin/plugin.component';
+import { PluginComponent } from './components/sheet/plugin-base/plugin.component';
 import { NoSanitizePipe } from './util/nosanitizerpipe';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
 import {MessageModule} from 'primeng/message';
+import { GameInfoComponent } from './components/game/game-info/game-info.component';
+import { ListSummaryComponent } from './components/game/list-summary/list-summary.component';
+import { GameInfoBottomComponent } from './components/game/game-info-bottom/game-info-bottom.component';
+import { GameComponent } from './pages/game/game/game.component';
+import { UserComponent } from './components/user/user/user.component';
+import { ProgressBarComponent } from './components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -110,8 +117,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PluginComponent,
     NoSanitizePipe,
 	  PluginCardComponent,
-    EditionMenuRightComponent
-
+    EditionMenuRightComponent,
+    GameInfoComponent,
+    ListSummaryComponent,
+    GameInfoBottomComponent,
+    GameComponent,
+    UserComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -149,7 +161,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ProgressBarModule,
     ColorPickerModule,
     SliderModule,
-    MessageModule
+    MessageModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-players',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPlayersComponent implements OnInit {
 
+  @Input() showLegend : boolean;
   mj = {pseudo: "Balrog-nrv",role:"MJ",avatar:"assets/images/Balrog.png",couleur:"red"}
 
   players = [

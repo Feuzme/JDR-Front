@@ -5,7 +5,7 @@
     <div class="p-col-4 avatar">
         <div>
             <p-avatar image="{{mj.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
-            <div class="cercle" [ngStyle]="{'background-color':mj.couleur}"></div> 
+            <div *ngIf="showLegend" class="cercle" [ngStyle]="{'background-color':mj.couleur}"></div> 
         </div>
     </div>
     <div class="p-col-8">
@@ -21,7 +21,7 @@
     <div class="p-grid listeJoueur">
         <div class="p-col-4 avatar">
                 <p-avatar image="{{player.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
-                <div class="cercle" [ngStyle]="{'background-color':player.couleur}"></div> 
+                <div *ngIf="showLegend" class="cercle" [ngStyle]="{'background-color':player.couleur}"></div> 
         </div>
         <div class="p-col-8">
             <p-card>
