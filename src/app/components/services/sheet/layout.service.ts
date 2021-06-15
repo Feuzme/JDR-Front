@@ -1,7 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
-import { PlugIn } from 'src/app/models/plugin';
+import { PlugIn } from 'src/app/models/Plugin';
 
 export interface IComponent {
   id: string;

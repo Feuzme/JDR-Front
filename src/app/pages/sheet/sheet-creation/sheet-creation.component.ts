@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
-import { PlugIn } from 'src/app/models/plugin';
+import { PlugIn } from 'src/app/models/Plugin';
 
 @Component({
   selector: 'app-sheet-creation',
