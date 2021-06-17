@@ -23,7 +23,5 @@ export class User {
         this.loggedIn = false;
         
     }
-
-
-
+    
 }

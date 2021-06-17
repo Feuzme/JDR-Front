@@ -1,7 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
-import { PlugIn } from 'src/app/models/Plugin';
+import { BasePlugIn } from 'src/app/models/BasePlugin';
 
 export interface IComponent {
   id: string;
@@ -16,7 +16,7 @@ export class LayoutService {
   public layout: GridsterItem[] = [];
   public components: IComponent[] = [];
   dropId: string;
-  public plugIns : PlugIn[] = [];
+  public plugIns : BasePlugIn[] = [];
 
   
   public options: GridsterConfig ={
@@ -41,7 +41,7 @@ export class LayoutService {
   /**
    * Method called when you want to add an empty item to the grid
    */
-  addItem(plugin: PlugIn) {
+  addItem(plugin: BasePlugIn) {
     this.plugIns.push(plugin);
     this.layout.push({
        cols: 1, 
@@ -56,7 +56,7 @@ export class LayoutService {
         borderStyle:'none',
         borderColor: ''
         },
-        content : plugin.name
+        content : plugin.nom
       });
     console.log(
       {
@@ -65,7 +65,7 @@ export class LayoutService {
         y: 1, 
         x: 1,
         id: UUID.UUID(),
-        content : plugin.name
+        content : plugin.nom
         }
     )
   }

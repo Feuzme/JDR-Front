@@ -1,4 +1,4 @@
-export class name {
+export class GameName {
 
     private _id: number;
     private _name: string;
@@ -8,19 +8,19 @@ export class name {
 		this._name = name;
 	}
 
-    public get_id(): number {
+    public get id(): number {
         return this._id;
     }
 
-    public set_id(_id: number): void {
+    public set id(_id: number) {
         this._id = _id;
     }
 
-    public get_name(): string {
+    public get name(): string {
         return this._name;
     }
 
-    public set_name(_name: string): void {
+    public set name(_name: string) {
         this._name = _name;
     }
 

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
-import { PlugIn } from 'src/app/models/Plugin';
+import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { GameName } from 'src/app/models/GameName';
+import { PositionSize } from 'src/app/models/PositionSize';
 
 @Component({
   selector: 'app-sheet-creation',
@@ -10,12 +12,12 @@ import { PlugIn } from 'src/app/models/Plugin';
 })
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
-
-  public plugins : PlugIn[] = [];
-  private healthBar : PlugIn = new PlugIn("greg", "HealthBar", "Dungeons&Dragons", "assets/images/dragon.jpg", 2 ,1);
-  private inventory : PlugIn = new PlugIn("Weeb99", "Inventory", "Dungeons&Dragons", "assets/images/dragon.jpg", 4 ,4);
-  private stats : PlugIn = new PlugIn("Dewee","Stats", "Dungeons&Dragons", "assets/images/unicorn.jpg", 1 ,2);
-  private magic : PlugIn = new PlugIn("Marco", "Magic","ESRPG","assets/images/Smaug.png", 1 ,1);
+  private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons")
+  public plugins : BasePlugIn[] = [];
+  private healthBar : BasePlugIn = new BasePlugIn("HealthBar", "config", "Toto", this.donjonsEtDragon, "assets/images/Balrog.png", new PositionSize(1, 2, 1, 1))
+  private inventory : BasePlugIn = new BasePlugIn("Inventory", "config", "Weeb99", this.donjonsEtDragon, "assets/images/dragon.jpg", new PositionSize(1, 2, 1, 1));
+  private stats : BasePlugIn = new BasePlugIn("Stats", "config", "Dewee", this.donjonsEtDragon, "assets/images/unicorn.jpg", new PositionSize(1, 2, 1, 1));
+  private magic : BasePlugIn = new BasePlugIn("Magic", "config", "Marco", this.donjonsEtDragon, "assets/images/Smaug.png", new PositionSize(1, 2, 1, 1));
 
   editingPlugin : GridsterItem;
   choiceEditing : any;

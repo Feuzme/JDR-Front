@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { GameName } from 'src/app/models/GameName';
+import { PositionSize } from 'src/app/models/PositionSize';
 import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
 import { ProgressBarComponent } from './default-components/progress-bar/progress-bar.component';
 
@@ -14,6 +16,8 @@ export class PluginComponent implements OnInit {
   defaultComponent: any;
 
   inputValue : FormGroup;
+
+  public  donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons")
 
   public basePlugins : BasePlugIn[] = [
 
@@ -45,7 +49,11 @@ export class PluginComponent implements OnInit {
     this.defaultComponent = ProgressBarComponent;
     let columnSize: string = this.currentColumn(this.getSizeValue());
     let config : any = {size: columnSize, composant: "progressBar"};
-    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", {size: columnSize, composant: this.defaultComponent});
+    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", 
+                                                { size: columnSize, composant: this.defaultComponent }, 
+                                                "Toto", this.donjonsEtDragon, 
+                                                "testgamePic", 
+                                                new PositionSize(0, 0, 0, 0));
     let basePluginBody: any = {nom: "Bar", config: config};
     this.basePlugins.push(basePlugin);
     this.service.create(basePluginBody).subscribe(basePluginBody => {
