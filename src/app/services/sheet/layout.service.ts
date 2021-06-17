@@ -1,7 +1,9 @@
 import { ComponentRef, Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
+import { Observable } from 'rxjs';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { ModelSheet } from 'src/app/models/ModelSheet';
 
 export interface IComponent {
   id: string;
@@ -127,4 +129,8 @@ export class LayoutService {
     this.options.api.optionsChanged();
   }
   
+  saveConfig(plugIns : BasePlugIn[]) : Observable<ModelSheet>{
+    //TODO
+    return null;
+  }
 }
