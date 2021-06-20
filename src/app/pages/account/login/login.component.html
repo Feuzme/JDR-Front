@@ -16,13 +16,14 @@
 
 
 <div class="p-grid">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
   <div class="p-col-4 p-offset-4">
     <div class="card">
       <div class="p-fluid">
         <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
 
         <span class="p-float-label">
-          <input id="identifiant" type="text" pInputText>
+          <input id="identifiant" type="text" pInputText >
           <label for="identifiant">Identifiant</label>
         </span>
 
@@ -44,7 +45,7 @@
           </div>
           <div class="p-col-4 p-offset-4">
             <div class="p-field">
-              <button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning" (click)="inscription()"></button>
+              <button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning" (click)="onSubmit()"></button>
             </div>
           </div>  
         </div>
@@ -52,6 +53,7 @@
       </div>
     </div>
   </div>
+</form>
 </div>
 
 

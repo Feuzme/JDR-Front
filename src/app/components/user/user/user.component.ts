@@ -29,8 +29,8 @@ export class UserComponent implements OnInit {
     }) 
   }
 
-  onDetail(utilisateur:User){
-    this.router.navigate(["utilisateur",utilisateur.id])
+  onDetail(user:User){
+    this.router.navigate(["users/resume",user.id])
   }  
 
   /*

@@ -35,10 +35,12 @@ export class LoginComponent implements OnInit {
   }
 
 
-  
+  /*
   inscription() {
     this.router.navigate(['signup']);
   }
+*/
+
 }
 
 

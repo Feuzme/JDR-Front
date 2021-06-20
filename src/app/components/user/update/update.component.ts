@@ -41,7 +41,7 @@ export class UpdateComponent implements OnInit {
 
   ) {
 
-    let id : String ;
+    let id : string ;
 
     this.route.paramMap.subscribe(params => {
 
@@ -78,6 +78,7 @@ export class UpdateComponent implements OnInit {
     this.user.ville = this.userForm.value.ville;
     this.user.avatar = this.userForm.value.avatar;
     
+    alert(" Test Redirection home")
     
     this.service.update(this.user).subscribe(user => {
       this.router.navigate([`/home`]);

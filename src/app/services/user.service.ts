@@ -30,7 +30,7 @@ export class UserService {
     return this.http.request<User>('delete',`${environment.urlSpring}/users`, { body : user})
   }
 
-  deleteById(id:string){
+  deleteById(id : string){
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
 

@@ -1,18 +1,18 @@
 export class User {
 
-    public  id : String;
-	public nom : String;
-	public email : String;
-	public password : String;
-	public avatar : String;
-	public bio : String;
-	public ville : String;
+    public  id : string;
+	public nom : string;
+	public email : string;
+	public password : string;
+	public avatar : string;
+	public bio : string;
+	public ville : string;
     public loggedIn : Boolean;
 
-    constructor (id : String , nom : String , 
-        email : String, password : String, 
-        avatar : String, bio : String,
-        ville : String,  loggedIn : boolean){
+    constructor (id : string , nom : string , 
+        email : string, password : string, 
+        avatar : string, bio : string,
+        ville : string,  loggedIn : boolean){
         this.id = id;
         this.nom = nom;
         this.email = email;

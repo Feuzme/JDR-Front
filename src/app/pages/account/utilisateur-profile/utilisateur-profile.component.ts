@@ -13,10 +13,14 @@ export class UtilisateurProfileComponent implements OnInit {
 
   @Input() user:User;
 
-  constructor(private service:UserService, private router: Router) { }
   users:User[];
+ 
+
+  constructor(private service:UserService, private router: Router) { }
+  
 
   ngOnInit(): void {
+    this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
   }
 
 
@@ -28,7 +32,11 @@ export class UtilisateurProfileComponent implements OnInit {
   }
 
   onDetail(user:User){
-    this.router.navigate(["user",user.id])
+    this.router.navigate(["update",user.id])
   }  
-
+  
+  /*modifierParc = (id: number) => {
+    this.router.navigate([`/update/${id}`]);
+  }
+*/
 }

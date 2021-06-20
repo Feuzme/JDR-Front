@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:"game",component:GameComponent},
   {path:"users",component:UserComponent},
   {path:"update/:id", component : UpdateComponent},
-  {path:"users/resume", component:ResumePageComponent},
+  {path:"users/resume", component: ResumePageComponent},
   {path:"users/new", component:NouvelUtilisateurComponent},
   {path:"user/:id", component:UtilisateurProfilePageComponent},
   {path: "", redirectTo: 'home', pathMatch: 'full'}
