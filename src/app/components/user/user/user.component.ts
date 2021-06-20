@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   
-  users: User[] = [];
+  users: User[];
   
   constructor(
     private service: UserService,
@@ -19,10 +19,27 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
+  }
+
+
+  onSupress(user:User){
+    this.service.deleteById(user.id).subscribe(()=>{
+      this.users = this.users.filter(user=>user.id!==user.id);
+    }) 
+  }
+
+  onDetail(utilisateur:User){
+    this.router.navigate(["utilisateur",utilisateur.id])
+  }  
+
+  /*
+  ngOnInit(): void {
     this.service.getAll().subscribe(data => {
       this.users = data;
     })
   }
+
 
   afficheUser = (user: User) => {
     alert(user.nom);
@@ -40,7 +57,7 @@ export class UserComponent implements OnInit {
   }
 
 
-
+  */
 
 
 

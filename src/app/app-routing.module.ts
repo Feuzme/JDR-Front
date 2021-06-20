@@ -8,6 +8,7 @@ import { ResumePageComponent } from './pages/account/resume-page/resume-page.com
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
 import { UsersComponent } from './pages/account/users/users.component';
+import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { GameComponent } from './pages/game/game/game.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"home", component: HomeComponent},
   {path:"recherche", component:RechercheComponent},
-  {path:"signup",component:SignupComponent},
+  {path:"users/signup",component:SignupComponent},
   {path: "user", component: UserProfileComponent},
   {path:"login",component:LoginComponent},
   {path:"calendar",component:AgendaComponent},
@@ -32,7 +33,9 @@ const routes: Routes = [
   {path:"update/:id", component : UpdateComponent},
   {path:"users/resume", component:ResumePageComponent},
   {path:"users/new", component:NouvelUtilisateurComponent},
+  {path:"user/:id", component:UtilisateurProfilePageComponent},
   {path: "", redirectTo: 'home', pathMatch: 'full'}
+
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class NouvelUtilisateurComponent implements OnInit {
 
   form:FormGroup;
-
+  cutilisation: any[] = [];
   constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
