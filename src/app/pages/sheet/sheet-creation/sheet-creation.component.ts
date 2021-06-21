@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
-import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { GameName } from 'src/app/models/GameName';
+import { PlugIn } from 'src/app/models/PlugIn';
 import { PositionSize } from 'src/app/models/PositionSize';
 
 @Component({
@@ -13,11 +13,11 @@ import { PositionSize } from 'src/app/models/PositionSize';
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
   private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons")
-  public plugins : BasePlugIn[] = [];
-  private healthBar : BasePlugIn = new BasePlugIn("HealthBar", "config", "Toto", this.donjonsEtDragon, "assets/images/Balrog.png", new PositionSize(1, 2, 1, 1))
-  private inventory : BasePlugIn = new BasePlugIn("Inventory", "config", "Weeb99", this.donjonsEtDragon, "assets/images/dragon.jpg", new PositionSize(1, 2, 1, 1));
-  private stats : BasePlugIn = new BasePlugIn("Stats", "config", "Dewee", this.donjonsEtDragon, "assets/images/unicorn.jpg", new PositionSize(1, 2, 1, 1));
-  private magic : BasePlugIn = new BasePlugIn("Magic", "config", "Marco", this.donjonsEtDragon, "assets/images/Smaug.png", new PositionSize(1, 2, 1, 1));
+  public plugins : PlugIn[] = [];
+  private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, "assets/images/Balrog.png", new PositionSize(1, 2, 1, 1))
+  private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, "assets/images/dragon.jpg", new PositionSize(1, 2, 1, 1));
+  private stats : PlugIn = new PlugIn("Stats", "Dewee", this.donjonsEtDragon, "assets/images/unicorn.jpg", new PositionSize(1, 2, 1, 1));
+  private magic : PlugIn = new PlugIn("Magic", "Marco", this.donjonsEtDragon, "assets/images/Smaug.png", new PositionSize(1, 2, 1, 1));
 
   editingPlugin : GridsterItem;
   choiceEditing : any;

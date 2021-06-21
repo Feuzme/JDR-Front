@@ -55,55 +55,26 @@ export class SheetPreviewComponent implements OnInit {
     
       console.log(this.currentSheet.id);
 
-    this.layoutService.layout = [
-      { cols: 2, rows: 1, y: 2, x: 2, id:1, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
+    this.layoutService.layout.push(
+      {
+        cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
+          backgroundColor: '',
+          borderRadius: '',
+          borderWidth: '',
+          borderStyle: 'none',
+          borderColor: ''
         }
       },
-      { cols: 2, rows: 1, y: 2, x: 2, id:2, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
+      {
+        cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
+          backgroundColor: '',
+          borderRadius: '',
+          borderWidth: '',
+          borderStyle: 'none',
+          borderColor: ''
         }
-      },
-      { cols: 2, rows: 1, y: 2, x: 2, id:3, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
-        }
-      },
-      { cols: 2, rows: 1, y: 2, x: 2, id:4, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
-        }
-      },
-      { cols: 2, rows: 1, y: 2, x: 2, id:5, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
-        }
-      },
-      { cols: 1, rows: 1, y: 2, x: 4, id:6, css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
-        }
-      }];
+      }
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void{

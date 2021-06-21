@@ -4,6 +4,7 @@ import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { ModelSheet } from 'src/app/models/ModelSheet';
+import { PlugIn } from 'src/app/models/PlugIn';
 
 export interface IComponent {
   id: string;
@@ -18,7 +19,7 @@ export class LayoutService {
   public layout: GridsterItem[] = [];
   public components: IComponent[] = [];
   dropId: string;
-  public plugIns : BasePlugIn[] = [];
+  public plugIns : PlugIn[] = [];
 
   
   public options: GridsterConfig ={
@@ -43,7 +44,7 @@ export class LayoutService {
   /**
    * Method called when you want to add an empty item to the grid
    */
-  addItem(plugin: BasePlugIn) {
+  addItem(plugin: PlugIn) {
     this.plugIns.push(plugin);
     this.layout.push({
        cols: 1, 
@@ -57,8 +58,8 @@ export class LayoutService {
         borderWidth: '',
         borderStyle:'none',
         borderColor: ''
-        }
-        // content : plugin.nom
+        },
+        content : plugin.name
       });
     console.log(
       {
@@ -66,8 +67,8 @@ export class LayoutService {
         rows: 1, 
         y: 1, 
         x: 1,
-        id: UUID.UUID()
-        // content : plugin.nom
+        id: UUID.UUID(),
+        content : plugin.name
         }
     )
   }
