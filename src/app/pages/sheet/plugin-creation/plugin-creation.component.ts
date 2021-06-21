@@ -11,7 +11,7 @@ export class PluginCreationComponent implements OnInit {
 
   value: number = 40;
   public plugins : BasePlugIn[] = [];
-  private healthBar : BasePlugIn = new BasePlugIn("Bar de vie", {size: "p-col-12", composant: ProgressBarComponent})
+  private healthBar : BasePlugIn = new BasePlugIn("Bar de vie", {size: "p-col-12", composant: ProgressBarComponent}, null, null, null, null)
 
   constructor() { }
 

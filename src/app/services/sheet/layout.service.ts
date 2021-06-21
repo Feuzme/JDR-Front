@@ -55,8 +55,8 @@ export class LayoutService {
         borderWidth: '',
         borderStyle:'none',
         borderColor: ''
-        },
-        content : plugin.nom
+        }
+        // content : plugin.nom
       });
     console.log(
       {
@@ -64,8 +64,8 @@ export class LayoutService {
         rows: 1, 
         y: 1, 
         x: 1,
-        id: UUID.UUID(),
-        content : plugin.nom
+        id: UUID.UUID()
+        // content : plugin.nom
         }
     )
   }
