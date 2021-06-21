@@ -1,9 +1,17 @@
-FROM node
+FROM node:14 AS builder
 
-COPY . /jdr-front
+WORKDIR /app
+COPY . .
+RUN npm install -g npm@latest
+RUN npm i
+RUN npm run build
 
-WORKDIR /jdr-front
+FROM nginx:alpine
 
-EXPOSE 4200
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+WORKDIR /usr/share/nginx/html
 
-CMD ["npm", "run", "dev"]
+# RUN rm -rf ./*
+COPY --from=builder /app/dist/jdr-front .
+
+CMD ["nginx", "-g", "daemon off;"]
