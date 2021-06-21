@@ -79,6 +79,7 @@ import { GameInfoBottomComponent } from './components/game/game-info-bottom/game
 import { GameComponent } from './pages/game/game/game.component';
 import { UserComponent } from './components/user/user/user.component';
 import { ProgressBarComponent } from './components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
+import { EditBasePluginComponent } from './components/sheet/plugin-base/edit-base-plugin/edit-base-plugin.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -123,7 +124,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     GameInfoBottomComponent,
     GameComponent,
     UserComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    EditBasePluginComponent
   ],
   imports: [
     BrowserModule,
