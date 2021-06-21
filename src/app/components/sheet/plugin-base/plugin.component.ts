@@ -54,15 +54,9 @@ export class PluginComponent implements OnInit {
     })
   }
 
-  addBar() {
-    // this.defaultComponent = ProgressBarComponent;
-    // let columnSize: string = this.currentColumn(this.getSizeValue());
-    // let config : any = {size: columnSize, composant: "progressBar"};
-    // let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", {size: columnSize, composant: this.defaultComponent});
-    // let basePluginBody: any = {nom: "Bar", config: config};
-    // this.basePlugins.push(basePlugin);
-    // this.service.create(basePluginBody).subscribe(basePluginBody => {
-    // });
+  transferObject = (basePlugin : BasePlugIn) => {
+    this.service.getCurrentBasePlugin(basePlugin)
+    console.log(basePlugin.name);
   }
 
   addText() {

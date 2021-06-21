@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
 
 @Component({
   selector: 'app-edit-base-plugin',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditBasePluginComponent implements OnInit {
 
-  constructor() { }
+  basePlugin : BasePlugIn;
+
+  constructor(private service : BasePluginService) { }
 
   ngOnInit(): void {
+    this.basePlugin = this.service.editBasePlugin;
   }
 
 }

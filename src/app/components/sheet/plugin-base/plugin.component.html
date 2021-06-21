@@ -12,7 +12,7 @@
 
 
 <div class="p-grid">
-    <div *ngFor="let basePlugin of basePlugins; let i=index" class="progressBar" [ngClass]="basePlugin.config.size">
+    <div *ngFor="let basePlugin of basePlugins; let i=index" (click)="transferObject(basePlugin)" class="progressBar" [ngClass]="basePlugin.config.size">
         <ng-container *ngComponentOutlet="basePlugin.config.composant"></ng-container>
         <!-- <p>{{basePlugin.name}}</p> -->
         <button (click)="delete(basePlugin)"></button>

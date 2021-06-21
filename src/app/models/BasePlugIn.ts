@@ -3,16 +3,16 @@ export class BasePlugIn {
     private _name: string;
     private _config: any;
 
-    constructor(nom:string, config: any) {
-        this._name = nom;
+    constructor(name:string, config: any) {
+        this._name = name;
         this._config = config;
     }
     
-    public get nom(): string {
+    public get name(): string {
         return this._name;
     }
 
-    public set nom(value: string) {
+    public set name(value: string) {
         this._name = value;
     }
 

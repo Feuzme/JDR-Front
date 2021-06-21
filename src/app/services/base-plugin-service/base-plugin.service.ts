@@ -12,6 +12,8 @@ export class BasePluginService {
 
   public basePlugins: BasePlugIn[] = [];
 
+  public editBasePlugin : BasePlugIn;
+
   public defaultComponent: any;
 
   // inputValue : FormGroup;
@@ -48,7 +50,6 @@ export class BasePluginService {
     this.create(basePluginBody).subscribe(basePluginBody => {
       this.reloadCurrentRoute();
     });
-    
   }
 
   reloadCurrentRoute() {
@@ -57,6 +58,12 @@ export class BasePluginService {
         this.router.navigate([currentUrl]);
     });  
   }
+
+  getCurrentBasePlugin = (bp : BasePlugIn) => {
+    this.editBasePlugin = bp;
+  }
+
+
 
   
 }
