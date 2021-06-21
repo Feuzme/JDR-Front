@@ -3,15 +3,15 @@ import { PositionSize } from "./PositionSize";
 
 export class BasePlugIn {
 
-    private _nom: string;
+    private _name: string;
     private _config: any;
     private _author: string;       
     private _game: GameName;
     private _gamePic: string;    
     private _positionSize : PositionSize;
 
-    constructor(nom:string, config: any, author : string, game : GameName, gamePic : string, positionSize : PositionSize) {
-        this._nom = nom;
+    constructor(name:string, config: any, author : string, game : GameName, gamePic : string, positionSize : PositionSize) {
+        this._name = name;
         this._config = config;
         this._author = author;
         this._game = game;
@@ -19,12 +19,12 @@ export class BasePlugIn {
         this._positionSize = positionSize;
     }
     
-    public get nom(): string {
-        return this._nom;
+    public get name(): string {
+        return this._name;
     }
 
-    public set nom(value: string) {
-        this._nom = value;
+    public set name(value: string) {
+        this._name = value;
     }
 
     public get config(): any {

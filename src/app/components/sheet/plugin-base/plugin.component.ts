@@ -19,9 +19,7 @@ export class PluginComponent implements OnInit {
 
   public  donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons")
 
-  public basePlugins : BasePlugIn[] = [
-
-  ];
+  public basePlugins : BasePlugIn[] = [];
 
   constructor(private service : BasePluginService) {
     this.inputValue = new FormGroup({
@@ -45,20 +43,16 @@ export class PluginComponent implements OnInit {
     }
   }
 
-  addBar() {
-    this.defaultComponent = ProgressBarComponent;
-    let columnSize: string = this.currentColumn(this.getSizeValue());
-    let config : any = {size: columnSize, composant: "progressBar"};
-    let basePlugin: BasePlugIn = new BasePlugIn("Bar de vie", 
-                                                { size: columnSize, composant: this.defaultComponent }, 
-                                                "Toto", this.donjonsEtDragon, 
-                                                "testgamePic", 
-                                                new PositionSize(0, 0, 0, 0));
-    let basePluginBody: any = {nom: "Bar", config: config};
-    this.basePlugins.push(basePlugin);
-    this.service.create(basePluginBody).subscribe(basePluginBody => {
-      
-    });
+
+  delete = (basePlugin : BasePlugIn) => {
+    this.service.delete(basePlugin).subscribe(basePlugin => {
+      this.ngOnInit();
+    })
+  }
+
+  transferObject = (basePlugin : BasePlugIn) => {
+    this.service.getCurrentBasePlugin(basePlugin)
+    console.log(basePlugin.name);
   }
 
   addText() {
