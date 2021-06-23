@@ -90,6 +90,10 @@ export class SheetPreviewComponent implements OnInit {
     return this.layoutService;
   }
 
+  getModelSheetHttpService(){
+    return this.modelSheetHttpService;
+  }
+
   editPlugin = (item) =>{
     this.editingPlugin.emit(item);
   }

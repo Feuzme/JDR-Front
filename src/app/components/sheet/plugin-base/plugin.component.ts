@@ -17,7 +17,7 @@ export class PluginComponent implements OnInit {
 
   inputValue : FormGroup;
 
-  public  donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons")
+  public  donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons", "");
 
   public basePlugins : BasePlugIn[] = [];
 

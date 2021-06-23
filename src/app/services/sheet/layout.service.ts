@@ -20,6 +20,7 @@ export class LayoutService {
   public components: IComponent[] = [];
   dropId: string;
   public plugIns : PlugIn[] = [];
+  public modelSheet : ModelSheet;
 
   
   public options: GridsterConfig ={
@@ -128,10 +129,6 @@ export class LayoutService {
 
   changedOptions() {
     this.options.api.optionsChanged();
-  }
+  } 
   
-  saveConfig() : Observable<ModelSheet>{
-    //TODO
-    return null;
-  }
 }
