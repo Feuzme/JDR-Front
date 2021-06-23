@@ -80,6 +80,11 @@ import { GameComponent } from './pages/game/game/game.component';
 import { UserComponent } from './components/user/user/user.component';
 import { ProgressBarComponent } from './components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 import { EditBasePluginComponent } from './components/sheet/plugin-base/edit-base-plugin/edit-base-plugin.component';
+import { UpdateComponent } from './components/user/update/update.component';
+import { ResumePageComponent } from './pages/account/resume-page/resume-page.component';
+import { UtilisateurProfileComponent } from './pages/account/utilisateur-profile/utilisateur-profile.component';
+import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
+import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -126,6 +131,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UserComponent,
     ProgressBarComponent,
     EditBasePluginComponent
+    UserComponent,
+    UpdateComponent,
+    ResumePageComponent,
+    UtilisateurProfileComponent,
+    NouvelUtilisateurComponent,
+    UtilisateurProfilePageComponent
   ],
   imports: [
     BrowserModule,

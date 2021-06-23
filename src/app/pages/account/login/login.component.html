@@ -1,25 +1,26 @@
 <div class="p-grid">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
   <div class="p-col-4 p-offset-4">
     <div class="card">
       <div class="p-fluid">
         <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
 
         <span class="p-float-label">
-          <input id="identifiant" type="text" pInputText>
+          <input id="identifiant" type="text" pInputText  formControlName="email">
           <label for="identifiant">Identifiant</label>
         </span>
 
         <span class="p-float-label">
-          <input id="motdepasse" type="text" pInputText>
+          <input id="motdepasse" type="text" pInputText formControlName="password">
           <label for="motdepasse">Mot de passe</label>
         </span>
 
         <div class="p-grid">
           <div class="p-col-4 p-offset-4">
-            <button pButton pRipple type="button" label="Connexion"></button>
+            <button pButton pRipple type="button" label="Connexion" (click)="onSubmit()"></button>
           </div>
           <div class="p-col-5 p-offset-4">
-            <a href="">Mot de passe oublié ?</a>
+            <a href="" (click)="onPass()">Mot de passe oublié ?</a>
           </div>
           <div class="p-col-12">
             <div class="divider"><p-divider></p-divider></div>
@@ -27,7 +28,7 @@
           </div>
           <div class="p-col-4 p-offset-4">
             <div class="p-field">
-              <button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning" (click)="inscription()"></button>
+              <button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning"></button>
             </div>
           </div>  
         </div>
@@ -35,4 +36,7 @@
       </div>
     </div>
   </div>
+</form>
 </div>
+
+
