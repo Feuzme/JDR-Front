@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
+import { ModelSheetHttpService } from './model-sheet-http.service';
 
 export interface IComponent {
   id: string;
@@ -40,7 +41,9 @@ export class LayoutService {
       scrollToNewItems:false
   }  
 
-  constructor() { }
+  constructor(
+    private httpService : ModelSheetHttpService
+  ) { }
 
   /**
    * Method called when you want to add an empty item to the grid
@@ -84,39 +87,6 @@ export class LayoutService {
     this.components.splice(this.components.indexOf(comp), 1);
   }
 
-  /**
-   * Called when the user move the mouse over a layout item
-   * @param dropId the id of the item to set is this service
-   */
-  setDropId(dropId : string) : void {
-    this.dropId = dropId;
-  }
-
-  /**
-   * The method called when droping an item on the grid 
-   * @param dragId id of the dropped item
-   */
-  dropItem(dragId : string)  :void {
-    const { components } = this;
-    const comp: IComponent = components.find(c => c.id === this.dropId);
-    const updateIndex: number = comp ? components.indexOf(comp):components.length;
-    const componentItem :IComponent = {
-      id: this.dropId,
-      componentRef: dragId
-    }
-  }
-
-  /**
-   * Utility method to find the ref of a component via his id
-   * @param id of the component we wish to find the ref
-   * @returns the reference of the finded component
-   */
-  getComponentRef(id: string) : string{
-    const comp = this.components.find(c => c.id === id);
-    // console.log(id);
-    // console.log(comp);
-    return comp ? comp.componentRef : null;
-  }
   getStyles = (item) =>{
     return {
     'background-color' : item.css.backgroundColor,
@@ -131,4 +101,7 @@ export class LayoutService {
     this.options.api.optionsChanged();
   } 
   
+  saveSheet() : Observable<ModelSheet>{
+    return this.httpService.save(this.modelSheet);
+  }
 }
