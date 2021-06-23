@@ -130,7 +130,7 @@ export class LayoutService {
     this.options.api.optionsChanged();
   }
   
-  saveConfig(plugIns : BasePlugIn[]) : Observable<ModelSheet>{
+  saveConfig() : Observable<ModelSheet>{
     //TODO
     return null;
   }
