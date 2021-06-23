@@ -10,8 +10,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UtilisateurProfilePageComponent implements OnInit {
 
+  profilePicUrl: "assets/images/profilePic.jpg";
   user:User;
 
+
+  
   constructor(private route: ActivatedRoute, private service:UserService) {
     this.route.params.subscribe(params=>
       this.service.findByIdDetail(params.id).subscribe((user:any)=>

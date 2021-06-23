@@ -1,28 +1,35 @@
-<p-card header="Profile Joueur">
-    <p-card>
-        <span class="user-profile" >Nom : {{user.nom}}</span>
-    </p-card>
-    <p-card>
-        <span class="user-profile" >E-mail : {{user.email}}</span>
-    </p-card>
-    <p-card>
-        <span class="user-profile" >BIO : {{user.bio}}</span>
-    </p-card>
-    <p-card>
-        <span class="user-profile" >Ville : {{user.ville}}</span>
-    </p-card>
-
-
-
+<!-- Les infos pricipale du profil  -->
+<div class="p-grid">
+    <div class="p-col-6">
+        
+        <img src="assets/images/profilePic.jpg" class="profilePic">
+    </div>
+    
+    <div class="p-col-6">
+        
+        <h3 class="p-col-6">
+            <h2>Nom : </h2> {{user.nom}}
+        </h3>
+        <h3 class="p-col-6">
+            <h2>E-mail :</h2> {{user.email}}
+        </h3>
+        <h3 class="p-col-6">
+            <h2>Ville : </h2>{{user.ville}}
+        </h3>
+        <div class="p-col-6">
+            <h2>BIO : </h2>
+            <p>
+                
+                 {{user.bio}}
+            </p>
+        </div>
+    </div>
     <div>
         <button class="user-detail" (click)="onDetail(user)">Modification</button>
         <button class="user-supress" (click)="onSupress(user)">Supprimer</button>
+        <button class="user-supress" (click)="onHome(user)">Home</button>
     </div>
-
-
-</p-card>
-
-
+</div>
 
 
 

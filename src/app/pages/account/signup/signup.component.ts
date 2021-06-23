@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     if(this.form.valid)
       this.service.save(this.form.value).subscribe(()=>{
-        this.router.navigate(["users"])
+        this.router.navigate(["users/resume"])
       })
     else
       alert("Le formulaire n'est pas valide")

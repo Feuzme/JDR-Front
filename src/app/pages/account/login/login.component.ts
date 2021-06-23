@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
   }
 
 
-  /*
-  inscription() {
-    this.router.navigate(['signup']);
+  
+  onPass() {
+    this.router.navigate(['reinitialisation']);
   }
-*/
+
 
 }
 

@@ -77,11 +77,10 @@ export class UpdateComponent implements OnInit {
     this.user.bio = this.userForm.value.bio;
     this.user.ville = this.userForm.value.ville;
     this.user.avatar = this.userForm.value.avatar;
-    
-    alert(" Test Redirection home")
+
     
     this.service.update(this.user).subscribe(user => {
-      this.router.navigate([`/home`]);
+      this.router.navigate([`/users/resume`]);
       
     }
     );

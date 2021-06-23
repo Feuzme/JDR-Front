@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './components/user/guards/auth.guard';
 import { UpdateComponent } from './components/user/update/update.component';
 import { UserComponent } from './components/user/user/user.component';
 import { LoginComponent } from './pages/account/login/login.component';
@@ -20,20 +21,20 @@ const routes: Routes = [
   {path:"signup",component: SignupComponent},
   {path:"user", component: UserProfileComponent},
   {path:"login", component: LoginComponent},
-  {path:"home", component: HomeComponent},
+  {path:"home", component: HomeComponent, canActivate:[AuthGuard]},
   {path:"recherche", component:RechercheComponent},
   {path:"users/signup",component:SignupComponent},
-  {path: "user", component: UserProfileComponent},
+  {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent},
   {path:"calendar",component:AgendaComponent},
   {path:"sheet-creation",component:SheetCreationComponent},
   {path:"plugin-creation", component:PluginCreationComponent},
   {path:"game",component:GameComponent},
-  {path:"users",component:UserComponent},
+  {path:"users",component:UserComponent, canActivate:[AuthGuard]},
   {path:"update/:id", component : UpdateComponent},
   {path:"users/resume", component: ResumePageComponent},
   {path:"users/new", component:NouvelUtilisateurComponent},
-  {path:"user/:id", component:UtilisateurProfilePageComponent},
+  {path:"user/:id", component:UtilisateurProfilePageComponent, canActivate:[AuthGuard]},
   {path: "", redirectTo: 'home', pathMatch: 'full'}
 
 ];

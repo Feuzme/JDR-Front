@@ -34,7 +34,22 @@ export class UtilisateurProfileComponent implements OnInit {
   onDetail(user:User){
     this.router.navigate(["update",user.id])
   }  
+
+  onHome(user:User){
+    alert(" Test Redirection home")
+    this.router.navigate(["home"])
+  } 
   
+
+  onHome2 = () => {
+    
+    this.service.update(this.user).subscribe(user => {
+      this.router.navigate([`/users/resume`]);
+      
+    }
+    );
+  
+  }
   /*modifierParc = (id: number) => {
     this.router.navigate([`/update/${id}`]);
   }

@@ -23,12 +23,12 @@
         <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
 
         <span class="p-float-label">
-          <input id="identifiant" type="text" pInputText >
+          <input id="identifiant" type="text" pInputText  formControlName="email">
           <label for="identifiant">Identifiant</label>
         </span>
 
         <span class="p-float-label">
-          <input id="motdepasse" type="text" pInputText>
+          <input id="motdepasse" type="text" pInputText formControlName="password">
           <label for="motdepasse">Mot de passe</label>
         </span>
 
@@ -37,7 +37,7 @@
             <button pButton pRipple type="button" label="Connexion"></button>
           </div>
           <div class="p-col-5 p-offset-4">
-            <a href="">Mot de passe oublié ?</a>
+            <a href="" (click)="onPass()">Mot de passe oublié ?</a>
           </div>
           <div class="p-col-12">
             <div class="divider"><p-divider></p-divider></div>
