@@ -130,7 +130,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     GameComponent,
     UserComponent,
     ProgressBarComponent,
-    EditBasePluginComponent
+    EditBasePluginComponent,
     UserComponent,
     UpdateComponent,
     ResumePageComponent,
