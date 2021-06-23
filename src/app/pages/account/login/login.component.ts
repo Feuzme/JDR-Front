@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['reinitialisation']);
   }
 
+  onSignup() {
+    this.router.navigate(['signup']);
+  }
 
 }
 
