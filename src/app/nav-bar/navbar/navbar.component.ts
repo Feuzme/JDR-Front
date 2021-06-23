@@ -33,4 +33,14 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  onDeConnect(){
+    if (localStorage.getItem("utilisateurId")){
+      localStorage.removeItem("utilisateurId");
+      //this.authLabel = "Connexion";
+    }
+    this.router.navigate(["login"]);
+  }
+
+
+
 }
