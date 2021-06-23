@@ -21,8 +21,12 @@
                 
             </li>
             <li>
-                <a routerLink="/user" routerLinkActive="item-active">
+                <a routerLink="/login" routerLinkActive="item-active">
                     <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-user" ng-reflect-ng-class="far fa-user">
+                        <div class="header-item" (click)="onConnect()">
+                            {{authLabel}}
+                        </div>
+   
                     </span>
                 </a>
             </li>

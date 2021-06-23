@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       //this.router.navigate(["utilisateur/resume"]);
     }, (err)=>{});
         
-    alert(JSON.stringify(this.form.value));
+    //alert(JSON.stringify(this.form.value));
   }
 
 

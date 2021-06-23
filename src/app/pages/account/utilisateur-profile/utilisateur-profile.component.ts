@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UtilisateurProfileComponent implements OnInit {
 
+  authLabel:string="Loggin";
   @Input() user:User;
 
   users:User[];
@@ -21,6 +22,7 @@ export class UtilisateurProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
+    this.setAuthLabel();
   }
 
 
@@ -34,21 +36,30 @@ export class UtilisateurProfileComponent implements OnInit {
   onDetail(user:User){
     this.router.navigate(["update",user.id])
   }  
+  onDeconnecte(user:User){
+    this.router.navigate(["update",user.id])
+  }  
 
   onHome(user:User){
-    alert(" Test Redirection home")
+    //alert(" Test Redirection home")
     this.router.navigate(["home"])
   } 
   
 
-  onHome2 = () => {
-    
-    this.service.update(this.user).subscribe(user => {
-      this.router.navigate([`/users/resume`]);
-      
+  onConnect(){
+    if (localStorage.getItem("utilisateurId")){
+      localStorage.removeItem("utilisateurId");
+      this.authLabel = "Connexion";
     }
-    );
-  
+    this.router.navigate(["login"]);
+  }
+
+  private setAuthLabel() {
+    if (localStorage.getItem("utilisateurId")) {
+      this.authLabel = "Deconnexion";
+    } else {
+      this.authLabel = "Connexion";
+    }
   }
   /*modifierParc = (id: number) => {
     this.router.navigate([`/update/${id}`]);
