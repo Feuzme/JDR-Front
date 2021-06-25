@@ -1,6 +1,6 @@
 export class User {
 
-    private _id : number;
+    private _id : string;
     private _pseudo : string;
     private _mail : string;
     private _pass : string;
@@ -9,7 +9,7 @@ export class User {
     private _ville : string;
     private _users : User[] = [];
 
-	constructor(id: number, pseudo: string, mail: string, pass: string, avatar: string, bio: string, ville: string) {
+	constructor(id: string, pseudo: string, mail: string, pass: string, avatar: string, bio: string, ville: string) {
 		this._id = id;
 		this._pseudo = pseudo;
 		this._mail = mail;
@@ -19,11 +19,11 @@ export class User {
 		this._ville = ville;
 	}
 
-    public get_id(): number {
+    public get_id(): string {
         return this._id;
     }
 
-    public set_id(_id: number): void {
+    public set_id(_id: string): void {
         this._id = _id;
     }
 

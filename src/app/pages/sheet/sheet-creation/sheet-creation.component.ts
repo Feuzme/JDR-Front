@@ -1,3 +1,4 @@
+import { LayoutService } from './../../../services/sheet/layout.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
@@ -11,8 +12,10 @@ import { PositionSize } from 'src/app/models/PositionSize';
   styleUrls: ['./sheet-creation.component.css']
 })
 export class SheetCreationComponent implements OnInit {
-  item: GridsterItem;
+  item: GridsterItem;  
+
   private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
+
   public plugins : PlugIn[] = [];
   private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, null)
   private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, null);
@@ -33,7 +36,7 @@ export class SheetCreationComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.plugins.push(this.healthBar, this.inventory, this.stats, this.magic);     
+    this.plugins.push(this.healthBar, this.inventory, this.stats, this.magic);   
   }
 
   // ngAfterViewInit(){

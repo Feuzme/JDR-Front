@@ -45,7 +45,7 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.setItem("idModelSheet", "60c707faa725dc09dbb6fe1b")
+    localStorage.setItem("idModelSheet", "60c6111d2b62c30e641ded5e")
 
     this.modelSheetHttpService.getById(localStorage.getItem("idModelSheet"))
       .subscribe((data : ModelSheet) => {
@@ -53,28 +53,7 @@ export class SheetPreviewComponent implements OnInit {
         this.currentSheet = data;        
       })
     
-      console.log(this.currentSheet.id);
-
-    this.layoutService.layout.push(
-      {
-        cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        }
-      },
-      {
-        cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        }
-      }
-    );
+      console.log(this.currentSheet.id);   
   }
 
   ngOnChanges(changes: SimpleChanges): void{
