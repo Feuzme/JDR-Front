@@ -1,8 +1,7 @@
-import { ComponentRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs';
-import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
@@ -100,8 +99,17 @@ export class LayoutService {
   changedOptions() {
     this.options.api.optionsChanged();
   } 
-  
+
+  /**
+   * Fonction pour envoyer au back le layout de la page, et la config des plugins
+   * @returns la modelSheet enregistrée
+   */
   saveSheet() : Observable<ModelSheet>{
+    let plugIn: PlugIn = new PlugIn("", "", null, null);
+    for (let index = 0; index < this.layout.length; index++) {
+      plugIn.positionSize = this.layout[index];
+      this.modelSheet.composants.push(plugIn);
+    }
     return this.httpService.save(this.modelSheet);
   }
 }

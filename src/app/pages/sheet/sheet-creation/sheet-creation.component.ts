@@ -14,10 +14,10 @@ export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
   private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
   public plugins : PlugIn[] = [];
-  private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1))
-  private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1));
-  private stats : PlugIn = new PlugIn("Stats", "Dewee", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1));
-  private magic : PlugIn = new PlugIn("Magic", "Marco", this.donjonsEtDragon,  new PositionSize(1, 2, 1, 1));
+  private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, null)
+  private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, null);
+  private stats : PlugIn = new PlugIn("Stats", "Dewee", this.donjonsEtDragon, null);
+  private magic : PlugIn = new PlugIn("Magic", "Marco", this.donjonsEtDragon,  null);
 
   editingPlugin : GridsterItem;
   choiceEditing : any;

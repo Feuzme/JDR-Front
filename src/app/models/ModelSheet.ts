@@ -1,4 +1,4 @@
-import { BasePlugIn } from "./BasePlugin";
+import { PlugIn } from "./PlugIn";
 import { User } from "./user";
 
 export class ModelSheet {
@@ -6,9 +6,9 @@ export class ModelSheet {
 	private _name: string;	    
 	private _isPublic: boolean;    
 	private _user: User;    
-	private _composants: BasePlugIn[];
+	private _composants: PlugIn[];
     
-    constructor(id : string, name : string, isPublic : boolean, user : User, composants : BasePlugIn[]){
+    constructor(id : string, name : string, isPublic : boolean, user : User, composants : PlugIn[]){
         this._id = id;
         this._name = name;
         this._isPublic = isPublic;
@@ -16,10 +16,10 @@ export class ModelSheet {
         this.composants = composants;
     }    
 
-    public get composants(): BasePlugIn[] {
+    public get composants(): PlugIn[] {
         return this._composants;
     }
-    public set composants(value: BasePlugIn[]) {
+    public set composants(value: PlugIn[]) {
         this._composants = value;
     }
     public get user(): User {

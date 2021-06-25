@@ -1,18 +1,17 @@
+import { GridsterItem } from 'angular-gridster2';
 import { GameName } from "./GameName";
-import { PositionSize } from "./PositionSize";
 
 export class PlugIn {
     private _name: string;
     private _author: string;       
-    private _game: GameName;  
-    private _positionSize : PositionSize;
-    private _config : String;
+    private _game: GameName; 	
+    private _positionSize : GridsterItem;
+    // private _config : String;
 
-	constructor($name: string, $author: string, $game: GameName, $positionSize: PositionSize) {
+	constructor($name: string, $author: string, $game: GameName, $positionSize: GridsterItem) {
 		this._name = $name;
 		this._author = $author;
 		this._game = $game;
-		this._positionSize = $positionSize;
     }
 
 	public get name(): string {
@@ -39,19 +38,10 @@ export class PlugIn {
 		this._game = value;
 	}    
 
-	public get positionSize(): PositionSize {
+	public get positionSize(): GridsterItem {
 		return this._positionSize;
 	}
-
-	public set positionSize(value: PositionSize) {
+	public set positionSize(value: GridsterItem) {
 		this._positionSize = value;
-	}
-
-    public get config(): String {
-		return this._config;
-	}
-
-	public set config(value: String) {
-		this._config = value;
 	}
 } 
