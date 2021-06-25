@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:"users/resume", component: ResumePageComponent},
   {path:"users/new", component:NouvelUtilisateurComponent},
   {path:"user/:id", component:UtilisateurProfilePageComponent, canActivate:[AuthGuard]},
-  {path: "", redirectTo: 'home', pathMatch: 'full'}
+  {path: "", redirectTo: 'login', pathMatch: 'full'}
 
 ];
 
