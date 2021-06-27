@@ -2,46 +2,55 @@ import { GridsterItem } from 'angular-gridster2';
 import { GameName } from "./GameName";
 
 export class PlugIn {
-    private _name: string;
-    private _author: string;       
-    private _game: GameName; 	
-    private _positionSize : GridsterItem;
+	private id : string;
+    private nom: string;
+    private auteur: string;       
+    private gameType: GameName; 	
+    private positionSize : GridsterItem;
     // private _config : String;
 
-	constructor($name: string, $author: string, $game: GameName, $positionSize: GridsterItem) {
-		this._name = $name;
-		this._author = $author;
-		this._game = $game;
+	constructor( $id : string, $nom: string, $author: string, $game: GameName, $positionSize: GridsterItem) {
+		this.nom = $nom;
+		this.auteur = $author;
+		this.gameType = $game;
+		this.id = $id;
     }
 
-	public get name(): string {
-		return this._name;
+	public getId() :string {
+		return this.id;
+	}
+	public setId(value : string){
+		this.id = value;
 	}
 
-	public set name(value: string) {
-		this._name = value;
+	public getNom(): string {
+		return this.nom;
 	}
 
-	public get author(): string {
-		return this._author;
+	public setNom(value: string) {
+		this.nom = value;
 	}
 
-	public set author(value: string) {
-		this._author = value;
+	public getAuteur(): string {
+		return this.auteur;
 	}
 
-	public get game(): GameName {
-		return this._game;
+	public setAuteur(value: string) {
+		this.auteur = value;
 	}
 
-	public set game(value: GameName) {
-		this._game = value;
+	public getGame(): GameName {
+		return this.gameType;
+	}
+
+	public setGame(value: GameName) {
+		this.gameType = value;
 	}    
 
-	public get positionSize(): GridsterItem {
-		return this._positionSize;
+	public getPositionSize(): GridsterItem {
+		return this.positionSize;
 	}
-	public set positionSize(value: GridsterItem) {
-		this._positionSize = value;
+	public setPositionSize(value: GridsterItem) {
+		this.positionSize = value;
 	}
 } 

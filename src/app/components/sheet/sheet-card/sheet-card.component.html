@@ -1,13 +1,13 @@
 <div class="p-grid p-card p-ai-center vertical-container sheetCard">
     <div class="p-col-3">
-        <p-avatar image="{{plugin.game.gamePic}}" shape="circle" size="xlarge"></p-avatar>
+        <p-avatar image="{{plugin.getGame().gamePic}}" shape="circle" size="xlarge"></p-avatar>
     </div>
     <div class="p-col-9">
         <p class="name">
             <!-- {{plugin.nom}} -->
         </p>
         <p class="pseudo">
-            {{plugin.author}}
+            {{plugin.getAuteur()}}
         </p>        
     </div>    
 </div>

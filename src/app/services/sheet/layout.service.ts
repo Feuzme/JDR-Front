@@ -8,6 +8,7 @@ import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { User } from 'src/app/models/user';
 import { ModelSheetHttpService } from './model-sheet-http.service';
+import { stringify } from '@angular/compiler/src/util';
 
 export interface IComponent {
   id: string;
@@ -46,28 +47,27 @@ export class LayoutService {
   constructor(
     private httpService : ModelSheetHttpService
   ) { 
-    this.layout.push(
-      {
-        cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        }
-      },
-      {
-        cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        }
-      }
-    );
-
-    this.modelSheet = new ModelSheet(UUID.UUID(), "", false, null, []);
+    // this.layout.push(
+    //   {
+    //     cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
+    //       backgroundColor: '',
+    //       borderRadius: '',
+    //       borderWidth: '',
+    //       borderStyle: 'none',
+    //       borderColor: ''
+    //     }
+    //   },
+    //   {
+    //     cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
+    //       backgroundColor: '',
+    //       borderRadius: '',
+    //       borderWidth: '',
+    //       borderStyle: 'none',
+    //       borderColor: ''
+    //     }
+    //   }
+    // );
+    this.modelSheet = null;
   }
 
   /**
@@ -80,7 +80,7 @@ export class LayoutService {
        rows: 1, 
        y: 1, 
        x: 1,
-       id: UUID.UUID(), 
+       id: plugin.getId(), 
        css:{       
         backgroundColor:'',
         borderRadius:'',
@@ -88,7 +88,7 @@ export class LayoutService {
         borderStyle:'none',
         borderColor: ''
         },
-        content : plugin.name
+        content : plugin.getNom()
       });
     console.log(
       {
@@ -96,10 +96,12 @@ export class LayoutService {
         rows: 1, 
         y: 1, 
         x: 1,
-        id: UUID.UUID(),
-        content : plugin.name
+        id: plugin.getId(),
+        content : plugin.getNom()
         }
     )
+
+    this.modelSheet = new ModelSheet("", "",false, null, null);
   }
 
   /**
@@ -132,20 +134,28 @@ export class LayoutService {
    * @returns la modelSheet enregistrée
    */
   saveSheet(){
-    let plugIn: PlugIn = new PlugIn("", "", null, null);
+    let plugIn: PlugIn = new PlugIn("","", "", null, null);
+    let plugInsIds : string[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
-      plugIn.positionSize = this.layout[index];
-      plugIn.name = this.layout[index].content;      
-      this.modelSheet.composants.push(plugIn);
+      // plugIn.setPositionSize(this.layout[index]);
+      // plugIn.setNom(this.layout[index].content);     
+      // this.plugIns.push(plugIn);
+      plugInsIds.push(this.layout[index].id);
     }
 
-    this.modelSheet.user = this.mockUser;
-    this.modelSheet.isPublic = true;
-    this.modelSheet.name = "test";
+    this.modelSheet.setComposants(plugInsIds);
+    this.modelSheet.setName("test");
+    this.modelSheet.setUser(this.mockUser);
+    this.modelSheet.setIsPublic(true);
 
     //TODO transformet l'objet envoyé en body de requete check discord 
-  
+    // let modelSheetBody : any = {
+    //   name: "test",
+    //   isPublic: true,
+    //   user:
+    // }
+
 
     console.log(this.modelSheet);
 
