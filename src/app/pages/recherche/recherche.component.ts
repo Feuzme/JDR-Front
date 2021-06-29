@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LazyLoadEvent } from 'primeng/api';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -9,6 +12,8 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class RechercheComponent implements OnInit {
 
+  //partie 2 pour un affichage dynamique
+  users: User[];
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
   selectedFrequence: string[] = ['fre1','fre2','fre3'];
@@ -85,9 +90,11 @@ export class RechercheComponent implements OnInit {
   
 
 
-  constructor() { }
+  constructor(    private service: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
   }
 
   loadCustomers(event: LazyLoadEvent) {  

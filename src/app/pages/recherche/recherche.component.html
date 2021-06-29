@@ -1,5 +1,6 @@
 <div class="recherche">
     <p-tabView>
+        <!-- Fiches -->
         <p-tabPanel header="Fiches">
             <p-table [value]="fiche" styleClass="p-datatable-gridlines">
 
@@ -44,7 +45,7 @@
         </p-tabPanel>
 
 
-
+        <!-- Parties -->
 
         <p-tabPanel header="Parties">
             <p-table [value]="partie" styleClass="p-datatable-gridlines">
@@ -90,8 +91,11 @@
                 </ng-template>
             </p-table>
         </p-tabPanel>
+
+
+        <!-- Joueurs -->
         <p-tabPanel header="Joueur">
-            <p-table [value]="player" styleClass="p-datatable-gridlines">
+            <p-table [value]="users" styleClass="p-datatable-gridlines">
 
                 <ng-template pTemplate="caption">
                     <div class="p-grid">
@@ -111,20 +115,33 @@
                     </div>
                 </ng-template>
 
-                <ng-template pTemplate="header">
+                <ng-template pTemplate="header" >
                     <tr>
+           
                         <th>Nom</th>
-                        <th>Membre depuis</th>
-                        <th>Parties en cours</th>
+                        <th>E-mail</th>
                         <th>Bio</th>
+                        <th>Ville</th>
+                        <th>Avatar</th>
+                        <th>Création</th>
+                        <th></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-player>
+                <ng-template pTemplate="body" let-user>
                     <tr>
-                        <td>{{player.nom}}</td>
-                        <td>{{player.annee}}</td>
-                        <td>{{player.partie}}</td>
-                        <td><a href="">{{player.bio}}</a></td>
+           
+                        <td>{{user.nom}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.bio}}</td>
+                        <td>{{user.ville}}</td>
+                        <td>{{user.avatar}}</td>
+                        <td>{{user.createAt | date}}</td>
+                        <td>
+                         <div class="btn">
+                            <button (click)="onSupress(user)" > Ajouter </button>
+                            <button (click)="onDetail(user.id)" > Détail</button>
+                         </div> 
+                        </td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="summary">
@@ -134,6 +151,9 @@
         </p-tabPanel>
     </p-tabView>
 </div>
+
+
+
 <!--popup pour une fiche  -->
 <p-dialog header="" [(visible)]="displayModalFiche" [modal]="true" [style]="{width: '70vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">
