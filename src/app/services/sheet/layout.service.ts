@@ -1,14 +1,10 @@
-import { BasicUser } from './../../models/BasicUser';
-import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
+import { UserIdDto } from './../../models/dto/UserIdDto';
+import { PlugInIdDto } from './../../models/dto/PlugInIdDto';
 import { Injectable } from '@angular/core';
 import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
-import { UUID } from 'angular2-uuid';
-import { Observable } from 'rxjs';
 import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
-import { User } from 'src/app/models/user';
 import { ModelSheetHttpService } from './model-sheet-http.service';
-import { stringify } from '@angular/compiler/src/util';
 
 export interface IComponent {
   id: string;
@@ -24,7 +20,7 @@ export class LayoutService {
   public components: IComponent[] = [];
   public plugIns : PlugIn[] = [];
   public modelSheet : ModelSheet;
-  public mockUser : BasicUser = new BasicUser("60c5ff80e628b7723b249e75");
+  public mockUser : UserIdDto = new UserIdDto("60c5ff80e628b7723b249e75");
 
   
   public options: GridsterConfig ={
@@ -47,26 +43,28 @@ export class LayoutService {
   constructor(
     private httpService : ModelSheetHttpService
   ) { 
-    // this.layout.push(
-    //   {
-    //     cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
-    //       backgroundColor: '',
-    //       borderRadius: '',
-    //       borderWidth: '',
-    //       borderStyle: 'none',
-    //       borderColor: ''
-    //     }
-    //   },
-    //   {
-    //     cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
-    //       backgroundColor: '',
-    //       borderRadius: '',
-    //       borderWidth: '',
-    //       borderStyle: 'none',
-    //       borderColor: ''
-    //     }
-    //   }
-    // );
+    this.layout.push(
+      {
+        cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
+          backgroundColor: '',
+          borderRadius: '',
+          borderWidth: '',
+          borderStyle: 'none',
+          borderColor: ''
+        },
+        content: "Hi"
+      },
+      {
+        cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
+          backgroundColor: '',
+          borderRadius: '',
+          borderWidth: '',
+          borderStyle: 'none',
+          borderColor: ''
+        },
+        content: "Mark"
+      }
+    );
     this.modelSheet = null;
   }
 
@@ -134,27 +132,24 @@ export class LayoutService {
    * @returns la modelSheet enregistrée
    */
   saveSheet(){
-    let plugIn: PlugIn = new PlugIn("","", "", null, null);
-    let plugInsIds : string[] = [];
+    // let plugIn: PlugIn = new PlugIn("","", "", null, null);
+    let plugInIdDtos : PlugInIdDto[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
       // plugIn.setPositionSize(this.layout[index]);
       // plugIn.setNom(this.layout[index].content);     
       // this.plugIns.push(plugIn);
-      plugInsIds.push(this.layout[index].id);
+      let plugInsId : PlugInIdDto = new PlugInIdDto(this.layout[index].id);
+      plugInIdDtos.push(plugInsId);
     }
 
-    this.modelSheet.setComposants(plugInsIds);
+    this.modelSheet.setComposants(plugInIdDtos);
     this.modelSheet.setName("test");
     this.modelSheet.setUser(this.mockUser);
     this.modelSheet.setIsPublic(true);
 
-    //TODO transformet l'objet envoyé en body de requete check discord 
-    // let modelSheetBody : any = {
-    //   name: "test",
-    //   isPublic: true,
-    //   user:
-    // }
+    // TODO transformet l'objet envoyé en body de requete check discord 
+    
 
 
     console.log(this.modelSheet);
