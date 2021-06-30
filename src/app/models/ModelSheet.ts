@@ -1,49 +1,49 @@
-import { BasePlugIn } from "./BasePlugin";
-import { User } from "./user";
+import { UserIdDto } from './dto/UserIdDto';
+import { PlugInIdDto } from './dto/PlugInIdDto';
 
 export class ModelSheet {
-    private _id: string;	    
-	private _name: string;	    
-	private _isPublic: boolean;    
-	private _user: User;    
-	private _composants: BasePlugIn[];
+    private id: string;	    
+	private name: string;	    
+	private isPublic: boolean;    
+	private user: UserIdDto;    
+	private composants: PlugInIdDto[];
     
-    constructor(id : string, name : string, isPublic : boolean, user : User, composants : BasePlugIn[]){
-        this._id = id;
-        this._name = name;
-        this._isPublic = isPublic;
-        this._user = user;
+    constructor(id : string, name : string, isPublic : boolean, user : UserIdDto, composants : PlugInIdDto[]){
+        this.id = id;
+        this.name = name;
+        this.isPublic = isPublic;
+        this.user = user;
         this.composants = composants;
     }    
 
-    public get composants(): BasePlugIn[] {
-        return this._composants;
+    public getComposants(): PlugInIdDto[] {
+        return this.composants;
     }
-    public set composants(value: BasePlugIn[]) {
-        this._composants = value;
+    public setComposants(value: PlugInIdDto[]) {
+        this.composants = value;
     }
-    public get user(): User {
-        return this._user;
+    public getUser(): UserIdDto {
+        return this.user;
     }
-    public set user(value: User) {
-        this._user = value;
+    public setUser(value: UserIdDto) {
+        this.user = value;
     }
-    public get name(): string {
-        return this._name;
+    public getName(): string {
+        return this.name;
     }
-    public set name(value: string) {
-        this._name = value;
+    public setName(value: string) {
+        this.name = value;
     }
-    public get id(): string {
-        return this._id;
+    public getId(): string {
+        return this.id;
     }
-    public set id(value: string) {
-        this._id = value;
+    public setId(value: string) {
+        this.id = value;
     }
-    public get isPublic(): boolean {
-        return this._isPublic;
+    public getIsPublic(): boolean {
+        return this.isPublic;
     }
-    public set isPublic(value: boolean) {
-        this._isPublic = value;
+    public setIsPublic(value: boolean) {
+        this.isPublic = value;
     }
 }
