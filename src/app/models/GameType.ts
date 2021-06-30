@@ -1,20 +1,20 @@
 export class GameType {
 
-    private id: number;
+    private id: string;
     private name: string;	
-    private gamePic: string;  
+    private logo: string;  
 
-    constructor(id: number, name: string, gamePic : string) {
+    constructor(id: string, name: string, gamePic : string) {
 		this.id = id;
 		this.name = name;
-        this.name = gamePic;
+        this.logo = gamePic;
 	}
 
-    public getId(): number {
+    public getId(): string {
         return this.id;
     }
 
-    public setId(id: number): void {
+    public setId(id: string): void {
         this.id = id;
     }
 
@@ -27,10 +27,10 @@ export class GameType {
     }
 
     public getGamePic(): string {
-        return this.gamePic;
+        return this.logo;
     }
 
     public setGamePic(gamePic: string): void {
-        this.gamePic = gamePic;
+        this.logo = gamePic;
     }
 }

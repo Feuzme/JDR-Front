@@ -14,7 +14,7 @@ import { PositionSize } from 'src/app/models/PositionSize';
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;  
 
-  private donjonsEtDragon : GameType = new GameType(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
+  private donjonsEtDragon : GameType = new GameType('1', "Dungeon&Dragons", "assets/images/dragon.jpg")
 
   public plugins : PlugIn[] = [];
   private healthBar : PlugIn = new PlugIn("60d899dbb281df7d3dcbc6a9","HealthBar", "Toto", this.donjonsEtDragon, null)
