@@ -136,9 +136,6 @@ export class LayoutService {
     let plugInIdDtos : PlugInIdDto[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
-      // plugIn.setPositionSize(this.layout[index]);
-      // plugIn.setNom(this.layout[index].content);     
-      // this.plugIns.push(plugIn);
       let plugInsId : PlugInIdDto = new PlugInIdDto(this.layout[index].id);
       plugInIdDtos.push(plugInsId);
     }
@@ -146,10 +143,7 @@ export class LayoutService {
     this.modelSheet.setComposants(plugInIdDtos);
     this.modelSheet.setName("test");
     this.modelSheet.setUser(this.mockUser);
-    this.modelSheet.setIsPublic(true);
-
-    // TODO transformet l'objet envoyé en body de requete check discord 
-    
+    this.modelSheet.setIsPublic(true); 
 
 
     console.log(this.modelSheet);
