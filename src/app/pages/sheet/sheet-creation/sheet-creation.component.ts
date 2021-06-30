@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
-import { GameName } from 'src/app/models/GameName';
+import { GameType } from 'src/app/models/GameType';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { PositionSize } from 'src/app/models/PositionSize';
 
@@ -12,7 +12,7 @@ import { PositionSize } from 'src/app/models/PositionSize';
 })
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
-  private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
+  private donjonsEtDragon : GameType = new GameType(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
   public plugins : PlugIn[] = [];
   private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1))
   private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1));

@@ -1,4 +1,4 @@
-import { GameName } from "./GameName";
+import { GameType } from "./GameType";
 import { PositionSize } from "./PositionSize";
 
 export class BasePlugIn {
@@ -6,7 +6,7 @@ export class BasePlugIn {
     private _name: string;
     private _config: any;
 
-    constructor(name:string, config: any, author : string, game : GameName, gamePic : string, positionSize : PositionSize) {
+    constructor(name:string, config: any, author : string, game : GameType, gamePic : string, positionSize : PositionSize) {
         this._name = name;
         this._config = config;
     }

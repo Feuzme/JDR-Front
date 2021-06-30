@@ -1,14 +1,14 @@
-import { GameName } from "./GameName";
+import { GameType } from "./GameType";
 import { PositionSize } from "./PositionSize";
 
 export class PlugIn {
     private _name: string;
     private _author: string;       
-    private _game: GameName;  
+    private _game: GameType;  
     private _positionSize : PositionSize;
     private _config : String;
 
-	constructor($name: string, $author: string, $game: GameName, $positionSize: PositionSize) {
+	constructor($name: string, $author: string, $game: GameType, $positionSize: PositionSize) {
 		this._name = $name;
 		this._author = $author;
 		this._game = $game;
@@ -31,11 +31,11 @@ export class PlugIn {
 		this._author = value;
 	}
 
-	public get game(): GameName {
+	public get game(): GameType {
 		return this._game;
 	}
 
-	public set game(value: GameName) {
+	public set game(value: GameType) {
 		this._game = value;
 	}    
 
