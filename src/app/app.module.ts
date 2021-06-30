@@ -85,6 +85,13 @@ import { ResumePageComponent } from './pages/account/resume-page/resume-page.com
 import { UtilisateurProfileComponent } from './pages/account/utilisateur-profile/utilisateur-profile.component';
 import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
 import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
+import { RecherchePlayerComponent } from './pages/search/recherche-player/recherche-player.component';
+import { DataTablesModule } from "angular-datatables";
+import {ToolbarModule} from 'primeng/toolbar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { UserService } from './services/user.service';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -136,7 +143,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ResumePageComponent,
     UtilisateurProfileComponent,
     NouvelUtilisateurComponent,
-    UtilisateurProfilePageComponent
+    UtilisateurProfilePageComponent,
+    RecherchePlayerComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -175,9 +184,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ColorPickerModule,
     SliderModule,
     MessageModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DataTablesModule,
+    ToolbarModule,
+    ConfirmDialogModule
   ],
-  providers: [],
+  providers: [UserService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

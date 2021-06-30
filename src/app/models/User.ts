@@ -1,3 +1,7 @@
+export interface Representative {
+    name?: string;
+    image?: string;
+  }
 export class User {
 
     public  id : string;

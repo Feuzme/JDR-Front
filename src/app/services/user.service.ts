@@ -49,4 +49,30 @@ export class UserService {
     console.log(url);
     return this.http.get(url)
   }
+
+  getCustomersLarge() {
+    return this.http.get<any>('assets/customers-large.json')
+        .toPromise()
+        .then(res => <User[]>res.data)
+        .then(data => { return data; });
+}
+
+/*getProducts() {
+  return this.http.get<any>('assets/products.json')
+  .toPromise()
+  .then(res => <User[]>res.data)
+  .then(data => { return data; });
+}
+
+*/
+
+getProducts() {
+  return this.http.get<any>('assets/products.json')
+  .toPromise()
+  .then(res => <User[]>res.data)
+  .then(data => { return data; });
+}
+
+status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
+
 }
