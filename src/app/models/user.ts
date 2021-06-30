@@ -9,6 +9,7 @@ export class User {
     private _ville : string;
     private _users : User[] = [];
     ///hello world
+    ///zerkiugzedfiuygefiiyugzefouygfe
 
 	constructor(id: string, pseudo: string, mail: string, pass: string, avatar: string, bio: string, ville: string) {
 		this._id = id;
