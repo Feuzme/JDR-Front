@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './components/user/guards/auth.guard';
+import { UpdateComponent } from './components/user/update/update.component';
+import { UserComponent } from './components/user/user/user.component';
 import { LoginComponent } from './pages/account/login/login.component';
+import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
+import { ResumePageComponent } from './pages/account/resume-page/resume-page.component';
 import { SignupComponent } from './pages/account/signup/signup.component';
 import { UserProfileComponent } from './pages/account/user-profile/user-profile.component';
+import { UsersComponent } from './pages/account/users/users.component';
+import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
 import { AgendaComponent } from './pages/agenda/agenda/agenda.component';
 import { GameComponent } from './pages/game/game/game.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -14,16 +21,22 @@ const routes: Routes = [
   {path:"signup",component: SignupComponent},
   {path:"user", component: UserProfileComponent},
   {path:"login", component: LoginComponent},
-  {path:"home", component: HomeComponent},
+  {path:"home", component: HomeComponent, canActivate:[AuthGuard]},
   {path:"recherche", component:RechercheComponent},
-  {path:"signup",component:SignupComponent},
-  {path: "user", component: UserProfileComponent},
+  {path:"users/signup",component:SignupComponent},
+  {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent},
-  {path:"calendar",component:AgendaComponent},
-  {path:"sheet-creation",component:SheetCreationComponent},
-  {path:"plugin-creation", component:PluginCreationComponent},
+  {path:"calendar",component:AgendaComponent, canActivate:[AuthGuard]},
+  {path:"sheet-creation",component:SheetCreationComponent, canActivate:[AuthGuard]},
+  {path:"plugin-creation", component:PluginCreationComponent, canActivate:[AuthGuard]},
   {path:"game",component:GameComponent},
-  {path: "", redirectTo: 'home', pathMatch: 'full'}
+  {path:"users",component:UserComponent, canActivate:[AuthGuard]},
+  {path:"update/:id", component : UpdateComponent},
+  {path:"users/resume", component: ResumePageComponent},
+  {path:"users/new", component:NouvelUtilisateurComponent},
+  {path:"user/:id", component:UtilisateurProfilePageComponent, canActivate:[AuthGuard]},
+  {path: "", redirectTo: 'login', pathMatch: 'full'}
+
 ];
 
 @NgModule({

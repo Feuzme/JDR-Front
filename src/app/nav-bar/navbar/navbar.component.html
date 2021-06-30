@@ -21,8 +21,10 @@
                 
             </li>
             <li>
-                <a routerLink="/user" routerLinkActive="item-active">
+                <a routerLink="/login" routerLinkActive="item-active" (click)="onConnect()">
                     <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-user" ng-reflect-ng-class="far fa-user">
+
+   
                     </span>
                 </a>
             </li>
@@ -39,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <a routerLink="/logout">
+                <a routerLink="/logout" (click)="onDeConnect()">
                     <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-power-off" ng-reflect-ng-class="fas fa-power-off">
                     </span>
                 </a>

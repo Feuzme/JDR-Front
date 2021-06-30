@@ -68,7 +68,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { PluginPreviewComponent } from './components/sheet/plugin-preview/plugin-preview.component';
 import {ProgressBarModule} from 'primeng/progressbar';
-import { PluginComponent } from './components/sheet/plugin/plugin.component';
+import { PluginComponent } from './components/sheet/plugin-base/plugin.component';
 import { NoSanitizePipe } from './util/nosanitizerpipe';
 import { PluginCardComponent } from './components/plugin/plugin-card/plugin-card.component';
 import { EditionMenuRightComponent } from './components/sheet/edition-menu-right/edition-menu-right.component';
@@ -77,6 +77,14 @@ import { GameInfoComponent } from './components/game/game-info/game-info.compone
 import { ListSummaryComponent } from './components/game/list-summary/list-summary.component';
 import { GameInfoBottomComponent } from './components/game/game-info-bottom/game-info-bottom.component';
 import { GameComponent } from './pages/game/game/game.component';
+import { UserComponent } from './components/user/user/user.component';
+import { ProgressBarComponent } from './components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
+import { EditBasePluginComponent } from './components/sheet/plugin-base/edit-base-plugin/edit-base-plugin.component';
+import { UpdateComponent } from './components/user/update/update.component';
+import { ResumePageComponent } from './pages/account/resume-page/resume-page.component';
+import { UtilisateurProfileComponent } from './pages/account/utilisateur-profile/utilisateur-profile.component';
+import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
+import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -119,7 +127,16 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     GameInfoComponent,
     ListSummaryComponent,
     GameInfoBottomComponent,
-    GameComponent
+    GameComponent,
+    UserComponent,
+    ProgressBarComponent,
+    EditBasePluginComponent,
+    UserComponent,
+    UpdateComponent,
+    ResumePageComponent,
+    UtilisateurProfileComponent,
+    NouvelUtilisateurComponent,
+    UtilisateurProfilePageComponent
   ],
   imports: [
     BrowserModule,

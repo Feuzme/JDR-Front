@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LayoutService } from '../../services/sheet/layout.service';
+import { PlugIn } from 'src/app/models/PlugIn';
+import { LayoutService } from '../../../services/sheet/layout.service';
 
 @Component({
   selector: 'app-plugin-card',
@@ -8,16 +9,17 @@ import { LayoutService } from '../../services/sheet/layout.service';
 })
 export class PluginCardComponent implements OnInit {
 
-  @Input() plugin;
+  @Input() plugin : PlugIn;
 
   constructor(
-    private layoutService : LayoutService
+    private layoutService : LayoutService,
+    // private basePluginService : BasePluginService
   ) { }
 
   ngOnInit(): void {
   }
 
-  getLayoutService(){
+  getLayoutService() {
     return this.layoutService;
   }
 }

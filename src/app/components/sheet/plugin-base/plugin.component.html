@@ -1,0 +1,21 @@
+<!-- <div class="p-grid">
+    <div class="p-col-3"><button (click)="addBar()">Ajouter une barre</button></div>
+    <div class="p-col-3"><button (click)="addText()">Ajouter du texte</button></div>
+</div>
+
+<form [formGroup]="inputValue" (ngSubmit)="getSizeValue()">
+    <label>Choix de la taille de column (entre 0 et 12) :
+        <input type="number" formControlName="size">
+    </label>
+</form> -->
+
+
+
+<div class="p-grid">
+    <div *ngFor="let basePlugin of basePlugins; let i=index" (click)="transferObject(basePlugin)" class="progressBar" [ngClass]="basePlugin.config.size">
+        <ng-container *ngComponentOutlet="basePlugin.config.composant"></ng-container>
+        <!-- <p>{{basePlugin.name}}</p> -->
+        <button (click)="delete(basePlugin)"></button>
+        <!-- <p>salut</p> -->
+    </div>
+</div>

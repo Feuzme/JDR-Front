@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output,  } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { IComponent, LayoutService } from '../../services/sheet/layout.service';
+import { IComponent, LayoutService } from '../../../services/sheet/layout.service';
 
 
 @Component({
@@ -9,7 +9,8 @@ import { IComponent, LayoutService } from '../../services/sheet/layout.service';
   styleUrls: ['./creation-menu-left.component.css']
 })
 export class CreationMenuLeftComponent implements OnInit {
-  @Input() plugins;
+  @Input() plugins : Plugin[];
+  
   get options(): GridsterConfig {
     return this.layoutService.options
   }
@@ -31,6 +32,7 @@ export class CreationMenuLeftComponent implements OnInit {
   // emitItem() {
   //   this.itemEmitter.emit(this.item);
   // }
+
   getLayoutService(){
     return this.layoutService;
   }

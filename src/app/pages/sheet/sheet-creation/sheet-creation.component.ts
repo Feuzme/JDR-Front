@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
-import { PlugIn } from 'src/app/models/plugin';
+import { GameName } from 'src/app/models/GameName';
+import { PlugIn } from 'src/app/models/PlugIn';
+import { PositionSize } from 'src/app/models/PositionSize';
 
 @Component({
   selector: 'app-sheet-creation',
@@ -10,12 +12,12 @@ import { PlugIn } from 'src/app/models/plugin';
 })
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;
-
+  private donjonsEtDragon : GameName = new GameName(1, "Dungeon&Dragons", "assets/images/dragon.jpg")
   public plugins : PlugIn[] = [];
-  private healthBar : PlugIn = new PlugIn("greg", "HealthBar", "Dungeons&Dragons", "assets/images/dragon.jpg", 2 ,1);
-  private inventory : PlugIn = new PlugIn("Weeb99", "Inventory", "Dungeons&Dragons", "assets/images/dragon.jpg", 4 ,4);
-  private stats : PlugIn = new PlugIn("Dewee","Stats", "Dungeons&Dragons", "assets/images/unicorn.jpg", 1 ,2);
-  private magic : PlugIn = new PlugIn("Marco", "Magic","ESRPG","assets/images/Smaug.png", 1 ,1);
+  private healthBar : PlugIn = new PlugIn("HealthBar", "Toto", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1))
+  private inventory : PlugIn = new PlugIn("Inventory", "Weeb99", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1));
+  private stats : PlugIn = new PlugIn("Stats", "Dewee", this.donjonsEtDragon, new PositionSize(1, 2, 1, 1));
+  private magic : PlugIn = new PlugIn("Magic", "Marco", this.donjonsEtDragon,  new PositionSize(1, 2, 1, 1));
 
   editingPlugin : GridsterItem;
   choiceEditing : any;
