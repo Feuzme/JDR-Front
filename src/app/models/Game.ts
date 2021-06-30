@@ -1,12 +1,16 @@
-export class Game {
-    private _id: string;
-    private _name: string;
-    private _nbPlayers: number;
-    private _story: string;
-    private _logo: string;
-    private _isPublic: boolean;
-    private _status: string;
+import { GameType } from "./GameType";
+import { User } from "./user";
 
+export class Game {
+    private id: string;
+    private name: string;
+    private nbPlayers: number;
+    private story: string;
+    private logo: string;
+    private isPublic: boolean;
+    private status: string;
+    private mjUser : User;
+    private gameType : GameType;
 
     constructor(
         name: string,
@@ -14,64 +18,89 @@ export class Game {
         trame: string,
         logo: string,
         isPublic: boolean,
-        status: string) {
-        this._name = name;
-        this._nbPlayers = nbPlayers;
-        this._story = trame;
-        this._logo = logo;
-        this._isPublic = isPublic;
-        this._status = status;
+        status: string,
+        mjUser: User,
+        gameType: GameType) {
+        this.name = name;
+        this.nbPlayers = nbPlayers;
+        this.story = trame;
+        this.logo = logo;
+        this.isPublic = isPublic;
+        this.status = status;
+        this.mjUser = mjUser;
+        this.gameType = gameType;
     }
 
-    public get_id(): string {
-        return this._id;
+    public getId(): string {
+        return this.id;
     }
 
-    public get_name(): string {
-        return this._name;
+    public setId(id: string): void {
+        this.id = id;
     }
 
-    public set_name(_name: string): void {
-        this._name = _name;
+    public getName(): string {
+        return this.name;
     }
 
-    public get_nbPlayers(): number {
-        return this._nbPlayers;
+    public setName(name: string): void {
+        this.name = name;
     }
 
-    public set_nbPlayers(_nbPlayers: number): void {
-        this._nbPlayers = _nbPlayers;
+    public getNbPlayers(): number {
+        return this.nbPlayers;
     }
 
-    public get_trame(): string {
-        return this._story;
+    public setNbPlayers(nbPlayers: number): void {
+        this.nbPlayers = nbPlayers;
     }
 
-    public set_trame(_trame: string): void {
-        this._story = _trame;
+    public getStory(): string {
+        return this.story;
     }
 
-    public get_logo(): string {
-        return this._logo;
+    public setStory(story: string): void {
+        this.story = story;
     }
 
-    public set_logo(_logo: string): void {
-        this._logo = _logo;
+    public getLogo(): string {
+        return this.logo;
     }
 
-    public is_public(): boolean {
-        return this._isPublic;
+    public setLogo(logo: string): void {
+        this.logo = logo;
     }
 
-    public set_public(_isPublic: boolean): void {
-        this._isPublic = _isPublic;
+    public isIsPublic(): boolean {
+        return this.isPublic;
     }
 
-    public get_status(): string {
-        return this._status;
+    public setIsPublic(isPublic: boolean): void {
+        this.isPublic = isPublic;
     }
 
-    public set_status(_status: string): void {
-        this._status = _status;
+    public getStatus(): string {
+        return this.status;
     }
+
+    public setStatus(status: string): void {
+        this.status = status;
+    }
+
+    public getMjUser(): User {
+        return this.mjUser;
+    }
+
+    public setMjUser(mjUser: User): void {
+        this.mjUser = mjUser;
+    }
+
+    public getGameType(): GameType {
+        return this.gameType;
+    }
+
+    public setGameType(gameType: GameType): void {
+        this.gameType = gameType;
+    }
+
 }
