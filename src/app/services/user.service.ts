@@ -67,7 +67,7 @@ export class UserService {
 */
 
 getProducts() {
-  return this.http.get<any>('assets/products.json')
+  return this.http.get<any>('http://localhost:8080/users')
   .toPromise()
   .then(res => <User[]>res.data)
   .then(data => { return data; });

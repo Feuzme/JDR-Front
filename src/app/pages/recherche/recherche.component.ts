@@ -14,6 +14,7 @@ export class RechercheComponent implements OnInit {
 
   //partie 2 pour un affichage dynamique
   users: User[];
+  selectedProducts: User[];
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
   selectedFrequence: string[] = ['fre1','fre2','fre3'];
