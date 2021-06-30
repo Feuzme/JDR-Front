@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { LayoutService } from '../../../services/sheet/layout.service';
 

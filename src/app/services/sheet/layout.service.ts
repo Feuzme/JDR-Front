@@ -45,7 +45,7 @@ export class LayoutService {
   ) { 
     this.layout.push(
       {
-        cols: 2, rows: 1, y: 2, x: 2, id: 1, css: {
+        cols: 2, rows: 1, y: 0, x: 0, id: 1, css: {
           backgroundColor: '',
           borderRadius: '',
           borderWidth: '',
@@ -55,7 +55,7 @@ export class LayoutService {
         content: "Hi"
       },
       {
-        cols: 2, rows: 1, y: 2, x: 2, id: 2, css: {
+        cols: 2, rows: 1, y: 1, x: 2, id: 2, css: {
           backgroundColor: '',
           borderRadius: '',
           borderWidth: '',
@@ -132,7 +132,6 @@ export class LayoutService {
    * @returns la modelSheet enregistrée
    */
   saveSheet(){
-    // let plugIn: PlugIn = new PlugIn("","", "", null, null);
     let plugInIdDtos : PlugInIdDto[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
@@ -145,7 +144,6 @@ export class LayoutService {
     this.modelSheet.setUser(this.mockUser);
     this.modelSheet.setIsPublic(true); 
 
-
     console.log(this.modelSheet);
 
     return this.httpService.save(this.modelSheet).subscribe(
@@ -153,5 +151,9 @@ export class LayoutService {
         console.log(resp);
       }
     );
+  }
+
+  loadSheet(){
+    
   }
 }

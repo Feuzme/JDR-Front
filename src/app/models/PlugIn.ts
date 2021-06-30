@@ -1,15 +1,15 @@
 import { GridsterItem } from 'angular-gridster2';
-import { GameName } from "./GameName";
+import { GameType } from "./GameType";
 
 export class PlugIn {
 	private id : string;
     private nom: string;
     private auteur: string;       
-    private gameType: GameName; 	
+    private gameType: GameType; 	
     private positionSize : GridsterItem;
     // private _config : String;
 
-	constructor( $id : string, $nom: string, $author: string, $game: GameName, $positionSize: GridsterItem) {
+	constructor( $id : string, $nom: string, $author: string, $game: GameType, $positionSize: GridsterItem) {
 		this.nom = $nom;
 		this.auteur = $author;
 		this.gameType = $game;
@@ -39,11 +39,11 @@ export class PlugIn {
 		this.auteur = value;
 	}
 
-	public getGame(): GameName {
+	public getGame(): GameType {
 		return this.gameType;
 	}
 
-	public setGame(value: GameName) {
+	public setGame(value: GameType) {
 		this.gameType = value;
 	}    
 
