@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LazyLoadEvent } from 'primeng/api';
+import { ModelSheet } from 'src/app/models/ModelSheet';
 import { User } from 'src/app/models/user';
+import { FicheService } from 'src/app/services/search/fiche.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -15,6 +17,9 @@ export class RechercheComponent implements OnInit {
   //partie 2 pour un affichage dynamique
   users: User[];
   selectedProducts: User[];
+  
+  models: ModelSheet[];
+  selectedFiches : ModelSheet[];
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
   selectedFrequence: string[] = ['fre1','fre2','fre3'];
@@ -61,7 +66,7 @@ export class RechercheComponent implements OnInit {
   ]
 
   
-  selectedFiches: string[] = [];
+  //selectedFiches: string[] = [];
  
 
   fiche = [
@@ -91,11 +96,12 @@ export class RechercheComponent implements OnInit {
   
 
 
-  constructor(    private service: UserService,
+  constructor(    private service: UserService, private ficheService: FicheService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
+    this.ficheService.getAll().subscribe((data:ModelSheet[])=>this.models=data, console.error);
   }
 
   loadCustomers(event: LazyLoadEvent) {  

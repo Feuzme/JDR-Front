@@ -92,6 +92,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { UserService } from './services/user.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { RechercheFicheComponent } from './pages/search/recherche-fiche/recherche-fiche.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -144,7 +145,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UtilisateurProfileComponent,
     NouvelUtilisateurComponent,
     UtilisateurProfilePageComponent,
-    RecherchePlayerComponent
+    RecherchePlayerComponent,
+    RechercheFicheComponent
     
   ],
   imports: [

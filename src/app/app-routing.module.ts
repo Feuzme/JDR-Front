@@ -18,6 +18,7 @@ import { RecherchePlayerComponent } from './pages/search/recherche-player/recher
 import { PluginCreationComponent } from './pages/sheet/plugin-creation/plugin-creation.component';
 import { SheetCreationComponent } from './pages/sheet/sheet-creation/sheet-creation.component';
 import {ToolbarModule} from 'primeng/toolbar';
+import { RechercheFicheComponent } from './pages/search/recherche-fiche/recherche-fiche.component';
 
 const routes: Routes = [
   {path:"signup",component: SignupComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"home", component: HomeComponent, canActivate:[AuthGuard]},
   {path:"recherche", component:RechercheComponent},
-  {path:"search", component:RecherchePlayerComponent },
+  {path:"searchp", component:RecherchePlayerComponent },
+  {path:"search", component:RechercheFicheComponent },
   {path:"users/signup",component:SignupComponent},
   {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent},

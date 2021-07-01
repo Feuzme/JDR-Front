@@ -2,46 +2,53 @@
     <p-tabView>
         <!-- Fiches -->
         <p-tabPanel header="Fiches">
-            <p-table [value]="fiche" styleClass="p-datatable-gridlines">
+            
+    <p-table #dt [value]="models" [rows]="10" [paginator]="true" [globalFilterFields]="['id','name','isPublic','user']"
+    [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            <h5 class="p-m-0">Manage Products</h5>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="id">Nom <p-sortIcon field="id"></p-sortIcon></th>
+            
+            
+            <th pSortableColumn="nom"> Visibilite  <p-sortIcon field="nom"></p-sortIcon></th>
+            <th pSortableColumn="email">Autheur <p-sortIcon field="email"></p-sortIcon></th>
+            <th>Détails</th>
 
-                <ng-template pTemplate="caption">
-                    <div class="p-grid">
-                        <div class="p-col-4">
-                            <div class="button">
-                                <button pButton (click)="showModalDialog()" type="button"
-                                    label="Parametres recherche avancé " class="p-button-text"></button>
-                            </div>
-                        </div>
-                        <div class="p-col-8">
-                            <div class="button">
-                                <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right"
-                                    class="p-button-text p-button-text"></button>
-                            </div>
-                        </div>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+            </td>
+            <td>{{product.name}}</td>
+            
+            <td>{{product.isPublic}}</td>
+            <td>{{product.user}}</td>
+            <td>Détails</td>
 
-                    </div>
-                </ng-template>
-
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Jeux</th>
-                        <th>Auteur</th>
-                        <th><a href="">Détails</a></th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-fiche>
-                    <tr>
-                        <td>{{fiche.nom}}</td>
-                        <td>{{fiche.jeu}}</td>
-                        <td>{{fiche.auteur}}</td>
-                        <td><a href="">{{fiche.detail}}</a></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="summary">
-
-                </ng-template>
-            </p-table>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            Un total de {{users ? users.length : 0 }} Fiches disponible.
+        </div>
+    </ng-template>
+</p-table>
         </p-tabPanel>
 
 
@@ -96,7 +103,7 @@
         <!-- Joueurs -->
         <p-tabPanel header="Joueur">
             <p-table #dt [value]="users" [rows]="10" [paginator]="true" [globalFilterFields]="['id','Image','nom','mail']"
-            [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+            [(selection)]="selectedFiches" [rowHover]="true" dataKey="id"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
             <ng-template pTemplate="caption">
                 <div class="p-d-flex p-ai-center p-jc-between">
