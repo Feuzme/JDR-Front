@@ -1,13 +1,10 @@
-<div class="p-grid p-card p-ai-center vertical-container sheetCard">
-    <div class="p-col-3">
-        <p-avatar image="{{plugin.getGame().getGamePic()}}" shape="circle" size="xlarge"></p-avatar>
-    </div>
-    <div class="p-col-9">
+<div class="p-grid p-card p-ai-center vertical-container sheetCard">    
+    <div>
         <p class="name">
-            <!-- {{plugin.nom}} -->
+            {{modelSheet.getName()}}            
         </p>
         <p class="pseudo">
-            {{plugin.getAuteur()}}
+            {{modelSheet.getUser().id}}            
         </p>        
     </div>    
 </div>
