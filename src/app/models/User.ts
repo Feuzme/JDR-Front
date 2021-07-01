@@ -20,10 +20,6 @@ export class User {
         this.avatar = avatar;
         this.bio = bio;
         this.ville = ville;
-        this.loggedIn = false;
-        
+        this.loggedIn = false;        
     }
-
-
-
 }
