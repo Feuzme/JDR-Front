@@ -153,7 +153,12 @@ export class LayoutService {
     );
   }
 
-  loadSheet(){
-    
+  loadSheet(sheetId : string){
+    this.httpService.getById(sheetId).subscribe(
+      (resp : ModelSheet) => {
+        this.modelSheet = resp;
+        console.log(resp);
+      }
+    );
   }
 }
