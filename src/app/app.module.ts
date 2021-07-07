@@ -146,7 +146,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NouvelUtilisateurComponent,
     UtilisateurProfilePageComponent,
     RecherchePlayerComponent,
-    RechercheFicheComponent
+    RechercheFicheComponent,
+    
     
   ],
   imports: [
