@@ -33,7 +33,7 @@ export class RechercheFicheComponent implements OnInit {
     private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.partieService.getAll().subscribe(data => this.sessions. = data);
+    this.partieService.getAll().subscribe(data => this.sessions =data);
 
   }
 }
