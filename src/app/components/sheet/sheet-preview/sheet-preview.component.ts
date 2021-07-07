@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { ModelSheet } from 'src/app/models/ModelSheet';
+import { ModelSheet } from 'src/app/models/dto/ModelSheetDto';
 import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { LayoutService, IComponent } from '../../../services/sheet/layout.service'
 @Component({

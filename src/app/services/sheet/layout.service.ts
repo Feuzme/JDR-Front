@@ -5,6 +5,7 @@ import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gri
 import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
+import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
 
 export interface IComponent {
   id: string;
@@ -20,6 +21,7 @@ export class LayoutService {
   public components: IComponent[] = [];
   public plugIns : PlugIn[] = [];
   public modelSheet : ModelSheet;
+  public modelSheetDto : ModelSheetDto;
   public mockUser : UserIdDto = new UserIdDto("60c5ff80e628b7723b249e75");
 
   
@@ -99,7 +101,7 @@ export class LayoutService {
         }
     )
 
-    this.modelSheet = new ModelSheet("", "",false, null, null);
+    // this.modelSheet = new ModelSheet("", "",false, null, null);
   }
 
   /**
@@ -139,20 +141,24 @@ export class LayoutService {
       plugInIdDtos.push(plugInsId);
     }
 
-    this.modelSheet.setComposants(plugInIdDtos);
-    this.modelSheet.setName("test");
-    this.modelSheet.setUser(this.mockUser);
-    this.modelSheet.setIsPublic(true); 
+    this.modelSheetDto.setComposants(plugInIdDtos);
+    this.modelSheetDto.setName("test");
+    this.modelSheetDto.setUser(this.mockUser);
+    this.modelSheetDto.setIsPublic(true); 
 
-    console.log(this.modelSheet);
+    console.log(this.modelSheetDto);
 
-    return this.httpService.save(this.modelSheet).subscribe(
+    return this.httpService.save(this.modelSheetDto).subscribe(
       (resp : ModelSheet) => {
         console.log(resp);
       }
     );
   }
 
+  /**
+   * Fonction qui load une fiche en fonction de son ID
+   * @param sheetId l'ID de la fiche que l'on souhaite retrouver
+   */
   loadSheet(sheetId : string){
     this.httpService.getById(sheetId).subscribe(
       (resp : ModelSheet) => {

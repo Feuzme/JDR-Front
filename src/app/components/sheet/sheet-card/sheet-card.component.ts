@@ -1,4 +1,4 @@
-import { ModelSheet } from './../../../models/ModelSheet';
+import { ModelSheet } from '../../../models/ModelSheet';
 import { Component, Input, OnInit } from '@angular/core';
 import { LayoutService } from '../../../services/sheet/layout.service';
 

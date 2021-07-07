@@ -1,14 +1,14 @@
-import { User } from './user';
-import { PlugIn } from './PlugIn';
+import { UserIdDto } from './UserIdDto';
+import { PlugInIdDto } from './PlugInIdDto';
 
-export class ModelSheet {
+export class ModelSheetDto {
     private id: string;	    
 	private name: string;	    
 	private isPublic: boolean;    
-	private user: User;    
-	private composants: PlugIn[];
+	private user: UserIdDto;    
+	private composants: PlugInIdDto[];
     
-    constructor(id : string, name : string, isPublic : boolean, user : User, composants : PlugIn[]){
+    constructor(id : string, name : string, isPublic : boolean, user : UserIdDto, composants : PlugInIdDto[]){
         this.id = id;
         this.name = name;
         this.isPublic = isPublic;
@@ -16,16 +16,16 @@ export class ModelSheet {
         this.composants = composants;
     }    
 
-    public getComposants(): PlugIn[] {
+    public getComposants(): PlugInIdDto[] {
         return this.composants;
     }
-    public setComposants(value: PlugIn[]) {
+    public setComposants(value: PlugInIdDto[]) {
         this.composants = value;
     }
-    public getUser(): User {
+    public getUser(): UserIdDto {
         return this.user;
     }
-    public setUser(value: User) {
+    public setUser(value: UserIdDto) {
         this.user = value;
     }
     public getName(): string {
