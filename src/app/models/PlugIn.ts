@@ -1,57 +1,56 @@
+import { GridsterItem } from 'angular-gridster2';
 import { GameType } from "./GameType";
-import { PositionSize } from "./PositionSize";
 
 export class PlugIn {
-    private _name: string;
-    private _author: string;       
-    private _game: GameType;  
-    private _positionSize : PositionSize;
-    private _config : String;
+	private id : string;
+    private nom: string;
+    private auteur: string;       
+    private gameType: GameType; 	
+    private positionSize : GridsterItem;
+    // private _config : String;
 
-	constructor($name: string, $author: string, $game: GameType, $positionSize: PositionSize) {
-		this._name = $name;
-		this._author = $author;
-		this._game = $game;
-		this._positionSize = $positionSize;
+	constructor( $id : string, $nom: string, $author: string, $game: GameType, $positionSize: GridsterItem) {
+		this.nom = $nom;
+		this.auteur = $author;
+		this.gameType = $game;
+		this.id = $id;
     }
 
-	public get name(): string {
-		return this._name;
+	public getId() :string {
+		return this.id;
+	}
+	public setId(value : string){
+		this.id = value;
 	}
 
-	public set name(value: string) {
-		this._name = value;
+	public getNom(): string {
+		return this.nom;
 	}
 
-	public get author(): string {
-		return this._author;
+	public setNom(value: string) {
+		this.nom = value;
 	}
 
-	public set author(value: string) {
-		this._author = value;
+	public getAuteur(): string {
+		return this.auteur;
 	}
 
-	public get game(): GameType {
-		return this._game;
+	public setAuteur(value: string) {
+		this.auteur = value;
 	}
 
-	public set game(value: GameType) {
-		this._game = value;
+	public getGame(): GameType {
+		return this.gameType;
+	}
+
+	public setGame(value: GameType) {
+		this.gameType = value;
 	}    
 
-	public get positionSize(): PositionSize {
-		return this._positionSize;
+	public getPositionSize(): GridsterItem {
+		return this.positionSize;
 	}
-
-	public set positionSize(value: PositionSize) {
-		this._positionSize = value;
-	}
-
-    public get config(): String {
-		return this._config;
-	}
-
-	public set config(value: String) {
-		this._config = value;
+	public setPositionSize(value: GridsterItem) {
+		this.positionSize = value;
 	}
 } 

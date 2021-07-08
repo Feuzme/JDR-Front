@@ -85,6 +85,7 @@ import { ResumePageComponent } from './pages/account/resume-page/resume-page.com
 import { UtilisateurProfileComponent } from './pages/account/utilisateur-profile/utilisateur-profile.component';
 import { NouvelUtilisateurComponent } from './pages/account/nouvel-utilisateur/nouvel-utilisateur.component';
 import { UtilisateurProfilePageComponent } from './pages/account/utilisateur-profile-page/utilisateur-profile-page.component';
+import { SearchSheetComponent } from './components/sheet/search-sheet/search-sheet.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -136,7 +137,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ResumePageComponent,
     UtilisateurProfileComponent,
     NouvelUtilisateurComponent,
-    UtilisateurProfilePageComponent
+    UtilisateurProfilePageComponent,
+    SearchSheetComponent
   ],
   imports: [
     BrowserModule,

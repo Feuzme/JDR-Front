@@ -1,8 +1,7 @@
+import { GameType } from './../../../models/GameType';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
-import { GameType } from 'src/app/models/GameType';
-import { PositionSize } from 'src/app/models/PositionSize';
 import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
 import { ProgressBarComponent } from './default-components/progress-bar/progress-bar.component';
 
@@ -17,7 +16,7 @@ export class PluginComponent implements OnInit {
 
   inputValue : FormGroup;
 
-  public  donjonsEtDragon : GameType = new GameType(1, "Dungeon&Dragons", "");
+  public  donjonsEtDragon : GameType = new GameType('1', "Dungeon&Dragons", "");
 
   public basePlugins : BasePlugIn[] = [];
 
