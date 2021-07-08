@@ -93,6 +93,7 @@ import { UserService } from './services/user.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { RechercheFicheComponent } from './pages/search/recherche-fiche/recherche-fiche.component';
+import { RecherchePartieComponent } from './pages/search/recherche-partie/recherche-partie.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -147,6 +148,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UtilisateurProfilePageComponent,
     RecherchePlayerComponent,
     RechercheFicheComponent,
+    RecherchePartieComponent,
     
     
   ],

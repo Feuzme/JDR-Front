@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Session } from 'inspector';
 import { Observable } from 'rxjs';
+import { Session } from 'src/app/models/Session';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
