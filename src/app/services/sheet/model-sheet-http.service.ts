@@ -16,6 +16,10 @@ export class ModelSheetHttpService {
     private http : HttpClient
   ) { }
 
+  public getAll(): Observable<ModelSheet>{
+    return this.http.get<ModelSheet>(`${this.baseUrl}`);
+  }
+
   public getById(id : string) :Observable<ModelSheet>{
     return this.http.get<ModelSheet>(`${this.baseUrl}/${id}`);
   }

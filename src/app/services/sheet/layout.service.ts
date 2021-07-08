@@ -6,6 +6,7 @@ import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
 import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
+import { UUID } from 'angular2-uuid';
 
 export interface IComponent {
   id: string;
@@ -45,29 +46,31 @@ export class LayoutService {
   constructor(
     private httpService : ModelSheetHttpService
   ) { 
-    this.layout.push(
-      {
-        cols: 2, rows: 1, y: 0, x: 0, id: 1, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        },
-        content: "Hi"
-      },
-      {
-        cols: 2, rows: 1, y: 1, x: 2, id: 2, css: {
-          backgroundColor: '',
-          borderRadius: '',
-          borderWidth: '',
-          borderStyle: 'none',
-          borderColor: ''
-        },
-        content: "Mark"
-      }
-    );
-    this.modelSheet = null;
+    
+    this.modelSheetDto = new ModelSheetDto("", "",false, null, null);
+    this.modelSheet = new ModelSheet("", "",false, null, null);
+    // this.layout.push(
+    //   {
+    //     cols: 2, rows: 1, y: 0, x: 0, id: 1, css: {
+    //       backgroundColor: '',
+    //       borderRadius: '',
+    //       borderWidth: '',
+    //       borderStyle: 'none',
+    //       borderColor: ''
+    //     },
+    //     content: "Hi"
+    //   },
+    //   {
+    //     cols: 2, rows: 1, y: 1, x: 2, id: 2, css: {
+    //       backgroundColor: '',
+    //       borderRadius: '',
+    //       borderWidth: '',
+    //       borderStyle: 'none',
+    //       borderColor: ''
+    //     },
+    //     content: "Mark"
+    //   }
+    // );
   }
 
   /**
@@ -76,20 +79,23 @@ export class LayoutService {
   addItem(plugin: PlugIn) {
     this.plugIns.push(plugin);
     this.layout.push({
-       cols: 1, 
-       rows: 1, 
-       y: 1, 
-       x: 1,
-       id: plugin.getId(), 
-       css:{       
+      cols: 1, 
+      rows: 1, 
+      y: 1, 
+      x: 1,
+      id: plugin.getId(), 
+      css:{       
         backgroundColor:'',
         borderRadius:'',
         borderWidth: '',
         borderStyle:'none',
         borderColor: ''
-        },
-        content : plugin.getNom()
-      });
+      },
+      content : {
+        nom: plugin.getNom(),
+        config: plugin.getConfig()
+      }
+    });
     console.log(
       {
         cols: 1, 
@@ -97,11 +103,10 @@ export class LayoutService {
         y: 1, 
         x: 1,
         id: plugin.getId(),
+        
         content : plugin.getNom()
         }
-    )
-
-    // this.modelSheet = new ModelSheet("", "",false, null, null);
+    )    
   }
 
   /**
@@ -166,5 +171,10 @@ export class LayoutService {
         console.log(resp);
       }
     );
+
+    localStorage.setItem(
+      "idModelSheet", 
+      this.modelSheet.getId()
+      )
   }
 }

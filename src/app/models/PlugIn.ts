@@ -7,7 +7,7 @@ export class PlugIn {
     private auteur: string;       
     private gameType: GameType; 	
     private positionSize : GridsterItem;
-    // private _config : String;
+    private config : string;
 
 	constructor( $id : string, $nom: string, $author: string, $game: GameType, $positionSize: GridsterItem) {
 		this.nom = $nom;
@@ -15,6 +15,13 @@ export class PlugIn {
 		this.gameType = $game;
 		this.id = $id;
     }
+
+	public getConfig() : string {
+		return this.config;
+	}
+	public setConfig(value : string) {
+		this.config = value;
+	}
 
 	public getId() :string {
 		return this.id;
@@ -26,7 +33,6 @@ export class PlugIn {
 	public getNom(): string {
 		return this.nom;
 	}
-
 	public setNom(value: string) {
 		this.nom = value;
 	}
@@ -34,7 +40,6 @@ export class PlugIn {
 	public getAuteur(): string {
 		return this.auteur;
 	}
-
 	public setAuteur(value: string) {
 		this.auteur = value;
 	}
@@ -42,7 +47,6 @@ export class PlugIn {
 	public getGame(): GameType {
 		return this.gameType;
 	}
-
 	public setGame(value: GameType) {
 		this.gameType = value;
 	}    

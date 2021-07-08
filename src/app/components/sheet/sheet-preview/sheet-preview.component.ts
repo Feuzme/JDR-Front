@@ -56,6 +56,7 @@ export class SheetPreviewComponent implements OnInit {
     //   })
 
     // console.log(this.currentSheet.getId);
+    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,9 +65,10 @@ export class SheetPreviewComponent implements OnInit {
     }
   }
 
-  // changedOptions() {
-  //   this.options.api.optionsChanged();
-  // }
+  changedOptions() {
+    this.options.api.optionsChanged();
+  }
+
   getLayoutService() {
     return this.layoutService;
   }
@@ -76,6 +78,7 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   editPlugin = (item) => {
+    console.log(item);
     this.editingPlugin.emit(item);
   }
 
