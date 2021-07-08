@@ -9,14 +9,14 @@ import { LayoutService } from '../../../services/sheet/layout.service';
 })
 export class PluginCardComponent implements OnInit {
 
-  @Input() plugin : PlugIn;
+  @Input() plugin : any;
 
   constructor(
     private layoutService : LayoutService,
-    // private basePluginService : BasePluginService
   ) { }
 
   ngOnInit(): void {
+    console.log("===<", this.plugin)
   }
 
   getLayoutService() {

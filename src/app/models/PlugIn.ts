@@ -6,10 +6,9 @@ export class PlugIn {
     private nom: string;
     private auteur: string;       
     private gameType: GameType; 	
-    private positionSize : GridsterItem;
     private config : string;
 
-	constructor( $id : string, $nom: string, $author: string, $game: GameType, $positionSize: GridsterItem) {
+	constructor( $id : string, $nom: string, $author: string, $game: GameType) {
 		this.nom = $nom;
 		this.auteur = $author;
 		this.gameType = $game;
@@ -50,11 +49,4 @@ export class PlugIn {
 	public setGame(value: GameType) {
 		this.gameType = value;
 	}    
-
-	public getPositionSize(): GridsterItem {
-		return this.positionSize;
-	}
-	public setPositionSize(value: GridsterItem) {
-		this.positionSize = value;
-	}
 } 

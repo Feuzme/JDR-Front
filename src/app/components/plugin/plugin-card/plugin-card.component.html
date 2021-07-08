@@ -1,17 +1,17 @@
 <p-card class="plugInCard">
     <div class="p-grid">
         <div class="p-col-4">
-            <img src="{{plugin.getGame().getGamePic()}}" class="gamePic">
+            <img src="{{plugin.gameType.nom}}" class="gamePic">
         </div>
         <div class="p-col-8">
             <div class="name">
-                {{plugin.getNom()}}
+                {{plugin.nom}}
             </div>
             <div class="autor">
-                {{plugin.getAuteur()}}
+                {{plugin.auteur}}
             </div>
             <div class="game">
-                {{plugin.getGame().getName()}}
+                {{plugin.gameType.nom}}
             </div>
             <div>
                 <button (click)="getLayoutService().addItem(plugin)">Ajouter</button>

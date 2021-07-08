@@ -10,25 +10,25 @@ import { ModelSheet } from 'src/app/models/ModelSheet';
   providedIn: 'root'
 })
 export class ModelSheetHttpService {
-  private baseUrl : string = "http://localhost:8080/modelsheets";
+  private baseUrl: string = "http://localhost:8080/modelsheets";
 
   constructor(
-    private http : HttpClient
+    private http: HttpClient
   ) { }
 
-  public getAll(): Observable<ModelSheet>{
-    return this.http.get<ModelSheet>(`${this.baseUrl}`);
+  public getAll(): Observable<ModelSheet[]> {
+    return this.http.get<ModelSheet[]>(`${this.baseUrl}`);
   }
 
-  public getById(id : string) :Observable<ModelSheet>{
+  public getById(id: string): Observable<ModelSheet> {
     return this.http.get<ModelSheet>(`${this.baseUrl}/${id}`);
   }
 
-  public save(entity : ModelSheetDto) : Observable<ModelSheet>{
+  public save(entity: ModelSheetDto): Observable<ModelSheet> {
     return this.http.post<ModelSheet>(`${this.baseUrl}`, entity);
   }
 
-  public update(entity : ModelSheet) : Observable<ModelSheet>{
+  public update(entity: ModelSheet): Observable<ModelSheet> {
     return this.http.patch<ModelSheet>(`${this.baseUrl}`, entity);
   }
 }

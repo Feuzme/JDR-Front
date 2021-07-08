@@ -39,6 +39,7 @@ export class SheetPreviewComponent implements OnInit {
   ) { }
 
   static itemChange(item, itemComponent) {
+    
     console.info('itemChanged', item, itemComponent);
   }
 
@@ -55,8 +56,7 @@ export class SheetPreviewComponent implements OnInit {
     //     this.currentSheet = data;
     //   })
 
-    // console.log(this.currentSheet.getId);
-    
+    // console.log(this.currentSheet.getId);    
   }
 
   ngOnChanges(changes: SimpleChanges): void {

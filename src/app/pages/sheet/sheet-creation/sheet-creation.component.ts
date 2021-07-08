@@ -17,10 +17,10 @@ export class SheetCreationComponent implements OnInit {
   private donjonsEtDragon : GameType = new GameType('1', "Dungeon&Dragons", "assets/images/dragon.jpg")
 
   public plugins : PlugIn[] = [];
-  private healthBar : PlugIn = new PlugIn("60d899dbb281df7d3dcbc6a9","HealthBar", "Toto", this.donjonsEtDragon, null)
-  private inventory : PlugIn = new PlugIn("60d899eeb281df7d3dcbc6aa","Inventory", "Weeb99", this.donjonsEtDragon, null);
-  private stats : PlugIn = new PlugIn("60d899feb281df7d3dcbc6ab","Stats", "Dewee", this.donjonsEtDragon, null);
-  private magic : PlugIn = new PlugIn("60d89a04b281df7d3dcbc6ac","Magic", "Marco", this.donjonsEtDragon,  null);
+  private healthBar : PlugIn = new PlugIn("60d899dbb281df7d3dcbc6a9","HealthBar", "Toto", this.donjonsEtDragon)
+  private inventory : PlugIn = new PlugIn("60d899eeb281df7d3dcbc6aa","Inventory", "Weeb99", this.donjonsEtDragon);
+  private stats : PlugIn = new PlugIn("60d899feb281df7d3dcbc6ab","Stats", "Dewee", this.donjonsEtDragon);
+  private magic : PlugIn = new PlugIn("60d89a04b281df7d3dcbc6ac","Magic", "Marco", this.donjonsEtDragon);
 
   editingPlugin : GridsterItem;
   choiceEditing : any;
@@ -30,7 +30,10 @@ export class SheetCreationComponent implements OnInit {
 
   @ViewChild (CreationMenuLeftComponent) creationMenuComp;
 
-  constructor() { }
+  constructor(
+    
+  ) { } //add http PlugIns Services
+
   // receiveItem($event: GridsterItem){
   //   this.item = $event;
   // }
