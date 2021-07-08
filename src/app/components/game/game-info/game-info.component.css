@@ -1,21 +1,37 @@
-.label{
-    display: flex;
-    justify-content:flex-end;
-    align-items:center;
-}
-
 .topDiv{
     margin-top:1em;
 }
 
+h4, h2{
+    text-align: center;
+}
+
 .privacy{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items:center;
 }
 
-.gamePhoto{
-    height: 200px;
-    width: 200px;
-    border: 5px solid #000;
+.ImgAgenda{
+    display: flex;
+    justify-content: space-around;
+}
+
+#gamePic{
+    width:100%;
+}
+
+#cadre{
+    width:100%
+}
+
+img {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+img:hover {
+    transform:scale(1.2);
 }
