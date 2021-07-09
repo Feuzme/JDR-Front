@@ -1,12 +1,4 @@
 
-<!-- <div class="toolbar">
-    <div class="draggable" draggable="true" (dragend)="getLayoutService().dropItem('compTest1')">
-        Example 1 
-    </div>
-    <div class="draggable" draggable="true" (dragend)="getLayoutService().dropItem('compTest2')">
-        Example 2
-    </div>
-</div> -->
 <div class="host">
     <gridster [options]="options">
         <gridster-item 
@@ -24,7 +16,7 @@
 </div>
 
 <p-dialog header="Charger une fiche :" [(visible)]="displayLoadModal" [modal] ="true" [style]="{width: '50vw'}" [baseZIndex]='10000' [draggable]="false" [resizable]="true" [contentStyle]="{'overflow':'visible'}">
-       <app-search-sheet></app-search-sheet> 
+    <app-search-sheet></app-search-sheet> 
 </p-dialog>
 
 <div class="save">

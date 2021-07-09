@@ -6,7 +6,6 @@ import { ModelSheet } from 'src/app/models/ModelSheet';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
 import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
-import { UUID } from 'angular2-uuid';
 import { PluginHttpService } from '../plugin-http.service';
 
 export interface IComponent {
@@ -24,7 +23,7 @@ export class LayoutService {
   public plugIns : PlugIn[] = [];
   public modelSheet : ModelSheet;
   public modelSheetDto : ModelSheetDto;
-  public mockUser : UserIdDto = new UserIdDto("60c5ff80e628b7723b249e75");
+  
 
   
   public options: GridsterConfig ={
@@ -57,36 +56,35 @@ export class LayoutService {
    */
   addItem(plugin: any) {
     plugin.id = null;
-    plugin.origin = false
-    this.plugIns.push(plugin);
-
-    console.log(plugin);
+    plugin.origin = false    
 
     this.pluginHttpService.save(plugin).subscribe(
       (resp : any) => {
-        console.log("===<",resp);
         plugin = resp;
+        this.plugIns.push(plugin);
+
+        this.layout.push({
+          cols: 1, 
+          rows: 1, 
+          y: 1, 
+          x: 1,
+          id: resp.id, 
+          css:{       
+            backgroundColor:'',
+            borderRadius:'',
+            borderWidth: '',
+            borderStyle:'none',
+            borderColor: ''
+          },
+          content : {
+            nom: resp.nom,
+            config: resp.config
+          }
+        });        
       }
     )
 
-    this.layout.push({
-      cols: 1, 
-      rows: 1, 
-      y: 1, 
-      x: 1,
-      id: plugin.id, 
-      css:{       
-        backgroundColor:'',
-        borderRadius:'',
-        borderWidth: '',
-        borderStyle:'none',
-        borderColor: ''
-      },
-      content : {
-        nom: plugin.nom,
-        config: plugin.config
-      }
-    });        
+    
   }
 
   /**
@@ -94,10 +92,11 @@ export class LayoutService {
    * @param id id of the component to remove
    */
   removeItem(id: string) : void {
-    const item = this.layout.find(d => d.id === id);
+    const item = this.layout.find(item => item.id === id);
     this.layout.splice(this.layout.indexOf(item), 1);
     const comp = this.components.find(c => c.id === id);
     this.components.splice(this.components.indexOf(comp), 1);
+    //TODO delete the item from database
   }
 
   getStyles = (item) =>{
@@ -128,15 +127,10 @@ export class LayoutService {
 
     this.modelSheetDto.setComposants(plugInIdDtos);
     this.modelSheetDto.setName("test");
-    this.modelSheetDto.setUser(this.mockUser);
+    this.modelSheetDto.setUser(new UserIdDto(localStorage.getItem("utilisateurId")));
     this.modelSheetDto.setIsPublic(true); 
 
-    console.log(this.modelSheetDto);
-
-    for(let plugin of this.plugIns){
-      
-      this.updatePlugInConfig(plugin);
-    }    
+    console.log(this.modelSheetDto);   
 
     this.modelSheetHttpService.save(this.modelSheetDto).subscribe(
       (resp : ModelSheet) => {

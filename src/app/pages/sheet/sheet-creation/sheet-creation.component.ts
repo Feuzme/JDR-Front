@@ -1,10 +1,7 @@
-import { LayoutService } from './../../../services/sheet/layout.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { CreationMenuLeftComponent } from 'src/app/components/sheet/creation-menu-left/creation-menu-left.component';
 import { GameType } from 'src/app/models/GameType';
 import { PlugIn } from 'src/app/models/PlugIn';
-import { PositionSize } from 'src/app/models/PositionSize';
 
 @Component({
   selector: 'app-sheet-creation',
@@ -17,18 +14,11 @@ export class SheetCreationComponent implements OnInit {
   private donjonsEtDragon : GameType = new GameType('1', "Dungeon&Dragons", "assets/images/dragon.jpg")
 
   public plugins : PlugIn[] = [];
-  private healthBar : PlugIn = new PlugIn("60d899dbb281df7d3dcbc6a9","HealthBar", "Toto", this.donjonsEtDragon)
-  private inventory : PlugIn = new PlugIn("60d899eeb281df7d3dcbc6aa","Inventory", "Weeb99", this.donjonsEtDragon);
-  private stats : PlugIn = new PlugIn("60d899feb281df7d3dcbc6ab","Stats", "Dewee", this.donjonsEtDragon);
-  private magic : PlugIn = new PlugIn("60d89a04b281df7d3dcbc6ac","Magic", "Marco", this.donjonsEtDragon);
 
   editingPlugin : GridsterItem;
   choiceEditing : any;
 
   displayEditingMenu: boolean = false;
-
-
-  @ViewChild (CreationMenuLeftComponent) creationMenuComp;
 
   constructor(
     
@@ -39,7 +29,7 @@ export class SheetCreationComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.plugins.push(this.healthBar, this.inventory, this.stats, this.magic);   
+
   }
 
   // ngAfterViewInit(){

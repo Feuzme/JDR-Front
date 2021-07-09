@@ -16,7 +16,7 @@ export class PluginCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("===<", this.plugin)
+    // console.log("===<", this.plugin)
   }
 
   getLayoutService() {

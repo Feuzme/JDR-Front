@@ -6,19 +6,20 @@ export class PlugIn {
     private nom: string;
     private auteur: string;       
     private gameType: GameType; 	
-    private config : string;
+    private config : Object;
 
-	constructor( $id : string, $nom: string, $author: string, $game: GameType) {
+	constructor( $id : string, $nom: string, $author: string, $game: GameType, $config : Object) {
 		this.nom = $nom;
 		this.auteur = $author;
 		this.gameType = $game;
 		this.id = $id;
+		this.config = $config;
     }
 
-	public getConfig() : string {
+	public getConfig() : Object {
 		return this.config;
 	}
-	public setConfig(value : string) {
+	public setConfig(value : Object) {
 		this.config = value;
 	}
 

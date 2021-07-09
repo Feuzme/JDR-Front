@@ -18,5 +18,4 @@ export class PluginCreationComponent implements OnInit {
   ngOnInit(): void {
     this.plugins.push(this.healthBar);
   }
-
 }

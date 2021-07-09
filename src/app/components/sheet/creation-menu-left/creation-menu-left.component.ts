@@ -1,9 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, Output,  } from '@angular/core';
-import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { PlugIn } from 'src/app/models/PlugIn';
 import { PluginHttpService } from 'src/app/services/plugin-http.service';
-import { IComponent, LayoutService } from '../../../services/sheet/layout.service';
 
 
 @Component({
