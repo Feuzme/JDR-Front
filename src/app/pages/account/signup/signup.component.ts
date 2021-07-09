@@ -14,25 +14,17 @@ export class SignupComponent implements OnInit {
 
   form:FormGroup;
   signupForm : FormGroup ;
-  
-  
   cutilisation: any[] = [];
-  //value1: string;
-
 
   constructor(
     private service : UserService,
     private fb : FormBuilder,
     private router : Router
-
   ) { 
-
     this.signupForm = this.fb.group({
       nom : "",
       password : ""
-     
     })
-
   }
 
   ngOnInit(): void {
@@ -48,7 +40,6 @@ export class SignupComponent implements OnInit {
   ajouter = () => {
     this.service.create(this.signupForm.value).subscribe(user => {
       this.router.navigate(["/home"]);
-      console.log("lecture");
     });
   }
 

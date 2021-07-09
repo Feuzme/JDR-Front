@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LazyLoadEvent } from 'primeng/api';
 import { ModelSheet } from 'src/app/models/ModelSheet';
+import { Session } from 'src/app/models/Session';
 import { User } from 'src/app/models/user';
 import { FicheService } from 'src/app/services/search/fiche.service';
+import { PartieService } from 'src/app/services/search/partie.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -20,6 +22,10 @@ export class RechercheComponent implements OnInit {
   
   models: ModelSheet[];
   selectedFiches : ModelSheet[];
+
+  sessions: Session[];
+
+  session: Session;
 
   selectedValues: string[] = ['val1','val2','val3','val4','val5','val6','val7'];
   selectedFrequence: string[] = ['fre1','fre2','fre3'];
@@ -96,12 +102,13 @@ export class RechercheComponent implements OnInit {
   
 
 
-  constructor(    private service: UserService, private ficheService: FicheService,
+  constructor( private partieService: PartieService, private service: UserService, private ficheService: FicheService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.service.getAll().subscribe((data:User[])=>this.users=data, console.error);
     this.ficheService.getAll().subscribe((data:ModelSheet[])=>this.models=data, console.error);
+    this.partieService.getAll().subscribe(data => this.sessions = data);
   }
 
   loadCustomers(event: LazyLoadEvent) {  

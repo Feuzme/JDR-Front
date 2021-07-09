@@ -22,11 +22,11 @@
                 <th pSortableColumn="id">id <p-sortIcon field="id"></p-sortIcon></th>
                 
                 
-                <th pSortableColumn="name"> Nom  <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="episode">Episode <p-sortIcon field="episode"></p-sortIcon></th>
-                <th pSortableColumn="Resume">Resume <p-sortIcon field="Resume"></p-sortIcon></th>
-                <th pSortableColumn="place">Place <p-sortIcon field="place"></p-sortIcon></th>
-
+                <th pSortableColumn="game.nom"> Nom  <p-sortIcon field="game.nom"></p-sortIcon></th>
+                <th pSortableColumn="episode_num">Episode <p-sortIcon field="episode_num"></p-sortIcon></th>
+                <th pSortableColumn="resume">Resume <p-sortIcon field="resume"></p-sortIcon></th>
+                <th pSortableColumn="lieu">Place <p-sortIcon field="lieu"></p-sortIcon></th>
+                <th></th>
                 
             </tr>
         </ng-template>
@@ -40,6 +40,10 @@
                 <td>{{session.episode_num}}</td>
                 <td>{{session.resume}}</td>
                 <td>{{session.lieu}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(product)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                </td>
 
             </tr>
         </ng-template>
@@ -51,3 +55,11 @@
     </p-table>
 </div>
 
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Ajouter Favori" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Ajouter" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

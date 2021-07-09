@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { Subject } from 'rxjs';
-import { Representative, User } from 'src/app/models/user';
+import { User } from 'src/app/models/user';
+import { UserFriends } from 'src/app/models/UserFriends';
+import { UserFriendService } from 'src/app/services/search/user-friend.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -26,47 +28,63 @@ export class RecherchePlayerComponent implements OnInit {
   productDialog: boolean;
 
   users: User[];
+  friends :UserFriends[];
 
-  product: User;
+  user: User;
+  userFriend: UserFriends;
 
   selectedProducts: User[];
-
   submitted: boolean;
-
   statuses: any[];
 
   constructor( private userService: UserService, 
-    private messageService: MessageService, private confirmationService: ConfirmationService) { }
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private userFriendsService : UserFriendService
+    ) { }
 
   ngOnInit() {
     this.userService.getAll().subscribe(data => this.users = data);
 
   }
-
 /*
-  openNew() {
-      this.product = null;
-      this.submitted = false;
-      this.productDialog = true;
-  
-
-  deleteSelectedProducts() {
-      this.confirmationService.confirm({
-          message: 'Vous voulez enlever cet utilisateur de votre liste d amis ?',
-          header: 'Confirm',
-          icon: 'pi pi-exclamation-triangle',
-          accept: () => {
-              this.users = this.users.filter(val => !this.selectedProducts.includes(val));
-              this.selectedProducts = null;
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
-          }
-      });
+  editProduct(product: User) {
+    //this.product = {...product};
+    this.productDialog = true;
   }
 */
-  editProduct(product: User) {
-      this.product = {...product};
-      this.productDialog = true;
+  createId(): string {
+    let id = '';
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for ( var i = 0; i < 5; i++ ) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+}
+
+  addFriend(user : User) {
+    this.user = {...user};
+    this.productDialog = true;
+    //this.userFriend.id = this.createId();
+    this.userFriend.user.nom = this.user.nom ;
+    this.userFriend.user.ville = this.user.ville;
+    
+    this.userFriendsService.create(this.userFriend);
+    this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+
   }
+
+  saveProductFavoris() {
+    this.submitted = true;
+    this.messageService.add({severity:'success', summary: 'succès', detail: 'Ajouter aux favoris', life: 3000});
+    this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+
+}
+
+
+
+
+
 
   deleteProduct(product: User) {
       this.confirmationService.confirm({
@@ -75,7 +93,7 @@ export class RecherchePlayerComponent implements OnInit {
           icon: 'pi pi-exclamation-triangle',
           accept: () => {
               this.users = this.users.filter(val => val.id !== product.id);
-              this.product  = null;
+              this.user  = null;
               this.messageService.add({severity:'success', summary: 'succès', detail: 'Enlever des favoris', life: 3000});
           }
       });
@@ -89,21 +107,21 @@ export class RecherchePlayerComponent implements OnInit {
   saveProduct() {
       this.submitted = true;
 
-      if (this.product.nom.trim()) {
-          if (this.product.id) {
-              this.users[this.findIndexById(this.product.id)] = this.product;                
+      if (this.user.nom.trim()) {
+          if (this.user.id) {
+              this.users[this.findIndexById(this.user.id)] = this.user;                
               this.messageService.add({severity:'success', summary: 'succès', detail: 'Ajouter aux favoris', life: 3000});
           }
           else {
-              this.product.id = this.createId();
-              this.product.avatar = 'product-placeholder.svg';
-              this.users.push(this.product);
+              this.user.id = this.createId();
+              this.user.avatar = 'product-placeholder.svg';
+              this.users.push(this.user);
               this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
           }
 
           this.users = [...this.users];
           this.productDialog = false;
-          this.product = null;
+          this.user = null;
       }
   }
 
@@ -119,13 +137,6 @@ export class RecherchePlayerComponent implements OnInit {
       return index;
   }
 
-  createId(): string {
-      let id = '';
-      var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      for ( var i = 0; i < 5; i++ ) {
-          id += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return id;
-  }
+
 
 }
