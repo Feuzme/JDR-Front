@@ -7,6 +7,7 @@ import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
 import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
 import { UUID } from 'angular2-uuid';
+import { PluginHttpService } from '../plugin-http.service';
 
 export interface IComponent {
   id: string;
@@ -44,46 +45,36 @@ export class LayoutService {
   }  
 
   constructor(
-    private httpService : ModelSheetHttpService
-  ) { 
-    
+    private modelSheetHttpService : ModelSheetHttpService,
+    private pluginHttpService : PluginHttpService
+  ) {     
     this.modelSheetDto = new ModelSheetDto("", "",false, null, null);
-    this.modelSheet = new ModelSheet("", "",false, null, null);
-    // this.layout.push(
-    //   {
-    //     cols: 2, rows: 1, y: 0, x: 0, id: 1, css: {
-    //       backgroundColor: '',
-    //       borderRadius: '',
-    //       borderWidth: '',
-    //       borderStyle: 'none',
-    //       borderColor: ''
-    //     },
-    //     content: "Hi"
-    //   },
-    //   {
-    //     cols: 2, rows: 1, y: 1, x: 2, id: 2, css: {
-    //       backgroundColor: '',
-    //       borderRadius: '',
-    //       borderWidth: '',
-    //       borderStyle: 'none',
-    //       borderColor: ''
-    //     },
-    //     content: "Mark"
-    //   }
-    // );
+    this.modelSheet = new ModelSheet("", "",false, null, null);    
   }
 
   /**
-   * Method called when you want to add an empty item to the grid
+   * ajoute un item à la grille avec le style par défaut.
    */
-  addItem(plugin: PlugIn) {
+  addItem(plugin: any) {
+    plugin.id = null;
+    plugin.origin = false
     this.plugIns.push(plugin);
+
+    console.log(plugin);
+
+    this.pluginHttpService.save(plugin).subscribe(
+      (resp : any) => {
+        console.log("===<",resp);
+        plugin = resp;
+      }
+    )
+
     this.layout.push({
       cols: 1, 
       rows: 1, 
       y: 1, 
       x: 1,
-      id: plugin.getId(), 
+      id: plugin.id, 
       css:{       
         backgroundColor:'',
         borderRadius:'',
@@ -92,21 +83,10 @@ export class LayoutService {
         borderColor: ''
       },
       content : {
-        nom: plugin.getNom(),
-        config: plugin.getConfig()
+        nom: plugin.nom,
+        config: plugin.config
       }
-    });
-    console.log(
-      {
-        cols: 1, 
-        rows: 1, 
-        y: 1, 
-        x: 1,
-        id: plugin.getId(),
-        
-        content : plugin.getNom()
-        }
-    )    
+    });        
   }
 
   /**
@@ -153,11 +133,28 @@ export class LayoutService {
 
     console.log(this.modelSheetDto);
 
-    return this.httpService.save(this.modelSheetDto).subscribe(
+    for(let plugin of this.plugIns){
+      
+      this.updatePlugInConfig(plugin);
+    }    
+
+    this.modelSheetHttpService.save(this.modelSheetDto).subscribe(
       (resp : ModelSheet) => {
         console.log(resp);
       }
     );
+  }
+  /**
+   * met à jour la config du plug in
+   * appellée quand au moment de l'neregistrement de la modelSheet
+   * @param plugin the plug in to update
+   */
+  updatePlugInConfig(plugin : any){
+    this.pluginHttpService.update(plugin).subscribe(
+      (resp : PlugIn) => {
+        console.log(resp);
+      }
+    )
   }
 
   /**
@@ -165,7 +162,7 @@ export class LayoutService {
    * @param sheetId l'ID de la fiche que l'on souhaite retrouver
    */
   loadSheet(sheetId : string){
-    this.httpService.getById(sheetId).subscribe(
+    this.modelSheetHttpService.getById(sheetId).subscribe(
       (resp : ModelSheet) => {
         this.modelSheet = resp;
         console.log(resp);

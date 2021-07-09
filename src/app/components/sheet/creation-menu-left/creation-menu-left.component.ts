@@ -20,13 +20,13 @@ export class CreationMenuLeftComponent implements OnInit {
 
   ngOnInit(): void {
     this.plugInHttpService.getAll().subscribe(
-      (resp : PlugIn[]) => {
+      (resp : any[]) => {
         console.log(resp);
         for (let plugin of resp) {
           
           console.log(plugin); 
-
-          this.plugins.push(plugin);
+          if (plugin.origin == true)
+            this.plugins.push(plugin);
         }
       }
     );         
