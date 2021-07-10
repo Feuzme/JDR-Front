@@ -11,6 +11,7 @@ export class Game {
     private status: string;
     private mjUser : User;
     private gameType : GameType;
+    private listPlayers : String[];
 
     constructor(
         name: string,
@@ -20,7 +21,8 @@ export class Game {
         isPublic: boolean,
         status: string,
         mjUser: User,
-        gameType: GameType) {
+        gameType: GameType,
+        listPlayers: String[]) {
         this.name = name;
         this.nbPlayers = nbPlayers;
         this.story = trame;
@@ -29,6 +31,7 @@ export class Game {
         this.status = status;
         this.mjUser = mjUser;
         this.gameType = gameType;
+        this.listPlayers = listPlayers;
     }
 
     public getId(): string {
@@ -101,6 +104,14 @@ export class Game {
 
     public setGameType(gameType: GameType): void {
         this.gameType = gameType;
+    }
+
+    public getListPlayers(): String[] {
+        return this.listPlayers;
+    }
+
+    public setListPlayers(listPlayers: String[]): void {
+        this.listPlayers = listPlayers;
     }
 
 }

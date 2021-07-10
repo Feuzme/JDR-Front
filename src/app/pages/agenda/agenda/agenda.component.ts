@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game/game.service';
 
 @Component({
   selector: 'app-agenda',
@@ -9,7 +10,7 @@ export class AgendaComponent implements OnInit {
 
   parties: any[];
 
-  constructor() { }
+  constructor(private gameService : GameService) { }
 
   ngOnInit(): void {
     this.parties = [
