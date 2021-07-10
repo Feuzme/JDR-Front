@@ -28,8 +28,8 @@ const routes: Routes = [
   {path:"home", component: HomeComponent, canActivate:[AuthGuard]},
   {path:"recherche", component:RechercheComponent},
   {path:"recherchepartie", component:RecherchePartieComponent},
-  {path:"searchp", component:RecherchePlayerComponent },
-  {path:"search", component:RechercheFicheComponent },
+  {path:"rechercheplayer", component:RecherchePlayerComponent },
+  {path:"recherchefiche", component:RechercheFicheComponent },
   {path:"users/signup",component:SignupComponent},
   {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent},
@@ -42,7 +42,7 @@ const routes: Routes = [
   {path:"users/resume", component: ResumePageComponent},
   {path:"users/new", component:NouvelUtilisateurComponent},
   {path:"user/:id", component:UtilisateurProfilePageComponent, canActivate:[AuthGuard]},
-  {path: "", redirectTo: 'recherchepartie', pathMatch: 'full'}
+  {path: "", redirectTo: 'recherche', pathMatch: 'full'}
 
 ];
 

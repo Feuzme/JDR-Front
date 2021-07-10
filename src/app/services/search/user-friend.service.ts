@@ -25,4 +25,6 @@ export class UserFriendService {
   create = (user : UserFriends) : Observable <User> => { 
     return this.http.post<User> ("http://localhost:8080/userfriends", user);
   }
+
+
 }

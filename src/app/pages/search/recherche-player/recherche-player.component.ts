@@ -28,10 +28,11 @@ export class RecherchePlayerComponent implements OnInit {
   productDialog: boolean;
 
   users: User[];
-  friends :UserFriends[];
+  //friends :UserFriends[];
+  lesids :String[];
 
   user: User;
-  userFriend: UserFriends;
+  //userFriend: UserFriends;
 
   selectedProducts: User[];
   submitted: boolean;
@@ -62,17 +63,27 @@ export class RecherchePlayerComponent implements OnInit {
     return id;
 }
 
-  addFriend(user : User) {
+
+addFriend = (user : User) => {
+  //userFriend = new UserFriends();
+  user.ids.push(this.user.id); 
+  this.userService.update(this.user); 
+  
+}
+
+  /*addFriend(user : User) {
     this.user = {...user};
     this.productDialog = true;
     //this.userFriend.id = this.createId();
-    this.userFriend.user.nom = this.user.nom ;
-    this.userFriend.user.ville = this.user.ville;
-    
-    this.userFriendsService.create(this.userFriend);
+    //this.userFriend.user.nom = this.user.nom ;
+    //this.userFriend.user.ville = this.user.ville;
+    //this.lesids.push(user.id);
+    this.userFriend.ids  = this.lesids.push(user.id);
+    //this.userFriendsService.create(this.userFriend);
     this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
 
   }
+  */
 
   saveProductFavoris() {
     this.submitted = true;
