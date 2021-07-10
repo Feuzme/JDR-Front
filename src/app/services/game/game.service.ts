@@ -11,8 +11,16 @@ export class GameService {
 
   constructor(private http : HttpClient) { }
 
-  getById = (id : number) : Observable<Game> => {
+  getById = (id : String) : Observable<Game> => {
     return this.http.get<Game>(`${environment.urlSpring}/games/${id}`);
+  }
+
+  getGamesByMjId = (id : String) : Observable<Game[]> => {
+    return this.http.get<Game[]>(`${environment.urlSpring}/games/mj/${id}`);
+  }
+
+  getGamesByPlayerId = (id : String) : Observable<Game[]> => {
+    return this.http.get<Game[]>(`${environment.urlSpring}/games/players/${id}`);
   }
 
   update = (game : Game) : Observable<Game> => {

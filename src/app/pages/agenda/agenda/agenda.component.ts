@@ -10,7 +10,11 @@ export class AgendaComponent implements OnInit {
 
   parties: any[];
 
-  constructor(private gameService : GameService) { }
+  constructor(private gameService : GameService) {
+    this.gameService.getGamesByPlayerId(localStorage.getItem("utilisateurId")).subscribe(result => {
+        console.log(result);
+    });
+   }
 
   ngOnInit(): void {
     this.parties = [
