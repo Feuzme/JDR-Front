@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game/game.service';
 
 @Component({
   selector: 'app-list-players',
@@ -7,18 +8,52 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListPlayersComponent implements OnInit {
 
-  @Input() showLegend : boolean;
-  mj = {pseudo: "Balrog-nrv",role:"MJ",avatar:"assets/images/Balrog.png",couleur:"red"}
+  @Input() showLegend: boolean;
+  @Input() idPartie: String;
 
-  players = [
-    {pseudo: "Smaug",role:"P",avatar:"assets/images/Smaug.png",couleur:"brown"},
-    {pseudo: "Kart-man59",role:"P",avatar:"assets/images/Kart.png",couleur:"blue"},
-    {pseudo: "D20",role:"P",avatar:"assets/images/D20.png",couleur:"yellow"},
-    {pseudo: "Gérard2Riv",role:"P",avatar:"assets/images/Gerard.png",couleur:"white"}
-  ]
-  constructor() { }
+  couleurLegend: String[];
+
+  mj: any;
+
+  players: any[];
+
+  idPartieChoisie: String;
+
+  constructor(private gameService: GameService) {
+    this.couleurLegend = ["red", "purple", "blue", "yellow", "green", "orange","brown"];
+    this.initListeJoueurs();
+  }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Fonction qui permet d'initialiser la liste des joueurs en fonction de la partie
+   */
+  initListeJoueurs(): void {
+    this.idPartieChoisie = "60dc701089f43f4b0494fe1d";
+    this.gameService.getById(this.idPartieChoisie).subscribe(result => {
+      result.listPlayers.forEach((joueur, index) => {
+        // Traitement pour le MJ
+        if (index == 0) {
+          this.mj = {
+            pseudo: joueur.nom,
+            role: "MJ",
+            avatar: "assets/images/Balrog.png",
+            couleur: this.couleurLegend[index]
+          };
+        } // Traitement pour les joueurs
+        else {
+          this.players = [];
+          this.players.push({
+            pseudo: joueur.nom,
+            role: "MJ",
+            avatar: "assets/images/Gerard.png",
+            couleur: this.couleurLegend[index]
+          });
+        }
+
+      });
+    });
+  }
 }
