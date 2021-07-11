@@ -14,15 +14,14 @@ export class User {
     public loggedIn : Boolean;
     public createAt:Date;
 	public updateAt:Date;
-    public ids : String[];
+    public foo:string[] = []; 
   
 
     constructor (id : string , nom : string , 
         email : string, password : string, 
         avatar : string, bio : string,
         ville : string,  loggedIn : boolean,
-        createAt : Date, updateAt:Date,
-        ids : String[] ){
+        createAt : Date, updateAt:Date,foo:string[] ){
         this.id = id;
         this.nom = nom;
         this.email = email;
@@ -33,7 +32,7 @@ export class User {
         this.loggedIn = false;
         this.createAt = createAt;
         this.updateAt = updateAt;
-        this.ids = ids;
+        this.foo = foo;
      }
 
 

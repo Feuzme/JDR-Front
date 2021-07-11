@@ -66,8 +66,10 @@ export class RecherchePlayerComponent implements OnInit {
 
 addFriend = (user : User) => {
   //userFriend = new UserFriends();
-  user.ids.push(this.user.id); 
+  this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+  this.lesids.push(this.user.id); 
   this.userService.update(this.user); 
+  
   
 }
 
