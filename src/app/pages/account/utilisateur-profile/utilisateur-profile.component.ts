@@ -33,7 +33,7 @@ export class UtilisateurProfileComponent implements OnInit {
     }) 
   }
 
-  onDetail(user:User){
+  onModification(user:User){
     this.router.navigate(["update",user.id])
   }  
   onDeconnecte(user:User){
@@ -46,7 +46,7 @@ export class UtilisateurProfileComponent implements OnInit {
   } 
   
 
-  onConnect(){
+  onDeConnect(){
     if (localStorage.getItem("utilisateurId")){
       localStorage.removeItem("utilisateurId");
       this.authLabel = "Connexion";

@@ -6,28 +6,22 @@
     </div>
     
     <div class="p-col-6">
-        
         <h3 class="p-col-6">
-            <h2>Nom : </h2> {{user.nom}}
-        </h3>
-        <h3 class="p-col-6">
-            <h2>E-mail :</h2> {{user.email}}
-        </h3>
-        <h3 class="p-col-6">
-            <h2>Ville : </h2>{{user.ville}}
+            {{user.nom}}
         </h3>
         <div class="p-col-6">
-            <h2>BIO : </h2>
             <p>
-                
-                 {{user.bio}}
+                {{user.bio}}
+            </p>
+            <p>
+                {{user.ville}}
             </p>
         </div>
     </div>
         <div>
-            <button class="user-detail" (click)="onDetail(user)">Modification</button>
+            <button class="user-detail" (click)="onModification(user)">Modification</button>
             <button class="user-supress" (click)="onSupress(user)">Supprimer</button>
-            <button class="user-supress" (click)="onConnect()">Deconnexion</button>
+            <button class="user-supress" (click)="onDeConnect()">Deconnexion</button>
             <button class="user-supress" (click)="onHome(user)">Home</button>
         </div>
         
