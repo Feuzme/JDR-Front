@@ -36,17 +36,18 @@ export class SignupComponent implements OnInit {
     })
   }
 
-
+/*
   ajouter = () => {
     this.service.create(this.signupForm.value).subscribe(user => {
       this.router.navigate(["/home"]);
     });
   }
+  */
 
 
   onSubmit(){
     if(this.form.valid)
-      this.service.save(this.form.value).subscribe(()=>{
+      this.service.create(this.form.value).subscribe(user=>{
         this.router.navigate(["users/resume"])
       })
     else

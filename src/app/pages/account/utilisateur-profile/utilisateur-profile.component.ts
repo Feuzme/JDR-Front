@@ -65,4 +65,44 @@ export class UtilisateurProfileComponent implements OnInit {
     this.router.navigate([`/update/${id}`]);
   }
 */
+
+
+games = [
+  {
+    name: "Donjons & Dragons",
+    logo: "assets/images/dragon.jpg",
+    gm:"El megaBG 59"
+  },
+  {
+    name: "Star Wars",
+    logo: "assets/images/weeb.jpg",
+    gm:"El megaBG 59"
+  },
+  {
+    name: "Pokemon",
+    logo: "assets/images/unicorn.jpg",
+    gm:"El megaBG 59"
+  }
+]
+
+sheets = [
+  {
+    name: "Donjons & Dragons",
+    logo: "assets/images/dragon.jpg",
+    creator: "Zouzou"
+  },
+  {
+    name: "Star Wars",
+    logo: "assets/images/weeb.jpg",
+    creator: "Zouzou"
+  },
+  {
+    name: "Pokemon",
+    logo: "assets/images/unicorn.jpg",
+    creator: "Zouzou"
+  }
+]
+
+
+
 }

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-friend-list',
@@ -9,16 +7,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FriendListComponent implements OnInit {
 
-  @Input() friends;
-
-  users: User[];
-  user: User;
+  @Input() users;
   
-  constructor(private userService: UserService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.userService.getAll().subscribe(data => this.users = data);
-
+  ngOnInit(): void {
   }
 
 }

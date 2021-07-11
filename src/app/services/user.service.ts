@@ -21,8 +21,8 @@ export class UserService {
     return this.http.post<User> ("http://localhost:8080/users", user);
   }
 
-  save(body:User){
-    return this.http.post(this.baseUrl, body);
+  save(user:User){
+    return this.http.post(this.baseUrl, user);
   }
 
   

@@ -1,13 +1,14 @@
 <div class="p-card p-grid p-ai-center vertical-container friendCard">
     <div class="p-col-4 ">
-        <p-avatar image="{{friend.profilePicUrl}}" shape="circle" size="xlarge"></p-avatar>
+        <p-avatar image="assets/images/profilePic.jpg" shape="circle" size="xlarge"></p-avatar>
     </div>
     <div class="p-col-8">
         <p class="name">
-            {{friend.pseudo}}
+           {{user.ids[0]}} 
+           <br>{{user.ids[1]}}
         </p>
         <p class="city">
-            {{friend.city}}
+            {{user.nom}}
         </p>
     </div>
 </div>

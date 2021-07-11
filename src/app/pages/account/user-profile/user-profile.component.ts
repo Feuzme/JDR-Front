@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,8 +6,6 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-
-/*
   user = {
     id: 1,
     pseudo: "Fyfe",
@@ -17,11 +14,8 @@ export class UserProfileComponent implements OnInit {
     city: "Lille",
     mail: "smaug@lonelymountain.me"
   }
-*/
 
-  users: User[];
-  user: User;
-  /*friends = [
+  friends = [
     {
       id: 1,
       pseudo: "Fyfe",
@@ -55,7 +49,7 @@ export class UserProfileComponent implements OnInit {
       mail: "smaug@lonelymountain.me"
     }
   ]
-*/
+
   games = [
     {
       name: "Donjons & Dragons",
