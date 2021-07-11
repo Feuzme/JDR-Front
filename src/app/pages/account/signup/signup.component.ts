@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Password } from 'primeng/password';
+import { AuthHttpService } from 'src/app/services/auth-http.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -17,6 +18,7 @@ export class SignupComponent implements OnInit {
   cutilisation: any[] = [];
 
   constructor(
+    private serviceC:AuthHttpService,
     private service : UserService,
     private fb : FormBuilder,
     private router : Router
@@ -36,23 +38,40 @@ export class SignupComponent implements OnInit {
     })
   }
 
-/*
+
   ajouter = () => {
-    this.service.create(this.signupForm.value).subscribe(user => {
+   
       this.router.navigate(["/home"]);
-    });
+    
   }
-  */
+  
+
 
 
   onSubmit(){
     if(this.form.valid)
       this.service.create(this.form.value).subscribe(user=>{
+      this.serviceC.connexion(this.form.value).subscribe((utilisateurId:string)=>{
+        localStorage.setItem("utilisateurId",utilisateurId);
+        window.location.href ="users/resume";
+      })  
+      }, (err)=>{});
+
+
+
+    
+  }
+
+
+/*
+onSubmit(){
+  if(this.form.valid)
+      this.service.create(this.form.value).subscribe(user=>{
         this.router.navigate(["users/resume"])
       })
     else
       alert("Le formulaire n'est pas valide")
-  }
-
+      }
+*/
 
 }
