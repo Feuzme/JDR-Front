@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { ModelSheet } from 'src/app/models/ModelSheet';
@@ -10,9 +11,10 @@ import { LayoutService, IComponent } from '../../../services/sheet/layout.servic
 })
 export class SheetPreviewComponent implements OnInit {
 
-  private currentSheet: ModelSheet;
   displayLoadModal: boolean;
-  
+  displaySaveModal: boolean;  
+  name : string;
+  isPublic : string;
 
   @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
 
@@ -36,10 +38,9 @@ export class SheetPreviewComponent implements OnInit {
   constructor(
     private layoutService: LayoutService,
     private modelSheetHttpService: ModelSheetHttpService
-  ) { }
+  ) {}
 
-  static itemChange(item, itemComponent) {
-    
+  static itemChange(item, itemComponent) {    
     console.info('itemChanged', item, itemComponent);
   }
 
@@ -54,6 +55,10 @@ export class SheetPreviewComponent implements OnInit {
     if (this.choiceEditing != null && this.choiceEditing.choice == 'delete') {
       this.getLayoutService().removeItem(this.choiceEditing.id);
     }
+  }
+
+  saveSheet(){
+    this.layoutService.saveSheet(this.name, this.isPublic);
   }
 
   changedOptions() {
@@ -75,5 +80,9 @@ export class SheetPreviewComponent implements OnInit {
 
   showLoadModal() {
     this.displayLoadModal = true;
+  }
+
+  showSaveModal() {
+    this.displaySaveModal = true;
   }
 }

@@ -4,7 +4,10 @@
             {{modelSheet.name}}            
         </p>
         <p class="pseudo">
-            {{modelSheet.user.id}}            
-        </p>        
+            {{modelSheet.user.nom}}            
+        </p>    
+        <div>
+            <button (click)="getLayoutService().loadSheet(modelSheet.id)">Ajouter</button>
+        </div>
     </div>    
 </div>

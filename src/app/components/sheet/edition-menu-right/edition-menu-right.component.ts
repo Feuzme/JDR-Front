@@ -212,7 +212,7 @@ export class EditionMenuRightComponent implements OnInit {
   save() {
     this.choiceEditing.emit({choice:'save',id:this.editingPlugin.id});
 
-    console.log(this.editingPlugin.id)
+    // console.log(this.editingPlugin.id)
     let plugInFull : PlugIn = new PlugIn(
       this.editingPlugin.id,
       null, 

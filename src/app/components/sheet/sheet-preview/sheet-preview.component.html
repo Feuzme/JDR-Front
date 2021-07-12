@@ -15,12 +15,42 @@
     </gridster>    
 </div>
 
-<p-dialog header="Charger une fiche :" [(visible)]="displayLoadModal" [modal] ="true" [style]="{width: '50vw'}" [baseZIndex]='10000' [draggable]="false" [resizable]="true" [contentStyle]="{'overflow':'visible'}">
+<p-dialog 
+    header="Charger une fiche :" 
+    [(visible)]="displayLoadModal" 
+    [modal] ="true" 
+    [style]="{width: '50vw'}" 
+    [baseZIndex]='10000' 
+    [draggable]="false" 
+    [resizable]="true" 
+    [contentStyle]="{'overflow':'visible'}"
+    >
     <app-search-sheet></app-search-sheet> 
 </p-dialog>
 
+<p-dialog
+header="Enregistrer une fiche :" 
+    [(visible)]="displaySaveModal" 
+    [modal] ="true" 
+    [style]="{width: '50vw'}" 
+    [baseZIndex]='10000' 
+    [draggable]="false" 
+    [resizable]="true" 
+    [contentStyle]="{'overflow':'visible'}">
+        <div style="margin: 5px;" class="p-grid">
+            <label class="p-col-7">Nom de la fiche :</label>
+            <input type="text" [(ngModel)]="name" class="p-col-5">
+        </div>
+        <div style="margin: 5px;" class="p-grid">
+            <label class="p-col-7">Rendre votre fiche publique :</label>
+            <p-checkbox [(ngModel)]="isPublic" value="public" class="p-col-5"></p-checkbox>
+        </div>
+        
+        <button pButton pRipple type="button" label="Enregistrer" (click)="saveSheet()"></button>
+</p-dialog>
+
 <div class="save">
-    <p-button (click)="getLayoutService().saveSheet()">Enregistrer</p-button>
+    <p-button (click)="showSaveModal()">Enregistrer</p-button>
     &nbsp;
     <p-button type="button" (click)="showLoadModal()">Charger</p-button>    
 </div>

@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { UserIdDto } from './../../models/dto/UserIdDto';
 import { PlugInIdDto } from './../../models/dto/PlugInIdDto';
 import { Injectable } from '@angular/core';
@@ -97,6 +98,7 @@ export class LayoutService {
     const comp = this.components.find(c => c.id === id);
     this.components.splice(this.components.indexOf(comp), 1);
     //TODO delete the item from database
+    this.pluginHttpService.delete(new PlugIn(id, null, null, null, null));//isn't working can't figure out why
   }
 
   getStyles = (item) =>{
@@ -117,7 +119,7 @@ export class LayoutService {
    * Fonction pour envoyer au back le layout de la page, et la config des plugins
    * @returns la modelSheet enregistrée
    */
-  saveSheet(){
+  saveSheet(name : string, isPublic : string){
     let plugInIdDtos : PlugInIdDto[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
@@ -126,15 +128,20 @@ export class LayoutService {
     }
 
     this.modelSheetDto.setComposants(plugInIdDtos);
-    this.modelSheetDto.setName("test");
+    this.modelSheetDto.setName(name);
     this.modelSheetDto.setUser(new UserIdDto(localStorage.getItem("utilisateurId")));
-    this.modelSheetDto.setIsPublic(true); 
+    
+    if(isPublic == "public")
+      this.modelSheetDto.setIsPublic(true); 
+    else
+    this.modelSheetDto.setIsPublic(false); 
 
     console.log(this.modelSheetDto);   
 
     this.modelSheetHttpService.save(this.modelSheetDto).subscribe(
-      (resp : ModelSheet) => {
-        console.log(resp);
+      (resp : any) => {
+        console.log("sheetId:", resp.id);
+        console.log(">===", resp);
       }
     );
   }

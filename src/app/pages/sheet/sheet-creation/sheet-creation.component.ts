@@ -11,8 +11,6 @@ import { PlugIn } from 'src/app/models/PlugIn';
 export class SheetCreationComponent implements OnInit {
   item: GridsterItem;  
 
-  private donjonsEtDragon : GameType = new GameType('1', "Dungeon&Dragons", "assets/images/dragon.jpg")
-
   public plugins : PlugIn[] = [];
 
   editingPlugin : GridsterItem;

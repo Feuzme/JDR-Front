@@ -1,3 +1,6 @@
-<div *ngFor="let modelSheet of modelSheets">
-    <app-sheet-card [modelSheet]="modelSheet"></app-sheet-card>
+<div style="overflow-y: scroll;">
+    <div *ngFor="let modelSheet of modelSheets" >
+        <app-sheet-card [modelSheet]="modelSheet"></app-sheet-card>
+    </div>
 </div>
+
