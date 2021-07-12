@@ -15,11 +15,20 @@
         id="gridster{{index}}" 
         [ngStyle] ="getLayoutService().getStyles(item)"
         (click)="editPlugin(item)"        
-        >           
-            <button (click)="getLayoutService().removeItem(item.id)">Delete</button>   
+        >     
             <div class="content">                
                 {{this.item.content}}
             </div>         
         </gridster-item>
-    </gridster>
+    </gridster>    
+</div>
+
+<p-dialog header="Charger une fiche :" [(visible)]="displayLoadModal" [modal] ="true" [style]="{width: '50vw'}" [baseZIndex]='10000' [draggable]="false" [resizable]="true" [contentStyle]="{'overflow':'visible'}">
+       <app-search-sheet></app-search-sheet> 
+</p-dialog>
+
+<div class="save">
+    <p-button (click)="getLayoutService().saveSheet()">Enregistrer</p-button>
+    &nbsp;
+    <p-button type="button" (click)="showLoadModal()">Charger</p-button>    
 </div>

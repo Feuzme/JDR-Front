@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthHttpService } from 'src/app/services/auth-http.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,42 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   
-  constructor(private router: Router) { }
+  form:FormGroup;
+  
+  constructor(private service:AuthHttpService, private router: Router) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      email: new FormControl(""),
+      password: new FormControl("")
+    })
   }
 
-  inscription() {
+
+
+
+  onSubmit(){
+    this.service.connexion(this.form.value).subscribe((utilisateurId:string)=>{
+      localStorage.setItem("utilisateurId",utilisateurId);
+      window.location.href ="users/resume";
+      //this.router.navigate(["utilisateur/resume"]);
+    }, (err)=>{});
+        
+    //alert(JSON.stringify(this.form.value));
+  }
+
+
+  
+  onPass() {
+    this.router.navigate(['reinitialisation']);
+  }
+
+  onSignup() {
     this.router.navigate(['signup']);
   }
+
 }
+
+
+
+

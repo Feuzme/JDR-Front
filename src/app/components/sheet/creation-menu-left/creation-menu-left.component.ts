@@ -9,7 +9,8 @@ import { IComponent, LayoutService } from '../../../services/sheet/layout.servic
   styleUrls: ['./creation-menu-left.component.css']
 })
 export class CreationMenuLeftComponent implements OnInit {
-  @Input() plugins;
+  @Input() plugins : Plugin[];
+  
   get options(): GridsterConfig {
     return this.layoutService.options
   }
