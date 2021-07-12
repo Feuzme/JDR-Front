@@ -9,7 +9,7 @@ import { LayoutService } from '../../../services/sheet/layout.service';
 })
 export class SheetCardComponent implements OnInit {
 
-  @Input() modelSheet : ModelSheet;
+  @Input() modelSheet : any;
   
   constructor(
     private layoutService : LayoutService

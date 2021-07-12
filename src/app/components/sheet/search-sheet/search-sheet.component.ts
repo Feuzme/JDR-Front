@@ -1,3 +1,4 @@
+import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { ModelSheet } from '../../../models/ModelSheet';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
@@ -9,25 +10,20 @@ import { User } from 'src/app/models/user';
 })
 export class SearchSheetComponent implements OnInit {
 
-  mockUser: User = new User("10",
-    "toto",
-    "test@test.com",
-    "password",
-    "avatar",
-    "bio",
-    "lille",
-    false
-  );
-  modelSheets: ModelSheet[] = [
-    new ModelSheet("1", "test1", true, this.mockUser, []),
-    new ModelSheet("2", "test2", true, this.mockUser, []),
-    new ModelSheet("3", "test3", true, this.mockUser, [])
-  ];
+  modelSheets: ModelSheet[] = [];
 
-  constructor() { }
+  constructor(
+    private modelSheetHttpService : ModelSheetHttpService
+  ) { }
 
   ngOnInit(): void {
-
+    this.modelSheetHttpService.getAll().subscribe(
+      (resp : any[]) => {
+        for(let sheet of resp){
+          this.modelSheets.push(sheet);
+        }
+      }
+    )
   }
 
 }
