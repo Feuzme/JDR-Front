@@ -25,9 +25,9 @@ export class UpdateComponent implements OnInit {
 
   
 
-  user : User = new User("","", "", "", "","","",true,new Date,new Date);
+  //user : User = new User("","", "", "", "","","",true,new Date,new Date);
+  user : User 
 
-  
 
   constructor(
 
