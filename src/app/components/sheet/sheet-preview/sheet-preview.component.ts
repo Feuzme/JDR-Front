@@ -39,6 +39,7 @@ export class SheetPreviewComponent implements OnInit {
   ) { }
 
   static itemChange(item, itemComponent) {
+    
     console.info('itemChanged', item, itemComponent);
   }
 
@@ -46,16 +47,7 @@ export class SheetPreviewComponent implements OnInit {
     console.info('itemResized', item, itemComponent);
   }
 
-  ngOnInit() {
-    // localStorage.setItem("idModelSheet", "60c6111d2b62c30e641ded5e")
-
-    // this.modelSheetHttpService.getById(localStorage.getItem("idModelSheet"))
-    //   .subscribe((data: ModelSheet) => {
-    //     console.log(data);
-    //     this.currentSheet = data;
-    //   })
-
-    // console.log(this.currentSheet.getId);
+  ngOnInit() {  
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,9 +56,10 @@ export class SheetPreviewComponent implements OnInit {
     }
   }
 
-  // changedOptions() {
-  //   this.options.api.optionsChanged();
-  // }
+  changedOptions() {
+    this.options.api.optionsChanged();
+  }
+
   getLayoutService() {
     return this.layoutService;
   }
@@ -76,6 +69,7 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   editPlugin = (item) => {
+    console.log("editingPlugIn",item);
     this.editingPlugin.emit(item);
   }
 

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
+import { PlugIn } from 'src/app/models/PlugIn';
+import { PluginHttpService } from 'src/app/services/plugin-http.service';
 
 @Component({
   selector: 'app-edition-menu-right',
@@ -24,7 +26,9 @@ export class EditionMenuRightComponent implements OnInit {
 
   checkedRadius: boolean = false;
 
-  constructor() { }
+  constructor(
+    private plugInHttpService : PluginHttpService
+  ) { }
 
   ngOnInit(): void {
     this.initValuesGridster();
@@ -202,12 +206,32 @@ export class EditionMenuRightComponent implements OnInit {
     this.chgBorderSize();
   }
 
+  /**
+   * Modifie la configuration en bdd du plugin sur la fiche
+   */
   save() {
     this.choiceEditing.emit({choice:'save',id:this.editingPlugin.id});
+
+    console.log(this.editingPlugin.id)
+    let plugInFull : PlugIn = new PlugIn(
+      this.editingPlugin.id,
+      null, 
+      null, 
+      null, 
+      this.editingPlugin
+    );
+
+    this.plugInHttpService.update(plugInFull).subscribe(
+      (resp : any)=>{
+        console.log(resp);
+      }
+    )
+
+    //TODO put this in a service
   }
 
   delete(){
+    console.log(this.editingPlugin.id)
     this.choiceEditing.emit({choice:'delete',id:this.editingPlugin.id});
   }
-
 }

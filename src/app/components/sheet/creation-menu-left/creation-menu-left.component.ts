@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output,  } from '@angular/core';
-import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { IComponent, LayoutService } from '../../../services/sheet/layout.service';
+import { Component, Input, OnInit, Output,  } from '@angular/core';
+import { PlugIn } from 'src/app/models/PlugIn';
+import { PluginHttpService } from 'src/app/services/plugin-http.service';
 
 
 @Component({
@@ -9,31 +9,23 @@ import { IComponent, LayoutService } from '../../../services/sheet/layout.servic
   styleUrls: ['./creation-menu-left.component.css']
 })
 export class CreationMenuLeftComponent implements OnInit {
-  @Input() plugins : Plugin[];
-  
-  get options(): GridsterConfig {
-    return this.layoutService.options
-  }
-  get dashboard(): GridsterItem[]{
-    return this.layoutService.layout
-  }
-
-  get components(): IComponent[] {
-    return this.layoutService.components;
-  }
+  plugins : PlugIn[] = [];
   
   constructor(
-    private layoutService : LayoutService
+    private plugInHttpService : PluginHttpService
   ) { }
 
   ngOnInit(): void {
-  }
-
-  // emitItem() {
-  //   this.itemEmitter.emit(this.item);
-  // }
-
-  getLayoutService(){
-    return this.layoutService;
+    this.plugInHttpService.getAll().subscribe(
+      (resp : any[]) => {
+        console.log(resp);
+        for (let plugin of resp) {
+          
+          console.log(plugin); 
+          if (plugin.origin == true)
+            this.plugins.push(plugin);
+        }
+      }
+    );         
   }
 }
