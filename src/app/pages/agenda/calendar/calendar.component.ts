@@ -41,8 +41,6 @@ export class CalendarComponent implements OnInit {
     ];
   }
 
-  
-
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridWeek',
     allDaySlot:false,
@@ -72,9 +70,9 @@ export class CalendarComponent implements OnInit {
     navLinks: true,
     events: [{
       title  : 'event1',
-      start  : '2021-05-18T00:00:00',
-      end  : '2021-05-18T23:59:00',
-      color : 'blue'
+      start  : '2021-07-13T00:00:00',
+      end  : '2021-07-13T23:59:00',
+      color : 'rgb(80, 80, 202)'
     },
     {
       title  : 'event5',
@@ -90,8 +88,8 @@ export class CalendarComponent implements OnInit {
     },
     {
       title  : 'event3',
-      start  : '2021-05-19T12:30:00',
-      end  : '2021-05-19T14:30:00',
+      start  : '2021-07-15T12:30:00',
+      end  : '2021-07-15T14:30:00',
       color : 'blue',
       allDay : false // will make the time show
     },

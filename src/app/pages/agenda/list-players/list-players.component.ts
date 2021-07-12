@@ -17,22 +17,21 @@ export class ListPlayersComponent implements OnInit {
 
   players: any[];
 
-  idPartieChoisie: String;
-
   constructor(private gameService: GameService) {
-    this.couleurLegend = ["red", "purple", "blue", "yellow", "green", "orange","brown"];
-    this.initListeJoueurs();
+    this.couleurLegend = ["red", "purple", "rgb(80, 80, 202)", "yellow", "green", "orange","brown"];
   }
 
   ngOnInit(): void {
+    //this.initListeJoueurs(this.idPartie);
   }
 
   /**
    * Fonction qui permet d'initialiser la liste des joueurs en fonction de la partie
    */
-  initListeJoueurs(): void {
-    this.idPartieChoisie = "60dc701089f43f4b0494fe1d";
-    this.gameService.getById(this.idPartieChoisie).subscribe(result => {
+  @Input() set initListeJoueurs(idPartieChoisie : String) {
+    this.players = [];
+    this.mj = undefined;
+    this.gameService.getById(idPartieChoisie).subscribe(result => {
       result.listPlayers.forEach((joueur, index) => {
         // Traitement pour le MJ
         if (index == 0) {
@@ -44,10 +43,9 @@ export class ListPlayersComponent implements OnInit {
           };
         } // Traitement pour les joueurs
         else {
-          this.players = [];
           this.players.push({
             pseudo: joueur.nom,
-            role: "MJ",
+            role: "P",
             avatar: "assets/images/Gerard.png",
             couleur: this.couleurLegend[index]
           });

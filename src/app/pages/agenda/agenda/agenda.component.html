@@ -1,4 +1,4 @@
-<div id="monContenu" class="p-grid">
+<div *ngIf="affichageOk" id="monContenu" class="p-grid">
     <div id="monSelect" class="p-col-12">
         <label>Nom de la partie : </label>
         <p-cascadeSelect [(ngModel)]="partieChoisie" [options]="parties" optionLabel="cname" optionGroupLabel="name"
@@ -8,7 +8,10 @@
     <div class="p-col-8">
         <app-calendar></app-calendar>
     </div>
-    <div class="p-col-4">
-        <app-list-players [idPartie]="idPartieChoisie"></app-list-players>
+    <div class="p-col-4" *ngIf="idPartieChoisie != null">
+        <app-list-players [initListeJoueurs]="idPartieChoisie"></app-list-players>
     </div>
+</div>
+<div *ngIf="!affichageOk" id="monContenu" class="p-grid">
+    Veuillez créer ou rejoindre une partie pour avoir accès à l'agenda
 </div>

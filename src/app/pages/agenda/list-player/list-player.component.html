@@ -18,7 +18,7 @@
     </div>
 </div>
 <ng-template #playerShow>
-    <div class="p-grid listeJoueur">
+    <div *ngIf="player" class="p-grid listeJoueur">
         <div class="p-col-4 avatar">
                 <p-avatar image="{{player.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
                 <div *ngIf="showLegend" class="cercle" [ngStyle]="{'background-color':player.couleur}"></div> 
