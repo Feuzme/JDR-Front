@@ -29,7 +29,6 @@ export class GameInfoComponent implements OnInit {
   }
 
   openAgenda = () =>{
-    console.log("agenda open");
   }
 
   onSelectFile(event) {

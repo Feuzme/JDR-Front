@@ -1,14 +1,15 @@
+import { Game } from "./Game";
 import { Session } from "./Session";
 import { User } from "./user";
 
 export class Creneau {
-    private id: string;
-    private dateDeb: Date;
-    private dateFin: Date;
-    private frequence: number;
-    private prochaineSession: boolean;
-    private user: User;
-    private session : Session;
+    public id: string;
+    public dateDeb: Date;
+    public dateFin: Date;
+    public frequence: number;
+    public prochaineSession: boolean;
+    public user: User;
+    public game : Game;
 
     constructor(
         dateDeb: Date,
@@ -16,13 +17,13 @@ export class Creneau {
         frequence: number,
         prochaineSession: boolean,
         user: User,
-        session: Session) {
+        game:Game) {
         this.dateDeb = dateDeb;
         this.dateFin = dateFin;
         this.frequence = frequence;
         this.prochaineSession = prochaineSession;
         this.user = user;
-        this.session = session;
+        this.game = game;
     }
 
     public getId(): string {
@@ -71,14 +72,5 @@ export class Creneau {
 
     public setUser(user: User): void {
         this.user = user;
-    }
-
-    public getSession(): Session {
-        return this.session;
-    }
-
-    public setSession(session: Session): void {
-        this.session = session;
-    }
-    
+    }    
 }

@@ -11,8 +11,12 @@ export class CreneauService {
 
   constructor(private http : HttpClient) { }
 
-  getById = (id : number) : Observable<Creneau> => {
+  getById = (id : String) : Observable<Creneau> => {
     return this.http.get<Creneau>(`${environment.urlSpring}/creneaux/${id}`);
+  }
+
+  getAllDispoByGameId = (idGame : String) : Observable<Creneau[]> => {
+    return this.http.get<Creneau[]>(`${environment.urlSpring}/creneaux/getallcreneauxbygame/${idGame}`);
   }
 
   update = (creneau : Creneau) : Observable<Creneau> => {

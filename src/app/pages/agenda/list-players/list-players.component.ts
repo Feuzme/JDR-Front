@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game/game.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-list-players',
@@ -9,7 +10,6 @@ import { GameService } from 'src/app/services/game/game.service';
 export class ListPlayersComponent implements OnInit {
 
   @Input() showLegend: boolean;
-  @Input() idPartie: String;
 
   couleurLegend: String[];
 
@@ -18,11 +18,9 @@ export class ListPlayersComponent implements OnInit {
   players: any[];
 
   constructor(private gameService: GameService) {
-    this.couleurLegend = ["red", "purple", "rgb(80, 80, 202)", "yellow", "green", "orange","brown"];
   }
 
   ngOnInit(): void {
-    //this.initListeJoueurs(this.idPartie);
   }
 
   /**
@@ -39,7 +37,7 @@ export class ListPlayersComponent implements OnInit {
             pseudo: joueur.nom,
             role: "MJ",
             avatar: "assets/images/Balrog.png",
-            couleur: this.couleurLegend[index]
+            couleur: environment.colorLegend[index]
           };
         } // Traitement pour les joueurs
         else {
@@ -47,7 +45,7 @@ export class ListPlayersComponent implements OnInit {
             pseudo: joueur.nom,
             role: "P",
             avatar: "assets/images/Gerard.png",
-            couleur: this.couleurLegend[index]
+            couleur: environment.colorLegend[index]
           });
         }
 

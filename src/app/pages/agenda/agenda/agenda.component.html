@@ -6,7 +6,7 @@
             (onChange)="choixPartie()"></p-cascadeSelect>
     </div>
     <div class="p-col-8">
-        <app-calendar></app-calendar>
+        <app-calendar [initDialogDispo]="idPartieChoisie" [loadDispoCalendar]="idPartieChoisie"></app-calendar>
     </div>
     <div class="p-col-4" *ngIf="idPartieChoisie != null">
         <app-list-players [initListeJoueurs]="idPartieChoisie"></app-list-players>
