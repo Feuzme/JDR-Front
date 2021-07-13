@@ -1,5 +1,4 @@
-import { ModelSheet } from '../../../models/ModelSheet';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LayoutService } from '../../../services/sheet/layout.service';
 
 @Component({
@@ -10,6 +9,7 @@ import { LayoutService } from '../../../services/sheet/layout.service';
 export class SheetCardComponent implements OnInit {
 
   @Input() modelSheet : any;
+  @Output() loadEvent : EventEmitter<any> = new EventEmitter<any>();
   
   constructor(
     private layoutService : LayoutService
@@ -18,7 +18,9 @@ export class SheetCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getLayoutService(){
-    return this.layoutService;
+  loadSheet(id : string){
+    this.loadEvent.emit({dispplayLoadModal : false});
+    this.layoutService.loadSheet(id);
   }
+
 }

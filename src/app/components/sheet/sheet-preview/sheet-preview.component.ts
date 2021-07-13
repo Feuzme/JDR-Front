@@ -1,7 +1,5 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { ModelSheet } from 'src/app/models/ModelSheet';
 import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { LayoutService, IComponent } from '../../../services/sheet/layout.service'
 @Component({
@@ -12,9 +10,9 @@ import { LayoutService, IComponent } from '../../../services/sheet/layout.servic
 export class SheetPreviewComponent implements OnInit {
 
   displayLoadModal: boolean;
-  displaySaveModal: boolean;  
-  name : string;
-  isPublic : string;
+  displaySaveModal: boolean;
+  name: string;
+  isPublic: string;
 
   @Output() editingPlugin: EventEmitter<GridsterItem> = new EventEmitter<GridsterItem>();
 
@@ -31,16 +29,12 @@ export class SheetPreviewComponent implements OnInit {
     return this.layoutService.components;
   }
 
-  // dashboard: Array<GridsterItem>;
-  // layout: GridsterItem[] = [];
-
-
   constructor(
     private layoutService: LayoutService,
     private modelSheetHttpService: ModelSheetHttpService
-  ) {}
+  ) { }
 
-  static itemChange(item, itemComponent) {    
+  static itemChange(item, itemComponent) {
     console.info('itemChanged', item, itemComponent);
   }
 
@@ -48,7 +42,7 @@ export class SheetPreviewComponent implements OnInit {
     console.info('itemResized', item, itemComponent);
   }
 
-  ngOnInit() {  
+  ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -57,7 +51,7 @@ export class SheetPreviewComponent implements OnInit {
     }
   }
 
-  saveSheet(){
+  saveSheet() {
     this.layoutService.saveSheet(this.name, this.isPublic);
   }
 
@@ -74,15 +68,23 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   editPlugin = (item) => {
-    console.log("editingPlugIn",item);
+    console.log("editingPlugIn", item);
     this.editingPlugin.emit(item);
   }
 
   showLoadModal() {
-    this.displayLoadModal = true;
+    if (this.displayLoadModal) {
+      this.displayLoadModal = false;
+    } else {
+      this.displayLoadModal = true;
+    }
   }
 
   showSaveModal() {
-    this.displaySaveModal = true;
+    if (!this.displaySaveModal) {
+      this.displaySaveModal = true;
+    } else {
+      this.displaySaveModal = false;
+    }
   }
 }

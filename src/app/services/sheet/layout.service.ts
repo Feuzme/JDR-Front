@@ -22,7 +22,7 @@ export class LayoutService {
   public layout: GridsterItem[] = [];
   public components: IComponent[] = [];
   public plugIns : PlugIn[] = [];
-  public modelSheet : ModelSheet;
+  public modelSheet : any;
   public modelSheetDto : ModelSheetDto;
   
   public options: GridsterConfig ={
@@ -162,15 +162,20 @@ export class LayoutService {
    */
   loadSheet(sheetId : string){
     this.modelSheetHttpService.getById(sheetId).subscribe(
-      (resp : ModelSheet) => {
+      (resp : any) => {
         this.modelSheet = resp;
-        console.log(resp);
+        for(let plugin of resp.composants){
+          // console.log("plugin :",plugin)
+          this.layout.push(
+            plugin.config
+          )
+        }
       }
     );
 
     localStorage.setItem(
       "idModelSheet", 
-      this.modelSheet.getId()
+      this.modelSheet.id
       )
   }
 }

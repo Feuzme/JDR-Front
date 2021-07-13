@@ -6,8 +6,8 @@
         <p class="pseudo">
             {{modelSheet.user.nom}}            
         </p>    
-        <div>
-            <button (click)="getLayoutService().loadSheet(modelSheet.id)">Ajouter</button>
+        <div style="margin: 5px;">
+            <p-button type="button" (click)="loadSheet(modelSheet.id)">Ajouter</p-button>
         </div>
     </div>    
 </div>

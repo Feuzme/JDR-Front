@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { GameType } from 'src/app/models/GameType';
 import { PlugIn } from 'src/app/models/PlugIn';
 
 @Component({
@@ -18,9 +17,7 @@ export class SheetCreationComponent implements OnInit {
 
   displayEditingMenu: boolean = false;
 
-  constructor(
-    
-  ) { } //add http PlugIns Services
+  constructor() { } //add http PlugIns Services
 
   // receiveItem($event: GridsterItem){
   //   this.item = $event;

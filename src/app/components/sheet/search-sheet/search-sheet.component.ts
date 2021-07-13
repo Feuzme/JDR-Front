@@ -1,7 +1,6 @@
 import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { ModelSheet } from '../../../models/ModelSheet';
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-search-sheet',
@@ -9,7 +8,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./search-sheet.component.css']
 })
 export class SearchSheetComponent implements OnInit {
-
+  displayLoadModal : boolean;
   modelSheets: ModelSheet[] = [];
 
   constructor(
@@ -26,4 +25,8 @@ export class SearchSheetComponent implements OnInit {
     )
   }
 
+  transfertToPreview($event){
+    console.log("event =",$event)
+    this.displayLoadModal = false;
+  }
 }
