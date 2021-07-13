@@ -22,11 +22,11 @@ export class SearchSheetComponent implements OnInit {
           this.modelSheets.push(sheet);
         }
       }
-    )
+    );
   }
 
   transfertToPreview($event){
     console.log("event =",$event)
-    this.displayLoadModal = false;
+    // this.displayLoadModal = false;
   }
 }

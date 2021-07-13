@@ -19,7 +19,7 @@ export class SheetCardComponent implements OnInit {
   }
 
   loadSheet(id : string){
-    this.loadEvent.emit({dispplayLoadModal : false});
+    this.loadEvent.emit({displayLoadModal : false});
     this.layoutService.loadSheet(id);
   }
 
