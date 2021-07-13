@@ -95,7 +95,7 @@ export class LayoutService {
     const comp = this.components.find(c => c.id === id);
     this.components.splice(this.components.indexOf(comp), 1);
     //TODO delete the item from database
-    this.pluginHttpService.delete(new PlugIn(id, null, null, null, null));//isn't working can't figure out why
+    this.pluginHttpService.delete(id).subscribe();
   }
 
   getStyles = (item) =>{
@@ -131,9 +131,7 @@ export class LayoutService {
     if(isPublic == "public")
       this.modelSheetDto.setIsPublic(true); 
     else
-    this.modelSheetDto.setIsPublic(false); 
-
-    // console.log(this.modelSheetDto);   
+    this.modelSheetDto.setIsPublic(false);  
 
     this.modelSheetHttpService.save(this.modelSheetDto).subscribe(
       (resp : any) => {
@@ -142,6 +140,7 @@ export class LayoutService {
       }
     );
   }
+
   /**
    * met à jour la config du plug in
    * appellée quand au moment de l'neregistrement de la modelSheet
@@ -163,8 +162,8 @@ export class LayoutService {
     this.modelSheetHttpService.getById(sheetId).subscribe(
       (resp : any) => {
         this.modelSheet = resp;
-        for(let plugin of resp.composants){
-          // console.log("plugin :",plugin)
+        this.layout = [];
+        for(let plugin of resp.composants){          
           this.layout.push(
             plugin.config
           )

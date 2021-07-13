@@ -80,6 +80,10 @@ export class SheetPreviewComponent implements OnInit {
     }
   }
 
+  loadComplete($event){
+    this.displayLoadModal = $event;
+  }
+
   showSaveModal() {
     if (!this.displaySaveModal) {
       this.displaySaveModal = true;

@@ -25,7 +25,7 @@
     [resizable]="true" 
     [contentStyle]="{'overflow':'visible'}"
     >
-    <app-search-sheet></app-search-sheet> 
+    <app-search-sheet (loadEvent)="loadComplete($event)"></app-search-sheet> 
 </p-dialog>
 
 <p-dialog
