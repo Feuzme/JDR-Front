@@ -25,8 +25,6 @@ export class LayoutService {
   public modelSheet : ModelSheet;
   public modelSheetDto : ModelSheetDto;
   
-
-  
   public options: GridsterConfig ={
     gridType: GridType.Fit,
       displayGrid: DisplayGrid.Always,
