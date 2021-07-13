@@ -10,6 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SearchSheetComponent implements OnInit {
   displayLoadModal : boolean;
   modelSheets: ModelSheet[] = [];
+  displayModal : any;
 
   constructor(
     private modelSheetHttpService : ModelSheetHttpService

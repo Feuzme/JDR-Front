@@ -9,7 +9,7 @@ import { LayoutService } from '../../../services/sheet/layout.service';
 export class SheetCardComponent implements OnInit {
 
   @Input() modelSheet : any;
-  @Output() loadEvent : EventEmitter<any> = new EventEmitter<any>();
+  @Output() loadEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
   
   constructor(
     private layoutService : LayoutService
@@ -19,7 +19,7 @@ export class SheetCardComponent implements OnInit {
   }
 
   loadSheet(id : string){
-    this.loadEvent.emit({displayLoadModal : false});
+    this.loadEvent.emit(false);
     this.layoutService.loadSheet(id);
   }
 

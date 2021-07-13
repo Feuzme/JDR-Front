@@ -2,7 +2,7 @@ import { UserIdDto } from './UserIdDto';
 import { PlugInIdDto } from './PlugInIdDto';
 
 export class ModelSheetDto {
-    private id: string;	    
+    // private id: string;	    
 	private name: string;	    
 	private isPublic: boolean;    
 	private user: UserIdDto;    

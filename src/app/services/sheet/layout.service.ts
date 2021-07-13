@@ -133,7 +133,7 @@ export class LayoutService {
     else
     this.modelSheetDto.setIsPublic(false); 
 
-    console.log(this.modelSheetDto);   
+    // console.log(this.modelSheetDto);   
 
     this.modelSheetHttpService.save(this.modelSheetDto).subscribe(
       (resp : any) => {

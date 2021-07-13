@@ -1,6 +1,6 @@
 <div style="overflow-y: scroll;">
     <div *ngFor="let modelSheet of modelSheets" >
-        <app-sheet-card [modelSheet]="modelSheet" (loadSheet)="transfertToPreview($event)"></app-sheet-card>
+        <app-sheet-card [modelSheet]="modelSheet" (loadEvent)="transfertToPreview($event)"></app-sheet-card>
     </div>
 </div>
 
