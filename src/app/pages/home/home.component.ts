@@ -51,4 +51,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/sheet-creation']);
   }
 
+  recherchePartie = () => {
+    this.router.navigate(['/recherchepartie']);
+  }
+  rechercheFiche = () => {
+    this.router.navigate(['/recherchefiche']);
+  }
+
 }
