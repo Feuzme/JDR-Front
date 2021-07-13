@@ -144,13 +144,12 @@ export class RechercheComponent implements OnInit {
         }
         console.log(isfriend);
         return product.id !== localStorage.getItem('utilisateurId')
-            && !isfriend;
+            && !isfriend && localStorage.getItem('utilisateurId') != null;
     }
 
     ajoutAmi(product: any): void {
         console.log(product);
         this.service.ajoutAmi(product.id, localStorage.getItem('utilisateurId')).subscribe(user => {
-            console.log(user);
             this.myFriends = user.ids;
             localStorage.setItem('myFriends', JSON.stringify(user.ids));
         }, error => {
