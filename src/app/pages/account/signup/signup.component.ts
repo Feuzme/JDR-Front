@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthHttpService} from 'src/app/services/auth-http.service';
 import {UserService} from 'src/app/services/user.service';
 import {Message} from 'primeng/api';
+import {User} from "../../../models/User";
 
 
 @Component({
@@ -51,7 +52,7 @@ export class SignupComponent implements OnInit {
     }
 
 
-    onSubmit() {
+    onSubmit(): void {
         if (this.form.valid) {
             if (this.form.value.password === this.form.value.repassword) {
                 this.service.create(this.form.value).subscribe(user => {
@@ -61,8 +62,9 @@ export class SignupComponent implements OnInit {
                             nom: user.nom,
                             password: user.password,
                         };
-                        this.serviceC.connexion(dto).subscribe((utilisateurId: string) => {
-                            localStorage.setItem('utilisateurId', utilisateurId);
+                        this.serviceC.connexion(dto).subscribe((user: User) => {
+                            localStorage.setItem('utilisateurId', user.id);
+                            localStorage.setItem('myFriends', JSON.stringify(user.ids));
                             window.location.href = 'users/resume';
                         });
                     }else{

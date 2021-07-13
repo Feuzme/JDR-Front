@@ -46,6 +46,11 @@ export class UserService {
         return this.http.patch<User>(`${environment.urlSpring}/users`, user);
     }
 
+
+    ajoutAmi = (idAmi: string, myId: string): Observable<User> => {
+        return this.http.post<User>(`${this.baseUrl}/ami`, {idAmi, myId});
+    }
+
     findByIdDetail(id: string): Observable<object> {
         const url = `${this.baseUrl}/${id}/detail`;
         console.log(url);

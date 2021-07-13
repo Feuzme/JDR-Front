@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthHttpService} from 'src/app/services/auth-http.service';
 import {Message, MessageService} from 'primeng/api';
+import {User} from '../../../models/User';
 
 @Component({
     selector: 'app-login',
@@ -25,10 +26,11 @@ export class LoginComponent implements OnInit {
     }
 
 
-    onSubmit() {
+    onSubmit(): void {
 
-        this.service.connexion(this.form.value).subscribe((utilisateurId: string) => {
-            localStorage.setItem('utilisateurId', utilisateurId);
+        this.service.connexion(this.form.value).subscribe((user: User) => {
+            localStorage.setItem('utilisateurId', user.id);
+            localStorage.setItem('myFriends', JSON.stringify(user.ids));
             window.location.href = 'users/resume';
             //this.router.navigate(["utilisateur/resume"]);
         }, (err) => {
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
     }
 
 
-    onPass() {
+    onPass(): void {
         this.router.navigate(['reinitialisation']);
     }
 

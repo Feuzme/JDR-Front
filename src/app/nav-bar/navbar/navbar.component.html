@@ -18,13 +18,11 @@
                     <span class="p-menuitem-icon far fa-bell" ng-reflect-ng-class="far fa-bell">
                     </span>
                 </a>
-                
+
             </li>
             <li>
                 <a routerLink="/login"  routerLinkActive="item-active"  (click)="onConnect(user)">
-                    <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-user" ng-reflect-ng-class="far fa-user" >
-                   
-                    </span>
+                    <span routerLinkActive="icon-active" class="p-menuitem-icon far fa-user" ng-reflect-ng-class="far fa-user" ></span>
                 </a>
             </li>
             <li>
@@ -33,16 +31,15 @@
                     </span>
                 </a>
             </li>
-            <li>
-                <a [routerLink]=""   routerLinkActive="item-active" (click)="onModification(user)" >
-                    <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-cog" ng-reflect-ng-class="fas fa-cog" >
-                    </span>
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a routerLink=""  routerLinkActive="item-active" (click)="onModification(user)" >-->
+<!--                    <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-cog" ng-reflect-ng-class="fas fa-cog" >-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--            </li>-->
             <li>
                 <a routerLink="/logout" (click)="onDeConnect()">
-                    
-                   <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-power-off" ng-reflect-ng-class="fas fa-power-off"> 
+                   <span routerLinkActive="icon-active" class="p-menuitem-icon fas fa-power-off" ng-reflect-ng-class="fas fa-power-off">
                     </span>
                 </a>
             </li>
@@ -50,5 +47,5 @@
     </div>
 
 
-    
+
 </div>
