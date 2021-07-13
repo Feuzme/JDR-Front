@@ -1,58 +1,60 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
-  <div class="p-grid">
-      
-      <div class="p-col-4 p-offset-4">
-        
-          <div class="card">
-   
-                             <div class="p-fluid">
-                              <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
-                                  <span class="p-float-label">
-                                          <input id="identifiant" type="text" pInputText formControlName="nom">
-                                          <label for="identifiant">Identifiant</label>
-                                  </span>
-                                  <span class="p-float-label">
-                                      <input id="identifiant" type="text" pInputText formControlName="email">
-                                      <label for="identifiant">E-Mail</label>
-                                  </span>
-                                  <span class="p-float-label">
-                                          <input id="motdepasse" type="text" pInputText formControlName="password">
-                                          <label for="motdepasse">Mot de passe</label>
-                                  </span>
-                                  <span class="p-float-label">
-                                          <input id="mdp" type="text" pInputText formControlName="password">
-                                          <label for="motdepasse">Confirmer le mot de passe</label>
-                                  </span>
-              
-                          <div class="p-grid">
-                          <div class="p-col-2"></div>
-                              <div class="p-col-10">
-                              <p-checkbox name="city3" value="Chicago" [(ngModel)]="cutilisation" inputId="cutilisation">cc</p-checkbox>
-                              <label for="cutilisation">J'accepte les conditions d'utilisation</label>
-                              </div>
-                          </div>
-                          
-                              <div class="p-grid">
-                                  <div class="p-col-12">
-                                      <div class="divider">
-                                      <p-divider></p-divider>
-                                      </div>
-                                  </div>
-                              
-                                  <div class="p-col-4 p-offset-4">
-                                      <div class="p-field">
-                                          <button pButton pRipple type="submit" label="" class="p-button-outlined p-button-warning" >S'inscrire sur le site</button>
-                                      </div>
-                                  </div>  
-                              </div>
-                          </div>
-          </div> 
-      </div>
-  </div>
-  </form>
-  
-  
-  
-  
-  
-  
+	<div class="p-grid">
+
+		<div class="p-col-4 p-offset-4">
+
+			<div class="card">
+
+				<div class="p-fluid">
+					<img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt="">
+					<p-messages [(value)]="msgs" [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"></p-messages>
+					<span class="p-float-label">
+                          <input id="nom" type="text" pInputText formControlName="nom">
+                          <label for="nom">Pseudo</label>
+                  </span>
+					<span class="p-float-label">
+                      <input id="email" type="text" pInputText formControlName="email">
+                      <label for="email">E-Mail</label>
+                  </span>
+					<span class="p-float-label">
+                          <input id="password" type="password" pInputText formControlName="password">
+                          <label for="password">Mot de passe</label>
+                  </span>
+					<span class="p-float-label">
+                          <input type="password" id="repassword" pInputText formControlName="repassword">
+                          <label for="repassword">Confirmer le mot de passe</label>
+                  </span>
+					<div class="p-grid">
+						<div class="p-col-2"></div>
+						<div class="p-col-10">
+							<p-checkbox name="city3" value="Chicago" formControlName="cutilisation" id="cutilisation">cc</p-checkbox>
+							<label for="cutilisation">J'accepte les conditions d'utilisation</label>
+						</div>
+					</div>
+
+					<div class="p-grid">
+						<div class="p-col-12">
+							<div class="divider">
+								<p-divider></p-divider>
+							</div>
+						</div>
+
+						<div class="p-col-4 p-offset-4">
+							<div class="p-field">
+								<button pButton pRipple type="submit" label="" class="p-button-outlined p-button-warning" [disabled]="!form.valid">S'inscrire
+									sur le site
+								</button>
+							</div>
+						</div>
+						<button pButton type="button" label="Se connecter" class="p-button-link" *ngIf="isExist" routerLink="/login"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+
+
