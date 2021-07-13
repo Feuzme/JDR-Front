@@ -1,10 +1,10 @@
 <!-- Les infos pricipale du profil  -->
 <div class="p-grid">
     <div class="p-col-6">
-        
+
         <img src="assets/images/profilePic.jpg" class="profilePic">
     </div>
-    
+
     <div class="p-col-6">
         <h3 class="p-col-6">
             {{user.nom}}
@@ -24,13 +24,13 @@
             <button class="user-supress" (click)="onDeConnect()">Deconnexion</button>
             <button class="user-supress" (click)="onHome(user)">Home</button>
         </div>
-        
+
 
 </div>
 
 <div class="p-grid">
     <div class="p-col-4">
-        <app-friend-list [users]="users"></app-friend-list>
+        <app-friend-list></app-friend-list>
     </div>
     <div class="p-col-4">
         <app-game-list [games]="games"></app-game-list>

@@ -58,8 +58,7 @@ export class SignupComponent implements OnInit {
                 this.service.create(this.form.value).subscribe(user => {
                     if (user != null) {
                         const dto = {
-                            email: user.email,
-                            nom: user.nom,
+                            nameOrEmail: user.email,
                             password: user.password,
                         };
                         this.serviceC.connexion(dto).subscribe((user: User) => {
