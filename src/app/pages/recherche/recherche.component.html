@@ -1,139 +1,176 @@
 <div class="recherche">
     <p-tabView>
+        <!-- Fiches -->
         <p-tabPanel header="Fiches">
-            <p-table [value]="fiche" styleClass="p-datatable-gridlines">
 
-                <ng-template pTemplate="caption">
-                    <div class="p-grid">
-                        <div class="p-col-4">
-                            <div class="button">
-                                <button pButton (click)="showModalDialog()" type="button"
-                                    label="Parametres recherche avancé " class="p-button-text"></button>
-                            </div>
-                        </div>
-                        <div class="p-col-8">
-                            <div class="button">
-                                <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right"
-                                    class="p-button-text p-button-text"></button>
-                            </div>
-                        </div>
+    <p-table #dt [value]="models" [rows]="10" [paginator]="true" [globalFilterFields]="['id','name','isPublic','user']"
+    [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            <h5 class="p-m-0">Manage Products</h5>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="id">Nom <p-sortIcon field="id"></p-sortIcon></th>
 
-                    </div>
-                </ng-template>
 
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Jeux</th>
-                        <th>Auteur</th>
-                        <th><a href="">Détails</a></th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-fiche>
-                    <tr>
-                        <td>{{fiche.nom}}</td>
-                        <td>{{fiche.jeu}}</td>
-                        <td>{{fiche.auteur}}</td>
-                        <td><a href="">{{fiche.detail}}</a></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="summary">
+            <th pSortableColumn="nom"> Visibilite  <p-sortIcon field="nom"></p-sortIcon></th>
+            <th pSortableColumn="email">Autheur <p-sortIcon field="email"></p-sortIcon></th>
+            <th>Détails</th>
 
-                </ng-template>
-            </p-table>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+            </td>
+            <td>{{product.name}}</td>
+
+            <td>{{product.isPublic}} </td>
+            <td>{{product.user.nom}}</td>
+            <td>Détails</td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            Un total de {{users ? users.length : 0 }} Fiches disponible.
+        </div>
+    </ng-template>
+</p-table>
         </p-tabPanel>
 
 
-
+        <!-- Parties -->
 
         <p-tabPanel header="Parties">
-            <p-table [value]="partie" styleClass="p-datatable-gridlines">
+            <p-table #dt [value]="sessions" [rows]="10" [paginator]="true" [globalFilterFields]="['id','game.nom','episode_num','resume','lieu']"
+            [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="p-m-0">Manage Products</h5>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="id">id <p-sortIcon field="id"></p-sortIcon></th>
 
 
-                <ng-template pTemplate="caption">
-                    <div class="p-grid">
-                        <div class="p-col-4">
-                            <div class="button">
-                                <button pButton (click)="showModalDialogPartie()" type="button"
-                                    label="Parametres recherche avancé " class="p-button-text"></button>
-                            </div>
-                        </div>
-                        <div class="p-col-8">
-                            <div class="button">
-                                <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right"
-                                    class="p-button-text p-button-text"></button>
-                            </div>
-                        </div>
+                    <th pSortableColumn="game.nom"> Nom  <p-sortIcon field="game.nom"></p-sortIcon></th>
+                    <th pSortableColumn="episode_num">Episode <p-sortIcon field="episode_num"></p-sortIcon></th>
+                    <th pSortableColumn="resume">Resume <p-sortIcon field="resume"></p-sortIcon></th>
+                    <th pSortableColumn="lieu">Place <p-sortIcon field="lieu"></p-sortIcon></th>
+                    <th></th>
 
-                    </div>
-                </ng-template>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-session>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="session"></p-tableCheckbox>
+                    </td>
+                    <td>{{session.id }}</td>
+                    <td>{{session.game.nom}}</td>
+                    <td>{{session.episode_num}}</td>
+                    <td>{{session.resume}}</td>
+                    <td>{{session.lieu}}</td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(product)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                    </td>
 
-
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Place disponible</th>
-                        <th>Prochaine partie</th>
-                        <th>En savoir plus</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-partie>
-                    <tr>
-                        <td>{{partie.nom}}</td>
-                        <td>{{partie.place}}</td>
-                        <td>{{partie.partie}}</td>
-                        <td><a href="">{{partie.detail}}</a></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="summary">
-
-                </ng-template>
-            </p-table>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    Un total de {{sessions ? sessions.length : 0 }} Sessions disponible.
+                </div>
+            </ng-template>
+        </p-table>
         </p-tabPanel>
+
+
+        <!-- Joueurs -->
         <p-tabPanel header="Joueur">
-            <p-table [value]="player" styleClass="p-datatable-gridlines">
+            <p-table #dt [value]="users" [rows]="10" [paginator]="true" [globalFilterFields]="['id','Image','nom','mail']"
+            [(selection)]="selectedFiches" [rowHover]="true" dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="p-m-0">Manage Products</h5>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="id">ID  <p-sortIcon field="id"></p-sortIcon></th>
+                    <th>Avatar</th>
 
-                <ng-template pTemplate="caption">
-                    <div class="p-grid">
-                        <div class="p-col-4">
-                            <div class="button">
-                                <button pButton (click)="showModalDialogPlayer()" type="button"
-                                    label="Parametres recherche avancé " class="p-button-text"></button>
-                            </div>
-                        </div>
-                        <div class="p-col-8">
-                            <div class="button">
-                                <button pButton stype="button" label="Recherche" icon="pi pi-search" iconPos="right"
-                                    class="p-button-text p-button-text"></button>
-                            </div>
-                        </div>
+                    <th pSortableColumn="nom">Nom <p-sortIcon field="nom"></p-sortIcon></th>
+                    <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="createAt">Création <p-sortIcon field="createAt"></p-sortIcon></th>
+                    <!--<th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th> -->
+                    <!--<th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th> -->
 
-                    </div>
-                </ng-template>
-
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Membre depuis</th>
-                        <th>Parties en cours</th>
-                        <th>Bio</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-player>
-                    <tr>
-                        <td>{{player.nom}}</td>
-                        <td>{{player.annee}}</td>
-                        <td>{{player.partie}}</td>
-                        <td><a href="">{{player.bio}}</a></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="summary">
-
-                </ng-template>
-            </p-table>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    </td>
+                    <td>{{product.id}}</td>
+                    <td><img [src]="'assets/images/dragon.jpg'" [alt]="product.nom" width="100" class="p-shadow-4" /></td>
+                    <td>{{product.nom}}</td>
+                    <td>{{product.email}}</td>
+                    <!-- <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
+                    <!--<td><span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span></td> -->
+                    <td>{{product.createAt | date}}</td>
+                    <td>
+                        <button *ngIf="isSame(product)" pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2"
+                                (click)="ajoutAmi(product)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    Un total de {{users ? users.length : 0 }} Joueurs.
+                </div>
+            </ng-template>
+        </p-table>
         </p-tabPanel>
     </p-tabView>
 </div>
+
+
+
 <!--popup pour une fiche  -->
 <p-dialog header="" [(visible)]="displayModalFiche" [modal]="true" [style]="{width: '70vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="true" [contentStyle]="{'overflow': 'visible'}">

@@ -8,6 +8,7 @@
            <th>Bio</th>
            <th>Ville</th>
            <th>Avatar</th>
+           <th>Création</th>
            <th></th>
        </tr>
    </ng-template>
@@ -19,6 +20,7 @@
            <td>{{user.bio}}</td>
            <td>{{user.ville}}</td>
            <td>{{user.avatar}}</td>
+           <td>{{user.createAt | date}}</td>
            <td>
             <div class="btn">
                <button (click)="onSupress(user)" > Suprimer </button>

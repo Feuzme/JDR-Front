@@ -25,9 +25,9 @@ export class UpdateComponent implements OnInit {
 
   
 
-  user : User = new User("","", "", "", "","","",true);
+  //user : User = new User("","", "", "", "","","",true,new Date,new Date);
+  user : User 
 
-  
 
   constructor(
 
@@ -55,8 +55,7 @@ export class UpdateComponent implements OnInit {
           nom : this.user.nom,
           email : this.user.email,
           bio : this.user.bio,
-          ville : this.user.ville,
-          avatar : this.user.avatar,
+          ville : this.user.ville
           
 
         })
@@ -76,7 +75,7 @@ export class UpdateComponent implements OnInit {
     this.user.email = this.userForm.value.email;
     this.user.bio = this.userForm.value.bio;
     this.user.ville = this.userForm.value.ville;
-    this.user.avatar = this.userForm.value.avatar;
+    
 
     
     this.service.update(this.user).subscribe(user => {

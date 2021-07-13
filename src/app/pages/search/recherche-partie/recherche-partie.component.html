@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+
+<div class="card">
+
+    <p-table #dt [value]="sessions" [rows]="10" [paginator]="true" [globalFilterFields]="['id','game.nom','episode_num','resume','lieu']"
+        [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h5 class="p-m-0">Manage Products</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="id">id <p-sortIcon field="id"></p-sortIcon></th>
+                
+                
+                <th pSortableColumn="game.nom"> Nom  <p-sortIcon field="game.nom"></p-sortIcon></th>
+                <th pSortableColumn="episode_num">Episode <p-sortIcon field="episode_num"></p-sortIcon></th>
+                <th pSortableColumn="resume">Resume <p-sortIcon field="resume"></p-sortIcon></th>
+                <th pSortableColumn="lieu">Place <p-sortIcon field="lieu"></p-sortIcon></th>
+                <th></th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-session>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="session"></p-tableCheckbox>
+                </td>
+                <td>{{session.id }}</td>
+                <td>{{session.game.nom}}</td>
+                <td>{{session.episode_num}}</td>
+                <td>{{session.resume}}</td>
+                <td>{{session.lieu}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(product)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                </td>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                Un total de {{sessions ? sessions.length : 0 }} Sessions disponible.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Ajouter Favori" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Ajouter" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
