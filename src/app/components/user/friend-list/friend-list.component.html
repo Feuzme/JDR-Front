@@ -1,6 +1,23 @@
 <p-card class="list" header="Mes amis :">
-    <div *ngFor="let user of users">
+    <div *ngFor="let user of friends">
         <!-- Une carte aperçu d'un ami -->
-        <app-user-card [user]="user"></app-user-card>
+<!--        <app-user-card [user]="user" [users]="friends"></app-user-card>-->
+        <div class="p-card p-grid p-ai-center vertical-container friendCard">
+            <div class="p-col-2 ">
+                <p-avatar image="assets/images/profilePic.jpg" shape="circle" size="xlarge"></p-avatar>
+            </div>
+            <div class="p-col-8">
+                <p class="name">
+                    {{user.nom}}
+
+                </p>
+                <p class="city">
+                    {{user.ville}}
+                </p>
+            </div>
+            <div class="p-col-2">
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteFriend(user)"></button>
+            </div>
+        </div>
     </div>
 </p-card>

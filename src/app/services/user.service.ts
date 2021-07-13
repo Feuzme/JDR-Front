@@ -57,6 +57,11 @@ export class UserService {
         return this.http.get(url);
     }
 
+    findByIdWithoutPassword(id: string): Observable<User> {
+        const url = `${this.baseUrl}/${id}`;
+        return this.http.get<User>(url);
+    }
+
     getCustomersLarge(): Promise<User[]> {
         return this.http.get<any>('assets/customers-large.json')
             .toPromise()
@@ -86,4 +91,10 @@ export class UserService {
 
     status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
+    deleteFriend(my: string, user: User): Observable<User> {
+        return this.http.patch<User>(this.baseUrl + '/ami', {
+            idAmi: user.id,
+            myId: my
+        });
+    }
 }
