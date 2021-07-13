@@ -52,8 +52,8 @@ export class SignupComponent implements OnInit {
     }
 
     getAvatarRandom(): string {
-        const num = this.getRandomInt(13);
-        this.avatarChecked = this.getRandomInt(13);
+        const num = this.getRandomInt(6);
+        this.avatarChecked = num;
         return 'avatar-' + num + '.png';
     }
 

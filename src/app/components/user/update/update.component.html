@@ -7,7 +7,7 @@
     <div class="p-col-2">
         <img *ngIf="user.avatar" [src]="'assets/images/avatars' + user.avatar" class="profilePic" alt="">
     </div>
-    <div class="p-col-4 avatars p-p-6">
+    <div class="p-col-6 avatars p-p-6 p-jc-center p-ai-center">
         <img *ngFor="let in of counter(13); let i = index"
              [src]="'assets/images/avatars/avatar-' + i + '.png'"
              [ngClass]="[avatarChecked == i ? 'select-avatar' : 'normal', 'avatar']"

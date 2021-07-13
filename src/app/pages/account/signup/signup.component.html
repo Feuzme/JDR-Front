@@ -8,8 +8,8 @@
 				<div class="p-fluid">
 					<img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt="">
 					<p-messages [(value)]="msgs" [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"></p-messages>
-					<div class="p-d-flex p-flex-wrap avatars p-p-6">
-						<img *ngFor="let in of counter(13); let i = index"
+					<div class="p-d-flex p-flex-wrap avatars p-p-6 p-jc-center p-ai-center">
+						<img *ngFor="let in of counter(6); let i = index"
 						     [src]="'assets/images/avatars/avatar-' + i + '.png'"
 						     [ngClass]="[avatarChecked == i ? 'select-avatar' : 'normal', 'avatar']"
 						     alt=""
