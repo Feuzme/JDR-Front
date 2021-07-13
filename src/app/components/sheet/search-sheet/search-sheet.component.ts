@@ -1,6 +1,6 @@
 import { ModelSheetHttpService } from 'src/app/services/sheet/model-sheet-http.service';
 import { ModelSheet } from '../../../models/ModelSheet';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-sheet',
@@ -11,6 +11,7 @@ export class SearchSheetComponent implements OnInit {
   displayLoadModal : boolean;
   modelSheets: ModelSheet[] = [];
   displayModal : any;
+  @Output() loadEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private modelSheetHttpService : ModelSheetHttpService
@@ -27,7 +28,6 @@ export class SearchSheetComponent implements OnInit {
   }
 
   transfertToPreview($event){
-    console.log("event =",$event)
-    // this.displayLoadModal = false;
+    this.loadEvent.emit($event);
   }
 }
