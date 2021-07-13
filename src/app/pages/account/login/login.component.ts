@@ -1,48 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthHttpService } from 'src/app/services/auth-http.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthHttpService} from 'src/app/services/auth-http.service';
+import {Message, MessageService} from 'primeng/api';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  form:FormGroup;
-  
-  constructor(private service:AuthHttpService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl(""),
-      password: new FormControl("")
-    })
-  }
+    form: FormGroup;
+    msgs: Message[];
 
+    constructor(private service: AuthHttpService, private router: Router) {
+    }
 
-
-
-  onSubmit(){
-    this.service.connexion(this.form.value).subscribe((utilisateurId:string)=>{
-      localStorage.setItem("utilisateurId",utilisateurId);
-      window.location.href ="users/resume";
-      //this.router.navigate(["utilisateur/resume"]);
-    }, (err)=>{});
-        
-    //alert(JSON.stringify(this.form.value));
-  }
+    ngOnInit(): void {
+        this.form = new FormGroup({
+            nameOrEmail: new FormControl(''),
+            password: new FormControl('')
+        });
+    }
 
 
-  
-  onPass() {
-    this.router.navigate(['reinitialisation']);
-  }
+    onSubmit() {
 
-  onSignup() {
-    this.router.navigate(['signup']);
-  }
+        this.service.connexion(this.form.value).subscribe((utilisateurId: string) => {
+            localStorage.setItem('utilisateurId', utilisateurId);
+            window.location.href = 'users/resume';
+            //this.router.navigate(["utilisateur/resume"]);
+        }, (err) => {
+            this.msgs = [{
+                severity: 'error',
+                summary: 'Erreur',
+                detail: 'Pseudo / Email ou mot de passe incorrect'
+            }];
+        });
+
+        //alert(JSON.stringify(this.form.value));
+    }
+
+
+    onPass() {
+        this.router.navigate(['reinitialisation']);
+    }
 
 }
 

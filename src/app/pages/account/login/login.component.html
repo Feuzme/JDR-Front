@@ -1,41 +1,47 @@
 <div class="p-grid">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
-  <div class="p-col-4 p-offset-4">
-    <div class="card">
-      <div class="p-fluid">
-        <img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt=""> 
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" class="loggin-form">
+		<div class="p-col-4 p-offset-4">
+			<div class="card">
+				<div class="p-fluid">
+					<img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt="">
+					<p-messages [(value)]="msgs" [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"></p-messages>
 
-        <span class="p-float-label">
-          <input id="identifiant" type="text" pInputText  formControlName="email">
-          <label for="identifiant">Identifiant</label>
+					<span class="p-float-label">
+          <input id="nameOrEmail" type="text" pInputText formControlName="nameOrEmail">
+          <label for="nameOrEmail">Pseudo ou Email</label>
         </span>
 
-        <span class="p-float-label">
+					<span class="p-float-label">
           <input id="motdepasse" type="text" pInputText formControlName="password">
           <label for="motdepasse">Mot de passe</label>
         </span>
 
-        <div class="p-grid">
-          <div class="p-col-4 p-offset-4">
-            <button pButton pRipple type="button" label="Connexion" (click)="onSubmit()" ></button>
-          </div>
-          <div class="p-col-5 p-offset-4">
-            <a href="" (click)="onPass()">Mot de passe oublié ?</a>
-          </div>
-          <div class="p-col-12">
-            <div class="divider"><p-divider></p-divider></div>
-            
-          </div>
-          <div class="p-col-4 p-offset-4">
-            <div class="p-field">
-              <button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning"  (click)="onSignup()" ></button>
-            </div>
-          </div>  
-        </div>
+					<div class="p-grid">
+						<div class="p-col-4 p-offset-4">
+							<button pButton pRipple type="button" label="Connexion" (click)="onSubmit()"></button>
+						</div>
+					</div>
 
-      </div>
-    </div>
-  </div>
+					<div class="p-col-5 p-offset-4">
+						<!--  Réinitialisation à faire par la suite  -->
+						<a routerLink="/login">Mot de passe oublié ?</a>
+					</div>
+					<div class="p-col-12">
+						<div class="divider">
+							<p-divider></p-divider>
+						</div>
+
+					</div>
+					<div class="p-col-4 p-offset-4">
+						<div class="p-field">
+							<button pButton pRipple type="button" label="Créer un compte" class="p-button-outlined p-button-warning"
+							        routerLink="/signup"></button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
 </form>
 </div>
 
