@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { PrimeNGConfig } from 'primeng/api';
 import { Creneau } from 'src/app/models/Creneau';
+import { CreneauDto } from 'src/app/models/dto/CreneauDto';
+import { GameIdDto } from 'src/app/models/dto/GameIdDto';
+import { UserIdDto } from 'src/app/models/dto/UserIdDto';
 import { User } from 'src/app/models/user';
 import { CreneauService } from 'src/app/services/agenda/creneau.service';
 import { GameService } from 'src/app/services/game/game.service';
@@ -24,8 +27,9 @@ export class CalendarComponent implements OnInit {
   frequences: any[];
   stateOptions: any[];
   heures: any[];
-  tabDispo : any[] = [{}];
-  couleurLegende : String = "";
+  tabDispo : any[] = [];
+  couleurLegende : string = "";
+  idPartie : string = "";
 
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder,
     private gameService: GameService,
@@ -99,11 +103,10 @@ export class CalendarComponent implements OnInit {
   }
 
   addingDispo(): void {
+    let pseudoJ : String;
     this.displayModal = false;
     this.userService.getByid(localStorage.getItem("utilisateurId")).subscribe(result => {
-      let pseudoJ : String = result.nom;
-    });
-    console.log(this.dispoForm.value);
+      pseudoJ = result.nom;
     if(this.dispoForm.value.heureDeb==""){
       this.dispoForm.value.heureDeb=="00:00:00";
     }
@@ -112,25 +115,36 @@ export class CalendarComponent implements OnInit {
     }
     let dDeb = new Date(Date.parse(this.dispoForm.value.dateDeb[0]));
     let dFin;
-    let startDispo = dDeb.getFullYear()+"-"+dDeb.getMonth()+1+"-"+dDeb.getDate()+"T"+this.dispoForm.value.heureDeb;
-    let endDispo = "";
+    let moisDebu = dDeb.getMonth()+1;
+    let startDispo : string = dDeb.getFullYear()+"-"+moisDebu.toString().padStart(2, '0')+"-"+dDeb.getDate()+"T"+this.dispoForm.value.heureDeb+":00";
+    let endDispo : string = "";
+    let newUserDTO : UserIdDto = new UserIdDto(localStorage.getItem("utilisateurId"));
+    let newGameDto : GameIdDto = new GameIdDto(this.idPartie);
+    let newCreneau : CreneauDto;
     if(this.dispoForm.value.dateDeb[1] != undefined){
       dFin = new Date(Date.parse(this.dispoForm.value.dateDeb[1]));
-      endDispo = dFin.getFullYear()+"-"+dFin.getMonth()+1+"-"+dFin.getDate()+"T"+this.dispoForm.value.heureFin;
+      let moisFin = dFin.getMonth()+1
+      endDispo = dFin.getFullYear()+"-"+moisFin.toString().padStart(2, '0')+"-"+dFin.getDate()+"T"+this.dispoForm.value.heureFin+":00";
+      newCreneau = new CreneauDto(startDispo,endDispo,false,newUserDTO,newGameDto);
     }else{
-      endDispo = dDeb.getFullYear()+"-"+dDeb.getMonth()+1+"-"+dDeb.getDate()+"T"+this.dispoForm.value.heureFin;
+      endDispo = dDeb.getFullYear()+"-"+moisDebu.toString().padStart(2, '0')+"-"+dDeb.getDate()+"T"+this.dispoForm.value.heureFin+":00";
+      newCreneau = new CreneauDto(startDispo.toString(),endDispo.toString(),false,newUserDTO,newGameDto);
     }
-    //newCreneau = new Creneau();
-    //this.creneauService.create();
+    console.log(newCreneau);
+    this.creneauService.create(newCreneau).subscribe(creneau =>{
+      console.log("Creation de nouveau creneau OK");
+    });
     this.tabDispo.push({
-      title: 'event1',
-      start: '2021-07-14T00:00:00',
-      end: '2021-07-14T23:59:00',
-      color: 'rgb(80, 80, 202)'
+      title: pseudoJ,
+      start: startDispo.toString(),
+      end: endDispo.toString(),
+      color: this.couleurLegende
+    });
     });
   }
 
-  @Input() set initDialogDispo(idPartieChoisie: String) {
+  @Input() set initDialogDispo(idPartieChoisie: string) {
+    this.idPartie = idPartieChoisie;
     if (idPartieChoisie != undefined) {
       this.gameService.getById(idPartieChoisie).subscribe(gameSelected => {
         if (gameSelected.mjUser.id == localStorage.getItem("utilisateurId")) {
@@ -142,25 +156,36 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  @Input() set loadDispoCalendar(idPartieChoisie: String){
-    this.creneauService.getAllDispoByGameId(idPartieChoisie).subscribe(result => {
+  @Input() set loadDispoCalendar(idPartieChoisie: string){
+    this.idPartie = idPartieChoisie;
+   this.reloadDispoAgenda(idPartieChoisie);
+  }
+
+  reloadDispoAgenda(idPartie:string){
+    this.creneauService.getAllDispoByGameId(idPartie).subscribe(result => {
       result.forEach(creneau =>{
-        this.assignerCouleurLegende(creneau.game.listPlayers);
+        console.log(creneau);
         this.tabDispo.push({
           title:creneau.user.nom,
           start:creneau.dateDeb,
           end:creneau.dateFin,
-          color: this.couleurLegende
+          color: environment.colorLegend[this.assignerCouleurLegende(creneau.game.listPlayers,creneau.user)]
         });
+        console.log(this.tabDispo);
       });
     });
   }
 
-  assignerCouleurLegende(listeJoueurs : User[]):void{
+  assignerCouleurLegende(listeJoueurs : User[],joueurCouleurAffichage : User): number{
+    let result = 0;
     listeJoueurs.forEach((joueur,index) =>{
-      if (joueur.id == localStorage.getItem("utilisateurId")) {
+      if(joueur.id == localStorage.getItem("utilisateurId")){
         this.couleurLegende = environment.colorLegend[index];
       }
-    })
+      if (joueur.id == joueurCouleurAffichage.id) {
+        result = index;
+      }
+    });
+    return result;
   }
 }

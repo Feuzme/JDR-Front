@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Creneau } from 'src/app/models/Creneau';
+import { CreneauDto } from 'src/app/models/dto/CreneauDto';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,7 +24,7 @@ export class CreneauService {
     return this.http.patch<Creneau>(`${environment.urlSpring}/creneaux`, creneau);
   }
 
-  create = (creneau : Creneau) : Observable<Creneau> => {
+  create = (creneau : CreneauDto) : Observable<Creneau> => {
     return this.http.post<Creneau>(`${environment.urlSpring}/creneaux`, creneau);
   }
   

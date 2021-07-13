@@ -8,7 +8,7 @@
             <div *ngIf="showLegend" class="cercle" [ngStyle]="{'background-color':mj.couleur}"></div> 
         </div>
     </div>
-    <div class="p-col-8">
+    <div class="p-col-4">
         <p-card>
             {{mj.pseudo}}
         </p-card>
@@ -23,7 +23,7 @@
                 <p-avatar image="{{player.avatar}}" styleclass="p-mr-2" size="xlarge" shape="circle" ></p-avatar>
                 <div *ngIf="showLegend" class="cercle" [ngStyle]="{'background-color':player.couleur}"></div> 
         </div>
-        <div class="p-col-8">
+        <div class="p-col-4">
             <p-card>
                 {{player.pseudo}}
             </p-card>

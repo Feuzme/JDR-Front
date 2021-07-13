@@ -18,33 +18,33 @@
                 </div>
                 <div class="addDispo">
                     <div class="p-grid">
-                        <div class="p-col-4 hourGrp">
+                       <!-- <div class="p-col-4 hourGrp">
                             <h5>Toute la journée ?</h5>
-                        </div>
-                        <div class="p-col-4 hourGrp">
+                        </div>-->
+                        <div class="p-col-6 hourGrp">
                             <h5>Heure de début :</h5>
                         </div>
-                        <div class="p-col-4 hourGrp">
+                        <div class="p-col-6 hourGrp">
                             <h5>Heure de fin :</h5>
                         </div>
-                        <div class="p-col-4 hourGrp">
+                       <!-- <div class="p-col-4 hourGrp">
                             <p-inputSwitch inputId="allDay" formControlName="isJourComplet"></p-inputSwitch>
-                        </div>
-                        <div class="p-col-4 hourGrp">
+                        </div>-->
+                        <div class="p-col-6 hourGrp">
                             <p-dropdown inputId="heureDeb" optionValue="heure"
                                 [options]="heures" placeholder="00:00" optionLabel="heure" formControlName="heureDeb"></p-dropdown>
                         </div>
-                        <div class="p-col-4 hourGrp">
+                        <div class="p-col-6 hourGrp">
                             <p-dropdown inputId="heureFin" optionValue="heure"
                                 [options]="heures" placeholder="00:00" optionLabel="heure" formControlName="heureFin"></p-dropdown>
                         </div>
                     </div>
                 </div>
-                <div class="addDispo">
+                <!--<div class="addDispo">
                     <h5>Fréquence :</h5>
                     <p-dropdown inputId="freq" [options]="frequences"
                         optionValue="code" placeholder="Choisissez une fréquence" optionLabel="name" formControlName="freq"></p-dropdown>
-                </div>
+                </div>-->
                 <div id="dateSession" *ngIf="isMj">
                     <h5>Définir cette date comme prochaine date de session ?</h5>
                     <p-selectButton inputId="dateSess" [options]="stateOptions" optionLabel="label" optionValue="value" formControlName="isNextSession">
