@@ -1,91 +1,94 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {User} from 'src/app/models/user';
+import {UserService} from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+    selector: 'app-update',
+    templateUrl: './update.component.html',
+    styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
 
 
-    userForm : FormGroup = new FormGroup({
+    userForm: FormGroup = new FormGroup({
 
-    nom : new FormControl(""),
-    email : new FormControl(""),
-    bio : new FormControl(""),
-    ville : new FormControl(""),
-    avatar: new FormControl(""),
-    logging: new FormControl()
-
-  });
-
-  
-
-  //user : User = new User("","", "", "", "","","",true,new Date,new Date);
-  user : User 
-
-
-  constructor(
-
-    private service : UserService,
-
-    private fb : FormBuilder,
-
-    private router : Router,
-
-    private route : ActivatedRoute
-
-  ) {
-
-    let id : string ;
-
-    this.route.paramMap.subscribe(params => {
-
-       id = String (params.get("id"));
-
-       this.service.getByid(id).subscribe(user => {
-
-         this.user = user;
-         this.userForm = this.fb.group({
-
-          nom : this.user.nom,
-          email : this.user.email,
-          bio : this.user.bio,
-          ville : this.user.ville
-          
-
-        })
-
-       })
+        nom: new FormControl(''),
+        email: new FormControl(''),
+        bio: new FormControl(''),
+        ville: new FormControl(''),
+        avatar: new FormControl(''),
+        logging: new FormControl()
 
     });
 
-   }
+    user: User;
+    avatarChecked = -1;
+    private avatarLink: string;
+
+    constructor(
+        private service: UserService,
+        private fb: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute
+    ) {
+
+        let id: string;
+
+        this.route.paramMap.subscribe(params => {
+
+            id = String(params.get('id'));
+
+            this.service.getByid(id).subscribe(user => {
+
+                this.user = user;
+                this.userForm = this.fb.group({
+
+                    nom: this.user.nom,
+                    email: this.user.email,
+                    bio: this.user.bio,
+                    ville: this.user.ville
 
 
-  ngOnInit(): void {
-  }
+                });
 
-  modifier = () => {
-    this.user.nom = this.userForm.value.nom;
-    this.user.email = this.userForm.value.email;
-    this.user.bio = this.userForm.value.bio;
-    this.user.ville = this.userForm.value.ville;
-    
+            });
 
-    
-    this.service.update(this.user).subscribe(user => {
-      this.router.navigate([`/users/resume`]);
-      
+        });
+
     }
-    );
-  
-  }
 
+
+    ngOnInit(): void {
+    }
+
+
+    counter(i: number): any[] {
+        return new Array(i);
+    }
+
+    modifier = () => {
+        this.user.nom = this.userForm.value.nom;
+        this.user.email = this.userForm.value.email;
+        this.user.bio = this.userForm.value.bio;
+        this.user.ville = this.userForm.value.ville;
+        this.user.avatar = this.avatarLink;
+
+
+        this.service.update(this.user).subscribe(user => {
+                this.router.navigate([`/users/resume`]);
+
+            }
+        );
+
+    }
+
+    selectAvatar(link: string, index: number): void {
+        console.log(link);
+        this.avatarLink = link;
+        this.avatarChecked = index;
+    }
 }
 
 
