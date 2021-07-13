@@ -45,7 +45,7 @@ export class BasePluginService {
     basePlugin.config.size = "p-col-2";
     let columnSize: string = "p-col-2";//this.currentColumn(this.getSizeValue());
     let config : any = {size: columnSize, composant: "progressBar"};
-    let basePluginBody: any = {nom: "Bar", config: config};
+    let basePluginBody: any = {name: "Bar", config: config};
     this.basePlugins.push(basePlugin);
     this.create(basePluginBody).subscribe(basePluginBody => {
       this.reloadCurrentRoute();

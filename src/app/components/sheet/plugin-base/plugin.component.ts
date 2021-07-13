@@ -56,7 +56,6 @@ export class PluginComponent implements OnInit {
 
   transferObject = (basePlugin : BasePlugIn) => {
     this.service.getCurrentBasePlugin(basePlugin)
-    console.log(basePlugin.name);
   }
 
   addText() {
