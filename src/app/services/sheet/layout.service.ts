@@ -7,6 +7,7 @@ import { PlugIn } from 'src/app/models/PlugIn';
 import { ModelSheetHttpService } from './model-sheet-http.service';
 import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
 import { PluginHttpService } from '../plugin-http.service';
+import { GameTypeDto } from 'src/app/models/dto/GameTypeDto';
 
 export interface IComponent {
   id: string;
@@ -45,7 +46,7 @@ export class LayoutService {
     private modelSheetHttpService : ModelSheetHttpService,
     private pluginHttpService : PluginHttpService
   ) {     
-    this.modelSheetDto = new ModelSheetDto("", "",false, null, null);
+    this.modelSheetDto = new ModelSheetDto("", "",false, null, null, null);
     this.modelSheet = new ModelSheet("", "",false, null, null);    
   }
 
@@ -64,8 +65,8 @@ export class LayoutService {
         this.layout.push({
           cols: 1, 
           rows: 1, 
-          y: 1, 
-          x: 1,
+          y: 0, 
+          x: 0,
           id: resp.id, 
           css:{       
             backgroundColor:'',
@@ -116,7 +117,7 @@ export class LayoutService {
    * Fonction pour envoyer au back le layout de la page, et la config des plugins
    * @returns la modelSheet enregistrée
    */
-  saveSheet(name : string, isPublic : string){
+  saveSheet(name : string, isPublic : string, gameType : string){
     let plugInIdDtos : PlugInIdDto[] = [];
 
     for (let index = 0; index < this.layout.length; index++) {
@@ -127,6 +128,7 @@ export class LayoutService {
     this.modelSheetDto.setComposants(plugInIdDtos);
     this.modelSheetDto.setName(name);
     this.modelSheetDto.setUser(new UserIdDto(localStorage.getItem("utilisateurId")));
+    this.modelSheetDto.setGameType(new GameTypeDto(gameType))
     
     if(isPublic == "public")
       this.modelSheetDto.setIsPublic(true); 

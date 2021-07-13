@@ -11,6 +11,7 @@ export class SearchSheetComponent implements OnInit {
   displayLoadModal : boolean;
   modelSheets: ModelSheet[] = [];
   displayModal : any;
+
   @Output() loadEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(

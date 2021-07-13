@@ -8,6 +8,7 @@ import { LayoutService } from '../../../services/sheet/layout.service';
 })
 export class SheetCardComponent implements OnInit {
 
+  @Input() displayButton : any;
   @Input() modelSheet : any;
   @Output() loadEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
   
@@ -16,6 +17,7 @@ export class SheetCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.modelSheet.gameType.logo);
   }
 
   loadSheet(id : string){

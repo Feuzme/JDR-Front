@@ -37,6 +37,10 @@ header="Enregistrer une fiche :"
     [draggable]="false" 
     [resizable]="true" 
     [contentStyle]="{'overflow':'visible'}">
+        <div class="p-grid" style="margin: 5px;">
+            <label class="p-col-7">Type de jeu :</label>
+            <p-dropdown [options]="gameTypes" optionLabel="nom" [(ngModel)]="gameType"></p-dropdown>
+        </div>
         <div style="margin: 5px;" class="p-grid">
             <label class="p-col-7">Nom de la fiche :</label>
             <input type="text" [(ngModel)]="name" class="p-col-5">

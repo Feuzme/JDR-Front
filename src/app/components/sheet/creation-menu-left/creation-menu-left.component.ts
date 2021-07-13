@@ -18,10 +18,7 @@ export class CreationMenuLeftComponent implements OnInit {
   ngOnInit(): void {
     this.plugInHttpService.getAll().subscribe(
       (resp : any[]) => {
-        console.log(resp);
         for (let plugin of resp) {
-          
-          console.log(plugin); 
           if (plugin.origin == true)
             this.plugins.push(plugin);
         }
