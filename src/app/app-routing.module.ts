@@ -32,7 +32,6 @@ const routes: Routes = [
   {path:"recherchefiche", component:RechercheFicheComponent },
   {path:"users/signup",component:SignupComponent},
   {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
-  {path:"login",component:LoginComponent},
   {path:"calendar",component:AgendaComponent, canActivate:[AuthGuard]},
   {path:"sheet-creation",component:SheetCreationComponent, canActivate:[AuthGuard]},
   {path:"plugin-creation", component:PluginCreationComponent, canActivate:[AuthGuard]},
