@@ -20,26 +20,26 @@ import {RechercheFicheComponent} from './pages/search/recherche-fiche/recherche-
 import {RecherchePartieComponent} from './pages/search/recherche-partie/recherche-partie.component';
 
 const routes: Routes = [
-  {path:"signup",component: SignupComponent},
-  {path:"user", component: UserProfileComponent},
-  {path:"login", component: LoginComponent},
-  {path:"home", component: HomeComponent, canActivate:[AuthGuard]},
-  {path:"recherche", component:RechercheComponent},
-  {path:"recherchepartie", component:RecherchePartieComponent},
-  {path:"rechercheplayer", component:RecherchePlayerComponent },
-  {path:"recherchefiche", component:RechercheFicheComponent },
-  {path:"users/signup",component:SignupComponent},
-  {path: "user", component: UserProfileComponent, canActivate:[AuthGuard]},
-  {path:"calendar",component:AgendaComponent, canActivate:[AuthGuard]},
-  {path:"sheet-creation",component:SheetCreationComponent, canActivate:[AuthGuard]},
-  {path:"plugin-creation", component:PluginCreationComponent, canActivate:[AuthGuard]},
-  {path:"game",component:GameComponent},
-  {path:"users",component:UserComponent, canActivate:[AuthGuard]},
-  {path:"update/:id", component : UpdateComponent},
-  {path:"users/resume", component: ResumePageComponent},
-  {path:"users/new", component:NouvelUtilisateurComponent},
-  {path:"user/:id", component:UtilisateurProfilePageComponent, canActivate:[AuthGuard]},
-  {path: "", redirectTo: 'login', pathMatch: 'full'}
+  {path: 'signup', component: SignupComponent},
+  {path: 'user', component: UserProfileComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'recherche', component: RechercheComponent},
+  {path: 'recherchepartie', component: RecherchePartieComponent},
+  {path: 'rechercheplayer', component: RecherchePlayerComponent },
+  {path: 'recherchefiche', component: RechercheFicheComponent },
+  {path: 'users/signup', component: SignupComponent},
+  {path: 'user', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'calendar', component: AgendaComponent, canActivate: [AuthGuard]},
+  {path: 'sheet-creation', component: SheetCreationComponent, canActivate: [AuthGuard]},
+  {path: 'plugin-creation', component: PluginCreationComponent, canActivate: [AuthGuard]},
+  {path: 'game', component: GameComponent},
+  {path: 'users', component: UserComponent, canActivate: [AuthGuard]},
+  {path: 'update/:id', component : UpdateComponent},
+  {path: 'users/resume', component: ResumePageComponent},
+  {path: 'users/new', component: NouvelUtilisateurComponent},
+  {path: 'user/:id', component: UtilisateurProfilePageComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
 
 ];
 
