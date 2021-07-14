@@ -52,6 +52,7 @@ export class CalendarComponent implements OnInit {
     this.minDateValue = new Date();
     this.heures = [];
     this.minutes = [];
+    this.tabDispo = [];
 
     this.frequences = [
       { name: 'Une seule fois', code: 'ONE' },
@@ -127,7 +128,6 @@ export class CalendarComponent implements OnInit {
       if (this.dispoForm.value.minuteFin == "") {
         this.dispoForm.value.minuteFin == "00";
       }
-      console.log(this.dispoForm.value);
       let dDeb = new Date(Date.parse(this.dispoForm.value.dateDeb[0]));
       let dFin;
       let moisDebu = dDeb.getMonth() + 1;

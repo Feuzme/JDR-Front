@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GameIdDto } from 'src/app/models/dto/GameIdDto';
 import { Game } from 'src/app/models/Game';
 import { environment } from 'src/environments/environment';
 
@@ -23,11 +24,15 @@ export class GameService {
     return this.http.get<Game[]>(`${environment.urlSpring}/games/players/${id}`);
   }
 
+  addPlayer = (idgame : string, idplayer : string) : Observable<Game> => {
+    return this.http.post<Game>(`${environment.urlSpring}/games/addplayer/${idgame}/${idplayer}`,"");
+  }
+
   update = (game : Game) : Observable<Game> => {
     return this.http.patch<Game>(`${environment.urlSpring}/games`, game);
   }
 
-  create = (game : Game) : Observable<Game> => {
+  create = (game : GameIdDto) : Observable<Game> => {
     return this.http.post<Game>(`${environment.urlSpring}/games`, game);
   }
   

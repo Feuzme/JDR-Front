@@ -7,7 +7,7 @@ export class User {
 	public avatar : string;
 	public bio : string;
 	public ville : string;
-    public loggedIn : Boolean;
+    public loggedIn : boolean;
 
     constructor (id : string , nom : string , 
         email : string, password : string, 

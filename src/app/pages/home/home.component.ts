@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
 
   newGame = () => {
+    localStorage.removeItem("gameId");
     this.router.navigate(['/game']);
   }
 

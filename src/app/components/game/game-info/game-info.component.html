@@ -4,8 +4,11 @@
             <div class="p-col-6">
                 <h2>Partie {{privacy}}</h2>
             </div>
-            <div class="p-col-3 privacy">
-                <p-inputSwitch [(ngModel)]="isPublic" (onChange)="changePrivacy()"></p-inputSwitch>
+            <div class="p-col-3 privacy" *ngIf="idPartie != null">
+                <p-inputSwitch [(ngModel)]="isPrivate" (onChange)="changePrivacy()" [disabled]="true"></p-inputSwitch>
+            </div>
+            <div class="p-col-3 privacy" *ngIf="idPartie == null">
+                <p-inputSwitch [(ngModel)]="isPrivate" (onChange)="changePrivacy()"></p-inputSwitch>
             </div>
             <div class="p-col-3">
                 <img id="imgPrivacy" src="../../../../assets/images/public.png" height="70">
@@ -13,35 +16,44 @@
             <div class="p-col-6">
                 <h4>Type de jeu :</h4>
             </div>
-            <div class="p-col-6">
+            <div class="p-col-6" *ngIf="idPartie != null">
+                <p-dropdown [options]="typeJeu" [(ngModel)]="selectedTypeJeu" optionLabel="nom" (onChange)="changeGameType()" [disabled]="true"></p-dropdown>
+            </div>
+            <div class="p-col-6" *ngIf="idPartie == null">
                 <p-dropdown [options]="typeJeu" [(ngModel)]="selectedTypeJeu" optionLabel="nom" (onChange)="changeGameType()"></p-dropdown>
             </div>
             <div class="p-col-6">
                 <h4>Nom de la partie :</h4>
             </div>
-            <div class="p-col-6">
+            <div class="p-col-6" *ngIf="idPartie != null">
+                <input id="nomPartie" type="text" pInputText [(ngModel)]="gameName" [disabled]="true">
+            </div>
+            <div class="p-col-6" *ngIf="idPartie == null">
                 <input id="nomPartie" type="text" pInputText [(ngModel)]="gameName">
             </div>
             <div class="p-col-6">
                 <h4>Nombre de joueurs :</h4>
             </div>
-            <div class="p-col-6">
+            <div class="p-col-6" *ngIf="idPartie != null">
+                <p-inputNumber inputId="nbJoueurs" [(ngModel)]="nbPlayers"  [disabled]="true"></p-inputNumber>
+            </div>
+            <div class="p-col-6" *ngIf="idPartie == null">
                 <p-inputNumber inputId="nbJoueurs" [(ngModel)]="nbPlayers"></p-inputNumber>
             </div>
         </div>
     </div>
     <div class="p-col-4">
         <div class="p-grid">
-            <div class="p-col-3 ImgAgenda">
+            <div class="p-col-12 ImgAgenda" *ngIf="idPartie != null">
                 <img src="../../../../assets/images/icon-agenda.png" height="70" (click)="openAgenda()">
-            </div>
-            <div class="p-col-9">
-                <input id="dateSession" type="text" pInputText [disabled]="true" style="width:100%" [(ngModel)]="dateSession"/>
             </div>
             <div class="p-col-3">
                 <h4>Cadre :</h4>
             </div>
-            <div class="p-col-9">
+            <div class="p-col-9" *ngIf="idPartie != null">
+                <textarea id="cadre" pInputTextarea autoResize="autoResize" [(ngModel)]="gameStory" [disabled]="true"></textarea>  
+            </div>
+            <div class="p-col-9" *ngIf="idPartie == null">
                 <textarea id="cadre" pInputTextarea autoResize="autoResize" [(ngModel)]="gameStory"></textarea>  
             </div>
         </div>   
@@ -51,7 +63,14 @@
             <div class="p-col-2"></div>
             <div class="p-col-8">
                 <img id="gamePic" src="../../../../assets/images/{{gameTypePic}}" alt="Photo de la partie">
-                <button pButton pRipple type="button" label="Créer la partie" class="p-button-success"></button>
+                <div *ngIf="idPartie != null">
+                    <div *ngIf="isNotMj">
+                        <button pButton pRipple type="button" label="Rejoindre la partie" class="p-button-success" (click)="joinGame()"></button> 
+                    </div>
+                </div>
+                <div *ngIf="idPartie == null">
+                    <button pButton pRipple type="button" label="Créer la partie" class="p-button-success" (click)="createGame()"></button>
+                </div>
             </div>
             <div class="p-col-2"></div>
         </div>

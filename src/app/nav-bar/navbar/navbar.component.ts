@@ -41,6 +41,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["login"]);
   }
 
+  goAgenda(){
+    localStorage.removeItem("gameId");
+  }
+
 
 
 }

@@ -24,13 +24,23 @@ export class AgendaComponent implements OnInit {
   listeParties_Autres: any[];
 
   partieChoisie: any;
-  idPartieChoisie: String;
+  idPartieChoisie: string;
+  labelBouton: string;
 
   constructor(private gameService: GameService) {
     this.initListeDeroulantePartie();
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem("gameId") != undefined){
+      this.labelBouton = "Revenir à la partie";
+      this.gameService.getById(localStorage.getItem("gameId")).subscribe(game =>{
+        this.partieChoisie = {cname:game.name,code:game.id,id:game.id};
+        this.idPartieChoisie = localStorage.getItem("gameId");   
+      })
+    }else{
+      this.labelBouton = "Créer une partie";
+    }
   }
 
   /**
@@ -44,11 +54,11 @@ export class AgendaComponent implements OnInit {
         this.listeParties_Autres = [];
         result.forEach(partie => {
           if (partie.gameType.name == "Donjons et dragons") {
-            this.listeParties_Dd.push({ cname: partie.name, code: partie.id });
+            this.listeParties_Dd.push({ cname: partie.name, code: partie.id, id : partie.id });
           } else if (partie.gameType.name == "Game of thrones") {
-            this.listeParties_Got.push({ cname: partie.name, code: partie.id });
+            this.listeParties_Got.push({ cname: partie.name, code: partie.id, id : partie.id });
           } else if (partie.gameType.name == "Autres") {
-            this.listeParties_Autres.push({ cname: partie.name, code: partie.id });
+            this.listeParties_Autres.push({ cname: partie.name, code: partie.id, id : partie.id });
           }
         });
         this.parties = [];
@@ -81,6 +91,12 @@ export class AgendaComponent implements OnInit {
 
   choixPartie(): void {
     this.idPartieChoisie = this.partieChoisie.code;
+    localStorage.setItem("gameId",this.idPartieChoisie);
+    this.labelBouton = "Revenir à la partie";
+  }
+
+  backGame(): void{
+    window.location.href = "game";
   }
 
 }

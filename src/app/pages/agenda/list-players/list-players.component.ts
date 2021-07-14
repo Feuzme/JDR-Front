@@ -21,6 +21,9 @@ export class ListPlayersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem("gameId") != null){
+      this.initListJoueurs();
+  }
   }
 
   /**
@@ -30,6 +33,34 @@ export class ListPlayersComponent implements OnInit {
     this.players = [];
     this.mj = undefined;
     this.gameService.getById(idPartieChoisie).subscribe(result => {
+      result.listPlayers.forEach((joueur, index) => {
+        // Traitement pour le MJ
+        if (index == 0) {
+          this.mj = {
+            pseudo: joueur.nom,
+            role: "MJ",
+            avatar: "assets/images/Balrog.png",
+            couleur: environment.colorLegend[index]
+          };
+        } // Traitement pour les joueurs
+        else {
+          this.players.push({
+            pseudo: joueur.nom,
+            role: "P",
+            avatar: "assets/images/Gerard.png",
+            couleur: environment.colorLegend[index]
+          });
+        }
+
+      });
+    });
+  }
+
+  initListJoueurs(){
+    this.players = [];
+    this.mj = undefined;
+    this.gameService.getById(localStorage.getItem("gameId")).subscribe(result => {
+      console.log(result);
       result.listPlayers.forEach((joueur, index) => {
         // Traitement pour le MJ
         if (index == 0) {

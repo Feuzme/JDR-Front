@@ -4,6 +4,7 @@
         <p-cascadeSelect [(ngModel)]="partieChoisie" [options]="parties" optionLabel="cname" optionGroupLabel="name"
             [optionGroupChildren]="['nomPartie']" [style]="{'minWidth': '14rem'}" placeholder="Sélectionnez une partie"
             (onChange)="choixPartie()"></p-cascadeSelect>
+            <button pButton pRipple type="button" label="{{labelBouton}}" class="p-button-secondary" (click)="backGame()"></button>
     </div>
     <div class="p-col-8" *ngIf="idPartieChoisie != null">
         <app-calendar [initDialogDispo]="idPartieChoisie" [loadDispoCalendar]="idPartieChoisie"></app-calendar>
