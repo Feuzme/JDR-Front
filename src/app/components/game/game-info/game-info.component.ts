@@ -29,6 +29,7 @@ export class GameInfoComponent implements OnInit {
   gameName: string;
   nbPlayers: number;
   gameStory: string;
+  isNotMj : boolean = true;
 
   dateSession: string = 'Date de la prochaine session non définie';
 
@@ -51,6 +52,11 @@ export class GameInfoComponent implements OnInit {
       this.idPartie = localStorage.getItem("gameId");
       this.gameService.getById(localStorage.getItem("gameId")).subscribe(gameInfo => {
         this.isPrivate = !gameInfo.isPublic;
+        if(gameInfo.mjUser.id == localStorage.getItem("gameId")){
+          this.isNotMj = false;
+        }else{
+          this.isNotMj = true;
+        }
         this.typeJeu.forEach((type,index) =>{
           if(type.nom == gameInfo.gameType.name){
             this.selectedTypeJeu = this.typeJeu[index];
@@ -64,6 +70,7 @@ export class GameInfoComponent implements OnInit {
     }else{
       this.idPartie = null;
     }
+    console.log(this.isNotMj);
   }
 
   openAgenda = () => {
@@ -95,6 +102,7 @@ export class GameInfoComponent implements OnInit {
   }
 
   joinGame(){
-    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId"));    
+    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId"));
+    window.location.href = "game";    
   }
 }

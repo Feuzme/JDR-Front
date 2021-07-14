@@ -12,6 +12,10 @@ export class GameService {
 
   constructor(private http : HttpClient) { }
 
+  getAll = () : Observable<Game[]> => {
+    return this.http.get<Game[]>(`${environment.urlSpring}/games`);
+  }
+
   getById = (id : String) : Observable<Game> => {
     return this.http.get<Game>(`${environment.urlSpring}/games/${id}`);
   }
@@ -38,5 +42,12 @@ export class GameService {
   
   delete = (game : Game) : Observable<Game> => {
     return this.http.request<Game>('delete', `${environment.urlSpring}/games`, { body : game});
+  }
+
+  initCarousel(idMj : string){
+    return this.getGamesByPlayerId(idMj)
+    .toPromise()
+    .then(res => <Game[]> res)
+    .then(res => {return res});
   }
 }

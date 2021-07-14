@@ -48,12 +48,10 @@ export class ListPlayersComponent implements OnInit {
           this.players.push({
             pseudo: joueur.nom,
             role: "P",
-
             avatar: "assets/images/avatars/" + joueur.avatar,
             couleur: environment.colorLegend[index]
           });
         }
-
       });
     });
   }
@@ -62,6 +60,7 @@ export class ListPlayersComponent implements OnInit {
     this.players = [];
     this.mj = undefined;
     this.gameService.getById(localStorage.getItem("gameId")).subscribe(result => {
+      this.players = [];
       result.listPlayers.forEach((joueur, index) => {
         // Traitement pour le MJ
         if (index == 0) {
@@ -73,6 +72,7 @@ export class ListPlayersComponent implements OnInit {
           };
         } // Traitement pour les joueurs
         else {
+          console.log("init");
           this.players.push({
             pseudo: joueur.nom,
             role: "P",
@@ -80,8 +80,8 @@ export class ListPlayersComponent implements OnInit {
             couleur: environment.colorLegend[index]
           });
         }
-
       });
     });
+    console.log(this.players);
   }
 }

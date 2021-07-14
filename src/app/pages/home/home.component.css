@@ -12,6 +12,10 @@
     width: 35%;
 }
 
+.imagePartie {
+    width: 35%;
+}
+
 .lien{
     margin: 0 auto;
     width: 3px;
@@ -39,4 +43,9 @@ p-card {
 ::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
     background-color: rgb(242, 162, 22);
   }
-    
+
+.imgJeu{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
