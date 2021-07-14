@@ -29,7 +29,7 @@ export class BasePluginService {
   }
 
   update = (basePlugin : BasePlugIn) : Observable<BasePlugIn> => {
-    return this.http.put<BasePlugIn>(`http://localhost:8080/base_plugins`, basePlugin)
+    return this.http.patch<BasePlugIn>(`http://localhost:8080/base_plugins`, basePlugin)
   }
 
   create = (basePlugin : BasePlugIn) : Observable<BasePlugIn> => {
@@ -45,7 +45,7 @@ export class BasePluginService {
     basePlugin.config.size = "p-col-2";
     let columnSize: string = "p-col-2";//this.currentColumn(this.getSizeValue());
     let config : any = {size: columnSize, composant: "progressBar"};
-    let basePluginBody: any = {nom: "Bar", config: config};
+    let basePluginBody: any = {name: "Bar", config: config};
     this.basePlugins.push(basePlugin);
     this.create(basePluginBody).subscribe(basePluginBody => {
       this.reloadCurrentRoute();
@@ -61,6 +61,18 @@ export class BasePluginService {
 
   getCurrentBasePlugin = (bp : BasePlugIn) => {
     this.editBasePlugin = bp;
+  }
+
+  currentComposant(basePlugin : BasePlugIn) {
+    if (basePlugin.config.composant == "progressBar") {
+      return ProgressBarComponent;
+    }
+  }
+
+  reversedCurrentComposant(basePlugin : BasePlugIn) {
+    if (basePlugin.config.composant == ProgressBarComponent) {
+      return "progressBar";
+    }
   }
 
 

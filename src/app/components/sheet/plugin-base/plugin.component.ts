@@ -1,5 +1,5 @@
 import { GameType } from './../../../models/GameType';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
@@ -11,6 +11,8 @@ import { ProgressBarComponent } from './default-components/progress-bar/progress
   styleUrls: ['./plugin.component.css']
 })
 export class PluginComponent implements OnInit {
+
+  @Output() currentBpEvent = new EventEmitter();
 
   defaultComponent: any;
 
@@ -30,7 +32,7 @@ export class PluginComponent implements OnInit {
     this.service.getAll().subscribe(data => {
       this.basePlugins = data;
       Object.values(data).forEach(basePlugin => {
-        basePlugin.config.composant = this.currentComposant(basePlugin);
+        basePlugin.config.composant = this.service.currentComposant(basePlugin);
       });
       
     })
@@ -42,7 +44,6 @@ export class PluginComponent implements OnInit {
     }
   }
 
-
   delete = (basePlugin : BasePlugIn) => {
     this.service.delete(basePlugin).subscribe(basePlugin => {
       this.ngOnInit();
@@ -50,9 +51,10 @@ export class PluginComponent implements OnInit {
   }
 
   transferObject = (basePlugin : BasePlugIn) => {
-    this.service.getCurrentBasePlugin(basePlugin)
-    console.log(basePlugin.name);
-  }
+    // this.service.getCurrentBasePlugin(basePlugin)
+    console.log(basePlugin);
+    this.currentBpEvent.emit(basePlugin)
+    }
 
   addText() {
   }

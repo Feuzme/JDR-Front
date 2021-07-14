@@ -3,9 +3,9 @@
         <app-creation-menu-left ></app-creation-menu-left><!--[plugins]="plugins"-->
     </div>
     <div class="preview p-col-8">
-        <app-plugin-preview></app-plugin-preview>    
+        <app-plugin-preview (currentBpEventFromParent)="getCurrentBp($event)"></app-plugin-preview>    
     </div>
     <div class="menuRight p-col-2">
-        <app-edit-base-plugin></app-edit-base-plugin>
+        <app-edit-base-plugin [bp]="currentBp"></app-edit-base-plugin>
     </div>
 </div>

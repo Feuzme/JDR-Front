@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridsterItemComponent, GridType } from 'angular-gridster2';
+import { BasePlugIn } from 'src/app/models/BasePlugin';
 
 @Component({
   selector: 'app-plugin-preview',
@@ -10,6 +11,8 @@ export class PluginPreviewComponent implements OnInit {
   options: GridsterConfig = {
 
   };
+
+  @Output() currentBpEventFromParent = new EventEmitter();
 
   dashboard: Array<GridsterItem>;
   layout: GridsterItem[] = [];
@@ -54,6 +57,10 @@ export class PluginPreviewComponent implements OnInit {
 
   removeItem(item) {
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
+  }
+
+  getCurrentBp = (bp : BasePlugIn) => {
+    this.currentBpEventFromParent.emit(bp);
   }
 
   // addItem() {
