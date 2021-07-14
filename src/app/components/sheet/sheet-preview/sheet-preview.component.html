@@ -49,7 +49,7 @@ header="Enregistrer une fiche :"
             <label class="p-col-7">Rendre votre fiche publique :</label>
             <p-checkbox [(ngModel)]="isPublic" value="public" class="p-col-5"></p-checkbox>
         </div>        
-        <button pButton pRipple type="button" label="Enregistrer" (click)="saveSheet(); showSaveModal()"></button>
+        <button pButton pRipple type="button" label="Enregistrer" (click)="saveSheet(); showSaveModal(); reloadOnSave();"></button>
 </p-dialog>
 
 <div class="save p-grid p-col-12" style="margin: 5px;">

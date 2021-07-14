@@ -20,8 +20,8 @@ export class CreationMenuLeftComponent implements OnInit {
       (resp : any[]) => {
         for (let plugin of resp) {
           if (plugin.origin == true){
-          console.log("plugin:", plugin)
-            this.plugins.push(plugin);}
+            this.plugins.push(plugin);
+          }
         }
       }
     );         
