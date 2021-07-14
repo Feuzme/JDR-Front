@@ -8,6 +8,15 @@
 				<div class="p-fluid">
 					<img src="../../../../assets/images/logo_JDR_no_border_side_view_no_back_face.png " alt="">
 					<p-messages [(value)]="msgs" [showTransitionOptions]="'200ms'" [hideTransitionOptions]="'200ms'"></p-messages>
+					<div class="p-d-flex p-flex-wrap avatars p-p-6 p-jc-center p-ai-center">
+						<img *ngFor="let in of counter(6); let i = index"
+						     [src]="'assets/images/avatars/avatar-' + i + '.png'"
+						     [ngClass]="[avatarChecked == i ? 'select-avatar' : 'normal', 'avatar']"
+						     alt=""
+						     (click)="selectAvatar('avatar-' + i + '.png', i)"
+						>
+					</div>
+					<input type="hidden" formControlName="avatar" pInputText [value]="avatarLink">
 					<span class="p-float-label">
                           <input id="nom" type="text" pInputText formControlName="nom">
                           <label for="nom">Pseudo</label>
@@ -41,7 +50,8 @@
 
 						<div class="p-col-4 p-offset-4">
 							<div class="p-field">
-								<button pButton pRipple type="submit" label="" class="p-button-outlined p-button-warning" [disabled]="!form.valid">S'inscrire
+								<button pButton pRipple type="submit" label="" class="p-button-outlined p-button-warning" [disabled]="!form.valid">
+									S'inscrire
 									sur le site
 								</button>
 							</div>

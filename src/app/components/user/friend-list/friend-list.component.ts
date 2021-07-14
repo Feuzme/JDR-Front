@@ -24,6 +24,7 @@ export class FriendListComponent implements OnInit {
             const ids = JSON.parse(localStorage.getItem('myFriends'));
             for (const id of ids) {
                 this.userService.findByIdWithoutPassword(id).subscribe(user => {
+                    console.log(user);
                     this.friends.push(user);
                 });
             }

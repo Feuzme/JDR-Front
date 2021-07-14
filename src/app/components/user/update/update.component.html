@@ -3,14 +3,21 @@
 <!-- Les infos pricipale du profil  -->
 <form [formGroup]="userForm" (ngSubmit)="modifier()">
 <div class="p-grid">
-    
-    <div class="p-col-6">
-        
-        <img src="assets/images/profilePic.jpg" class="profilePic">
+
+    <div class="p-col-2">
+        <img *ngIf="user.avatar" [src]="'assets/images/avatars' + user.avatar" class="profilePic" alt="">
     </div>
-    
+    <div class="p-col-6 avatars p-p-6 p-jc-center p-ai-center">
+        <img *ngFor="let in of counter(13); let i = index"
+             [src]="'assets/images/avatars/avatar-' + i + '.png'"
+             [ngClass]="[avatarChecked == i ? 'select-avatar' : 'normal', 'avatar']"
+             alt=""
+            (click)="selectAvatar('avatar-' + i + '.png', i)"
+        >
+    </div>
+
     <div class="p-col-6">
-        
+
         <h3 class="p-col-6">
             <h3>Nom : </h3> <input type="text" formControlName="nom">
         </h3>
@@ -23,7 +30,7 @@
         <div class="p-col-6">
             <h3>BIO : </h3>
             <p>
-                
+
                 <input type="text" formControlName="bio">
             </p>
         </div>
@@ -37,4 +44,3 @@
 
 
 
-    

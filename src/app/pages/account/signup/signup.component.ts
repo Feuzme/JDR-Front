@@ -20,6 +20,9 @@ export class SignupComponent implements OnInit {
     msgs: Message[];
     isExist: boolean;
 
+    avatarChecked = -1;
+    avatarLink: string = this.getAvatarRandom();
+
     constructor(
         private serviceC: AuthHttpService,
         private service: UserService,
@@ -30,6 +33,7 @@ export class SignupComponent implements OnInit {
             nom: '',
             email: '',
             password: '',
+            avatar: this.avatarLink,
             repassword: '',
             cutilisation: ''
         });
@@ -41,16 +45,29 @@ export class SignupComponent implements OnInit {
             email: new FormControl('', Validators.required),
             password: new FormControl('', Validators.required),
             repassword: new FormControl('', Validators.required),
+            avatar: new FormControl(this.avatarLink, Validators.required),
             cutilisation: new FormControl(''),
         });
         this.isExist = false;
     }
 
+    getAvatarRandom(): string {
+        const num = this.getRandomInt(6);
+        this.avatarChecked = num;
+        return 'avatar-' + num + '.png';
+    }
+
+    getRandomInt(max): number {
+        return Math.floor(Math.random() * max);
+    }
 
     ajouter = () => {
         this.router.navigate(['/home']);
     }
 
+    counter(i: number): any[] {
+        return new Array(i);
+    }
 
     onSubmit(): void {
         if (this.form.valid) {
@@ -66,7 +83,7 @@ export class SignupComponent implements OnInit {
                             localStorage.setItem('myFriends', JSON.stringify(user.ids));
                             window.location.href = 'users/resume';
                         });
-                    }else{
+                    } else {
                         this.msgs = [{
                             severity: 'error',
                             summary: 'Erreur',
@@ -99,6 +116,11 @@ export class SignupComponent implements OnInit {
 
     }
 
+    selectAvatar(link: string, index: number): void {
+        console.log(link);
+        this.avatarLink = link;
+        this.avatarChecked = index;
+    }
 
     /*
     onSubmit(){

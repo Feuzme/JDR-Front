@@ -4,3 +4,15 @@
     margin-left: 1em;
 }
 
+.select-avatar {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #000000;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: calc(96px / 2);
+    margin: 10px;
+}
+
