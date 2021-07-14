@@ -48,12 +48,6 @@ export class RecherchePlayerComponent implements OnInit {
     this.userService.getAll().subscribe(data => this.users = data);
 
   }
-/*
-  editProduct(product: User) {
-    //this.product = {...product};
-    this.productDialog = true;
-  }
-*/
   createId(): string {
     let id = '';
     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -66,38 +60,18 @@ export class RecherchePlayerComponent implements OnInit {
 
 addFriend = (user : User) => {
   //userFriend = new UserFriends();
-  this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+  this.messageService.add({severity:'success', summary: 'Succès', detail: 'Ami ajouter en favoris', life: 1000});
   this.lesids.push(this.user.id); 
   this.userService.update(this.user); 
   
   
 }
-
-  /*addFriend(user : User) {
-    this.user = {...user};
-    this.productDialog = true;
-    //this.userFriend.id = this.createId();
-    //this.userFriend.user.nom = this.user.nom ;
-    //this.userFriend.user.ville = this.user.ville;
-    //this.lesids.push(user.id);
-    this.userFriend.ids  = this.lesids.push(user.id);
-    //this.userFriendsService.create(this.userFriend);
-    this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
-
-  }
-  */
-
   saveProductFavoris() {
     this.submitted = true;
     this.messageService.add({severity:'success', summary: 'succès', detail: 'Ajouter aux favoris', life: 3000});
     this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
 
 }
-
-
-
-
-
 
   deleteProduct(product: User) {
       this.confirmationService.confirm({

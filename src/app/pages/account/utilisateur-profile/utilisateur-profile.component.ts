@@ -62,12 +62,6 @@ export class UtilisateurProfileComponent implements OnInit {
         }
     }
 
-    /*modifierParc = (id: number) => {
-      this.router.navigate([`/update/${id}`]);
-    }
-  */
-
-
     games = [
         {
             name: "Donjons & Dragons",

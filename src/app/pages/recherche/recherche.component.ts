@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {LazyLoadEvent} from 'primeng/api';
+import {LazyLoadEvent, MessageService} from 'primeng/api';
 import {ModelSheet} from 'src/app/models/ModelSheet';
 import {Session} from 'src/app/models/Session';
 import {User} from 'src/app/models/user';
@@ -18,14 +18,20 @@ export class RechercheComponent implements OnInit {
 
     //partie 2 pour un affichage dynamique
     users: User[];
-    selectedProducts: User[];
-
+    user: User;
     models: ModelSheet[];
-    selectedFiches: ModelSheet[];
-
+    model: ModelSheet;
     sessions: Session[];
-
     session: Session;
+    
+    selectedFiches: ModelSheet[];
+    selectedUsers: User[];
+    selectedSessions: Session[];
+
+    lesids :String[];
+    submitted: boolean;
+    statuses: any[];
+    
 
     selectedValues: string[] = ['val1', 'val2', 'val3', 'val4', 'val5', 'val6', 'val7'];
     selectedFrequence: string[] = ['fre1', 'fre2', 'fre3'];
@@ -35,9 +41,10 @@ export class RechercheComponent implements OnInit {
     displayModalFiche: boolean;
 
     myFriends: string[];
-
+    productDialog: boolean;
 
     selectedPlayers: string[] = [];
+   /*
     player = [
         {nom: 'Smaug', annee: '2017', partie: 'A Song of Ice and Fire', bio: 'Détails'},
         {nom: 'Kart-man59', annee: '2018', partie: '13th Age RPG', bio: 'Détails'},
@@ -49,7 +56,6 @@ export class RechercheComponent implements OnInit {
 
 
     ];
-
     partie = [
         {nom: 'JDR Warcraft', place: '3', partie: ' Saturday May 08 7:00', detail: 'Détails'},
         {nom: 'Just A DnD', place: '5', partie: ' Saturday May 08 7:00', detail: 'Détails'},
@@ -58,10 +64,6 @@ export class RechercheComponent implements OnInit {
         {nom: 'Night Watch', place: '4', partie: 'Tuesday June 01 5:45AM', detail: 'Détails'},
         {nom: 'Methods of madness', place: '1', partie: 'Friday June 04 8:30PM', detail: 'Détails'}
     ];
-
-
-    //selectedFiches: string[] = [];
-
 
     fiche = [
         {nom: 'FicheSmaug', jeu: 'JDR Warcraft', auteur: 'Smaug', detail: 'Détails'},
@@ -72,6 +74,7 @@ export class RechercheComponent implements OnInit {
         {nom: 'FicheA5020', jeu: 'D20', auteur: 'D20', detail: 'Détails'},
         {nom: 'FicheLuna2Riv', jeu: 'DONJON £ DRAGON', auteur: 'Gérard2Riv', detail: 'Détails'}
     ];
+    */
 
     selectedTrie: string[] = [];
     trie = [
@@ -87,66 +90,22 @@ export class RechercheComponent implements OnInit {
     totalRecords: number;
 
 
-    constructor(private partieService: PartieService, private service: UserService, private ficheService: FicheService,
-                private router: Router) {
+    constructor(private userService: UserService, private partieService: PartieService, private service: UserService, private ficheService: FicheService,
+                private router: Router, private messageService: MessageService,) {
     }
 
     ngOnInit(): void {
         this.service.getAll().subscribe((data: User[]) => this.users = data, console.error);
-        this.ficheService.getAll().subscribe((data: ModelSheet[]) => this.models = data, console.error);
+        this.ficheService.getAll().subscribe((data: ModelSheet[]) => this.models = data);
         this.partieService.getAll().subscribe(data => this.sessions = data);
         const l = localStorage.getItem('myFriends');
         this.myFriends = l ? JSON.parse(l) : [];
     }
 
-    // tslint:disable-next-line:typedef
     loadCustomers(event: LazyLoadEvent) {
         this.loading = true;
-
-        // in a real application, make a remote request to load data using state metadata from event
-        // event.first = First row offset
-        // event.rows = Number of rows per page
-        // event.sortField = Field name to sort with
-        // event.sortOrder = Sort order as number, 1 for asc and -1 for dec
-        // filters: FilterMetadata object having field as key and filter value, filter matchMode as value
-
-        /*setTimeout(() => {
-          if (this.datasource) {
-               this.customers = this.datasource.slice(event.first, (event.first + event.rows));
-               this.loading = false;
-           }
-       }, 1000);
-       */
-    }
-
-
-    showModalDialog = () => {
-        this.displayModalFiche = true;
-    }
-
-    showModalDialogPartie = () => {
-        this.displayModalPartie = true;
-    }
-
-    showModalDialogPlayer = () => {
-        this.displayModalPlayer = true;
-    }
-
-    isSame(product: any): boolean {
-        let isfriend = false;
-        if (this.myFriends){
-            for (const friend of this.myFriends) {
-                if (friend === product.id){
-                    isfriend = true;
-                    break;
-                }
-            }
-        }
-        console.log(isfriend);
-        return product.id !== localStorage.getItem('utilisateurId')
-            && !isfriend && localStorage.getItem('utilisateurId') != null;
-    }
-
+    }    
+    
     ajoutAmi(product: any): void {
         console.log(product);
         this.service.ajoutAmi(product.id, localStorage.getItem('utilisateurId')).subscribe(user => {
@@ -156,6 +115,13 @@ export class RechercheComponent implements OnInit {
             console.log(error);
         });
     }
+    
+    addFriend = (user : User) => {
+        this.messageService.add({severity:'success', summary: 'Succès', detail: 'Ami ajouter en favoris', life: 1000});
+        this.lesids.push(this.user.id); 
+        this.userService.update(this.user); 
+    }
+
 }
 
 

@@ -15,7 +15,7 @@
             (click)="selectAvatar('avatar-' + i + '.png', i)"
         >
     </div>
-
+<!-- 
     <div class="p-col-6">
 
         <h3 class="p-col-6">
@@ -35,10 +35,32 @@
             </p>
         </div>
     </div>
-    <div>
-        <button (click)="modifier()" >Modifier</button>
-    </div>
+    -->
+
 </div>
+<div class="p-grid">
+    <div class="p-col-3">
+        <h5>Nom : </h5> <input type="text" formControlName="nom">
+    </div>
+    <div class="p-col-3">
+        <h5>E-mail :</h5> <input type="text" formControlName="email">
+    </div>
+    <div class="p-col-3">
+        <h5>Ville : </h5> <input type="text" formControlName="ville">
+    </div>
+    <div class="p-col-3">
+        <h5>Bio : </h5>
+        <input type="text" rows="15" cols="40"  formControlName="bio">
+    </div>
+
+</div>
+<div class="p-grid">
+    
+    <div class="p-col-12"><i class="far fa-edit" style="font-size: 2rem" (click)="modifier()" ></i></div>
+    
+
+</div>
+
 </form>
 
 
