@@ -18,22 +18,17 @@ providers: [MessageService,ConfirmationService]
 })
 export class RechercheFicheComponent implements OnInit {
   productDialog: boolean;
-
-  users: ModelSheet[];
-
-  product: ModelSheet;
-
+  models: ModelSheet[];
+  model: ModelSheet;
   selectedProducts: ModelSheet[];
-
   submitted: boolean;
-
   statuses: any[];
 
   constructor( private ficheService: FicheService, 
     private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.ficheService.getAll().subscribe(data => this.users = data);
+    this.ficheService.getAll().subscribe(data => this.models = data);
 
   }
 

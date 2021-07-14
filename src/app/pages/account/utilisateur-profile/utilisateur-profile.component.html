@@ -1,28 +1,28 @@
 <!-- Les infos pricipale du profil  -->
 <div class="p-grid">
     <div class="p-col-6">
-
-        <img [src]="'assets/images/avatars/' + user.avatar" class="profilePic">
+         <img [src]="'assets/images/avatars/' + user.avatar" class="profilePic">
     </div>
+    
 
     <div class="p-col-6">
         <h3 class="p-col-6">
-            {{user.nom}}
+             <p-card>
+                {{user.nom}}
+             </p-card>
         </h3>
         <div class="p-col-6">
-            <p>
+            <p-card>
                 {{user.bio}}
-            </p>
-            <p>
+            </p-card>    
+            <p-card> 
                 {{user.ville}}
-            </p>
+            </p-card>
+         
         </div>
     </div>
-        <div>
-            <button class="user-detail" (click)="onModification(user)">Modification</button>
-            <button class="user-supress" (click)="onSupress(user)">Supprimer</button>
-            <button class="user-supress" (click)="onDeConnect()">Deconnexion</button>
-            <button class="user-supress" (click)="onHome(user)">Home</button>
+        <div class="icone">
+            <i class="far fa-edit" style="font-size: 2rem" (click)="onModification(user)" ></i>
         </div>
 
 

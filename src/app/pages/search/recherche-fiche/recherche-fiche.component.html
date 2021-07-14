@@ -2,12 +2,12 @@
 
 <div class="card">
 
-    <p-table #dt [value]="users" [rows]="10" [paginator]="true" [globalFilterFields]="['id','name','isPublic','user']"
+    <p-table #dt [value]="models" [rows]="10" [paginator]="true" [globalFilterFields]="['name','isPublic','user']"
         [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
-                <h5 class="p-m-0">Manage Products</h5>
+                
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
@@ -19,32 +19,32 @@
                 <th style="width: 3rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th pSortableColumn="id">Nom <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="name">Nom <p-sortIcon field="name"></p-sortIcon></th>
                 
                 
                 <th pSortableColumn="nom"> Visibilite  <p-sortIcon field="nom"></p-sortIcon></th>
-                <th pSortableColumn="email">Autheur <p-sortIcon field="email"></p-sortIcon></th>
-                <th>Détails</th>
+                <th pSortableColumn="user.nom">Autheur <p-sortIcon field="user.nom"></p-sortIcon></th>
+                
 
                 
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-model>
             <tr>
                 <td>
-                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="model"></p-tableCheckbox>
                 </td>
-                <td>{{product.name}}</td>
+                <td>{{model.name}}</td>
                 
-                <td>{{product.isPublic}}</td>
-                <td>{{product.user}}</td>
-                <td>Détails</td>
+                <td>{{model.isPublic}}</td>
+                <td>{{model.user}}</td>
+                
 
             </tr>
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="p-d-flex p-ai-center p-jc-between">
-                Un total de {{users ? users.length : 0 }} Fiches disponible.
+                Un total de {{models ? models.length : 0 }} Fiches disponible.
             </div>
         </ng-template>
     </p-table>

@@ -28,13 +28,11 @@ export class NavbarComponent implements OnInit {
         const id: string = localStorage.getItem('utilisateurId');
         if (id) {
             console.log(id);
-            alert('avec local storage');
-            this.router.navigate([`update/${id}`]);
+            //alert('avec local storage');
+            this.router.navigate([`users/resume`]);
         } else {
-            alert('sans localstrorag');
-            // this.router.navigate(["update",user.id])
-            // console.log(user.id)
-            // alert(user.id)
+            //alert('sans localstrorag');
+
         }
 
 
