@@ -82,6 +82,5 @@ export class ListPlayersComponent implements OnInit {
         }
       });
     });
-    console.log(this.players);
   }
 }
