@@ -53,14 +53,14 @@
                     <p-tableCheckbox [value]="user"></p-tableCheckbox>
                 </td>
                 <td>{{user.id}}</td>
-                <td><img [src]="'assets/images/dragon.jpg'" [alt]="user.nom" width="100" class="p-shadow-4" /></td>
+                <td><img [src]="'assets/images/avatars/' + user.avatar" [alt]="user.nom" width="100" class="p-shadow-4" /></td>
                 <td>{{user.nom}}</td>
                 <td>{{user.email}}</td>
                 
                 <!--<td><span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span></td> -->
                 <td>{{user.createAt | date}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2" (click)="addFriend(user)"></button>
+                    <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-success p-mr-2" (click)="addFriend(user)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(user)"></button>
                 </td>
             </tr>
