@@ -21,23 +21,31 @@
                        <!-- <div class="p-col-4 hourGrp">
                             <h5>Toute la journée ?</h5>
                         </div>-->
-                        <div class="p-col-6 hourGrp">
+                        <div class="p-col-6 labelHourGrp">
                             <h5>Heure de début :</h5>
                         </div>
-                        <div class="p-col-6 hourGrp">
+                        <div class="p-col-6 labelHourGrp">
                             <h5>Heure de fin :</h5>
                         </div>
                        <!-- <div class="p-col-4 hourGrp">
                             <p-inputSwitch inputId="allDay" formControlName="isJourComplet"></p-inputSwitch>
                         </div>-->
-                        <div class="p-col-6 hourGrp">
-                            <p-dropdown inputId="heureDeb" optionValue="heure"
-                                [options]="heures" placeholder="00:00" optionLabel="heure" formControlName="heureDeb"></p-dropdown>
+                        <div class="p-col-3 hourGrp">
+                            <p-dropdown inputId="heureDeb" optionValue="heures"
+                                [options]="heures" placeholder="00" optionLabel="heures" formControlName="heureDeb"></p-dropdown>
                         </div>
-                        <div class="p-col-6 hourGrp">
-                            <p-dropdown inputId="heureFin" optionValue="heure"
-                                [options]="heures" placeholder="00:00" optionLabel="heure" formControlName="heureFin"></p-dropdown>
+                        <div class="p-col-3 minGrp">
+                            <p-dropdown inputId="minuteDeb" optionValue="minutes"
+                                [options]="minutes" placeholder="00" optionLabel="minutes" formControlName="minuteDeb"></p-dropdown>
+                        </div>                        
+                        <div class="p-col-3 hourGrp">
+                            <p-dropdown inputId="heureFin" optionValue="heures"
+                                [options]="heures" placeholder="00" optionLabel="heures" formControlName="heureFin"></p-dropdown>
                         </div>
+                        <div class="p-col-3 minGrp">
+                            <p-dropdown inputId="minuteFin" optionValue="minutes"
+                                [options]="minutes" placeholder="00" optionLabel="minutes" formControlName="minuteFin"></p-dropdown>
+                        </div>     
                     </div>
                 </div>
                 <!--<div class="addDispo">

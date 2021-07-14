@@ -31,7 +31,17 @@
     align-items:center;
 }
 
-.hourGrp{
+.labelHourGrp{
     display:flex;
     justify-content: center;
+}
+
+.hourGrp{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.minGrp{
+    display:flex;
+    justify-content: flex-start;
 }

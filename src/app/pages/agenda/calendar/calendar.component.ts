@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { PrimeNGConfig } from 'primeng/api';
-import { Creneau } from 'src/app/models/Creneau';
 import { CreneauDto } from 'src/app/models/dto/CreneauDto';
 import { GameIdDto } from 'src/app/models/dto/GameIdDto';
 import { UserIdDto } from 'src/app/models/dto/UserIdDto';
@@ -27,6 +26,7 @@ export class CalendarComponent implements OnInit {
   frequences: any[];
   stateOptions: any[];
   heures: any[];
+  minutes: any[];
   tabDispo: any[] = [];
   couleurLegende: string = "";
   idPartie: string = "";
@@ -39,7 +39,9 @@ export class CalendarComponent implements OnInit {
       dateDeb: [''],
       isJourComplet: [''],
       heureDeb: [''],
+      minuteDeb: [''],
       heureFin: [''],
+      minuteFin: [''],
       freq: [''],
       isNextSession: ['']
     });
@@ -49,6 +51,7 @@ export class CalendarComponent implements OnInit {
     this.primengConfig.ripple = true;
     this.minDateValue = new Date();
     this.heures = [];
+    this.minutes = [];
 
     this.frequences = [
       { name: 'Une seule fois', code: 'ONE' },
@@ -57,9 +60,11 @@ export class CalendarComponent implements OnInit {
     ];
 
     for (let hours = 0; hours < 24; hours++) {
-      for (let mins = 0; mins < 60; mins += 15) {
-        this.heures.push({ heure: String(hours).padStart(2, '0') + ":" + String(mins).padStart(2, '0') });
-      }
+      this.heures.push({ heures: String(hours).padStart(2, '0') });
+    }
+
+    for (let mins = 0; mins < 60; mins += 15) {
+      this.minutes.push({ minutes: String(mins).padStart(2, '0') });
     }
 
     this.stateOptions = [
@@ -102,21 +107,31 @@ export class CalendarComponent implements OnInit {
     this.displayModal = true;
   }
 
+  /**
+   * Fonction appelée lorsqu'on ajoute une disponibilité dans la fenêtre modale
+   */
   addingDispo(): void {
     let pseudoJ: String;
     this.displayModal = false;
     this.userService.getByid(localStorage.getItem("utilisateurId")).subscribe(result => {
       pseudoJ = result.nom;
       if (this.dispoForm.value.heureDeb == "") {
-        this.dispoForm.value.heureDeb == "00:00:00";
+        this.dispoForm.value.heureDeb == "00";
       }
       if (this.dispoForm.value.heureFin == "") {
-        this.dispoForm.value.heureFin == "00:00:00";
+        this.dispoForm.value.heureFin == "00";
       }
+      if (this.dispoForm.value.minuteDeb == "") {
+        this.dispoForm.value.minuteDeb == "00";
+      }
+      if (this.dispoForm.value.minuteFin == "") {
+        this.dispoForm.value.minuteFin == "00";
+      }
+      console.log(this.dispoForm.value);
       let dDeb = new Date(Date.parse(this.dispoForm.value.dateDeb[0]));
       let dFin;
       let moisDebu = dDeb.getMonth() + 1;
-      let startDispo: string = dDeb.getFullYear() + "-" + moisDebu.toString().padStart(2, '0') + "-" + dDeb.getDate() + "T" + this.dispoForm.value.heureDeb + ":00";
+      let startDispo: string = dDeb.getFullYear() + "-" + moisDebu.toString().padStart(2, '0') + "-" + dDeb.getDate() + "T" + this.dispoForm.value.heureDeb + ":" + this.dispoForm.value.minuteDeb + ":00";
       let endDispo: string = "";
       let newUserDTO: UserIdDto = new UserIdDto(localStorage.getItem("utilisateurId"));
       let newGameDto: GameIdDto = new GameIdDto(this.idPartie);
@@ -124,10 +139,10 @@ export class CalendarComponent implements OnInit {
       if (this.dispoForm.value.dateDeb[1] != undefined) {
         dFin = new Date(Date.parse(this.dispoForm.value.dateDeb[1]));
         let moisFin = dFin.getMonth() + 1
-        endDispo = dFin.getFullYear() + "-" + moisFin.toString().padStart(2, '0') + "-" + dFin.getDate() + "T" + this.dispoForm.value.heureFin + ":00";
+        endDispo = dFin.getFullYear() + "-" + moisFin.toString().padStart(2, '0') + "-" + dFin.getDate() + "T" + this.dispoForm.value.heureFin + ":" + this.dispoForm.value.minuteFin + ":00";
         newCreneau = new CreneauDto(startDispo, endDispo, false, newUserDTO, newGameDto);
       } else {
-        endDispo = dDeb.getFullYear() + "-" + moisDebu.toString().padStart(2, '0') + "-" + dDeb.getDate() + "T" + this.dispoForm.value.heureFin + ":00";
+        endDispo = dDeb.getFullYear() + "-" + moisDebu.toString().padStart(2, '0') + "-" + dDeb.getDate() + "T" + this.dispoForm.value.heureFin + ":" + this.dispoForm.value.minuteFin + ":00";
         newCreneau = new CreneauDto(startDispo.toString(), endDispo.toString(), false, newUserDTO, newGameDto);
       }
       this.creneauService.create(newCreneau).subscribe(creneau => {
@@ -142,6 +157,10 @@ export class CalendarComponent implements OnInit {
     });
   }
 
+  /**
+   * Fonction permettant d'afficher ou non la possibilité de définir la prochaine session de la partie
+   * Elle vérifie si le joueur connecté est le MJ de la partie
+   */
   @Input() set initDialogDispo(idPartieChoisie: string) {
     this.idPartie = idPartieChoisie;
     if (idPartieChoisie != undefined) {
@@ -155,15 +174,22 @@ export class CalendarComponent implements OnInit {
     }
   }
 
+  /**
+   * Fonction permettant d'afficher les créneaux déjà présents en BDD
+   * Et d'assigner la couleur des événements sur l'agenda en fonction de la légende présente dans la liste des joueurs
+   */
   @Input() set loadDispoCalendar(idPartieChoisie: string) {
     this.idPartie = idPartieChoisie;
     this.reloadDispoAgenda(idPartieChoisie);
-    if(this.couleurLegende == "")
-    {
-      this.assignerCouleurLegende(null,null);
+    if (this.couleurLegende == "") {
+      this.assignerCouleurLegende(null, null);
     }
   }
 
+  /**
+   * Fonction permettant de recharger les créneaux présents en BDD
+   * @param idPartie : id de la partie choisie
+   */
   reloadDispoAgenda(idPartie: string) {
     this.creneauService.getAllDispoByGameId(idPartie).subscribe(result => {
       result.forEach(creneau => {
@@ -179,7 +205,7 @@ export class CalendarComponent implements OnInit {
 
   assignerCouleurLegende(listeJoueurs: User[], joueurCouleurAffichage: User): number {
     let result = 0;
-    if(listeJoueurs != null){
+    if (listeJoueurs != null) {
       listeJoueurs.forEach((joueur, index) => {
         if (joueur.id == localStorage.getItem("utilisateurId")) {
           this.couleurLegende = environment.colorLegend[index];
