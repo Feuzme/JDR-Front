@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
 import { ProgressBarComponent } from './default-components/progress-bar/progress-bar.component';
+import { AvatarComponent } from './default-components/avatar/avatar.component';
 
 @Component({
   selector: 'app-plugin',
@@ -32,17 +33,21 @@ export class PluginComponent implements OnInit {
     this.service.getAll().subscribe(data => {
       this.basePlugins = data;
       Object.values(data).forEach(basePlugin => {
+        console.log(basePlugin);
         basePlugin.config.composant = this.service.currentComposant(basePlugin);
       });
       
     })
   }
 
-  currentComposant(basePlugin : BasePlugIn) {
-    if (basePlugin.config.composant == "progressBar") {
-      return ProgressBarComponent;
-    }
-  }
+  // currentComposant(basePlugin : BasePlugIn) {
+  //   if (basePlugin.config.composant == "progressBar") {
+  //     return ProgressBarComponent;
+  //   }
+  //   if (basePlugin.config.composant == "avatar") {
+  //     return AvatarComponent;
+  //   }
+  // }
 
   delete = (basePlugin : BasePlugIn) => {
     this.service.delete(basePlugin).subscribe(basePlugin => {

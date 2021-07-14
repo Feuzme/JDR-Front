@@ -1,6 +1,6 @@
 <div class="p-grid">
     <div class="menuLeft p-col-2">
-        <app-creation-menu-left ></app-creation-menu-left><!--[plugins]="plugins"-->
+        <app-creation-base-plugin [basePlugins]="basePlugins" ></app-creation-base-plugin><!--[plugins]="plugins"-->
     </div>
     <div class="preview p-col-8">
         <app-plugin-preview (currentBpEventFromParent)="getCurrentBp($event)"></app-plugin-preview>    

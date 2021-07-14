@@ -92,6 +92,9 @@ import {MessagesModule} from "primeng/messages";
 import { SearchSheetComponent } from './components/sheet/search-sheet/search-sheet.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import {Toast, ToastModule} from 'primeng/toast';
+import { CreationBasePluginComponent } from './components/sheet/plugin-base/creation-base-plugin/creation-base-plugin.component';
+import { BasePluginCardComponent } from './components/sheet/plugin-base/base-plugin-card/base-plugin-card.component';
+import { AvatarComponent } from './components/sheet/plugin-base/default-components/avatar/avatar.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -146,7 +149,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SearchSheetComponent,
     RechercheFicheComponent,
     RecherchePartieComponent,
-    RecherchePlayerComponent
+    RecherchePlayerComponent,
+    CreationBasePluginComponent,
+    BasePluginCardComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,

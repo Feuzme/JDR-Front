@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AvatarComponent } from 'src/app/components/sheet/plugin-base/default-components/avatar/avatar.component';
 import { ProgressBarComponent } from 'src/app/components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 
@@ -44,8 +45,8 @@ export class BasePluginService {
     let basePlugin: BasePlugIn = plugin;
     basePlugin.config.size = "p-col-2";
     let columnSize: string = "p-col-2";//this.currentColumn(this.getSizeValue());
-    let config : any = {size: columnSize, composant: "progressBar"};
-    let basePluginBody: any = {name: "Bar", config: config};
+    let config : any = {size: columnSize, composant: this.reversedCurrentComposant(plugin)};
+    let basePluginBody: any = {name: this.getBasePluginName(plugin), config: config};
     this.basePlugins.push(basePlugin);
     this.create(basePluginBody).subscribe(basePluginBody => {
       this.reloadCurrentRoute();
@@ -67,11 +68,26 @@ export class BasePluginService {
     if (basePlugin.config.composant == "progressBar") {
       return ProgressBarComponent;
     }
+    else if (basePlugin.config.composant == "avatar") {
+      return AvatarComponent;
+    }
   }
 
   reversedCurrentComposant(basePlugin : BasePlugIn) {
     if (basePlugin.config.composant == ProgressBarComponent) {
       return "progressBar";
+    }
+    else if (basePlugin.config.composant == AvatarComponent) {
+      return "avatar";
+    }
+  }
+
+  getBasePluginName(bp : BasePlugIn) {
+    if (bp.config.composant == ProgressBarComponent) {
+      return "Barre";
+    }
+    if (bp.config.composant == AvatarComponent) {
+      return "Avatar";
     }
   }
 

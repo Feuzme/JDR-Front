@@ -11,15 +11,13 @@ import { BasePluginService } from 'src/app/services/base-plugin-service/base-plu
 export class PluginCreationComponent implements OnInit {
 
   value: number = 40;
-  public plugins : BasePlugIn[] = [];
-  private healthBar : BasePlugIn = new BasePlugIn("Bar de vie", {size: "p-col-12", composant: ProgressBarComponent})
+  public basePlugins : BasePlugIn[] = [];
 
   currentBp : BasePlugIn;
 
-  constructor(private service : BasePluginService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.plugins.push(this.healthBar);
   }
 
   getCurrentBp = (bp : BasePlugIn) => {
