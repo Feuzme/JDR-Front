@@ -1,17 +1,17 @@
 <p-card class="plugInCard">
     <div class="p-grid">
-        <div class="p-col-4">
-            <img src="../../../../assets/images/{{plugin.gameType.logo}}" class="gamePic">
+        <div class="p-col-4">            
+            <p-avatar image="assets/images/{{plugin.gameType.logo}}" shape="circle" size="xlarge"></p-avatar>
         </div>
         <div class="p-col-8">
-            <div class="name">
+            <div class="name" style="margin: 5px;">
                 {{plugin.nom}}
             </div>
-            <div class="autor">
+            <div class="autor" style="margin: 5px;">
                 {{plugin.auteur}}
             </div>
-            <div class="game">
-                {{plugin.gameType.nom}}
+            <div class="game" style="margin: 5px;">
+                {{plugin.gameType.name}}
             </div>
             <div style="margin: 5px;">
                 <p-button type="button" (click)="getLayoutService().addItem(plugin)">Ajouter</p-button>

@@ -16,9 +16,7 @@ export class SheetCardComponent implements OnInit {
     private layoutService : LayoutService
   ) { }
 
-  ngOnInit(): void {
-    console.log(this.modelSheet.gameType.logo);
-  }
+  ngOnInit(): void {}
 
   loadSheet(id : string){
     this.loadEvent.emit(false);

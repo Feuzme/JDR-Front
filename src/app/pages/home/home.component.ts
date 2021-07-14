@@ -1,4 +1,4 @@
-import { ModelSheet } from './../../models/ModelSheet';
+import { ModelSheetHttpService } from './../../services/sheet/model-sheet-http.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game/game.service';
@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
 
   responsiveOptions;
 
+  constructor(
+    private router: Router,
+    private sheetHttpService: ModelSheetHttpService
+  ) {
   constructor(private router: Router,private gameService : GameService) {
     this.responsiveOptions = [
       {
@@ -49,6 +53,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadSheet();
+  }
     this.gameService.initCarousel(localStorage.getItem("utilisateurId")).then(games => {
       games.forEach(game=>{
         if(game.mjUser.id == localStorage.getItem("utilisateurId")){
@@ -88,6 +94,21 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/sheet-creation']);
   }
 
+  loadSheet() {
+    this.sheetHttpService.getAll().subscribe(
+      (resp: any) => {
+        for (let fiche of resp) {
+          this.jeux.push(
+            {
+              nom: fiche.nom,
+              image: fiche.gameType.logo,
+              fiche: fiche.gameType.logo
+            }
+          );
+        }
+      }
+    )
+  }
   openGame = (idGame :string) =>{
     localStorage.setItem("gameId",idGame);
     window.location.href = "game";
