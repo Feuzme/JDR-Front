@@ -62,7 +62,6 @@ export class ListPlayersComponent implements OnInit {
     this.players = [];
     this.mj = undefined;
     this.gameService.getById(localStorage.getItem("gameId")).subscribe(result => {
-      console.log(result);
       result.listPlayers.forEach((joueur, index) => {
         // Traitement pour le MJ
         if (index == 0) {
