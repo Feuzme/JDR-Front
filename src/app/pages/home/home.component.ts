@@ -1,7 +1,6 @@
+import { ModelSheet } from './../../models/ModelSheet';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Product } from './products';
-// import { ProductService } from './productservices';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +11,13 @@ export class HomeComponent implements OnInit {
 
   monImage: string = "../../../assets/images/image1.jpg";
 
+  fiches : ModelSheet[] = [];
+
   jeux = [
     { nom: "donjon", image: "image1.jpg", fiche: "fiche1.jpg" },
     { nom: "donjon", image: "image2.png", fiche: "fiche1.jpg" },
-    { nom: "donjon", image: "image3.png", fiche: "" },
-    { nom: "donjon", image: "image4.jpeg", fiche: "" }
+    { nom: "donjon", image: "image3.png", fiche: "fiche1.jpg" },
+    { nom: "donjon", image: "image4.jpeg", fiche: "fiche1.jpg" }
   ]
 
   responsiveOptions;
@@ -41,7 +42,9 @@ export class HomeComponent implements OnInit {
     ];
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+   }
 
   newGame = () => {
     this.router.navigate(['/game']);

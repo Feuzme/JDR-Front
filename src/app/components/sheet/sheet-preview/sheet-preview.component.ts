@@ -53,6 +53,7 @@ export class SheetPreviewComponent implements OnInit {
     this.gameTypesHttpService.getAll().subscribe(
       (resp : any) => {
         for(let gameType of resp) {
+          console.log("===",gameType);
           this.gameTypes.push(gameType);
         }
       }
