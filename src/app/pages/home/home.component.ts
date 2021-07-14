@@ -2,6 +2,7 @@ import { ModelSheetHttpService } from './../../services/sheet/model-sheet-http.s
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game/game.service';
+import { ModelSheet } from 'src/app/models/ModelSheet';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,12 @@ export class HomeComponent implements OnInit {
   monImage: string = "../../../assets/images/image1.jpg";
 
   fiches : ModelSheet[] = [];
+
+  tabfiches = [{
+    nom: "",
+    image: "",
+    fiche: ""
+  }];
 
   jeuxMj = [
     {type:"Donjons et Dragons",nom:"La fin du multivers",image:"gp_dd.jpg",mj:"utilisateur1",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
@@ -30,9 +37,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private sheetHttpService: ModelSheetHttpService
+    private sheetHttpService: ModelSheetHttpService,
+    private gameService : GameService
   ) {
-  constructor(private router: Router,private gameService : GameService) {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -54,7 +61,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadSheet();
-  }
     this.gameService.initCarousel(localStorage.getItem("utilisateurId")).then(games => {
       games.forEach(game=>{
         if(game.mjUser.id == localStorage.getItem("utilisateurId")){
@@ -98,7 +104,7 @@ export class HomeComponent implements OnInit {
     this.sheetHttpService.getAll().subscribe(
       (resp: any) => {
         for (let fiche of resp) {
-          this.jeux.push(
+          this.tabfiches.push(
             {
               nom: fiche.nom,
               image: fiche.gameType.logo,
