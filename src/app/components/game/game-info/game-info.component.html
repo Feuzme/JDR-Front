@@ -14,19 +14,19 @@
                 <h4>Type de jeu :</h4>
             </div>
             <div class="p-col-6">
-                <p-dropdown [options]="typeJeu" [(ngModel)]="selectedTypeJeu" optionLabel="nom"></p-dropdown>
+                <p-dropdown [options]="typeJeu" [(ngModel)]="selectedTypeJeu" optionLabel="nom" (onChange)="changeGameType()"></p-dropdown>
             </div>
             <div class="p-col-6">
                 <h4>Nom de la partie :</h4>
             </div>
             <div class="p-col-6">
-                <input id="nomPartie" type="text" pInputText>
+                <input id="nomPartie" type="text" pInputText [(ngModel)]="gameName">
             </div>
             <div class="p-col-6">
                 <h4>Nombre de joueurs :</h4>
             </div>
             <div class="p-col-6">
-                <p-inputNumber inputId="nbJoueurs"></p-inputNumber>
+                <p-inputNumber inputId="nbJoueurs" [(ngModel)]="nbPlayers"></p-inputNumber>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <h4>Cadre :</h4>
             </div>
             <div class="p-col-9">
-                <textarea id="cadre" pInputTextarea autoResize="autoResize"></textarea>  
+                <textarea id="cadre" pInputTextarea autoResize="autoResize" [(ngModel)]="gameStory"></textarea>  
             </div>
         </div>   
     </div>
@@ -50,9 +50,10 @@
         <div class="p-grid">
             <div class="p-col-2"></div>
             <div class="p-col-8">
-                <img id="gamePic" src="../../../../assets/images/gp_dd.jpg" alt="Photo de la partie">
+                <img id="gamePic" src="../../../../assets/images/{{gameTypePic}}" alt="Photo de la partie">
+                <button pButton pRipple type="button" label="Créer la partie" class="p-button-success"></button>
             </div>
             <div class="p-col-2"></div>
         </div>
-    </div>    
+    </div>
 </div>

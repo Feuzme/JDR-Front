@@ -32,6 +32,11 @@ img {
     -o-transition: all 0.2s;
     transition: all 0.2s;
 }
+
 img:hover {
     transform:scale(1.2);
+}
+
+.button-join{
+    display: flex;
 }

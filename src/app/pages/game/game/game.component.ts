@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
+  idPartie: any;
+
   constructor() { }
 
   ngOnInit(): void {
