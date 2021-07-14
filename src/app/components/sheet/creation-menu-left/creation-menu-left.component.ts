@@ -23,8 +23,9 @@ export class CreationMenuLeftComponent implements OnInit {
     this.plugInHttpService.getAll().subscribe(
       (resp : any[]) => {
         for (let plugin of resp) {
-          if (plugin.origin == true)
+          if (plugin.origin == true){
             this.plugins.push(plugin);
+          }
         }
       }
     );         

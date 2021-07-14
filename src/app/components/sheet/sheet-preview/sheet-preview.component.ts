@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { GameType } from 'src/app/models/GameType';
@@ -37,7 +38,8 @@ export class SheetPreviewComponent implements OnInit {
   constructor(
     private layoutService: LayoutService,
     private modelSheetHttpService: ModelSheetHttpService,
-    private gameTypesHttpService : GametypeHttpService
+    private gameTypesHttpService : GametypeHttpService, 
+    private router : Router
   ) {}
 
   static itemChange(item, itemComponent) {
@@ -104,5 +106,13 @@ export class SheetPreviewComponent implements OnInit {
   
   loadComplete($event){
     this.displayLoadModal = $event;
+  }
+
+  reloadOnSave(){
+    console.log("coucou")
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
   }
 }

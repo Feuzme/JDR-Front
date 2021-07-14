@@ -1,6 +1,6 @@
 <div class="p-grid titleSection">
     <div class="p-col-4">
-        <h2>Mes parties  <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
+        <h2>Mes parties  <a class="newEntity filterButton" (click)="recherchePartie()"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
     </div>
 </div>
 <div class="maCard">
@@ -11,14 +11,25 @@
                     <div class="lien">
                         <a class="newEntity" (click)="newGame()"><i class="pi pi-plus" style="font-size: 5rem"></i></a>
                     </div>
+                    <h2>Créer une nouvelle partie</h2>
                 </div>
             </div>
             <div class="p-col-10">
                 <div class="box">
-                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                    <p-carousel [value]="jeuxMj" [numVisible]="3" [numScroll]="1" [circular]="false">
                         <ng-template let-jeu pTemplate="item">
                             <div class="">
-                                <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
+                                <div class="imgJeu">
+                                    <img class="imagePartie" src="../../../assets/images/{{jeu.image}} " alt="">
+                                </div>
+                                <p-card header="{{jeu.type}}" subheader="{{jeu.nom}}" class="infoJeu">
+                                    <div class="p-col-12">
+                                        {{jeu.story}}
+                                    </div>
+                                    <div class="p-col-12">
+                                        <button pButton type="button" class="p-button-success p-button-raised" label="Voir la partie" (click)="openGame(jeu.id)"></button>
+                                    </div>
+                                </p-card>
                             </div>
                         </ng-template>
                     </p-carousel>
@@ -29,7 +40,8 @@
 </div>
 <div class="p-grid titleSection">
     <div class="p-col-4">
-        <h2>Mes fiches <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
+        <h1>Mes fiches <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a>
+        </h1>
     </div>
 </div>
 <div class="maCard">
@@ -38,16 +50,17 @@
             <div class="p-col-2">
                 <div class="box">
                     <div class="lien">
-                        <a class="newEntity" (click)="newSheet()"><i class="pi pi-plus " style="font-size: 5rem"></i></a>
+                        <a class="newEntity" (click)="newSheet()"><i class="pi pi-plus "
+                                style="font-size: 5rem"></i></a>
                     </div>
                 </div>
             </div>
             <div class="p-col-10">
                 <div class="box">
-                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                    <p-carousel [value]="fiches" [numVisible]="3" [numScroll]="1" [circular]="false">
                         <ng-template let-jeu pTemplate="item">
-                            <div class="">
-                                <img class="image" src="../../../assets/images/{{jeu.fiche}} " alt="">
+                            <div class="">                                
+                                <img class="image" src="assets/images/{{jeu.fiche}} " alt="">
                             </div>
                         </ng-template>
                     </p-carousel>
@@ -58,7 +71,8 @@
 </div>
 <div class="p-grid titleSection">
     <div class="p-col-4">
-        <h2>Les parties disponibles <a class="newEntity filterButton"><i class="pi pi-sliders-h " style="font-size: 1rem"></i></a></h2>
+        <h1>Les parties disponibles <a class="newEntity filterButton"><i class="pi pi-sliders-h "
+                    style="font-size: 1rem"></i></a></h1>
     </div>
 </div>
 <div class="maCard">
@@ -66,10 +80,20 @@
         <div class="p-grid">
             <div class="p-col-12">
                 <div class="box">
-                    <p-carousel [value]="jeux" [numVisible]="3" [numScroll]="1" [circular]="false">
+                    <p-carousel [value]="jeuxDispo" [numVisible]="3" [numScroll]="1" [circular]="false">
                         <ng-template let-jeu pTemplate="item">
                             <div class="">
-                                <img class="image" src="../../../assets/images/{{jeu.image}} " alt="">
+                                <div class="imgJeu">
+                                    <img class="imagePartie" src="../../../assets/images/{{jeu.image}} " alt="">
+                                </div>
+                                <p-card header="{{jeu.type}}" subheader="{{jeu.nom}}" class="infoJeu">
+                                    <div class="p-col-12">
+                                        {{jeu.story}}
+                                    </div>
+                                    <div class="p-col-12">
+                                        <button pButton type="button" class="p-button-success p-button-raised" label="Voir la partie" (click)="openGame(jeu.id)"></button>
+                                    </div>
+                                </p-card>
                             </div>
                         </ng-template>
                     </p-carousel>
