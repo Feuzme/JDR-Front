@@ -57,11 +57,15 @@ export class NavbarComponent implements OnInit {
         }
         this.router.navigate(['login']);
     }
+  goAgenda(){
+    localStorage.removeItem("gameId");
+  }
 
     onModification(user: User) {
         const lien = localStorage.getItem('utilisateurId');
         this.router.navigate(['update/{{lien}}']);
     }
+
 
 }
 

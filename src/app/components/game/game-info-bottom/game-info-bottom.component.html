@@ -1,11 +1,11 @@
-<div class="p-grid">
+<div class="p-grid" *ngIf="affichageOk">
     <div class="p-col-6 resume">
         <app-list-players [showLegend]="false"></app-list-players>
-        <button pButton pRipple type="button" label="Inviter des joueurs" class="p-button-primary"></button>  
+        <!--<button pButton pRipple type="button" label="Inviter des joueurs" class="p-button-primary"></button>-->
     </div>
+    <!--
     <div class="p-col-6">
         <app-list-summary></app-list-summary>
     </div>
+-->
 </div>
-
-

@@ -1,24 +1,24 @@
-import { GameType } from "./GameType";
-import { User } from "./user";
+import { GameTypeDto } from "./GameTypeDto";
+import { UserIdDto } from "./UserIdDto";
 
-export class Game {
+export class GameDto {
     public id: string;
     public name: string;
     public nbPlayers: number;
     public story: string;
     public isPublic: boolean;
-    public mjUser : User;
-    public gameType : GameType;
-    public listPlayers : User[];
+    public mjUser : UserIdDto;
+    public gameType : GameTypeDto;
+    public listPlayers : UserIdDto[];
 
     constructor(
         name: string,
         nbPlayers: number,
         trame: string,
         isPublic: boolean,
-        mjUser: User,
-        gameType: GameType,
-        listPlayers: User[]) {
+        mjUser: UserIdDto,
+        gameType: GameTypeDto,
+        listPlayers: UserIdDto[]) {
         this.name = name;
         this.nbPlayers = nbPlayers;
         this.story = trame;
