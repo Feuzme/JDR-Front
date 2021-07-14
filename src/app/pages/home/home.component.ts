@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
    }
 
   newGame = () => {
+    localStorage.removeItem("gameId");
     this.router.navigate(['/game']);
   }
 

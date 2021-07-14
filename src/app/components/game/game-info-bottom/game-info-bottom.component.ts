@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameInfoBottomComponent implements OnInit {
 
+  affichageOk : boolean = false; 
+
   constructor() { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("gameId")!=null){
+      this.affichageOk = true;
+    }
   }
 
 }
