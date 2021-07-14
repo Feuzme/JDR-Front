@@ -1,5 +1,8 @@
 <div class="p-grid p-card p-ai-center vertical-container sheetCard">    
-    <div>
+    <div class="p-col-3">
+        <p-avatar image="assets/images/{{this.modelSheet.gameType.logo}}" shape="circle" size="xlarge"></p-avatar>
+    </div>
+    <div class="p-col-9">        
         <p class="name">
             {{modelSheet.name}}            
         </p>
@@ -7,7 +10,7 @@
             {{modelSheet.user.nom}}            
         </p>    
         <div style="margin: 5px;">
-            <p-button type="button" (click)="loadSheet(modelSheet.id)">Ajouter</p-button>
+            <p-button type="button" [ngStyle]="this.displayButton" (click)="loadSheet(modelSheet.id)">Ajouter</p-button>
         </div>
     </div>    
 </div>

@@ -1,5 +1,5 @@
 <p-card class="list" header="Mes fiches :">
     <div *ngFor="let modelSheet of modelSheets">
-        <app-sheet-card [modelSheet]="modelSheet"></app-sheet-card>
+        <app-sheet-card [modelSheet]="modelSheet" [displayButton]="{visibility: 'hidden'}"></app-sheet-card>
     </div>    
 </p-card>

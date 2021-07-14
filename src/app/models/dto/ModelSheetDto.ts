@@ -1,5 +1,6 @@
 import { UserIdDto } from './UserIdDto';
 import { PlugInIdDto } from './PlugInIdDto';
+import { GameTypeDto } from './GameTypeDto';
 
 export class ModelSheetDto {
     private id: string;	    
@@ -7,14 +8,26 @@ export class ModelSheetDto {
 	private isPublic: boolean;    
 	private user: UserIdDto;    
 	private composants: PlugInIdDto[];
+
     
-    constructor(id : string, name : string, isPublic : boolean, user : UserIdDto, composants : PlugInIdDto[]){
+    private gameType : GameTypeDto;
+    
+    constructor(id : string, name : string, isPublic : boolean, user : UserIdDto, composants : PlugInIdDto[], gameType : GameTypeDto){
         this.id = id;
         this.name = name;
         this.isPublic = isPublic;
         this.user = user;
         this.composants = composants;
-    }    
+        this.gameType = gameType;
+    }  
+    
+	public getGameType(): GameTypeDto {
+		return this.gameType;
+	}
+
+	public setGameType(value: GameTypeDto) {
+		this.gameType = value;
+	}
 
     public getComposants(): PlugInIdDto[] {
         return this.composants;
