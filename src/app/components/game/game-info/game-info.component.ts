@@ -30,6 +30,7 @@ export class GameInfoComponent implements OnInit {
   nbPlayers: number;
   gameStory: string;
   isNotMj : boolean = true;
+  isPresent : boolean = false;
 
   dateSession: string = 'Date de la prochaine session non définie';
 
@@ -51,6 +52,11 @@ export class GameInfoComponent implements OnInit {
     if (localStorage.getItem("gameId") != undefined) {
       this.idPartie = localStorage.getItem("gameId");
       this.gameService.getById(localStorage.getItem("gameId")).subscribe(gameInfo => {
+        gameInfo.listPlayers.forEach(joueurPresent =>{
+          if(joueurPresent.id == localStorage.getItem("utilisateurId")){
+            this.isPresent = true;
+          }
+        });
         this.isPrivate = !gameInfo.isPublic;
         if(gameInfo.mjUser.id == localStorage.getItem("gameId")){
           this.isNotMj = false;
@@ -66,11 +72,12 @@ export class GameInfoComponent implements OnInit {
         this.gameName = gameInfo.name;
         this.nbPlayers = gameInfo.nbPlayers;
         this.gameStory = gameInfo.story;
+
       });
     }else{
       this.idPartie = null;
     }
-    console.log(this.isNotMj);
+    
   }
 
   openAgenda = () => {
@@ -102,7 +109,12 @@ export class GameInfoComponent implements OnInit {
   }
 
   joinGame(){
-    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId"));
+    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId")).subscribe();
+    window.location.href = "game";    
+  }
+
+  leaveGame(){
+    this.gameService.removePlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId")).subscribe();
     window.location.href = "game";    
   }
 }

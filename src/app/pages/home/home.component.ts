@@ -139,6 +139,7 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+  
   openGame = (idGame :string) =>{
     localStorage.setItem("gameId",idGame);
     window.location.href = "game";

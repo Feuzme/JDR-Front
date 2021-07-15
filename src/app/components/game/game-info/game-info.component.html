@@ -64,8 +64,11 @@
             <div class="p-col-8">
                 <img id="gamePic" src="../../../../assets/images/{{gameTypePic}}" alt="Photo de la partie">
                 <div *ngIf="idPartie != null">
-                    <div *ngIf="isNotMj">
+                    <div *ngIf="!isPresent">
                         <button pButton pRipple type="button" label="Rejoindre la partie" class="p-button-success" (click)="joinGame()"></button> 
+                    </div>
+                    <div *ngIf="isPresent">
+                        <button pButton pRipple type="button" label="Quitter la partie" class="p-button-danger" (click)="leaveGame()"></button> 
                     </div>
                 </div>
                 <div *ngIf="idPartie == null">

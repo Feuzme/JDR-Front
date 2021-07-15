@@ -52,7 +52,6 @@ export class CalendarComponent implements OnInit {
     this.minDateValue = new Date();
     this.heures = [];
     this.minutes = [];
-    this.tabDispo = [];
 
     this.frequences = [
       { name: 'Une seule fois', code: 'ONE' },
@@ -117,16 +116,16 @@ export class CalendarComponent implements OnInit {
     this.userService.getByid(localStorage.getItem("utilisateurId")).subscribe(result => {
       pseudoJ = result.nom;
       if (this.dispoForm.value.heureDeb == "") {
-        this.dispoForm.value.heureDeb == "00";
+        this.dispoForm.value.heureDeb = "00";
       }
       if (this.dispoForm.value.heureFin == "") {
-        this.dispoForm.value.heureFin == "00";
+        this.dispoForm.value.heureFin = "00";
       }
       if (this.dispoForm.value.minuteDeb == "") {
-        this.dispoForm.value.minuteDeb == "00";
+        this.dispoForm.value.minuteDeb = "00";
       }
       if (this.dispoForm.value.minuteFin == "") {
-        this.dispoForm.value.minuteFin == "00";
+        this.dispoForm.value.minuteFin = "00";
       }
       let dDeb = new Date(Date.parse(this.dispoForm.value.dateDeb[0]));
       let dFin;
@@ -149,10 +148,10 @@ export class CalendarComponent implements OnInit {
         console.log("Creation de nouveau creneau OK");
       });
       this.tabDispo.push({
-        title: pseudoJ,
-        start: startDispo.toString(),
-        end: endDispo.toString(),
-        color: this.couleurLegende
+        title:pseudoJ,
+        start:startDispo.toString(),
+        end:endDispo.toString(),
+        color:this.couleurLegende
       });
     });
   }
@@ -190,7 +189,7 @@ export class CalendarComponent implements OnInit {
    * Fonction permettant de recharger les créneaux présents en BDD
    * @param idPartie : id de la partie choisie
    */
-  reloadDispoAgenda(idPartie: string) {
+  async reloadDispoAgenda(idPartie: string) {
     this.creneauService.getAllDispoByGameId(idPartie).subscribe(result => {
       result.forEach(creneau => {
         this.tabDispo.push({
