@@ -109,11 +109,12 @@ export class GameInfoComponent implements OnInit {
   }
 
   joinGame(){
-    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId"));
+    this.gameService.addPlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId")).subscribe();
     window.location.href = "game";    
   }
 
   leaveGame(){
-    
+    this.gameService.removePlayer(localStorage.getItem("gameId"),localStorage.getItem("utilisateurId")).subscribe();
+    window.location.href = "game";    
   }
 }

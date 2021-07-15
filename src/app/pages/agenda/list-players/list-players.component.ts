@@ -72,7 +72,6 @@ export class ListPlayersComponent implements OnInit {
           };
         } // Traitement pour les joueurs
         else {
-          console.log("init");
           this.players.push({
             pseudo: joueur.nom,
             role: "P",

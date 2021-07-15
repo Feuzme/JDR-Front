@@ -32,6 +32,10 @@ export class GameService {
     return this.http.post<Game>(`${environment.urlSpring}/games/addplayer/${idgame}/${idplayer}`,"");
   }
 
+  removePlayer = (idgame : string, idplayer : string) : Observable<Game> => {
+    return this.http.post<Game>(`${environment.urlSpring}/games/deleteplayer/${idgame}/${idplayer}`,"");
+  }
+
   update = (game : Game) : Observable<Game> => {
     return this.http.patch<Game>(`${environment.urlSpring}/games`, game);
   }
