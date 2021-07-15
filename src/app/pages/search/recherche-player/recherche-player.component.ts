@@ -110,7 +110,7 @@ addFriend = (user : User) => {
               this.user.id = this.createId();
               this.user.avatar = 'product-placeholder.svg';
               this.users.push(this.user);
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+              this.messageService.add({severity:'success', summary: 'succès', detail: 'Ami enlever des favoris favori', life: 3000});
           }
 
           this.users = [...this.users];
@@ -151,6 +151,7 @@ ajoutAmi(product: any): void {
     this.service.ajoutAmi(product.id, localStorage.getItem('utilisateurId')).subscribe(user => {
         this.myFriends = user.ids;
         localStorage.setItem('myFriends', JSON.stringify(user.ids));
+        this.messageService.add({severity:'success', summary: 'succès', detail: 'Ami ajouter en favori', life: 3000});
     }, error => {
         console.log(error);
     });
