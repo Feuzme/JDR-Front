@@ -2,9 +2,9 @@ import { GameType } from './../../../models/GameType';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
+
+import { PluginHttpService } from 'src/app/services/plugin-http.service';
 import { BasePluginService } from 'src/app/services/base-plugin-service/base-plugin.service';
-import { ProgressBarComponent } from './default-components/progress-bar/progress-bar.component';
-import { AvatarComponent } from './default-components/avatar/avatar.component';
 
 @Component({
   selector: 'app-plugin',
@@ -23,43 +23,41 @@ export class PluginComponent implements OnInit {
 
   public basePlugins : BasePlugIn[] = [];
 
-  constructor(private service : BasePluginService) {
+  constructor(
+    private bPService : BasePluginService,
+    private pService :  PluginHttpService
+    ) {
     this.inputValue = new FormGroup({
       size : new FormControl()
     });
    }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(data => {
+    this.bPService.getAll().subscribe(data => {
       this.basePlugins = data;
       Object.values(data).forEach(basePlugin => {
-        console.log(basePlugin);
-        basePlugin.config.composant = this.service.currentComposant(basePlugin);
+        basePlugin.config.composant = this.bPService.currentComposant(basePlugin);
       });
-      
     })
   }
 
-  // currentComposant(basePlugin : BasePlugIn) {
-  //   if (basePlugin.config.composant == "progressBar") {
-  //     return ProgressBarComponent;
-  //   }
-  //   if (basePlugin.config.composant == "avatar") {
-  //     return AvatarComponent;
-  //   }
-  // }
+  createPlugin = (bp : BasePlugIn) => {
+    let plugin : any = this.bPService.bpToPlugin(bp);
+    this.pService.save(plugin).subscribe(p => {
+      console.log(p);
+    })
+    
+  }
 
   delete = (basePlugin : BasePlugIn) => {
-    this.service.delete(basePlugin).subscribe(basePlugin => {
+    this.bPService.delete(basePlugin).subscribe(basePlugin => {
       this.ngOnInit();
     })
   }
 
   transferObject = (basePlugin : BasePlugIn) => {
-    // this.service.getCurrentBasePlugin(basePlugin)
-    console.log(basePlugin);
     this.currentBpEvent.emit(basePlugin)
-    }
+  }
 
   addText() {
   }

@@ -8,9 +8,11 @@
         [ngStyle] ="getLayoutService().getStyles(item)"
         (click)="editPlugin(item)"        
         >     
-            <div class="content">                
+            <div class="content" [ngClass]="this.item.config.size">                
                 {{this.item.content.nom}}
-            </div>         
+                <ng-container class="blabla" *ngComponentOutlet="this.item.config.composant"></ng-container>
+            </div>
+            <button (click)="editBp(this.item.config.id)">...</button>   
         </gridster-item>
     </gridster>    
 </div>

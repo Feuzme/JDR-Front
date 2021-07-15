@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AvatarComponent } from 'src/app/components/sheet/plugin-base/default-components/avatar/avatar.component';
 import { ProgressBarComponent } from 'src/app/components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
+import { PluginHttpService } from '../plugin-http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class BasePluginService {
 
   // inputValue : FormGroup;
 
-  constructor(private http : HttpClient, private router : Router) { }
+  constructor(private http : HttpClient, private router : Router, service : PluginHttpService) { }
 
   getAll = () : Observable<BasePlugIn[]> => {
     return this.http.get<BasePlugIn[]>("http://localhost:8080/base_plugins"); 
@@ -64,7 +65,8 @@ export class BasePluginService {
     this.editBasePlugin = bp;
   }
 
-  currentComposant(basePlugin : BasePlugIn) {
+  currentComposant(basePlugin : any) {
+    console.log(basePlugin)
     if (basePlugin.config.composant == "progressBar") {
       return ProgressBarComponent;
     }
@@ -73,7 +75,7 @@ export class BasePluginService {
     }
   }
 
-  reversedCurrentComposant(basePlugin : BasePlugIn) {
+  reversedCurrentComposant(basePlugin : any) {
     if (basePlugin.config.composant == ProgressBarComponent) {
       return "progressBar";
     }
@@ -89,6 +91,22 @@ export class BasePluginService {
     if (bp.config.composant == AvatarComponent) {
       return "Avatar";
     }
+  }
+
+  bpToPlugin = (bp : BasePlugIn) : any => {
+    let plugin : any = {
+      nom: bp.name,
+      auteur:"Najib",
+      origin: true,
+      gameType: {
+          id: "60eee17c3226143290214597"
+      },
+      config: { size: bp.config.size,
+                composant: this.reversedCurrentComposant(bp),
+                id: bp.id,
+      }
+    }
+    return plugin;
   }
 
 

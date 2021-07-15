@@ -14,14 +14,14 @@ export class CreationBasePluginComponent implements OnInit {
   @Input() basePlugins : BasePlugIn[] = [];
 
 
-  private healthBar : BasePlugIn = new BasePlugIn("Barre de vie", {size: "p-col-12", composant: ProgressBarComponent});
+  private healthBar : BasePlugIn = new BasePlugIn(null, "Barre de vie", {size: "p-col-12", composant: ProgressBarComponent});
 
-  private avatar : BasePlugIn = new BasePlugIn("Avatar", {size: "p-col-12", composant: AvatarComponent});
+  private avatar : BasePlugIn = new BasePlugIn(null, "Avatar", {size: "p-col-12", composant: AvatarComponent});
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.healthBar, this.avatar);
+    // console.log(this.healthBar, this.avatar);
     this.basePlugins.push(this.healthBar);
     this.basePlugins.push(this.avatar);
   }

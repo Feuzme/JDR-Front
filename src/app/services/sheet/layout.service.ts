@@ -8,6 +8,9 @@ import { ModelSheetHttpService } from './model-sheet-http.service';
 import { ModelSheetDto } from 'src/app/models/dto/ModelSheetDto';
 import { PluginHttpService } from '../plugin-http.service';
 import { GameTypeDto } from 'src/app/models/dto/GameTypeDto';
+import { BasePluginService } from '../base-plugin-service/base-plugin.service';
+import { ProgressBarComponent } from 'src/app/components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
+import { AvatarComponent } from 'src/app/components/sheet/plugin-base/default-components/avatar/avatar.component';
 
 export interface IComponent {
   id: string;
@@ -44,7 +47,8 @@ export class LayoutService {
 
   constructor(
     private modelSheetHttpService : ModelSheetHttpService,
-    private pluginHttpService : PluginHttpService
+    private pluginHttpService : PluginHttpService,
+    private basePluginService : BasePluginService
   ) {     
     this.modelSheetDto = new ModelSheetDto("", "",false, null, null, null);
     this.modelSheet = new ModelSheet("", "",false, null, null);    
@@ -78,6 +82,11 @@ export class LayoutService {
           content : {
             nom: resp.nom,
             config: resp.config
+          },
+          config : {
+            size: plugin.config.size,
+            composant : this.basePluginService.currentComposant(plugin),
+            id : plugin.config.id
           }
         });        
       }
@@ -165,11 +174,15 @@ export class LayoutService {
       (resp : any) => {
         this.modelSheet = resp;
         this.layout = [];
-        for(let plugin of resp.composants){          
+        for(let plugin of resp.composants){
+          plugin.config.content.config.composant = this.currentComposant(plugin); // Ajout par Najib pour chargé le composant visuel au Load de la fiche
+          console.log(plugin.config.content.config.composant);
+          // this.basePluginService.reloadCurrentRoute();
           this.layout.push(
             plugin.config
           )
         }
+
       }
     );
 
@@ -177,5 +190,16 @@ export class LayoutService {
       "idModelSheet", 
       this.modelSheet.id
       )
+  }
+
+  //Pour reload l'item et afficher le visuel du plugin
+  currentComposant(item : any) {
+    console.log(item.config.content.config.composant);
+    if (item.config.content.config.composant == "progressBar") {
+      return ProgressBarComponent;
+    }
+    else if (item.config.content.config.composant == "avatar") {
+      return AvatarComponent;
+    }
   }
 }

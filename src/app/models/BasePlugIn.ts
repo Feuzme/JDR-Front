@@ -1,10 +1,20 @@
 export class BasePlugIn {
+    private _id : string;
     private _name: string;
     private _config: any;
 
-    constructor(name:string, config: any ) {
+    constructor(id:string, name:string, config: any ) {
+        this._id = id;
         this._name = name;
         this._config = config;
+    }
+
+    public get id(): string {
+        return this._id;
+    }
+
+    public set id(value: string) {
+        this._id = value;
     }
     
     public get name(): string {

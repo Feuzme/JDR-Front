@@ -115,4 +115,8 @@ export class SheetPreviewComponent implements OnInit {
         this.router.navigate([currentUrl]);
     });
   }
+
+  editBp = (id: string) => {
+    alert("je dois naviguer vers l'id numero "+ id);
+  }
 }

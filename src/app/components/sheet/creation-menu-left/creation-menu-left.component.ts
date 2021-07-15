@@ -13,7 +13,7 @@ import { ProgressBarComponent } from '../plugin-base/default-components/progress
 export class CreationMenuLeftComponent implements OnInit {
   plugins : PlugIn[] = [];
   basePlugins : BasePlugIn[] = [];
-  private healthBar : BasePlugIn = new BasePlugIn("Bar de vie", {size: "p-col-12", composant: ProgressBarComponent})
+  private healthBar : BasePlugIn = new BasePlugIn(null, "Bar de vie", {size: "p-col-12", composant: ProgressBarComponent})
   constructor(
     private plugInHttpService : PluginHttpService
   ) { }
