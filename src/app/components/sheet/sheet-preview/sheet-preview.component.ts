@@ -117,6 +117,6 @@ export class SheetPreviewComponent implements OnInit {
   }
 
   editBp = (id: string) => {
-    alert("je dois naviguer vers l'id numero "+ id);
+    this.router.navigate(['/plugin-creation']);
   }
 }
