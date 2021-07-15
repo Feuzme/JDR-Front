@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Fahd KABAB
 
 ## Description
-Ce projet représente le code de la partie 'Front' de notre application de génération de fiche de personnage pour les jeux de rôles.
+Ce projet représente le code de la partie 'Front' de notre application de génération de fiche de personnage pour les jeux de rôles
 
 ## Prérecquis
 
