@@ -23,18 +23,18 @@ export class HomeComponent implements OnInit {
     },
     {
       nom: "D&D",
-      image: "fiche1.jpg",
+      image: "sabrolaser.jpg",
       fiche: "sabrolaser.jpg"
     },
     {
       nom: "D&D",
-      image: "fiche1.jpg",
-      fiche: "kart.jpg"
+      image: "Kart.png",
+      fiche: "Kart.png"
     },
     {
       nom: "D&D",
-      image: "fiche1.jpg",
-      fiche: "smaug.jpg"
+      image: "image3.png",
+      fiche: "image4.png"
     }
 ];
 
