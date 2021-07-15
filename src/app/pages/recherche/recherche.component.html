@@ -140,15 +140,15 @@
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-product>
+            <ng-template pTemplate="body" let-user>
                 <tr>
                     <td>
                         <p-tableCheckbox [value]="product"></p-tableCheckbox>
                     </td>
-                    <td>{{product.id}}</td>
+                    <td>{{user.id}}</td>
                     <td><img [src]="'assets/images/dragon.jpg'" [alt]="product.nom" width="100" class="p-shadow-4" /></td>
-                    <td>{{product.nom}}</td>
-                    <td>{{product.email}}</td>
+                    <td>{{user.nom}}</td>
+                    <td>{{user.email}}</td>
                     <!-- <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
                     <!--<td><span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span></td> -->
                     <td>{{product.createAt | date}}</td>
