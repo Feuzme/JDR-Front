@@ -6,6 +6,7 @@ import { AvatarComponent } from 'src/app/components/sheet/plugin-base/default-co
 import { ProgressBarComponent } from 'src/app/components/sheet/plugin-base/default-components/progress-bar/progress-bar.component';
 import { BasePlugIn } from 'src/app/models/BasePlugin';
 import { PluginHttpService } from '../plugin-http.service';
+import { GametypeHttpService } from '../sheet/gametype-http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,10 @@ export class BasePluginService {
 
   // inputValue : FormGroup;
 
-  constructor(private http : HttpClient, private router : Router, service : PluginHttpService) { }
+  constructor(
+    private http : HttpClient, 
+    private router : Router
+    ) { }
 
   getAll = () : Observable<BasePlugIn[]> => {
     return this.http.get<BasePlugIn[]>("http://localhost:8080/base_plugins"); 
@@ -94,12 +98,13 @@ export class BasePluginService {
   }
 
   bpToPlugin = (bp : BasePlugIn) : any => {
+
     let plugin : any = {
       nom: bp.name,
       auteur:"Najib",
       origin: true,
       gameType: {
-          id: "60eee17c3226143290214597"
+          id: "60eff9ad03f1bc1672013167"
       },
       config: { size: bp.config.size,
                 composant: this.reversedCurrentComposant(bp),
