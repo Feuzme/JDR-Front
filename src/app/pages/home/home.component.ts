@@ -41,13 +41,15 @@ export class HomeComponent implements OnInit {
   jeuxMj = [
     {type:"Donjons et Dragons",nom:"La fin du multivers",image:"gp_dd.jpg",mj:"utilisateur1",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
     {type:"Games of Thrones",nom:"La chute du mur",image:"gp_got.jpg",mj:"utilisateur2",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
-    {type:"Star wars",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""}
+    {type:"Star wars",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
+    {type:"Le Seigneur des Anneaux",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""}
   ]
 
   jeuxDispo = [
     {type:"Donjons et Dragons",nom:"La fin du multivers",image:"gp_dd.jpg",mj:"utilisateur1",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
     {type:"Games of Thrones",nom:"La chute du mur",image:"gp_got.jpg",mj:"utilisateur2",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
-    {type:"Star wars",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""}
+    {type:"Star wars",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
+    {type:"Le Seigneur des Anneaux",nom:"La quête infinie",image:"gp_other.jpg",mj:"utilisateur3",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""}
   ]
 
   responsiveOptions;
