@@ -24,17 +24,17 @@ export class HomeComponent implements OnInit {
     {
       nom: "D&D",
       image: "fiche1.jpg",
-      fiche: "fiche1.jpg"
+      fiche: "sabrolaser.jpg"
     },
     {
       nom: "D&D",
       image: "fiche1.jpg",
-      fiche: "fiche1.jpg"
+      fiche: "kart.jpg"
     },
     {
       nom: "D&D",
       image: "fiche1.jpg",
-      fiche: "fiche1.jpg"
+      fiche: "smaug.jpg"
     }
 ];
 
@@ -104,11 +104,11 @@ export class HomeComponent implements OnInit {
             mj: game.mjUser.nom,
             story: game.story,
             id: game.id
-           });
+          });
         }
       });
     });
-   }
+  }
 
   newGame = () => {
     localStorage.removeItem("gameId");
