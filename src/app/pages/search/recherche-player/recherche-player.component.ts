@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { Subject } from 'rxjs';
+import { ModelSheet } from 'src/app/models/ModelSheet';
 import { User } from 'src/app/models/user';
 import { UserFriends } from 'src/app/models/UserFriends';
 import { UserFriendService } from 'src/app/services/search/user-friend.service';
@@ -39,16 +40,21 @@ export class RecherchePlayerComponent implements OnInit {
   submitted: boolean;
   statuses: any[];
 
-  constructor( private userService: UserService, 
+  constructor( private service: UserService, 
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private userFriendsService : UserFriendService
     ) { }
+    
+    ngOnInit(): void {
+        this.service.getAll().subscribe((data: User[]) => this.users = data, console.error);
+        //this.ficheService.getAll().subscribe((data: ModelSheet[]) => this.models = data, console.error);
+        //this.partieService.getAll().subscribe(data => this.sessions = data);
+        const l = localStorage.getItem('myFriends');
+        this.myFriends = l ? JSON.parse(l) : [];
+    }
 
-  ngOnInit() {
-    this.userService.getAll().subscribe(data => this.users = data);
-
-  }
+  
   createId(): string {
     let id = '';
     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -63,7 +69,7 @@ addFriend = (user : User) => {
   //userFriend = new UserFriends();
   this.messageService.add({severity:'success', summary: 'Succès', detail: 'Ami ajouter en favoris', life: 1000});
   this.lesids.push(this.user.id); 
-  this.userService.update(this.user); 
+  this.service.update(this.user); 
   
   
 }
@@ -138,6 +144,16 @@ addFriend = (user : User) => {
     console.log(isfriend);
     return product.id !== localStorage.getItem('utilisateurId')
         && !isfriend && localStorage.getItem('utilisateurId') != null;
+}
+
+ajoutAmi(product: any): void {
+    console.log(product);
+    this.service.ajoutAmi(product.id, localStorage.getItem('utilisateurId')).subscribe(user => {
+        this.myFriends = user.ids;
+        localStorage.setItem('myFriends', JSON.stringify(user.ids));
+    }, error => {
+        console.log(error);
+    });
 }
 
 

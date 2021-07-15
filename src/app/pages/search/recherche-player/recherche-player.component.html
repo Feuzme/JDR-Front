@@ -15,7 +15,7 @@
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between">
-            <h5 class="p-m-0">Manage Products</h5>
+            
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Rechercher..." />
@@ -27,7 +27,7 @@
             <th style="width: 3rem">
                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
             </th>
-            <th pSortableColumn="id">ID  <p-sortIcon field="id"></p-sortIcon></th>
+            
             <th>Avatar</th>
 
             <th pSortableColumn="nom">Nom <p-sortIcon field="nom"></p-sortIcon></th>
@@ -44,15 +44,15 @@
             <td>
                 <p-tableCheckbox [value]="product"></p-tableCheckbox>
             </td>
-            <td>{{product.id}}</td>
-            <td><img [src]="'assets/images/dragon.jpg'" [alt]="product.nom" width="100" class="p-shadow-4" /></td>
+            
+            <td><img [src]="'assets/images/dragon.jpg'" [alt]="product.nom" width="70" class="p-shadow-4" /></td>
             <td>{{product.nom}}</td>
             <td>{{product.email}}</td>
             <!-- <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
             <!--<td><span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span></td> -->
             <td>{{product.createAt | date}}</td>
             <td>
-                <button *ngIf="isSame(product)" pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success p-mr-2"
+                <button *ngIf="isSame(product)" pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-success p-mr-2"
                         (click)="ajoutAmi(product)"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
             </td>
