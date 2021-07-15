@@ -15,11 +15,28 @@ export class HomeComponent implements OnInit {
 
   fiches : ModelSheet[] = [];
 
-  tabfiches = [{
-    nom: "",
-    image: "",
-    fiche: ""
-  }];
+  tabfiches = [
+    {
+    nom: "D&D",
+    image: "fiche1.jpg",
+    fiche: "fiche1.jpg"
+    },
+    {
+      nom: "D&D",
+      image: "fiche1.jpg",
+      fiche: "fiche1.jpg"
+    },
+    {
+      nom: "D&D",
+      image: "fiche1.jpg",
+      fiche: "fiche1.jpg"
+    },
+    {
+      nom: "D&D",
+      image: "fiche1.jpg",
+      fiche: "fiche1.jpg"
+    }
+];
 
   jeuxMj = [
     {type:"Donjons et Dragons",nom:"La fin du multivers",image:"gp_dd.jpg",mj:"utilisateur1",story:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error",id:""},
@@ -71,7 +88,7 @@ export class HomeComponent implements OnInit {
             mj: game.mjUser.nom,
             story: game.story,
             id: game.id
-           });
+          });
         }
       });
     });

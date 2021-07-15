@@ -1,5 +1,5 @@
-<div class="p-grid p-card p-ai-center vertical-container sheetCard">    
-    <div class="p-col-3">
+<div class="p-grid p-card p-ai-center vertical-container sheetCard" *ngIf="this.modelSheet != null">    
+    <div class="p-col-3" >
         <p-avatar image="assets/images/{{this.modelSheet.gameType.logo}}" shape="circle" size="xlarge"></p-avatar>
     </div>
     <div class="p-col-9">        
