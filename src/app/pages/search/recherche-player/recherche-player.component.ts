@@ -26,8 +26,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RecherchePlayerComponent implements OnInit {
   productDialog: boolean;
-
+  myFriends: string[];
   users: User[];
+  totalRecords: number;
   //friends :UserFriends[];
   lesids :String[];
 
@@ -124,6 +125,20 @@ addFriend = (user : User) => {
       return index;
   }
 
+  isSame(product: any): boolean {
+    let isfriend = false;
+    if (this.myFriends){
+        for (const friend of this.myFriends) {
+            if (friend === product.id){
+                isfriend = true;
+                break;
+            }
+        }
+    }
+    console.log(isfriend);
+    return product.id !== localStorage.getItem('utilisateurId')
+        && !isfriend && localStorage.getItem('utilisateurId') != null;
+}
 
 
 }
