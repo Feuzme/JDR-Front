@@ -28,8 +28,10 @@ export class RechercheFicheComponent implements OnInit {
     private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.ficheService.getAll().subscribe(data => this.models = data);
-
+    this.ficheService.getAll().subscribe((data) => {      
+      this.models = data
+    });
+    
   }
 
 
